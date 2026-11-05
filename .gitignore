@@ -1,0 +1,11 @@
+# EDA: original and processed large datasets
+/EDA/data/raw/*
+!/EDA/data/raw/manifest.json
+/EDA/data/processed/
+
+# Local environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
