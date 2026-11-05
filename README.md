@@ -1,6 +1,6 @@
 # ML Game Recommendation
 
-Steam 사용자의 취향을 바탕으로 **공식 Linux 지원 게임**을 추천하는 머신러닝 팀 프로젝트야.
+Steam 사용자의 취향을 바탕으로 **공식 Linux 지원 게임**을 추천하는 머신러닝 팀 프로젝트입니다.
 
 ## 프로젝트 목표
 
@@ -16,4 +16,4 @@ Steam 사용자의 취향을 바탕으로 **공식 Linux 지원 게임**을 추�
 | **B · 외부 테스트** | [Steam Video Game and Bundle Data](https://www.kaggle.com/datasets/pypiahmad/steam-video-game-and-bundle-data) | 사용자별 게임 보유·플레이 이력과 추천 리뷰를 이용한 평가 |
 | **C · 메타데이터 보강** | [Steam Games Dataset](https://www.kaggle.com/datasets/artermiloff/steam-games-dataset) | 게임 장르·태그·설명 및 운영체제 지원 정보 |
 
-데이터셋 간 게임 정보는 **Steam App ID**를 기준으로 연결하며, 서로 다른 데이터셋의 사용자 ID는 동일 사용자로 간주하지 않아.
+데이터셋 간 게임 정보는 **Steam App ID**를 기준으로 연결하며, 서로 다른 데이터셋의 사용자 ID는 동일 사용자로 간주하지 않습니다.
