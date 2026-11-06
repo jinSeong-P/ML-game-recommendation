@@ -66,4 +66,25 @@ erDiagram
 
 **근거:** [EDA 구조·중복 집계](../../reports/tables/01_structure.csv), [원본·키 정합성 결과](../../reports/eda_metrics.json), [원본 파일·버전 기록](../../data/raw/manifest.json)
 
+## 4. A+C 학습 데이터 연결 및 범위 (설계 방향)
+
+```mermaid
+flowchart LR
+    AR["A: 전체 사용자·게임 리뷰"] --> IK["Item-KNN 공동 선호"]
+    AM["A: 게임 태그·설명"] --> CO["App ID 매칭·결측 보강"]
+    CM["C: 게임 태그·장르·설명"] --> CO
+    CO --> TF["TF-IDF 게임 콘텐츠 유사도"]
+    IK --> OUT["추천 결과"]
+    TF --> OUT
+    L["A games.csv: linux=True"] --> OUT
+```
+
+- **학습에 사용하는 리뷰·게임은 Linux 지원 여부와 관계없이 전체를 대상으로 한다.** 사용자 취향을 나타내는 비Linux 게임도 제외하지 않는다.
+- A `recommendations.csv`에서 사용자 선호 신호를 학습한다. **공동 긍정 기록을 이용한 Item-KNN은 초기 기준선**이며, 부정 리뷰를 반영하는 규칙은 별도 실험 사항이다.
+- 콘텐츠 기반 TF-IDF는 A `games_metadata.json`을 우선 사용하고, **같은 App ID**의 C 설명·태그·장르로 누락 정보를 보완한다. C에는 사용자별 긍정·부정 기록이 없다.
+- **추천 출력과 숨김 정답**은 A `games.csv`의 `linux=True` 게임으로 제한한다. 실제 후보를 전체 9,041개로 할지 리뷰가 존재하는 6,630개로 할지는 실험 전에 확정해야 한다.
+- 신규 사용자 평가의 정확한 입력·정답 분할과 부정 리뷰 가중치는 **아직 미확정**이다. 위 흐름은 현재 구현된 학습 모델이 아니다.
+
+**참고:** [C 메타데이터의 보완 효과](C_games_march2025_cleaned.csv.md) · [A 리뷰 특성](A_recommendations.csv.md) · [기존 EDA 요약](../../reports/eda_sufficiency_summary.md)
+
 > **문서 범위:** 기존 EDA에서 확인된 데이터 구조 및 연결 관계를 요약하였다. 추가 분석, 전처리 정책 결정 및 모델 학습셋 확정은 이 문서의 범위에 포함되지 않는다.
