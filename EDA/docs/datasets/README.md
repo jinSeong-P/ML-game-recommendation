@@ -19,6 +19,9 @@
 ## 파일별 상세 설명
 
 ### A · 사용자 추천 리뷰 및 게임 카탈로그
+
+- [**A 데이터셋 전체 구조 및 ER 관계도**](A.md) — 네 파일의 역할, 연결 키, PK·FK에 해당하는 관계를 한눈에 확인
+
 1. [`recommendations.csv`](A_recommendations.csv.md) — 사용자별 긍정/부정 리뷰 4,115만 건, 활동량 희소성·k-core·라벨 설계.
 2. [`games.csv`](A_games.csv.md) — 게임 50,872개, 공식 Linux 9,041개, 출시일·가격·지원 조건.
 3. [`users.csv`](A_users.csv.md) — 사용자 1,430만 명의 보유 수·리뷰 수 **집계**, 보유 게임 ID 목록은 없음.
