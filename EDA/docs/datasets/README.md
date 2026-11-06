@@ -28,6 +28,9 @@
 4. [`games_metadata.json`](A_games_metadata.json.md) — 설명·태그, 빈 태그의 평가 가중 영향과 C 보강 필요성.
 
 ### B · 새로운 사용자 기반 외부 테스트
+
+- [**B 데이터셋 전체 구조 및 ER 관계도**](B.md) — 보유 이력, 사용자 리뷰, 게임·번들 정보의 연결 관계와 정합성
+
 5. [`australian_users_items.json`](B_australian_users_items.json.md) — 사용자 보유·플레이 입력, 중복, A와의 게임 ID 교집합.
 6. [`australian_user_reviews.json`](B_australian_user_reviews.json.md) — 긍정 리뷰 정답, 연도 없는 날짜, 정답 누출 방지.
 7. [`steam_games.json`](B_steam_games.json.md) — B 자체 게임 정보와 결측, A와 불일치하는 게임 조사.
