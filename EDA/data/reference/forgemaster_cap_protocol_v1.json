@@ -1,0 +1,32 @@
+{
+  "version": "forgemaster-cap-model-study-v1",
+  "status": "frozen_before_ranking_metrics",
+  "date_kst": "2026-11-08",
+  "purpose": "Measure the model-performance effect of per-game review caps using fixed algorithms and account-disjoint Kieran training.",
+  "training_source": "Kieran Steam Reviews Kaggle version 2, all_reviews only; restore original archive and canonical identity shards",
+  "test_source": "Forgemaster Kaggle version 1, clean unambiguous user/app pairs from completed full-corpus EDA",
+  "account_exclusions": "Reserve every Forgemaster account eligible with full histories (395421) and all original Frank reserved accounts (87573). Remove all their Kieran histories before training. Also retain the original MD5 account-level 10% validation reservation, never used for fitting or model selection here.",
+  "models": [
+    {"name": "binary_item_knn_k100", "algorithm": "Candidate-oriented binary positive cosine, top 100 input neighbors, singletons retained"},
+    {"name": "activity_inverse_degree_cosine_k100", "algorithm": "Same candidate-oriented top 100, pair contribution and marginal weighted by reciprocal positive training user degree"},
+    {"name": "metadata_extended_tfidf", "algorithm": "0.5 cosine of unigram+bigram A-first/C-short description profiles plus 0.5 cosine of separate TF-IDF tag/genre/category/developer/publisher profiles; rebuilt from public metadata"},
+    {"name": "train_popularity", "algorithm": "Training positive user support descending, App ID ascending ties; diagnostic control"}
+  ],
+  "catalog": {"input_apps": 37610, "linux_candidates": 6630, "file": "data/reference/catalog.parquet", "retain_unsupported_candidates": true},
+  "eligibility": "One hidden positive Linux game; after hiding, total catalog inputs >=5 and positive inputs >=1. Preserve empty recommendation lists in denominators.",
+  "cap_seeds": [20261108, 20261109, 20261110, 20261111, 20261112],
+  "target_seed": 20261108,
+  "target_selection": "SHA256 counter-mode rejection-sampling uniform index over sorted positive Linux App IDs per exact account; one target per user. For paired comparisons, choose target from the capped history and use that SAME user and target for both full and capped query versions.",
+  "cap_method": "Within the entire Forgemaster clean pair corpus, retain at most 100 user/app pairs per app ordered by hash(steamid,app_id,seed), exactly matching the completed EDA. Kieran training stays unchanged across all evaluations.",
+  "cohorts": [
+    "Full: all 395421 eligible Forgemaster accounts, uncapped inputs, one uniformly hidden full-history target",
+    "Cap cohort full history: cap-eligible users and cap-selected targets, but full inputs and full observed-item exclusions",
+    "Cap cohort capped history with full exclusions: same users and targets, capped positive inputs and full observed-item exclusions (profile-only ablation)",
+    "Cap cohort capped history: same users and targets, capped inputs and capped observed-item exclusions (actual partial-history evaluation)"
+  ],
+  "ranking": "Positive finite scores only, top10, App ID ascending ties, mask all observed positive/negative inputs, restore hidden target, no fill; popularity control separately labeled",
+  "metrics": ["Recall@10", "NDCG@10", "empty_recommendation_rate", "mean_input_count", "mean_positive_input_count", "game_macro_Recall@10", "game_macro_NDCG@10", "target_train_support_bands"],
+  "uncertainty": "95% Wilson intervals for Recall; paired per-user bootstrap 2000 replicates, seed 20261108, for same-user/same-target Recall and NDCG differences. Five cap draws overlap; do not treat them as five independent populations.",
+  "selection": "No hyperparameter search or model selection on Forgemaster outcomes; report all predeclared models.",
+  "interpretation": "New account-disjoint retraining study; does not reproduce the missing historical Kieran model artifacts bit-for-bit. Tests within-source cap sensitivity, not Frank's exact API ordering or a chronological future-prediction scenario."
+}

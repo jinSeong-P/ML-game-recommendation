@@ -1,4 +1,4 @@
-"""Verify the full Kieran EDA artifacts and recompute frank eligibility.
+"""Verify all Kieran EDA artifacts and recompute frank evaluation eligibility.
 
 This publishes aggregates and split previews; it does not construct final splits.
 The former candidate corpora are not read by this main workflow.
@@ -30,7 +30,7 @@ def verify_kieran(metrics):
         raise ValueError('Kieran total row count changed')
     table = EDA/'reports/tables/16_kieran_original_app_support.csv'
     if digest(table) != metrics['app_support_table_sha256']:
-        raise ValueError('Kieran item-support output changed')
+        raise ValueError('Kieran per-game training-user-count table changed')
     if not metrics['whole_account_and_cross_review_identity_checks_passed'] or any(metrics['post_exclusion_checks'].values()):
         raise ValueError('Full-source identity/exclusion audit did not pass')
     return {'canonical_shards':len(paths),'verified_rows':rows,
@@ -47,17 +47,18 @@ def main():
     con.execute("SET threads=4")
     con.execute("SET memory_limit='4GB'")
     frank = prepare_frank(con,EDA/'data/processed')
+    # Keep this machine key; it is the SHA-256 digest of the extracted frank review-fields file.
     for key in ['commit','projection_sha256','raw_rows','reserved_test_users']:
         if frank[key] != metrics['frank_provenance'][key]:
-            raise ValueError(f'frank differs from the full Kieran exclusion audit: {key}')
+            raise ValueError(f'frank source data no longer matches the Kieran review-exclusion audit: {key}')
     reference = json.loads((EDA/'data/reference/manifest.json').read_text('utf-8'))
     if metrics['analysis_version'] == 'large-original-frank-eda-v1':
         if reference['former_catalog_inputs'] != metrics['reference_catalog_inputs']:
-            raise ValueError('Frozen catalog provenance differs from the full-source audit')
+            raise ValueError('Frozen catalog provenance differs from the complete Kieran source audit')
     else:
         for item in metrics['reference_catalog_inputs']:
             if digest(EDA/'data/reference'/item['file']) != item['sha256']:
-                raise ValueError('Frozen catalog differs from the full-source audit')
+                raise ValueError('Frozen catalog differs from the complete Kieran source audit')
     support = EDA/'reports/tables/16_kieran_original_app_support.csv'
     con.execute(f'CREATE TABLE support AS SELECT * FROM read_csv_auto({quote(support)})')
     quarantine = EDA/'data/reference/review_app_quarantine.parquet'
@@ -97,7 +98,7 @@ def main():
     result = {
         'selection':'ADOPTED_KIERAN_ORIGINAL_TO_FRANK_REVIEWS',
         'checked_utc':datetime.now(timezone.utc).isoformat(),
-        'scope':'Verified full-source Kieran EDA, recomputed frank review eligibility and training-support diagnostics. No model fit or final split files.',
+        'scope':'This audit snapshot rechecked all Kieran source data, recomputed which frank reviews qualify for evaluation, and counted users in the training data with positive reviews for each game. This run did not fit a model or write final split files.',
         'source_metric_file':source_path.name,'source_metric_sha256':digest(source_path),
         'reference_manifest_sha256':digest(EDA/'data/reference/manifest.json'),
         'verification':verified,'frank_provenance':frank,

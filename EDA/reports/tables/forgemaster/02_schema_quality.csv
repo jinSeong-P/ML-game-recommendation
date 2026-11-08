@@ -1,0 +1,14 @@
+﻿column,null_or_blank,invalid_cast
+steamid,0,0
+appid,0,0
+voted_up,0,0
+votes_up,0,0
+votes_funny,0,0
+weighted_vote_score,0,0
+playtime_forever,0,0
+playtime_at_review,0,0
+num_games_owned,0,0
+num_reviews,0,0
+review,24323,0
+unix_timestamp_created,0,0
+unix_timestamp_updated,0,0

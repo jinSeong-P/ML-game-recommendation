@@ -60,7 +60,7 @@ def summarize():
     text = ["# 두 추천 베이스라인의 학습·평가 결과 — v1", "",
         "**2026-11-08 완료.** 소개글 TF-IDF와 공동 긍정 리뷰 Item-KNN을 저장하고, 내부 검증 325,639명에 이어 frank 테스트 24,342명을 같은 규칙으로 평가했다. 초기 설정은 성능 계산 전에 고정했으며 검증 재학습·튜닝·테스트 기반 변경은 하지 않았다.", "",
         "## 성능", "",
-        "Recall@10은 숨긴 정답 1개를 Top 10에서 찾은 사용자 비율이다. NDCG@10은 맞힌 순위까지 반영하며 0~1 범위다. 빈 추천과 미지원 정답도 모든 지표의 분모에 남겼다.", "",
+        "Recall@10은 숨긴 정답 1개를 Top 10에서 찾은 사용자 비율이다. NDCG@10은 맞힌 순위까지 반영하며 0~1 범위다. 추천이 없는 사용자와 특징 벡터·이웃이 없는 정답 게임도 지표 계산에 포함했다.", "",
         "| 평가 | 모델 | 사용자 | 적중 사용자 | Recall@10 | NDCG@10 |",
         "|---|---|---:|---:|---:|---:|"]
     for cohort, name in (("validation", "내부 검증"), ("test", "frank 테스트")):
@@ -69,22 +69,22 @@ def summarize():
     high_share = {cohort: value["models"]["tfidf"]["by_target_train_support"]["high"]["users"] / value["users"]
                   for cohort, value in results.items()}
     text += ["", "이번 초기 설정에서는 Item-KNN이 두 집단 모두 Recall@10·NDCG@10에서 높았다. 내부 검증에서는 Item-KNN이 train 인기도 기준선도 웃돌았고, TF-IDF는 인기도 기준선보다 낮았다.", "",
-        f"train 지원 상위 구간의 정답 비중은 내부 검증 **{percent(high_share['validation'])}**, frank **{percent(high_share['test'])}**다. Item-KNN의 검증·테스트 절대 점수 차이는 이 분포 차이 및 리뷰 시점·수집 조건과 함께 해석해야 한다."]
-    text += ["", "## 추천과 정답 지원 범위", "",
-        "| 평가 | 모델 | 빈 목록 사용자 | 10개 미만 사용자 | 평균 추천 수 | 추천된 게임 수 / 6,630 | 영점수 정답 사용자 |",
+        f"학습 자료에서 긍정 리뷰를 남긴 사용자 수가 많은 게임 구간의 정답 비중은 내부 검증 **{percent(high_share['validation'])}**, frank **{percent(high_share['test'])}**다. Item-KNN의 검증·테스트 점수 차이는 이 분포와 리뷰 시점·수집 조건을 함께 고려해 해석해야 한다."]
+    text += ["", "## 추천 결과와 모델별 점수 계산 범위", "",
+        "| 평가 | 모델 | 빈 목록 사용자 | 10개 미만 사용자 | 평균 추천 수 | 추천된 게임 수 / 6,630 | 정답 점수가 0인 사용자 |",
         "|---|---|---:|---:|---:|---:|---:|"]
     for cohort, name in (("validation", "내부 검증"), ("test", "frank 테스트")):
         for model, summary in results[cohort]["models"].items():
             text.append(f"| {name} | {labels[model]} | {summary['empty_recommendation_users']:,} | {summary['short_list_users']:,} | {summary['mean_recommendations']:.4f} | {summary['distinct_recommended_games']:,} | {summary['target_zero_personalized_score_users']:,} |")
-    text += ["", "영점수 정답은 해당 사용자 입력에서 양수 개인화 점수를 얻지 못한 정답이다. 소개글 결측이나 이웃 자체가 없는 정답보다 넓은 범위이며, 순위 10위 밖 실패와 구분한다.", "",
-        "| 평가 | 모델 | 입력 전부 미지원 사용자 | 전역 특징/이웃 미지원 정답 사용자 |",
+    text += ["", "점수가 0인 정답은 해당 사용자의 입력을 반영했을 때 모델 점수가 양수가 되지 않은 정답 게임이다. 소개글 벡터가 없거나 Item-KNN 이웃이 없는 경우보다 넓은 범위이며, 순위 10위 밖으로 밀린 경우와도 구분한다.", "",
+        "| 평가 | 모델 | 점수 계산에 쓸 수 있는 입력 게임이 없는 사용자 | 특징 벡터나 후보 이웃이 없는 정답 게임의 사용자 |",
         "|---|---|---:|---:|"]
     for cohort, name in (("validation", "내부 검증"), ("test", "frank 테스트")):
         for model, summary in results[cohort]["models"].items():
             text.append(f"| {name} | {labels[model]} | {summary['users_without_supported_positive_inputs']:,} | {summary['unsupported_target_users']:,} |")
-    text += ["", "TF-IDF 입력 지원은 소개글 영벡터 여부, Item-KNN 입력 지원은 저장된 후보 이웃에 한 번이라도 연결되는지로 센다. 두 정의는 다르다. Item-KNN의 정답 전역 지원은 후보가 이웃을 하나라도 갖는지다.", "",
+    text += ["", "TF-IDF는 소개글 벡터가 0이 아닌 입력 게임을 지원되는 입력으로 센다. Item-KNN은 해당 입력 게임과 저장된 후보 이웃이 연결되면 지원되는 것으로 센다. 따라서 두 모델의 입력 지원 기준은 서로 다르다. Item-KNN 정답 게임은 저장된 이웃이 하나라도 있을 때 게임 자체에 학습 근거가 있는 것으로 분류한다.", "",
         "## 비교 기준선", "",
-        "두 기준선도 같은 정답과 긍정·부정 관측 게임 제외 마스크를 사용했다. 무작위는 남은 전체 Linux 후보에서 중복 없이 최대 10개를 뽑는 정확한 기대값이다. 인기도는 train 긍정 사용자 수 순이다. 개인화 추천의 빈자리를 채우는 용도로 사용하지 않았다.", "",
+        "두 기준선도 같은 정답과 긍정·부정 리뷰 게임의 추천 제외 목록를 사용했다. 무작위는 남은 전체 Linux 후보에서 중복 없이 최대 10개를 뽑는 정확한 기대값이다. 인기도는 train 긍정 사용자 수 순이다. 개인화 추천의 빈자리를 채우는 용도로 사용하지 않았다.", "",
         "| 평가 | 진단 기준선 | Recall@10 | NDCG@10 |", "|---|---|---:|---:|"]
     for cohort, name in (("validation", "내부 검증"), ("test", "frank 테스트")):
         for key, label in (("train_popularity_diagnostic_only_not_personalized_fallback", "train 인기도"),
@@ -93,9 +93,9 @@ def summarize():
             text.append(f"| {name} | {label} | {percent(summary['Recall@10'])} | {summary['NDCG@10']:.6f} |")
     thresholds = results["validation"]["train_candidate_support_quartile_thresholds"]
     text += ["", "## train 인기도 구간 진단", "",
-        f"Linux 후보의 train 양수 지원 수 25·50·75% 경계는 **{thresholds}**다. 지원 0은 unseen이며, 양수 지원에서 경계보다 작으면 low → mid_low → mid_high → high 순이다. 경계 동점은 상위 구간이다. 사용자 수나 frank 정답 분포로 구간을 다시 고르지 않았다."]
+        f"Linux 후보 게임별로 학습 자료에서 긍정 리뷰를 남긴 사용자 수의 25·50·75% 경계는 **{thresholds}**다. 학습에서 긍정 리뷰를 남긴 사용자가 없는 게임은 보지 못한 게임(unseen)으로 두고, 나머지는 경계에 따라 low → mid_low → mid_high → high로 나눴다. 경계와 같은 값은 상위 구간에 포함했다. frank의 사용자 수나 정답 분포를 보고 구간을 다시 정하지 않았다."]
     for cohort, name in (("validation", "내부 검증"), ("test", "frank 테스트")):
-        text += ["", f"### {name}", "", "| 정답 지원 구간 | 사용자 | TF-IDF Recall@10 | Item-KNN Recall@10 | TF-IDF NDCG@10 | Item-KNN NDCG@10 |",
+        text += ["", f"### {name}", "", "| 정답 게임의 학습 긍정 사용자 수 구간 | 사용자 | TF-IDF Recall@10 | Item-KNN Recall@10 | TF-IDF NDCG@10 | Item-KNN NDCG@10 |",
                  "|---|---:|---:|---:|---:|---:|"]
         for bucket in ("unseen", "low", "mid_low", "mid_high", "high"):
             a = results[cohort]["models"]["tfidf"]["by_target_train_support"][bucket]
@@ -104,24 +104,24 @@ def summarize():
             nb = "—" if b["NDCG@10"] is None else f"{b['NDCG@10']:.6f}"
             text.append(f"| {bucket} | {a['users']:,} | {percent(a['Recall@10'])} | {percent(b['Recall@10'])} | {na} | {nb} |")
     text += ["", "## 구현·검증과 저장", "",
-        "Item-KNN은 긍정 78,315,268쌍·29,836,980명으로 학습했다. 긍정 singleton 17,042,189명도 지원 수·코사인 분모에 유지했다. Linux 후보별 전체 입력 게임 중 유사한 100개 이웃을 남겨 6,630 × 37,610의 CSR에 634,820개 연결을 저장했다. 이웃 보유 후보는 6,586개이며 나머지 44개도 카탈로그와 평가에 남겼다.", "",
+        "Item-KNN은 긍정 78,315,268쌍을 남긴 29,836,980명으로 학습했다. 긍정 리뷰가 한 게임뿐인 사용자 17,042,189명도 게임별 긍정 사용자 수와 코사인 정규화에 포함했다. Linux 후보마다 전체 입력 카탈로그에서 유사한 이웃 100개를 남겼다. 6,630 × 37,610 CSR 행렬에는 634,820개 연결을 저장했다. 이웃이 저장된 후보는 6,586개이고, 나머지 44개도 카탈로그와 평가에 포함했다.", "",
         "TF-IDF는 기존 37,610 × 48,011 벡터를 재사용했다. 전체 유효 벡터 37,527개·Linux 6,613개이며 Linux 영벡터 17개는 그대로다. A 우선·C 짧은 소개글 결측 보충·토큰화 설정을 변경하지 않았다.", "",
-        "전체 자동 테스트 53개가 통과했다. 별도 SQL 계산에서 전체 37,610개 게임의 학습 지원 수와 후보 15개의 이웃 1,200개를 대조했으며 지원 수·상위 이웃 명단·코사인 값 불일치는 모두 0이었다. 모델×평가 집단별 저장 추천·지표를 다시 읽어 12개 위반 검사를 수행했으며 총 48개 결과가 모두 0이다. 모델×집단별 12명의 단일 검색과 배치 검색도 일치했다.", "",
+        "자동 테스트 53개가 모두 통과했다. 별도 SQL 계산으로 37,610개 게임 각각의 긍정 학습 사용자 수와 후보 15개의 이웃 1,200개를 대조했다. 게임별 사용자 수, 상위 이웃 목록, 코사인 값의 불일치는 모두 0이었다. 모델과 평가 집단별로 저장한 추천·지표를 다시 읽어 12개 위반 항목을 검사했다. 48개 검사 결과는 모두 0이었다. 모델·집단별 12명에 대해 단일 검색과 묶음 검색 결과도 일치했다.", "",
         "| 경로 | 내용 |", "|---|---|",
         "| `data/processed/modeling/tfidf_content_v1/` | TF-IDF 벡터·토큰·원문·출처 |",
-        "| `data/processed/modeling/item_knn_v1/` | 이웃 유사도·학습 지원 수·게임 매핑·파라미터·지문 |",
+        "| `data/processed/modeling/item_knn_v1/` | 이웃 유사도·게임별 긍정 학습 사용자 수·게임 매핑·파라미터·해시값 |",
         "| `data/processed/modeling/baseline_v1/{validation,test}/` | 모델별 추천 순위·점수, 사용자별 지표와 집계 manifest |",
         "| `data/reference/baseline_protocol_v1.json` | 성능 확인 전 고정한 모델·추천·평가 규칙 |",
-        "| `data/reference/baseline_run_v1.json` | 검증 실행 전 고정한 모델·분할·평가 코드 지문 |", "",
+        "| `data/reference/baseline_run_v1.json` | 검증 실행 전 고정한 모델·분할·평가 코드 해시값 |", "",
         "사용자별 산출물은 Git 제외 경로에만 보관한다. [JSON 집계](baseline_v1.json), [Item-KNN 독립 감사](item_knn_v1_audit.json), [실행·수식 안내](../docs/baseline_models.md)를 참고한다.", "",
         "## 해석과 한계", "",
         "내부 검증의 우선 비교 기준은 NDCG@10이고 동점이면 Recall@10이다. 이 결과는 고정된 두 초기 설정의 비교이며, 이웃 수나 텍스트 설정을 탐색해 고른 최적 모델 성능이 아니다. 후속 설정 선택은 Kieran 내부 검증에서 수행하고, 이미 확인한 frank 성능으로 설정을 고르지 않는다.", "",
-        "평가는 시간순 미래 예측이 아니다. frank의 게임당 리뷰 상한과 리뷰어 선정 편향 때문에 Kieran 검증과 정답의 인기도 분포가 다르다. 두 집단의 절대 점수를 직접 일반화하지 않고 구간별 결과도 함께 본다. 과거 고정 Linux 카탈로그, TF-IDF 소개글 결측 17개와 CJK 분절 한계도 유지한다.", ""]
-    text += ["## 게임별 학습 지원 수", "", "| 범위 | 게임 | 긍정 학습 사용자 0 | 1~4 | 5 이상 |", "|---|---:|---:|---:|---:|"]
+        "평가는 시간순 미래 예측이 아니다. frank의 게임당 리뷰 상한과 리뷰어 선정 편향 때문에 Kieran 검증과 정답의 인기도 분포가 다르다. 두 집단의 절대 점수를 직접 일반화하지 않고 구간별 결과도 함께 본다. 과거 고정 Linux 카탈로그, TF-IDF 소개글 결측 17개와 한·중·일 텍스트 토큰화의 한계도 유지한다.", ""]
+    text += ["## 게임별 긍정 학습 사용자 수", "", "| 범위 | 게임 | 긍정 학습 사용자 0명 | 1~4명 | 5명 이상 |", "|---|---:|---:|---:|---:|"]
     for scope, label in (("input_catalog", "전체 입력"), ("linux_candidates", "Linux 후보")):
         count = support_counts[scope]
         text.append(f"| {label} | {count['games']:,} | {count['zero']:,} | {count['one_to_four']:,} | {count['five_or_more']:,} |")
-    text += ["", "지원 수와 이웃 없음은 구분한다. 지원이 있더라도 공동 긍정 게임이 없으면 이웃이 없을 수 있으며, 후보에 이웃이 있어도 특정 사용자의 입력과 연결되지 않으면 정답 점수는 0이다.", ""]
+    text += ["", "게임별 긍정 학습 사용자 수와 저장된 이웃이 있는지는 서로 다른 기준이다. 학습 긍정 사용자가 있어도 다른 게임과 긍정 리뷰를 함께 남긴 사람이 없으면 이웃을 만들 수 없다. 반대로 후보 게임에 이웃이 있어도 특정 사용자의 입력 게임과 연결되지 않으면 그 사용자의 정답 점수는 0이다.", ""]
     (EDA / "reports/baseline_v1.md").write_text("\n".join(text), encoding="utf-8")
     config = json.loads(source.read_text("utf-8"))
     config["modeling_baseline"]["implemented"] = True

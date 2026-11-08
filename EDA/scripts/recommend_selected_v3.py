@@ -1,4 +1,4 @@
-"""Recommend with validation-frozen v3 models and visible user input only."""
+"""내부 검증으로 선택한 v3 모델에 사용자의 게임 이력을 넣어 추천합니다."""
 import argparse
 import json
 import numpy as np
@@ -12,14 +12,14 @@ from evaluate_baselines import rank_positive
 def recommend(family,positive,negative,observed,top_k):
     selection=json.loads((ROOT/'selection_frozen.json').read_text('utf-8'))
     item=selection['models'][family]
-    if item['query_weighted']:raise ValueError('Chosen model requires query metadata; use the evaluation replay API')
+    if item['query_weighted']:raise ValueError('이 모델은 입력 리뷰의 추가 정보가 필요합니다. 저장된 평가 입력을 사용하는 API로 실행하세요.')
     model=restore(item['spec']);apps,linux,support=catalog();candidates=apps[linux]
     lookup={int(a):i for i,a in enumerate(apps)}
     positives=sorted(set(positive));negatives=sorted(set(negative))
-    if set(positives)&set(negatives):raise ValueError('A game cannot be both positive and negative')
+    if set(positives)&set(negatives):raise ValueError('같은 게임을 긍정 목록과 부정 목록에 동시에 넣을 수 없습니다.')
     unknown=sorted((set(positives)|set(negatives))-set(lookup))
-    if unknown:raise ValueError('Input game outside the frozen catalog: '+str(unknown))
-    if not positives:raise ValueError('At least one positive input is required')
+    if unknown:raise ValueError('입력 게임 목록에 없는 Steam App ID입니다: '+str(unknown))
+    if not positives:raise ValueError('긍정 평가한 게임을 1개 이상 입력하세요.')
     def vector(ids):
         columns=[lookup[a] for a in ids]
         return sparse.csr_matrix((np.ones(len(columns),dtype=np.float32),([0]*len(columns),columns)),shape=(1,len(apps)))
@@ -41,10 +41,10 @@ def recommend(family,positive,negative,observed,top_k):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--family',choices=['collaborative','content','hybrid'],default='collaborative')
-    p.add_argument('--positive-apps',nargs='+',type=int,required=True)
-    p.add_argument('--negative-apps',nargs='*',type=int,default=[])
-    p.add_argument('--exclude-apps',nargs='*',type=int,default=[])
-    p.add_argument('--top-k',type=int,choices=range(1,11),default=10)
+    p.add_argument('--family',choices=['collaborative','content','hybrid'],default='collaborative',help='협업·콘텐츠·결합 추천 중 선택')
+    p.add_argument('--positive-apps',nargs='+',type=int,required=True,help='긍정 평가한 게임의 Steam App ID')
+    p.add_argument('--negative-apps',nargs='*',type=int,default=[],help='부정 평가한 게임의 Steam App ID')
+    p.add_argument('--exclude-apps',nargs='*',type=int,default=[],help='추가로 추천에서 제외할 이미 관측한 게임')
+    p.add_argument('--top-k',type=int,choices=range(1,11),default=10,help='추천 개수 (기본 10개)')
     a=p.parse_args()
     with threadpool_limits(limits=2):print(json.dumps(recommend(a.family,a.positive_apps,a.negative_apps,a.exclude_apps,a.top_k),ensure_ascii=False,indent=2))

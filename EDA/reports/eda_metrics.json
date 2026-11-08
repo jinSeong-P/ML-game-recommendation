@@ -1,0 +1,812 @@
+{
+  "structure": [
+    {
+      "table": "A_recommendations",
+      "rows": 41154794,
+      "cols": 8,
+      "users": 13781059.0,
+      "items": 37610.0,
+      "dup_key": "user_id+app_id",
+      "dup_rows": 21,
+      "date_min": "2010-10-15T00:00:00",
+      "date_max": "2022-12-31T00:00:00"
+    },
+    {
+      "table": "A_games",
+      "rows": 50872,
+      "cols": 13,
+      "users": null,
+      "items": 50872.0,
+      "dup_key": "app_id",
+      "dup_rows": 0,
+      "date_min": "1997-06-30T00:00:00",
+      "date_max": "2023-10-24T00:00:00"
+    },
+    {
+      "table": "A_users",
+      "rows": 14306064,
+      "cols": 3,
+      "users": 14306064.0,
+      "items": null,
+      "dup_key": "user_id",
+      "dup_rows": 0,
+      "date_min": null,
+      "date_max": null
+    },
+    {
+      "table": "A_games_metadata",
+      "rows": 50872,
+      "cols": 3,
+      "users": null,
+      "items": 50872.0,
+      "dup_key": "app_id",
+      "dup_rows": 0,
+      "date_min": null,
+      "date_max": null
+    },
+    {
+      "table": "B_users_items(profile)",
+      "rows": 88310,
+      "cols": 5,
+      "users": 87626.0,
+      "items": null,
+      "dup_key": "user_id",
+      "dup_rows": 684,
+      "date_min": null,
+      "date_max": null
+    },
+    {
+      "table": "B_users_items(long)",
+      "rows": 5153209,
+      "cols": 7,
+      "users": 70912.0,
+      "items": 10978.0,
+      "dup_key": "user_id+item_id",
+      "dup_rows": 59127,
+      "date_min": null,
+      "date_max": null
+    },
+    {
+      "table": "B_reviews(long)",
+      "rows": 59305,
+      "cols": 12,
+      "users": 25458.0,
+      "items": 3682.0,
+      "dup_key": "user_id+item_id",
+      "dup_rows": 874,
+      "date_min": "2010-10-16T00:00:00",
+      "date_max": "2015-12-31T00:00:00"
+    },
+    {
+      "table": "B_steam_games",
+      "rows": 32135,
+      "cols": 14,
+      "users": null,
+      "items": 32132.0,
+      "dup_key": "id",
+      "dup_rows": 1,
+      "date_min": null,
+      "date_max": null
+    },
+    {
+      "table": "B_bundle_items(long)",
+      "rows": 3525,
+      "cols": 4,
+      "users": null,
+      "items": 2787.0,
+      "dup_key": "bundle_id+item_id",
+      "dup_rows": 7,
+      "date_min": null,
+      "date_max": null
+    },
+    {
+      "table": "C_games_2025",
+      "rows": 89618,
+      "cols": 47,
+      "users": null,
+      "items": 89618.0,
+      "dup_key": "appid",
+      "dup_rows": 0,
+      "date_min": null,
+      "date_max": null
+    }
+  ],
+  "empty_values": {
+    "A_meta_tags_empty": 1244,
+    "A_meta_description_empty": 10373,
+    "B_steam_games_id_missing": 2,
+    "B_steam_games_tags_missing": 163,
+    "B_steam_games_genres_missing": 3283,
+    "C_tags_empty": 16872,
+    "C_genres_empty": 212,
+    "C_short_description_empty": 120
+  },
+  "B_profile_duplicates": {
+    "profile_lines": 88310,
+    "unique_users": 87626,
+    "users_with_dup_lines": 673,
+    "dup_users_identical_item_lists": 673
+  },
+  "B_review_duplicates": {
+    "users_with_multiple_review_lines": 308,
+    "dup_user_item_rows": 874,
+    "user_item_with_conflicting_label": 0
+  },
+  "A_users_consistency": {
+    "rec_users_missing_in_users_csv": 0,
+    "rec_items_missing_in_games_csv": 0,
+    "games_without_any_rec": 13262,
+    "games_metadata_ids_equal_games_ids": true
+  },
+  "A_quality": {
+    "interactions": 41154794,
+    "users": 13781059,
+    "items": 37610,
+    "positive_rate": 0.8578441189621797,
+    "density": 7.94025603777381e-05,
+    "sparsity": 0.9999205974396222,
+    "per_user": {
+      "p25": 1.0,
+      "p50": 1.0,
+      "p75": 3.0,
+      "p90": 6.0,
+      "p99": 25.0,
+      "mean": 2.98633029580673,
+      "max": 6045.0
+    },
+    "per_item": {
+      "p25": 13.0,
+      "p50": 39.0,
+      "p75": 179.75,
+      "p90": 969.0999999999985,
+      "p99": 23476.189999999966,
+      "mean": 1094.2513693166711,
+      "max": 319492.0
+    },
+    "users_with_1_review_pct": 54.95243144957147,
+    "users_with_ge5_reviews_pct": 13.86563253230394,
+    "users_with_ge10_reviews_pct": 4.940200894575664,
+    "users_with_ge5_positive_pct": 11.78476922564514,
+    "users_with_no_positive_pct": 8.112039865731655,
+    "items_with_ge10_positive": 28385,
+    "items_with_ge50_positive": 14890,
+    "hours": {
+      "p25": 7.800000190734863,
+      "p50": 27.299999237060547,
+      "p75": 99.19999694824219,
+      "p90": 304.0,
+      "p99": 864.5,
+      "mean": 100.60224151611328,
+      "max": 1000.0
+    },
+    "hours_zero_pct": 0.4284531226179871,
+    "hours_at_cap_1000_pct": 6.317611503534679e-05,
+    "hours_median_pos": 30.299999237060547,
+    "hours_median_neg": 11.100000381469727
+  },
+  "A_users_csv_vs_rec": {
+    "users_joined": 13781059,
+    "reviews_col_equals_rec_rows_pct": 100.0,
+    "products_median": 57.0,
+    "reviews_to_products_median_ratio": 0.03260869565217391,
+    "users_csv_users_with_0_reviews_pct": 3.669807432708256
+  },
+  "A_reviews_le_2015": 3141063,
+  "B_review_dates": {
+    "with_year": 49186,
+    "without_year": 10119,
+    "min": "2010-10-16T00:00:00",
+    "max": "2015-12-31T00:00:00"
+  },
+  "A_positive_kcore": [
+    {
+      "min_user_pos": 1,
+      "min_item_pos": 1,
+      "users": 12663134,
+      "items": 37419,
+      "interactions": 35304398,
+      "density": 7.450671757862672e-05,
+      "linux_items": 6618,
+      "linux_interactions": 10428788
+    },
+    {
+      "min_user_pos": 2,
+      "min_item_pos": 5,
+      "users": 5547226,
+      "items": 33148,
+      "interactions": 28177261,
+      "density": 0.00015323768583744716,
+      "linux_items": 6142,
+      "linux_interactions": 8365174
+    },
+    {
+      "min_user_pos": 3,
+      "min_item_pos": 10,
+      "users": 3301339,
+      "items": 27045,
+      "interactions": 23644909,
+      "density": 0.00026482594990778974,
+      "linux_items": 5328,
+      "linux_interactions": 7079408
+    },
+    {
+      "min_user_pos": 5,
+      "min_item_pos": 10,
+      "users": 1621480,
+      "items": 26064,
+      "interactions": 17986052,
+      "density": 0.0004255819316589458,
+      "linux_items": 5195,
+      "linux_interactions": 5442255
+    },
+    {
+      "min_user_pos": 5,
+      "min_item_pos": 20,
+      "users": 1617467,
+      "items": 19688,
+      "interactions": 17882168,
+      "density": 0.0005615431594335892,
+      "linux_items": 4267,
+      "linux_interactions": 5424688
+    },
+    {
+      "min_user_pos": 10,
+      "min_item_pos": 20,
+      "users": 543517,
+      "items": 17916,
+      "interactions": 11021839,
+      "density": 0.0011318786722222917,
+      "linux_items": 3975,
+      "linux_interactions": 3391453
+    }
+  ],
+  "A_linux": {
+    "games_total": 50872,
+    "linux_games": 9041,
+    "linux_games_pct": 17.772055354615507,
+    "linux_games_with_any_review": 6630,
+    "linux_games_with_ge10_positive": 5497,
+    "linux_games_with_ge50_positive": 3299,
+    "linux_games_released_le_2015": 2101,
+    "reviews_on_linux": 11584426,
+    "reviews_on_linux_pct": 28.148424215171623,
+    "positive_reviews_on_linux": 10428788,
+    "positive_rate_linux": 0.9002421009034025,
+    "positive_rate_non_linux": 0.8412343735458415,
+    "users_with_ge1_linux_positive": 5587235,
+    "users_with_ge2_linux_positive": 1751635,
+    "users_with_ge5_linux_positive": 335892,
+    "top1pct_linux_games_share_of_linux_positive": 0.5115524450204568,
+    "top10pct_linux_games_share_of_linux_positive": 0.913052312502661,
+    "linux_positive_per_game": {
+      "p25": 14.0,
+      "p50": 49.0,
+      "p75": 262.75,
+      "p90": 1521.3000000000002,
+      "p99": 36682.81999999999,
+      "mean": 1575.8216983983077,
+      "max": 294879.0
+    },
+    "linux_positive_reviews_le_2015": 1299646
+  },
+  "linux_flag_A_vs_C": {
+    "common_games": 35876,
+    "agree_pct": 99.37562716021853,
+    "A_true_C_false": 58,
+    "A_false_C_true": 166
+  },
+  "id_overlap": [
+    {
+      "B_set": "B_owned_items",
+      "n": 10978,
+      "in_A_games": 7990,
+      "in_A_games_pct": 72.78192749134634,
+      "in_A_rec_items": 7807,
+      "in_A_linux": 2274,
+      "in_C": 7856,
+      "in_C_pct": 71.56130442703589,
+      "in_A_or_C": 8775,
+      "in_neither": 2203
+    },
+    {
+      "B_set": "B_review_items",
+      "n": 3682,
+      "in_A_games": 2997,
+      "in_A_games_pct": 81.3959804454101,
+      "in_A_rec_items": 2718,
+      "in_A_linux": 1023,
+      "in_C": 2437,
+      "in_C_pct": 66.18685497012493,
+      "in_A_or_C": 3075,
+      "in_neither": 607
+    },
+    {
+      "B_set": "B_pos_review_items",
+      "n": 3292,
+      "in_A_games": 2706,
+      "in_A_games_pct": 82.19927095990279,
+      "in_A_rec_items": 2462,
+      "in_A_linux": 943,
+      "in_C": 2195,
+      "in_C_pct": 66.6767922235723,
+      "in_A_or_C": 2771,
+      "in_neither": 521
+    },
+    {
+      "B_set": "B_steam_games",
+      "n": 32132,
+      "in_A_games": 16214,
+      "in_A_games_pct": 50.460600024897296,
+      "in_A_rec_items": 12598,
+      "in_A_linux": 4226,
+      "in_C": 15112,
+      "in_C_pct": 47.030997136810655,
+      "in_A_or_C": 19493,
+      "in_neither": 12639
+    }
+  ],
+  "A_C_overlap": {
+    "A_games": 50872,
+    "C": 89618,
+    "A_and_C": 35876,
+    "A_not_in_C": 14996,
+    "A_linux_in_C": 6440
+  },
+  "B_interaction_coverage_by_A": {
+    "owned_rows_in_A_pct": 79.28929333159202,
+    "owned_rows_played_in_A_pct": 83.66192364285658,
+    "playtime_weighted_in_A_pct": 87.96028607440405,
+    "review_rows_in_A_pct": 88.94865525672373,
+    "positive_review_rows_in_A_pct": 90.24069521468184,
+    "positive_review_rows_in_A_linux_pct": 54.544241800545045
+  },
+  "B_owned_not_in_A": {
+    "items": 2988,
+    "owner_rows": 1055200,
+    "median_owners": 19.0,
+    "median_owners_matched": 54.0,
+    "in_C": 785,
+    "by_reason": [
+      {
+        "reason_guess": "dlc/pack",
+        "items": 32,
+        "owner_rows": 5564,
+        "in_C": 4,
+        "in_B_steam_games": 22
+      },
+      {
+        "reason_guess": "other",
+        "items": 2874,
+        "owner_rows": 918001,
+        "in_C": 779,
+        "in_B_steam_games": 1502
+      },
+      {
+        "reason_guess": "server/SDK/tool",
+        "items": 18,
+        "owner_rows": 12658,
+        "in_C": 1,
+        "in_B_steam_games": 1
+      },
+      {
+        "reason_guess": "soundtrack/video",
+        "items": 28,
+        "owner_rows": 1031,
+        "in_C": 0,
+        "in_B_steam_games": 14
+      },
+      {
+        "reason_guess": "test/beta/demo",
+        "items": 36,
+        "owner_rows": 117946,
+        "in_C": 1,
+        "in_B_steam_games": 3
+      }
+    ]
+  },
+  "metadata_consistency": {
+    "A_vs_C_title_match_pct": 98.76240383543316,
+    "A_vs_C_release_date_match_pct": 97.2154086297246,
+    "A_vs_B_steam_games_common": 16214,
+    "A_vs_B_steam_games_title_match_pct": 96.23165165906006
+  },
+  "linux_content_features": {
+    "linux_games": 9041,
+    "A_tags_pct": 97.96482689967924,
+    "A_desc_pct": 76.6397522397965,
+    "C_tags_pct": 68.24466320097335,
+    "C_genres_pct": 71.15363344762747,
+    "A_or_C_tags_pct": 99.3584780444641,
+    "no_text_at_all": 56,
+    "A_tags_per_game_median": 12.0
+  },
+  "B_review_vs_ownership": {
+    "review_users": 25458,
+    "review_users_with_item_profile": 22613,
+    "reviewed_items_also_owned_pct": 75.62081771662302,
+    "positive_reviewed_items_also_owned_pct": 75.96726766230752,
+    "B_positive_rate": 0.8846673854631959
+  },
+  "candidate_sets": {
+    "A_linux_with_reviews": 6630,
+    "A_linux_ge10_positive": 5497,
+    "A_items_ge10_positive": 28385
+  },
+  "external_test_eligibility": [
+    {
+      "input": "input_owned",
+      "target": "targets",
+      "min_input_items": 1,
+      "users": 15676,
+      "target_pairs": 25135,
+      "unique_target_items": 829
+    },
+    {
+      "input": "input_owned",
+      "target": "targets",
+      "min_input_items": 2,
+      "users": 15609,
+      "target_pairs": 25055,
+      "unique_target_items": 829
+    },
+    {
+      "input": "input_owned",
+      "target": "targets",
+      "min_input_items": 3,
+      "users": 15519,
+      "target_pairs": 24954,
+      "unique_target_items": 829
+    },
+    {
+      "input": "input_owned",
+      "target": "targets",
+      "min_input_items": 5,
+      "users": 15294,
+      "target_pairs": 24704,
+      "unique_target_items": 829
+    },
+    {
+      "input": "input_owned",
+      "target": "targets",
+      "min_input_items": 10,
+      "users": 14697,
+      "target_pairs": 23981,
+      "unique_target_items": 826
+    },
+    {
+      "input": "input_owned",
+      "target": "targets",
+      "min_input_items": 20,
+      "users": 13076,
+      "target_pairs": 21796,
+      "unique_target_items": 818
+    },
+    {
+      "input": "input_owned",
+      "target": "targets_cf",
+      "min_input_items": 1,
+      "users": 15676,
+      "target_pairs": 25133,
+      "unique_target_items": 828
+    },
+    {
+      "input": "input_owned",
+      "target": "targets_cf",
+      "min_input_items": 2,
+      "users": 15609,
+      "target_pairs": 25053,
+      "unique_target_items": 828
+    },
+    {
+      "input": "input_owned",
+      "target": "targets_cf",
+      "min_input_items": 3,
+      "users": 15519,
+      "target_pairs": 24952,
+      "unique_target_items": 828
+    },
+    {
+      "input": "input_owned",
+      "target": "targets_cf",
+      "min_input_items": 5,
+      "users": 15294,
+      "target_pairs": 24702,
+      "unique_target_items": 828
+    },
+    {
+      "input": "input_owned",
+      "target": "targets_cf",
+      "min_input_items": 10,
+      "users": 14697,
+      "target_pairs": 23979,
+      "unique_target_items": 825
+    },
+    {
+      "input": "input_owned",
+      "target": "targets_cf",
+      "min_input_items": 20,
+      "users": 13076,
+      "target_pairs": 21794,
+      "unique_target_items": 817
+    },
+    {
+      "input": "input_played",
+      "target": "targets",
+      "min_input_items": 1,
+      "users": 15629,
+      "target_pairs": 25083,
+      "unique_target_items": 829
+    },
+    {
+      "input": "input_played",
+      "target": "targets",
+      "min_input_items": 2,
+      "users": 15507,
+      "target_pairs": 24940,
+      "unique_target_items": 829
+    },
+    {
+      "input": "input_played",
+      "target": "targets",
+      "min_input_items": 3,
+      "users": 15357,
+      "target_pairs": 24759,
+      "unique_target_items": 829
+    },
+    {
+      "input": "input_played",
+      "target": "targets",
+      "min_input_items": 5,
+      "users": 15067,
+      "target_pairs": 24432,
+      "unique_target_items": 829
+    },
+    {
+      "input": "input_played",
+      "target": "targets",
+      "min_input_items": 10,
+      "users": 14147,
+      "target_pairs": 23247,
+      "unique_target_items": 824
+    },
+    {
+      "input": "input_played",
+      "target": "targets",
+      "min_input_items": 20,
+      "users": 11987,
+      "target_pairs": 20220,
+      "unique_target_items": 809
+    },
+    {
+      "input": "input_played",
+      "target": "targets_cf",
+      "min_input_items": 1,
+      "users": 15629,
+      "target_pairs": 25081,
+      "unique_target_items": 828
+    },
+    {
+      "input": "input_played",
+      "target": "targets_cf",
+      "min_input_items": 2,
+      "users": 15507,
+      "target_pairs": 24938,
+      "unique_target_items": 828
+    },
+    {
+      "input": "input_played",
+      "target": "targets_cf",
+      "min_input_items": 3,
+      "users": 15357,
+      "target_pairs": 24757,
+      "unique_target_items": 828
+    },
+    {
+      "input": "input_played",
+      "target": "targets_cf",
+      "min_input_items": 5,
+      "users": 15067,
+      "target_pairs": 24430,
+      "unique_target_items": 828
+    },
+    {
+      "input": "input_played",
+      "target": "targets_cf",
+      "min_input_items": 10,
+      "users": 14147,
+      "target_pairs": 23245,
+      "unique_target_items": 823
+    },
+    {
+      "input": "input_played",
+      "target": "targets_cf",
+      "min_input_items": 20,
+      "users": 11987,
+      "target_pairs": 20218,
+      "unique_target_items": 808
+    },
+    {
+      "input": "input_owned_cf",
+      "target": "targets",
+      "min_input_items": 1,
+      "users": 15676,
+      "target_pairs": 25135,
+      "unique_target_items": 829
+    },
+    {
+      "input": "input_owned_cf",
+      "target": "targets",
+      "min_input_items": 2,
+      "users": 15609,
+      "target_pairs": 25055,
+      "unique_target_items": 829
+    },
+    {
+      "input": "input_owned_cf",
+      "target": "targets",
+      "min_input_items": 3,
+      "users": 15518,
+      "target_pairs": 24953,
+      "unique_target_items": 829
+    },
+    {
+      "input": "input_owned_cf",
+      "target": "targets",
+      "min_input_items": 5,
+      "users": 15294,
+      "target_pairs": 24704,
+      "unique_target_items": 829
+    },
+    {
+      "input": "input_owned_cf",
+      "target": "targets",
+      "min_input_items": 10,
+      "users": 14694,
+      "target_pairs": 23977,
+      "unique_target_items": 826
+    },
+    {
+      "input": "input_owned_cf",
+      "target": "targets",
+      "min_input_items": 20,
+      "users": 13071,
+      "target_pairs": 21789,
+      "unique_target_items": 818
+    },
+    {
+      "input": "input_owned_cf",
+      "target": "targets_cf",
+      "min_input_items": 1,
+      "users": 15676,
+      "target_pairs": 25133,
+      "unique_target_items": 828
+    },
+    {
+      "input": "input_owned_cf",
+      "target": "targets_cf",
+      "min_input_items": 2,
+      "users": 15609,
+      "target_pairs": 25053,
+      "unique_target_items": 828
+    },
+    {
+      "input": "input_owned_cf",
+      "target": "targets_cf",
+      "min_input_items": 3,
+      "users": 15518,
+      "target_pairs": 24951,
+      "unique_target_items": 828
+    },
+    {
+      "input": "input_owned_cf",
+      "target": "targets_cf",
+      "min_input_items": 5,
+      "users": 15294,
+      "target_pairs": 24702,
+      "unique_target_items": 828
+    },
+    {
+      "input": "input_owned_cf",
+      "target": "targets_cf",
+      "min_input_items": 10,
+      "users": 14694,
+      "target_pairs": 23975,
+      "unique_target_items": 825
+    },
+    {
+      "input": "input_owned_cf",
+      "target": "targets_cf",
+      "min_input_items": 20,
+      "users": 13071,
+      "target_pairs": 21787,
+      "unique_target_items": 817
+    }
+  ],
+  "external_test_main": {
+    "users_with_linux_positive_target": 17576,
+    "target_pairs": 27952,
+    "unique_target_items": 863,
+    "targets_per_user": {
+      "p25": 1.0,
+      "p50": 1.0,
+      "p75": 2.0,
+      "p90": 3.0,
+      "p99": 6.0,
+      "mean": 1.5903504779244424,
+      "max": 9.0
+    },
+    "users_with_ge2_targets": 5886,
+    "input_owned_per_user": {
+      "p25": 19.0,
+      "p50": 46.0,
+      "p75": 91.0,
+      "p90": 164.0,
+      "p99": 502.25,
+      "mean": 76.27315657715066,
+      "max": 5650.0
+    },
+    "eligible_users_k5_owned": 15294,
+    "target_pairs_k5_owned": 24704,
+    "target_pairs_that_are_cf_items_pct": 99.99284487693188
+  },
+  "review_only_protocol": {
+    "users_ge2_positive_in_A": 9771,
+    "of_which_ge1_linux": 8771
+  },
+  "popularity_shift": {
+    "linux_items_compared": 6618,
+    "spearman_A_pos_vs_B_pos": 0.4582638478234919,
+    "spearman_A_pos_vs_B_owners": 0.4244909008442292,
+    "spearman_A_pos_le2015_vs_B_pos": 0.6502089518851554
+  },
+  "popularity_baseline_sanity": {
+    "users": 15294,
+    "pop_A_all_linux": {
+      "recall@10": 0.538638142149323,
+      "ndcg@10": 0.3730987564470092,
+      "candidates": 6618
+    },
+    "pop_A_linux_released_le2015": {
+      "recall@10": 0.546602516600555,
+      "ndcg@10": 0.376927460932913,
+      "candidates": 1521
+    },
+    "pop_A_reviews_le2015": {
+      "recall@10": 0.585995000633094,
+      "ndcg@10": 0.38368204873876627,
+      "candidates": 1649
+    },
+    "random_expected_recall@10": {
+      "recall@10": 0.0015082956259426848,
+      "candidates": 6630
+    }
+  },
+  "target_concentration": {
+    "top3_items_share": 0.3077234455958549,
+    "top10_items_share": 0.5072457901554405,
+    "targets_in_A_top50_linux_share": 0.6403416450777202,
+    "longtail_users": 6533,
+    "longtail_target_pairs": 8885,
+    "longtail_unique_items": 786,
+    "pop_recall@10_longtail_targets_full_candidates": 0.0,
+    "pop_recall@10_longtail_targets_head_excluded": 0.03202860204237826,
+    "pop_ndcg@10_longtail_head_excluded": 0.014330966630115786
+  },
+  "new_user_cf": {
+    "A_users_lt5_positive_pct": 88.21523077435486,
+    "B_test_users_with_0_cf_input": 1900,
+    "B_test_users_with_ge5_cf_input": 15294,
+    "B_test_users": 17576,
+    "B_input_items_cf_share_pct": 99.59271269013269,
+    "B_targets_reachable_by_itemknn_pct": 99.99284487693188,
+    "B_input_cf_per_user": {
+      "p25": 19.0,
+      "p50": 46.0,
+      "p75": 91.0,
+      "p90": 163.0,
+      "p99": 497.75,
+      "mean": 75.9625056895767,
+      "max": 5275.0
+    }
+  }
+}

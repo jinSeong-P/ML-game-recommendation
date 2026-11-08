@@ -1,0 +1,708 @@
+{
+  "checked_at_utc": "2026-11-08T04:17:07.056489+00:00",
+  "analysis_version": 1,
+  "source_manifest": {
+    "dataset": "forgemaster/steam-reviews-dataset",
+    "version": 1,
+    "license": "CC0: Public Domain",
+    "source_last_updated": "2021-04-27T00:13:50.393Z",
+    "downloaded_at_utc": "2026-11-08T04:06:08.580008+00:00",
+    "scope": "All bytes of all 11 listed CSV files, not a sample or projection",
+    "total_bytes": 5318015798,
+    "files": [
+      {
+        "file": "reviews-1-115.csv",
+        "listed_bytes": 288822417,
+        "local_bytes": 288822417,
+        "sha256": "4e313680d4bd39d6a52a67b3b0b87f3cd28ec9f47cccedaa27a2584a1a772710",
+        "url": "https://www.kaggle.com/api/v1/datasets/download/forgemaster/steam-reviews-dataset/reviews-1-115.csv?datasetVersionNumber=1"
+      },
+      {
+        "file": "reviews-11265-13495.csv",
+        "listed_bytes": 350521509,
+        "local_bytes": 350521509,
+        "sha256": "87a81d25358b9fad968b88acbe1afff77145e4d21c7cf8d40493020c7e504143",
+        "url": "https://www.kaggle.com/api/v1/datasets/download/forgemaster/steam-reviews-dataset/reviews-11265-13495.csv?datasetVersionNumber=1"
+      },
+      {
+        "file": "reviews-115-1230.csv",
+        "listed_bytes": 732061256,
+        "local_bytes": 732061256,
+        "sha256": "46db38d9300aefd4e05bc6b423d92660adcd745b5548f7069bc5bef4779e929f",
+        "url": "https://www.kaggle.com/api/v1/datasets/download/forgemaster/steam-reviews-dataset/reviews-115-1230.csv?datasetVersionNumber=1"
+      },
+      {
+        "file": "reviews-1230-2345.csv",
+        "listed_bytes": 1077027455,
+        "local_bytes": 1077027455,
+        "sha256": "932477b3f5ac5168360332660a80171eb0b40a5b120c6b163acd98d239aa36df",
+        "url": "https://www.kaggle.com/api/v1/datasets/download/forgemaster/steam-reviews-dataset/reviews-1230-2345.csv?datasetVersionNumber=1"
+      },
+      {
+        "file": "reviews-13495-13500.csv",
+        "listed_bytes": 83744,
+        "local_bytes": 83744,
+        "sha256": "8c4a69906868b0e07461563f4d79a3acf18fa63424ed226a68a9fe693b69e387",
+        "url": "https://www.kaggle.com/api/v1/datasets/download/forgemaster/steam-reviews-dataset/reviews-13495-13500.csv?datasetVersionNumber=1"
+      },
+      {
+        "file": "reviews-13500-13537.csv",
+        "listed_bytes": 3711010,
+        "local_bytes": 3711010,
+        "sha256": "4ef3a2a86c56b97aa891a9e283173964f53bdd2557322408ffe6b19e8d69a44b",
+        "url": "https://www.kaggle.com/api/v1/datasets/download/forgemaster/steam-reviews-dataset/reviews-13500-13537.csv?datasetVersionNumber=1"
+      },
+      {
+        "file": "reviews-13537-27075.csv",
+        "listed_bytes": 548862432,
+        "local_bytes": 548862432,
+        "sha256": "5d126103643daf02fc79882fb2e1eea2216d8f053eb0b33d124974b128689225",
+        "url": "https://www.kaggle.com/api/v1/datasets/download/forgemaster/steam-reviews-dataset/reviews-13537-27075.csv?datasetVersionNumber=1"
+      },
+      {
+        "file": "reviews-2345-4575.csv",
+        "listed_bytes": 896944879,
+        "local_bytes": 896944879,
+        "sha256": "a13d29d3dfa336f1afe825a12c20a2bcc10775c6abc686f489fd0400bf4ed24b",
+        "url": "https://www.kaggle.com/api/v1/datasets/download/forgemaster/steam-reviews-dataset/reviews-2345-4575.csv?datasetVersionNumber=1"
+      },
+      {
+        "file": "reviews-4575-6805.csv",
+        "listed_bytes": 728545833,
+        "local_bytes": 728545833,
+        "sha256": "90a62cbeff0da40fc7ef7531517adbf6080010a15df1f3d5d8145a7758498ad7",
+        "url": "https://www.kaggle.com/api/v1/datasets/download/forgemaster/steam-reviews-dataset/reviews-4575-6805.csv?datasetVersionNumber=1"
+      },
+      {
+        "file": "reviews-6805-9035.csv",
+        "listed_bytes": 441017906,
+        "local_bytes": 441017906,
+        "sha256": "7840eed4d46e3792475fd4d9b9a647571e2fa43a45a398ce45e47e00c5296031",
+        "url": "https://www.kaggle.com/api/v1/datasets/download/forgemaster/steam-reviews-dataset/reviews-6805-9035.csv?datasetVersionNumber=1"
+      },
+      {
+        "file": "reviews-9035-11265.csv",
+        "listed_bytes": 250417357,
+        "local_bytes": 250417357,
+        "sha256": "1e78b3514c61d35aa6c7caf4536357a1cac6abef0401a236520aae7af92f5232",
+        "url": "https://www.kaggle.com/api/v1/datasets/download/forgemaster/steam-reviews-dataset/reviews-9035-11265.csv?datasetVersionNumber=1"
+      }
+    ]
+  },
+  "source_manifest_sha256": "6c5058ec2b60916bbdaabc08f8cee765a3dfe2bb91b7b27b24b2a7542146aab8",
+  "script_sha256": "f6b9ec2888ef5ee63d8bf719110becde297e0c57cba49a0a129ad5630e08c09d",
+  "environment": {
+    "duckdb": "1.4.3",
+    "memory_limit": "4GB",
+    "threads": 4
+  },
+  "policies": {
+    "steamid": "Read and store as VARCHAR; never floating point",
+    "parser": "DuckDB strict parser rejected some input; explicit 13-column schema with strict_mode=false and ignore_errors=false. Independently cross-checked with Python csv.reader including strict mode; no skipped records.",
+    "deduplication": "One steamid/app_id pair; conflicting positive/negative pairs excluded entirely",
+    "time": "UTC; no chronological train/test claim",
+    "playtime": "Raw Steam API minutes; publisher card says hours, not assumed correct",
+    "cap_simulation": "Uniform random maximum 100 clean user/app pairs per game using hash ordering; 5 seeds. Not a reconstruction of Frank API selection.",
+    "model_performance": "No models trained or ranking metrics evaluated"
+  },
+  "raw": {
+    "rows": 15437471,
+    "users": 6976390,
+    "apps": 8183
+  },
+  "null_or_blank": {
+    "steamid": 0,
+    "appid": 0,
+    "voted_up": 0,
+    "votes_up": 0,
+    "votes_funny": 0,
+    "weighted_vote_score": 0,
+    "playtime_forever": 0,
+    "playtime_at_review": 0,
+    "num_games_owned": 0,
+    "num_reviews": 0,
+    "review": 24323,
+    "unix_timestamp_created": 0,
+    "unix_timestamp_updated": 0
+  },
+  "invalid_numeric_or_boolean": {
+    "appid": 0,
+    "votes_up": 0,
+    "votes_funny": 0,
+    "playtime_forever": 0,
+    "playtime_at_review": 0,
+    "num_games_owned": 0,
+    "num_reviews": 0,
+    "unix_timestamp_created": 0,
+    "unix_timestamp_updated": 0,
+    "voted_up": 0,
+    "weighted_vote_score": 0
+  },
+  "quality": {
+    "invalid_steamid_rows": 0,
+    "invalid_appid_rows": 0,
+    "missing_label_rows": 0,
+    "negative_playtime_rows": 0,
+    "playtime_at_review_gt_forever": 7155,
+    "updated_before_created": 0,
+    "created_outside_publish_window": 0,
+    "negative_user_metadata": 0,
+    "negative_votes": 0,
+    "invalid_helpfulness_score": 0,
+    "non_ascii_text_rows": 437139,
+    "first_created_unix": 1287181669,
+    "last_created_unix": 1619152533,
+    "first_updated_unix": 1287185111,
+    "last_updated_unix": 2285482808
+  },
+  "text_length_chars": {
+    "minimum": 1,
+    "maximum": 9638999,
+    "mean": 259.23464924217325,
+    "quantiles": [
+      22,
+      75,
+      242,
+      636,
+      1094,
+      2812
+    ]
+  },
+  "playtime_minutes": {
+    "playtime_forever": {
+      "minimum": 0,
+      "maximum": 4016239,
+      "mean": 15324.28600293403,
+      "quantiles": [
+        703,
+        2677,
+        11361,
+        40116,
+        74652,
+        183537
+      ]
+    },
+    "playtime_at_review": {
+      "minimum": 0,
+      "maximum": 3613888,
+      "mean": 8100.504817725649,
+      "quantiles": [
+        378,
+        1289,
+        5114,
+        19212,
+        39425,
+        108026
+      ]
+    }
+  },
+  "duplicates": {
+    "distinct_pairs": 15436778,
+    "extra_user_game_rows": 693,
+    "repeated_pairs": 395,
+    "conflicting_pairs": 8,
+    "rows_in_conflicting_pairs": 22
+  },
+  "clean": {
+    "rows": 15436770,
+    "users": 6976389,
+    "apps": 8183,
+    "positives": 13423711,
+    "positive_rate": 0.8695932504014765
+  },
+  "reviews_per_game": {
+    "minimum": 1,
+    "maximum": 976130,
+    "mean": 1886.443846999878,
+    "quantiles": [
+      67,
+      179,
+      638,
+      2598,
+      6086,
+      28556
+    ]
+  },
+  "reviews_per_user": {
+    "minimum": 1,
+    "maximum": 840,
+    "mean": 2.2127163493893476,
+    "quantiles": [
+      1,
+      1,
+      2,
+      4,
+      6,
+      16
+    ]
+  },
+  "user_history_completeness_proxy": {
+    "singleton_users": 4354616,
+    "users_with_positive_reported_reviews": 6976389,
+    "observed_less_than_reported_users": 3643665,
+    "observed_more_than_reported_users": 16,
+    "median_observed_to_reported_clipped_at_one": 0.75
+  },
+  "cap_shape": {
+    "games": 8183,
+    "games_le_100": 2895,
+    "games_exact_100": 37,
+    "games_gt_100": 5288,
+    "reviews_on_games_gt_100": 15304899,
+    "maximum": 976130,
+    "expected_rows_after_cap": 660671,
+    "macro_positive_rate": 0.7502681645833705,
+    "micro_positive_rate": 0.8695932504014765
+  },
+  "catalog_coverage": {
+    "source_apps": 8183,
+    "input_apps_covered": 7460,
+    "linux_candidates_covered": 2210,
+    "rows_in_input_catalog": 14800111,
+    "positive_linux_rows": 5673791,
+    "total_input_apps": 37610,
+    "total_linux_candidates": 6630
+  },
+  "eligibility": [
+    {
+      "minimum_inputs_after_holdout": 1,
+      "potential_users": 1808495,
+      "eligible_users": 1715810,
+      "possible_target_pairs": 3744836
+    },
+    {
+      "minimum_inputs_after_holdout": 3,
+      "potential_users": 745862,
+      "eligible_users": 741465,
+      "possible_target_pairs": 2367624
+    },
+    {
+      "minimum_inputs_after_holdout": 5,
+      "potential_users": 396238,
+      "eligible_users": 395421,
+      "possible_target_pairs": 1679068
+    },
+    {
+      "minimum_inputs_after_holdout": 10,
+      "potential_users": 135440,
+      "eligible_users": 135381,
+      "possible_target_pairs": 920815
+    }
+  ],
+  "full_eligible_history": {
+    "users": 395421,
+    "mean_inputs_after_holdout": 10.61666173521386,
+    "median_inputs_after_holdout": 7.0,
+    "possible_target_pairs": 1679068
+  },
+  "kieran_game_support_overlap": {
+    "apps": 7643,
+    "source_pairs_on_kieran_apps": 15155079,
+    "apps_with_recorded_train_positive_support": 7643,
+    "log_support_pearson": 0.767731897550688
+  },
+  "training_identity_audit": {
+    "status": "NOT_VERIFIED",
+    "reason": "The recorded Kieran and split_v1 identity artifacts are absent in this checkout. Aggregate per-app support cannot establish user or pair independence.",
+    "consequence": "Do not evaluate the existing trained models as an independent test. Audit exact Steam IDs against train and validation; reserve new test accounts and retrain as needed."
+  },
+  "full_top10_review_share": 0.20927253564055176,
+  "cap_sensitivity": [
+    {
+      "seed": 20261108,
+      "rows": 660671,
+      "apps": 8183,
+      "positives": 511698,
+      "positive_rate": 0.7745125788781405,
+      "eligibility": [
+        {
+          "minimum_inputs_after_holdout": 1,
+          "potential_users": 38219,
+          "eligible_users": 33252,
+          "possible_target_pairs": 58381
+        },
+        {
+          "minimum_inputs_after_holdout": 3,
+          "potential_users": 12094,
+          "eligible_users": 11820,
+          "possible_target_pairs": 30224
+        },
+        {
+          "minimum_inputs_after_holdout": 5,
+          "potential_users": 6175,
+          "eligible_users": 6130,
+          "possible_target_pairs": 20488
+        },
+        {
+          "minimum_inputs_after_holdout": 10,
+          "potential_users": 2113,
+          "eligible_users": 2109,
+          "possible_target_pairs": 11192
+        }
+      ],
+      "mean_inputs_after_holdout": 10.958238172920066,
+      "median_inputs_after_holdout": 7.0,
+      "possible_target_pairs": 20488,
+      "all_sample_users": 462812,
+      "eligible_users": 6130,
+      "full_history_mean_inputs_for_same_cap_eligible_users": 51.77373572593801,
+      "positive_rate_error_games_gt100": {
+        "mean_absolute_error": 0.022741262193131835,
+        "median_absolute_error": 0.017245814947521254,
+        "p90_absolute_error": 0.04923433874709976,
+        "games": 5288
+      },
+      "full_top10_review_share_after_cap": 0.0015136126755979904
+    },
+    {
+      "seed": 20261109,
+      "rows": 660671,
+      "apps": 8183,
+      "positives": 511001,
+      "positive_rate": 0.7734575908432487,
+      "eligibility": [
+        {
+          "minimum_inputs_after_holdout": 1,
+          "potential_users": 38028,
+          "eligible_users": 33151,
+          "possible_target_pairs": 58174
+        },
+        {
+          "minimum_inputs_after_holdout": 3,
+          "potential_users": 12079,
+          "eligible_users": 11814,
+          "possible_target_pairs": 30219
+        },
+        {
+          "minimum_inputs_after_holdout": 5,
+          "potential_users": 6102,
+          "eligible_users": 6062,
+          "possible_target_pairs": 20413
+        },
+        {
+          "minimum_inputs_after_holdout": 10,
+          "potential_users": 2094,
+          "eligible_users": 2091,
+          "possible_target_pairs": 11155
+        }
+      ],
+      "mean_inputs_after_holdout": 10.946222368855164,
+      "median_inputs_after_holdout": 7.0,
+      "possible_target_pairs": 20413,
+      "all_sample_users": 463529,
+      "eligible_users": 6062,
+      "full_history_mean_inputs_for_same_cap_eligible_users": 51.853018805674694,
+      "positive_rate_error_games_gt100": {
+        "mean_absolute_error": 0.022923199834117208,
+        "median_absolute_error": 0.01766525947575015,
+        "p90_absolute_error": 0.04981366459627323,
+        "games": 5288
+      },
+      "full_top10_review_share_after_cap": 0.0015136126755979904
+    },
+    {
+      "seed": 20261110,
+      "rows": 660671,
+      "apps": 8183,
+      "positives": 511192,
+      "positive_rate": 0.7737466908642879,
+      "eligibility": [
+        {
+          "minimum_inputs_after_holdout": 1,
+          "potential_users": 37959,
+          "eligible_users": 33047,
+          "possible_target_pairs": 57889
+        },
+        {
+          "minimum_inputs_after_holdout": 3,
+          "potential_users": 12078,
+          "eligible_users": 11804,
+          "possible_target_pairs": 30017
+        },
+        {
+          "minimum_inputs_after_holdout": 5,
+          "potential_users": 6128,
+          "eligible_users": 6086,
+          "possible_target_pairs": 20414
+        },
+        {
+          "minimum_inputs_after_holdout": 10,
+          "potential_users": 2086,
+          "eligible_users": 2084,
+          "possible_target_pairs": 11142
+        }
+      ],
+      "mean_inputs_after_holdout": 11.023989484061781,
+      "median_inputs_after_holdout": 8.0,
+      "possible_target_pairs": 20414,
+      "all_sample_users": 462940,
+      "eligible_users": 6086,
+      "full_history_mean_inputs_for_same_cap_eligible_users": 52.19750246467302,
+      "positive_rate_error_games_gt100": {
+        "mean_absolute_error": 0.022547157357042436,
+        "median_absolute_error": 0.017457335896091775,
+        "p90_absolute_error": 0.04905852417302792,
+        "games": 5288
+      },
+      "full_top10_review_share_after_cap": 0.0015136126755979904
+    },
+    {
+      "seed": 20261111,
+      "rows": 660671,
+      "apps": 8183,
+      "positives": 511177,
+      "positive_rate": 0.773723986674154,
+      "eligibility": [
+        {
+          "minimum_inputs_after_holdout": 1,
+          "potential_users": 38168,
+          "eligible_users": 33175,
+          "possible_target_pairs": 57881
+        },
+        {
+          "minimum_inputs_after_holdout": 3,
+          "potential_users": 12003,
+          "eligible_users": 11747,
+          "possible_target_pairs": 29880
+        },
+        {
+          "minimum_inputs_after_holdout": 5,
+          "potential_users": 6116,
+          "eligible_users": 6077,
+          "possible_target_pairs": 20342
+        },
+        {
+          "minimum_inputs_after_holdout": 10,
+          "potential_users": 2090,
+          "eligible_users": 2090,
+          "possible_target_pairs": 11157
+        }
+      ],
+      "mean_inputs_after_holdout": 11.02961987822939,
+      "median_inputs_after_holdout": 7.0,
+      "possible_target_pairs": 20342,
+      "all_sample_users": 462511,
+      "eligible_users": 6077,
+      "full_history_mean_inputs_for_same_cap_eligible_users": 51.97416488398881,
+      "positive_rate_error_games_gt100": {
+        "mean_absolute_error": 0.02225050419281863,
+        "median_absolute_error": 0.017299529981484152,
+        "p90_absolute_error": 0.048887923544743694,
+        "games": 5288
+      },
+      "full_top10_review_share_after_cap": 0.0015136126755979904
+    },
+    {
+      "seed": 20261112,
+      "rows": 660671,
+      "apps": 8183,
+      "positives": 511257,
+      "positive_rate": 0.7738450756882018,
+      "eligibility": [
+        {
+          "minimum_inputs_after_holdout": 1,
+          "potential_users": 38143,
+          "eligible_users": 33171,
+          "possible_target_pairs": 58154
+        },
+        {
+          "minimum_inputs_after_holdout": 3,
+          "potential_users": 11937,
+          "eligible_users": 11696,
+          "possible_target_pairs": 29930
+        },
+        {
+          "minimum_inputs_after_holdout": 5,
+          "potential_users": 6017,
+          "eligible_users": 5969,
+          "possible_target_pairs": 20209
+        },
+        {
+          "minimum_inputs_after_holdout": 10,
+          "potential_users": 2068,
+          "eligible_users": 2065,
+          "possible_target_pairs": 11166
+        }
+      ],
+      "mean_inputs_after_holdout": 11.044060981738985,
+      "median_inputs_after_holdout": 7.0,
+      "possible_target_pairs": 20209,
+      "all_sample_users": 463241,
+      "eligible_users": 5969,
+      "full_history_mean_inputs_for_same_cap_eligible_users": 51.92092477801977,
+      "positive_rate_error_games_gt100": {
+        "mean_absolute_error": 0.022600840479641168,
+        "median_absolute_error": 0.01762503092273443,
+        "p90_absolute_error": 0.048930330752990914,
+        "games": 5288
+      },
+      "full_top10_review_share_after_cap": 0.0015136126755979904
+    }
+  ],
+  "frank_comparison": {
+    "projection_sha256": "93674b9e0294016d0365e1e2ed07be7883e0f6d77b61b1033294e1c0590155f6",
+    "profile": {
+      "rows": 2631416,
+      "users": 1336109,
+      "apps": 44517,
+      "positives": 1970304,
+      "positive_rate": 0.7487618833358162
+    },
+    "overlap": {
+      "shared_users": 594342,
+      "shared_user_game_pairs": 149113,
+      "shared_pair_label_disagreements": 3629,
+      "shared_games": 7873
+    },
+    "eligibility_after_existing_quarantine": [
+      {
+        "minimum_inputs_after_holdout": 1,
+        "potential_users": 87557,
+        "eligible_users": 78228,
+        "possible_target_pairs": 174753
+      },
+      {
+        "minimum_inputs_after_holdout": 3,
+        "potential_users": 39450,
+        "eligible_users": 38549,
+        "possible_target_pairs": 124692
+      },
+      {
+        "minimum_inputs_after_holdout": 5,
+        "potential_users": 24571,
+        "eligible_users": 24342,
+        "possible_target_pairs": 102373
+      },
+      {
+        "minimum_inputs_after_holdout": 10,
+        "potential_users": 11647,
+        "eligible_users": 11609,
+        "possible_target_pairs": 76018
+      }
+    ],
+    "source_eligible_overlap": {
+      "source_eligible_users_with_frank_catalog_history": 125754,
+      "eligible_in_both": 13016,
+      "source_eligible_users_in_any_frank": 148210
+    },
+    "raw_per_game_counts": {
+      "games": 44517,
+      "minimum": 1,
+      "maximum": 100,
+      "games_exact_100": 18437,
+      "games_gt_100": 0
+    }
+  },
+  "independent_python_csv_validation": {
+    "method": "Python csv.reader, UTF-8 strict decoding; full 13-column scan, zero skipped records",
+    "rows": 15437471,
+    "files": [
+      {
+        "file": "reviews-1-115.csv",
+        "rows": 1460621,
+        "columns": 13,
+        "strict_csv_error": null
+      },
+      {
+        "file": "reviews-11265-13495.csv",
+        "rows": 947866,
+        "columns": 13,
+        "strict_csv_error": null
+      },
+      {
+        "file": "reviews-115-1230.csv",
+        "rows": 2403364,
+        "columns": 13,
+        "strict_csv_error": null
+      },
+      {
+        "file": "reviews-1230-2345.csv",
+        "rows": 3067681,
+        "columns": 13,
+        "strict_csv_error": null
+      },
+      {
+        "file": "reviews-13495-13500.csv",
+        "rows": 150,
+        "columns": 13,
+        "strict_csv_error": null
+      },
+      {
+        "file": "reviews-13500-13537.csv",
+        "rows": 8086,
+        "columns": 13,
+        "strict_csv_error": null
+      },
+      {
+        "file": "reviews-13537-27075.csv",
+        "rows": 1455442,
+        "columns": 13,
+        "strict_csv_error": null
+      },
+      {
+        "file": "reviews-2345-4575.csv",
+        "rows": 2318769,
+        "columns": 13,
+        "strict_csv_error": null
+      },
+      {
+        "file": "reviews-4575-6805.csv",
+        "rows": 1962065,
+        "columns": 13,
+        "strict_csv_error": null
+      },
+      {
+        "file": "reviews-6805-9035.csv",
+        "rows": 1190385,
+        "columns": 13,
+        "strict_csv_error": null
+      },
+      {
+        "file": "reviews-9035-11265.csv",
+        "rows": 623042,
+        "columns": 13,
+        "strict_csv_error": null
+      }
+    ]
+  },
+  "reconciliation": {
+    "source_rows_match_publisher": true,
+    "source_users_match_publisher": true,
+    "source_apps_match_publisher": true,
+    "file_row_sum_matches": true,
+    "python_csv_total_matches": true,
+    "python_csv_each_file_matches": true,
+    "game_pair_sum_matches": true,
+    "user_pair_sum_matches": true,
+    "years_sum_matches": true,
+    "cap_row_counts_match": true,
+    "clean_pair_uniqueness": true,
+    "clean_labels_unambiguous": true
+  },
+  "outputs": {
+    "clean_pairs": "data/processed/forgemaster_v1/clean_pairs.parquet",
+    "potential_accounts": "data/processed/forgemaster_v1/potential_test_accounts.parquet",
+    "tables": "reports/tables/forgemaster",
+    "figures": "figures/forgemaster"
+  },
+  "additional_saved_output_audit": {
+    "script_sha256": "47e69c3ac46471f2da24553003ea48a87fffe5080021f4869a881e711c1d5c3c",
+    "timestamps": {
+      "updated_after_publication_rows": 1,
+      "updated_after_analysis_date_rows": 1,
+      "negative_updated_timestamp_rows": 0,
+      "first_created_utc": "2010-10-15T22:27:49+00:00",
+      "last_created_utc": "2021-04-23T04:35:33+00:00",
+      "first_updated_utc": "2010-10-15T23:25:11+00:00",
+      "last_updated_utc": "2042-06-04T08:20:08+00:00"
+    },
+    "checks": {
+      "clean_parquet_rows": true,
+      "account_parquet_rows": true,
+      "clean_steamids_are_strings": true,
+      "account_steamids_are_strings": true
+    },
+    "publication_cutoff_utc": "2021-04-27T00:13:50+00:00",
+    "analysis_date_end_exclusive_utc": "2026-11-09T00:00:00+00:00"
+  }
+}
