@@ -1,0 +1,40 @@
+{
+  "version": "kieran-frank-reference-v1",
+  "purpose": "Frozen EDA eligibility, Linux flags, metadata availability and known ambiguous review mappings; no account IDs or training interactions",
+  "former_catalog_inputs": [
+    {
+      "file": "A_games.parquet",
+      "sha256": "c71773cbad26ae13f07179fe99275160318719e7375f7b4df151ef8ea260d1d8"
+    },
+    {
+      "file": "A_recommendations.parquet",
+      "sha256": "6bd5f1cd77b41fa8eaa8ac2cd407dced84c01ea505a33a05eb74e84715a8c226"
+    },
+    {
+      "file": "A_games_metadata.parquet",
+      "sha256": "6733c8c46b22397b1080bb3bf22be7ab4f2b5df2730d327fa5eb1318ec70ee72"
+    },
+    {
+      "file": "C_games_2025.parquet",
+      "sha256": "e65e452f5a5e5ec95a79d5a5ad8811739b3ff31384c4ff0a7926747829a82efc"
+    }
+  ],
+  "historical_mapping_audit_sha256": "dfdb08ac77341cb2f031824b432b5bbe237db5ea19fb199a13a854e4d4f50205",
+  "frank_commit": "75694cc07a6cdc69f48f9c316ca1e3e38a3f0f89",
+  "quarantine_scope": "Known review-to-App-ID ambiguity union from the completed two-source audit. Rounded artermiloff owner-ID mismatches alone are NOT used.",
+  "content_scope": "Availability flags only, not game text, tags or model-ready TF-IDF features",
+  "files": {
+    "catalog.parquet": {
+      "sha256": "7f470659b3d9f2f35b01c566896c4ca033a9af8992f6623d9c33a196819b0f15",
+      "rows": 50872
+    },
+    "content_catalog.parquet": {
+      "sha256": "5a97c6c959ed287a4c988ffe0f355064eddf2f9967f4e0e38970e375b835b20f",
+      "rows": 104614
+    },
+    "review_app_quarantine.parquet": {
+      "sha256": "d2c1b4d4a12c096973c3e0403034330383b21d4696d72d03a7ea73b010734353",
+      "rows": 296
+    }
+  }
+}

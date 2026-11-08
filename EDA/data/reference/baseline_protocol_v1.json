@@ -1,0 +1,52 @@
+{
+  "version": "positive-review-baseline-protocol-v1",
+  "status": "frozen_before_ranking_metrics",
+  "decision_date_kst": "2026-11-08",
+  "purpose": "Initial untuned TF-IDF versus Item-KNN; no hyperparameter search in this run",
+  "split_manifest_sha256": "0d94731ccbcc9afec6e2d0a1394d6fa4a50e65f45e9dd9d3a764a2309bd2ce9f",
+  "tfidf_manifest_sha256": "ecfc55c171d84e2222d6cac2145382c6d9512bf56de8b51b5ed61667ca1e108a",
+  "cohort_users": {"validation": 325639, "test": 24342},
+  "input_games": 37610,
+  "linux_candidates": 6630,
+  "item_knn": {
+    "neighbors": 100,
+    "orientation": "Each Linux candidate retains its 100 most similar distinct games from the full fixed input catalog",
+    "similarity": "binary positive-review cosine cooccurrence/sqrt(full_train_support_i*full_train_support_j)",
+    "retain_positive_singletons": true,
+    "minimum_cooccurrence": 1,
+    "shrinkage": 0,
+    "self_similarity": "excluded",
+    "neighbor_tie_break": "App ID ascending",
+    "query_scoring": "sum retained similarities divided by ALL remaining positive query games, including unsupported ones"
+  },
+  "tfidf": {
+    "parameters": "Exactly the existing description-tfidf-v1 manifest; no changes",
+    "profile": "Equal-weight mean of L2-normalized positive game vectors, including zero vectors, then cosine",
+    "zero_text_games": "Retain in catalog, queries and targets; never drop users or replace descriptions after tokenization"
+  },
+  "ranking": {
+    "top_k": 10,
+    "positive_scores_only": true,
+    "exclude_all_remaining_positive_and_negative_observed_games": true,
+    "hidden_target_not_excluded": true,
+    "tie_break": "App ID ascending",
+    "fallback": "none",
+    "empty_lists_kept_in_denominator": true
+  },
+  "metrics": ["Recall@10", "NDCG@10"],
+  "validation_selection": {
+    "primary": "NDCG@10 on all fixed validation users",
+    "secondary": "Recall@10 if primary tied",
+    "this_run": "Report both fixed baselines; no tuning, no refit on validation, no dropping unsupported users",
+    "diagnostics": "Empty/short lists, catalog coverage, unsupported inputs and targets, train candidate-support quartiles; popularity and exact uniform-random controls",
+    "support_buckets": "Zero train support separately; positive Linux candidate-support quartiles computed only from train, numpy linear quantiles; side=right for ties"
+  },
+  "test_policy": "Run the unchanged baselines once after validation and correctness checks; never tune using frank test metrics",
+  "controls": "Train-popularity top10 after same exclusions; uniform-random without-replacement exact expectation over remaining Linux candidates. Diagnostic only, never recommendation filling",
+  "limitations": [
+    "Not a chronological future-prediction protocol",
+    "frank has per-game review caps and reviewer-selection bias",
+    "Fixed historical Linux catalog; not current platform support or latest releases",
+    "TF-IDF has 17 textless Linux candidates and limited CJK segmentation"
+  ]
+}

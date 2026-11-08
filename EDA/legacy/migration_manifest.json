@@ -1,0 +1,518 @@
+[
+  {
+    "to": "legacy/docs/datasets",
+    "from": "docs/datasets"
+  },
+  {
+    "to": "legacy/docs/test_dataset_candidates.md",
+    "from": "docs/test_dataset_candidates.md"
+  },
+  {
+    "to": "legacy/notebooks/__pycache__",
+    "from": "notebooks/__pycache__"
+  },
+  {
+    "to": "legacy/notebooks/01_eda.ipynb",
+    "from": "notebooks/01_eda.ipynb"
+  },
+  {
+    "to": "legacy/notebooks/01_eda.py",
+    "from": "notebooks/01_eda.py"
+  },
+  {
+    "to": "legacy/notebooks/02_eda_data_sufficiency.ipynb",
+    "from": "notebooks/02_eda_data_sufficiency.ipynb"
+  },
+  {
+    "to": "legacy/notebooks/02_eda_data_sufficiency.py",
+    "from": "notebooks/02_eda_data_sufficiency.py"
+  },
+  {
+    "to": "legacy/notebooks/03_large_review_train_test_eda.ipynb",
+    "from": "notebooks/03_large_review_train_test_eda.ipynb"
+  },
+  {
+    "to": "legacy/notebooks/03_large_review_train_test_eda.py",
+    "from": "notebooks/03_large_review_train_test_eda.py"
+  },
+  {
+    "to": "legacy/figures/fig01_A_interactions_hours.png",
+    "from": "figures/fig01_A_interactions_hours.png"
+  },
+  {
+    "to": "legacy/figures/fig02_reviews_by_year.png",
+    "from": "figures/fig02_reviews_by_year.png"
+  },
+  {
+    "to": "legacy/figures/fig03_A_linux_share_concentration.png",
+    "from": "figures/fig03_A_linux_share_concentration.png"
+  },
+  {
+    "to": "legacy/figures/fig04_id_overlap.png",
+    "from": "figures/fig04_id_overlap.png"
+  },
+  {
+    "to": "legacy/figures/fig05_external_test_eligibility.png",
+    "from": "figures/fig05_external_test_eligibility.png"
+  },
+  {
+    "to": "legacy/figures/fig06_popularity_A_vs_B.png",
+    "from": "figures/fig06_popularity_A_vs_B.png"
+  },
+  {
+    "to": "legacy/figures/fig07_label_sufficiency.png",
+    "from": "figures/fig07_label_sufficiency.png"
+  },
+  {
+    "to": "legacy/figures/fig08_cooccurrence_support.png",
+    "from": "figures/fig08_cooccurrence_support.png"
+  },
+  {
+    "to": "legacy/figures/fig09_A_linux_top_tags.png",
+    "from": "figures/fig09_A_linux_top_tags.png"
+  },
+  {
+    "to": "legacy/figures/fig10_tfidf_nearest_similarity.png",
+    "from": "figures/fig10_tfidf_nearest_similarity.png"
+  },
+  {
+    "to": "legacy/figures/fig11_B_input_loss.png",
+    "from": "figures/fig11_B_input_loss.png"
+  },
+  {
+    "to": "legacy/figures/fig12_tag_source_weighted.png",
+    "from": "figures/fig12_tag_source_weighted.png"
+  },
+  {
+    "to": "legacy/figures/fig13_large_original_frank_comparison.png",
+    "from": "figures/fig13_large_original_frank_comparison.png"
+  },
+  {
+    "to": "legacy/figures/fig14_large_original_review_years.png",
+    "from": "figures/fig14_large_original_review_years.png"
+  },
+  {
+    "to": "legacy/scripts/audit_a_user_split.py",
+    "from": "scripts/audit_a_user_split.py"
+  },
+  {
+    "to": "legacy/scripts/audit_original_identity_precision.py",
+    "from": "scripts/audit_original_identity_precision.py"
+  },
+  {
+    "to": "legacy/scripts/audit_review_candidates.py",
+    "from": "scripts/audit_review_candidates.py"
+  },
+  {
+    "to": "legacy/scripts/audit_steam_id_combinations.py",
+    "from": "scripts/audit_steam_id_combinations.py"
+  },
+  {
+    "to": "legacy/scripts/audit_vintage_independence.py",
+    "from": "scripts/audit_vintage_independence.py"
+  },
+  {
+    "to": "legacy/scripts/compare_large_review_frank.py",
+    "from": "scripts/compare_large_review_frank.py"
+  },
+  {
+    "to": "legacy/scripts/download_data.py",
+    "from": "scripts/download_data.py"
+  },
+  {
+    "to": "legacy/scripts/ingest_artermiloff_original.py",
+    "from": "scripts/ingest_artermiloff_original.py"
+  },
+  {
+    "to": "legacy/scripts/preprocess.py",
+    "from": "scripts/preprocess.py"
+  },
+  {
+    "to": "legacy/scripts/test_independence_audits.py",
+    "from": "scripts/test_independence_audits.py"
+  },
+  {
+    "to": "legacy/scripts/write_large_review_frank_report.py",
+    "from": "scripts/write_large_review_frank_report.py"
+  },
+  {
+    "to": "legacy/reports/A_strict_user_split_preview.json",
+    "from": "reports/A_strict_user_split_preview.json"
+  },
+  {
+    "to": "legacy/reports/artermiloff_2024_frank_eda_metrics.json",
+    "from": "reports/artermiloff_2024_frank_eda_metrics.json"
+  },
+  {
+    "to": "legacy/reports/dataset_combination_catalog.json",
+    "from": "reports/dataset_combination_catalog.json"
+  },
+  {
+    "to": "legacy/reports/dataset_combination_overlap_metrics.json",
+    "from": "reports/dataset_combination_overlap_metrics.json"
+  },
+  {
+    "to": "legacy/reports/dataset_train_test_combinations.md",
+    "from": "reports/dataset_train_test_combinations.md"
+  },
+  {
+    "to": "legacy/reports/eda_metrics.json",
+    "from": "reports/eda_metrics.json"
+  },
+  {
+    "to": "legacy/reports/eda_sufficiency_metrics.json",
+    "from": "reports/eda_sufficiency_metrics.json"
+  },
+  {
+    "to": "legacy/reports/eda_sufficiency_summary.md",
+    "from": "reports/eda_sufficiency_summary.md"
+  },
+  {
+    "to": "legacy/reports/eda_summary.md",
+    "from": "reports/eda_summary.md"
+  },
+  {
+    "to": "legacy/reports/large_original_frank_comparison_metrics.json",
+    "from": "reports/large_original_frank_comparison_metrics.json"
+  },
+  {
+    "to": "legacy/reports/large_review_frank_eda.md",
+    "from": "reports/large_review_frank_eda.md"
+  },
+  {
+    "to": "legacy/reports/original_identity_precision_metrics.json",
+    "from": "reports/original_identity_precision_metrics.json"
+  },
+  {
+    "to": "legacy/reports/test_dataset_candidate_review.md",
+    "from": "reports/test_dataset_candidate_review.md"
+  },
+  {
+    "to": "legacy/reports/test_dataset_review_history_metrics.json",
+    "from": "reports/test_dataset_review_history_metrics.json"
+  },
+  {
+    "to": "legacy/reports/vintage_independence_audit.md",
+    "from": "reports/vintage_independence_audit.md"
+  },
+  {
+    "to": "legacy/reports/vintage_independence_metrics.json",
+    "from": "reports/vintage_independence_metrics.json"
+  },
+  {
+    "to": "legacy/reports/tables/00_sources.csv",
+    "from": "reports/tables/00_sources.csv"
+  },
+  {
+    "to": "legacy/reports/tables/01_schema_nulls.csv",
+    "from": "reports/tables/01_schema_nulls.csv"
+  },
+  {
+    "to": "legacy/reports/tables/01_structure.csv",
+    "from": "reports/tables/01_structure.csv"
+  },
+  {
+    "to": "legacy/reports/tables/02_A_positive_kcore.csv",
+    "from": "reports/tables/02_A_positive_kcore.csv"
+  },
+  {
+    "to": "legacy/reports/tables/02_reviews_by_year.csv",
+    "from": "reports/tables/02_reviews_by_year.csv"
+  },
+  {
+    "to": "legacy/reports/tables/03_linux_flag_A_vs_C.csv",
+    "from": "reports/tables/03_linux_flag_A_vs_C.csv"
+  },
+  {
+    "to": "legacy/reports/tables/04_B_owned_not_in_A_reasons.csv",
+    "from": "reports/tables/04_B_owned_not_in_A_reasons.csv"
+  },
+  {
+    "to": "legacy/reports/tables/04_B_owned_not_in_A_top30.csv",
+    "from": "reports/tables/04_B_owned_not_in_A_top30.csv"
+  },
+  {
+    "to": "legacy/reports/tables/04_id_overlap.csv",
+    "from": "reports/tables/04_id_overlap.csv"
+  },
+  {
+    "to": "legacy/reports/tables/05_external_test_eligibility.csv",
+    "from": "reports/tables/05_external_test_eligibility.csv"
+  },
+  {
+    "to": "legacy/reports/tables/05_top_target_items.csv",
+    "from": "reports/tables/05_top_target_items.csv"
+  },
+  {
+    "to": "legacy/reports/tables/06_cli_file_verification.csv",
+    "from": "reports/tables/06_cli_file_verification.csv"
+  },
+  {
+    "to": "legacy/reports/tables/07_A_internal_time_split.csv",
+    "from": "reports/tables/07_A_internal_time_split.csv"
+  },
+  {
+    "to": "legacy/reports/tables/07_candidate_labels.csv",
+    "from": "reports/tables/07_candidate_labels.csv"
+  },
+  {
+    "to": "legacy/reports/tables/07_candidate_target_comparison.csv",
+    "from": "reports/tables/07_candidate_target_comparison.csv"
+  },
+  {
+    "to": "legacy/reports/tables/07_longtail_sensitivity.csv",
+    "from": "reports/tables/07_longtail_sensitivity.csv"
+  },
+  {
+    "to": "legacy/reports/tables/07_popularity_bootstrap_ci.csv",
+    "from": "reports/tables/07_popularity_bootstrap_ci.csv"
+  },
+  {
+    "to": "legacy/reports/tables/07_pre2016_kcore.csv",
+    "from": "reports/tables/07_pre2016_kcore.csv"
+  },
+  {
+    "to": "legacy/reports/tables/07_reproduction.csv",
+    "from": "reports/tables/07_reproduction.csv"
+  },
+  {
+    "to": "legacy/reports/tables/08_B_target_cooccurrence_reachability.csv",
+    "from": "reports/tables/08_B_target_cooccurrence_reachability.csv"
+  },
+  {
+    "to": "legacy/reports/tables/08_positive_cooccurrence_by_popularity.csv",
+    "from": "reports/tables/08_positive_cooccurrence_by_popularity.csv"
+  },
+  {
+    "to": "legacy/reports/tables/08_positive_cooccurrence_neighbors.csv",
+    "from": "reports/tables/08_positive_cooccurrence_neighbors.csv"
+  },
+  {
+    "to": "legacy/reports/tables/09_cf_item_threshold_sensitivity.csv",
+    "from": "reports/tables/09_cf_item_threshold_sensitivity.csv"
+  },
+  {
+    "to": "legacy/reports/tables/10_C_A_C_tag_jaccard.csv",
+    "from": "reports/tables/10_C_A_C_tag_jaccard.csv"
+  },
+  {
+    "to": "legacy/reports/tables/10_C_A_description_summary.csv",
+    "from": "reports/tables/10_C_A_description_summary.csv"
+  },
+  {
+    "to": "legacy/reports/tables/10_C_A_exact_duplicate_descriptions.csv",
+    "from": "reports/tables/10_C_A_exact_duplicate_descriptions.csv"
+  },
+  {
+    "to": "legacy/reports/tables/10_C_A_tag_summary.csv",
+    "from": "reports/tables/10_C_A_tag_summary.csv"
+  },
+  {
+    "to": "legacy/reports/tables/10_C_A_tag_top20.csv",
+    "from": "reports/tables/10_C_A_tag_top20.csv"
+  },
+  {
+    "to": "legacy/reports/tables/10_C_tfidf_queries.csv",
+    "from": "reports/tables/10_C_tfidf_queries.csv"
+  },
+  {
+    "to": "legacy/reports/tables/11_C_qualitative_review.csv",
+    "from": "reports/tables/11_C_qualitative_review.csv"
+  },
+  {
+    "to": "legacy/reports/tables/11_C_repeated_phrases.csv",
+    "from": "reports/tables/11_C_repeated_phrases.csv"
+  },
+  {
+    "to": "legacy/reports/tables/11_C_tfidf_input_coverage.csv",
+    "from": "reports/tables/11_C_tfidf_input_coverage.csv"
+  },
+  {
+    "to": "legacy/reports/tables/11_C_tfidf_query_top5_neighbors.csv",
+    "from": "reports/tables/11_C_tfidf_query_top5_neighbors.csv"
+  },
+  {
+    "to": "legacy/reports/tables/11_C_tfidf_summary.csv",
+    "from": "reports/tables/11_C_tfidf_summary.csv"
+  },
+  {
+    "to": "legacy/reports/tables/12_B_input_loss_distribution.csv",
+    "from": "reports/tables/12_B_input_loss_distribution.csv"
+  },
+  {
+    "to": "legacy/reports/tables/12_B_missing_other_classification_summary.csv",
+    "from": "reports/tables/12_B_missing_other_classification_summary.csv"
+  },
+  {
+    "to": "legacy/reports/tables/12_B_missing_other_reclassification.csv",
+    "from": "reports/tables/12_B_missing_other_reclassification.csv"
+  },
+  {
+    "to": "legacy/reports/tables/12_B_missing_other_top_coverage.csv",
+    "from": "reports/tables/12_B_missing_other_top_coverage.csv"
+  },
+  {
+    "to": "legacy/reports/tables/12_C_only_linux_B_positive_games.csv",
+    "from": "reports/tables/12_C_only_linux_B_positive_games.csv"
+  },
+  {
+    "to": "legacy/reports/tables/13_bundle_linux.csv",
+    "from": "reports/tables/13_bundle_linux.csv"
+  },
+  {
+    "to": "legacy/reports/tables/13_game_metadata_distributions.csv",
+    "from": "reports/tables/13_game_metadata_distributions.csv"
+  },
+  {
+    "to": "legacy/reports/tables/13_helpful_funny.csv",
+    "from": "reports/tables/13_helpful_funny.csv"
+  },
+  {
+    "to": "legacy/reports/tables/13_linux_steam_deck_crosstab.csv",
+    "from": "reports/tables/13_linux_steam_deck_crosstab.csv"
+  },
+  {
+    "to": "legacy/reports/tables/13_review_sampling_proxy.csv",
+    "from": "reports/tables/13_review_sampling_proxy.csv"
+  },
+  {
+    "to": "legacy/reports/tables/14_external_dataset_candidates.csv",
+    "from": "reports/tables/14_external_dataset_candidates.csv"
+  },
+  {
+    "to": "legacy/reports/tables/15_B_team_fortress_dota_entries.csv",
+    "from": "reports/tables/15_B_team_fortress_dota_entries.csv"
+  },
+  {
+    "to": "legacy/reports/tables/15_baseline_uncertainty.csv",
+    "from": "reports/tables/15_baseline_uncertainty.csv"
+  },
+  {
+    "to": "legacy/reports/tables/15_baseline_without_absent_games.csv",
+    "from": "reports/tables/15_baseline_without_absent_games.csv"
+  },
+  {
+    "to": "legacy/reports/tables/15_candidates_without_A_tags.csv",
+    "from": "reports/tables/15_candidates_without_A_tags.csv"
+  },
+  {
+    "to": "legacy/reports/tables/15_cf_insufficient_weighted.csv",
+    "from": "reports/tables/15_cf_insufficient_weighted.csv"
+  },
+  {
+    "to": "legacy/reports/tables/15_product_type_title_pattern.csv",
+    "from": "reports/tables/15_product_type_title_pattern.csv"
+  },
+  {
+    "to": "legacy/reports/tables/15_tag_source_weighted_impact.csv",
+    "from": "reports/tables/15_tag_source_weighted_impact.csv"
+  },
+  {
+    "to": "legacy/reports/tables/15_target_games_absent_from_B_ownership.csv",
+    "from": "reports/tables/15_target_games_absent_from_B_ownership.csv"
+  },
+  {
+    "to": "legacy/reports/tables/15_target_games_released_after_2015.csv",
+    "from": "reports/tables/15_target_games_released_after_2015.csv"
+  },
+  {
+    "to": "legacy/reports/tables/16_artermiloff_2024_app_support.csv",
+    "from": "reports/tables/16_artermiloff_2024_app_support.csv"
+  },
+  {
+    "to": "legacy/reports/tables/16_large_original_comparison.csv",
+    "from": "reports/tables/16_large_original_comparison.csv"
+  },
+  {
+    "to": "legacy/reports/tables/README.md",
+    "from": "reports/tables/README.md"
+  },
+  {
+    "to": "data/raw/kieran_original",
+    "from": "data/raw/candidate_review/kieran_original"
+  },
+  {
+    "to": "data/processed/kieran_original",
+    "from": "data/processed/candidate_identity/kieran_original"
+  },
+  {
+    "to": "data/processed/frank",
+    "from": "data/processed/candidate_identity/frankjc2022"
+  },
+  {
+    "to": "legacy/data/raw/A_game_recs",
+    "from": "data/raw/A_game_recs"
+  },
+  {
+    "to": "legacy/data/raw/B_ucsd_steam",
+    "from": "data/raw/B_ucsd_steam"
+  },
+  {
+    "to": "legacy/data/raw/C_steam_games_2025",
+    "from": "data/raw/C_steam_games_2025"
+  },
+  {
+    "to": "legacy/data/raw/manifest.json",
+    "from": "data/raw/manifest.json"
+  },
+  {
+    "to": "legacy/data/raw/candidate_review",
+    "from": "data/raw/candidate_review"
+  },
+  {
+    "to": "legacy/data/processed/candidate_identity",
+    "from": "data/processed/candidate_identity"
+  },
+  {
+    "to": "legacy/data/processed/combination_research",
+    "from": "data/processed/combination_research"
+  },
+  {
+    "to": "legacy/data/processed/sufficiency_build",
+    "from": "data/processed/sufficiency_build"
+  },
+  {
+    "to": "legacy/data/processed/A_games_metadata.parquet",
+    "from": "data/processed/A_games_metadata.parquet"
+  },
+  {
+    "to": "legacy/data/processed/A_games.parquet",
+    "from": "data/processed/A_games.parquet"
+  },
+  {
+    "to": "legacy/data/processed/A_recommendations.parquet",
+    "from": "data/processed/A_recommendations.parquet"
+  },
+  {
+    "to": "legacy/data/processed/A_users.parquet",
+    "from": "data/processed/A_users.parquet"
+  },
+  {
+    "to": "legacy/data/processed/B_bundle_items.parquet",
+    "from": "data/processed/B_bundle_items.parquet"
+  },
+  {
+    "to": "legacy/data/processed/B_reviews.parquet",
+    "from": "data/processed/B_reviews.parquet"
+  },
+  {
+    "to": "legacy/data/processed/B_steam_games.parquet",
+    "from": "data/processed/B_steam_games.parquet"
+  },
+  {
+    "to": "legacy/data/processed/B_users_items_profiles.parquet",
+    "from": "data/processed/B_users_items_profiles.parquet"
+  },
+  {
+    "to": "legacy/data/processed/B_users_items.parquet",
+    "from": "data/processed/B_users_items.parquet"
+  },
+  {
+    "to": "legacy/data/processed/C_games_2025.parquet",
+    "from": "data/processed/C_games_2025.parquet"
+  },
+  {
+    "to": "legacy/data/processed/README.txt",
+    "from": "data/processed/README.txt"
+  }
+]

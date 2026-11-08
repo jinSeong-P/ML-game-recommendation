@@ -1,0 +1,400 @@
+{
+  "version": "description-tfidf-v1",
+  "status": "complete",
+  "started_utc": "2026-11-07T15:09:51.217362+00:00",
+  "sources": {
+    "source_manifest_sha256_before_build": "5f1dc88bca4331cc8eb1c54d17c317834add337ec195f9b5497294ec17f727d9",
+    "reference_manifest_sha256": "c21309276ed4c069e7ad5fc55a45b778b304978ffd861154750d2158d3164d64",
+    "split_manifest_sha256": "0d94731ccbcc9afec6e2d0a1394d6fa4a50e65f45e9dd9d3a764a2309bd2ce9f",
+    "sources": {
+      "input_apps": {
+        "file": "data/processed/modeling/split_v1/catalog/input_apps.parquet",
+        "sha256": "03d323151f7280c0cfaf06d25d9c22192ed776d2b3e1deb173ffcb397158b3eb",
+        "bytes": 53481
+      },
+      "linux_candidates": {
+        "file": "data/processed/modeling/split_v1/catalog/linux_candidates.parquet",
+        "sha256": "d796b813638a551e8eaba5e83d90f4cdbd1b3a8c0dd0a0894524d6945910f176",
+        "bytes": 12206
+      },
+      "A.description": {
+        "file": "legacy/data/processed/A_games_metadata.parquet",
+        "sha256": "6733c8c46b22397b1080bb3bf22be7ab4f2b5df2730d327fa5eb1318ec70ee72",
+        "bytes": 6684248
+      },
+      "C.short_description": {
+        "file": "legacy/data/processed/C_games_2025.parquet",
+        "sha256": "e65e452f5a5e5ec95a79d5a5ad8811739b3ff31384c4ff0a7926747829a82efc",
+        "bytes": 227098206
+      }
+    },
+    "review_data_or_ranking_metrics_loaded": false
+  },
+  "cleaning": {
+    "version": "description-clean-v1",
+    "source_priority": [
+      "A.description",
+      "C.short_description"
+    ],
+    "fallback_only_when_primary": "null, empty or Unicode whitespace-only before cleaning",
+    "unicode_normalization": "NFKC",
+    "html_entity_decode_passes": 2,
+    "html": "strip tags/comments and script/style content; separate block elements",
+    "bbcode": "remove known formatting tags and image payloads; preserve URL labels",
+    "urls": "remove http/https/www URLs",
+    "control_characters": "replace Cc/Cf with space",
+    "whitespace": "collapse to single spaces and trim",
+    "promotional_boilerplate": "flag repetition; no semantic sentence deletion without evidence",
+    "stemming_or_morphology": false,
+    "language_policy": "retain all scripts; script profile is not language identification"
+  },
+  "tfidf": {
+    "analyzer": "word",
+    "token_pattern": null,
+    "tokenizer": "tfidf_content.tokenize_description",
+    "tokenizer_pattern": "(?u)\\b\\w\\w+\\b",
+    "lowercase": false,
+    "tokenizer_lowercase": true,
+    "ngram_range": [
+      1,
+      1
+    ],
+    "min_df": 1,
+    "max_df": 1.0,
+    "max_features": null,
+    "stop_words": null,
+    "norm": "l2",
+    "use_idf": true,
+    "smooth_idf": true,
+    "sublinear_tf": false,
+    "binary": false,
+    "dtype": "float32",
+    "tuning_status": "untuned_initial_baseline; no validation/test ranking metrics used"
+  },
+  "fit_scope": "All 37610 fixed input game descriptions including non-Linux and empty rows; shared public metadata only",
+  "index": {
+    "format": "scipy CSR float32 NPZ; exact sparse dot product after L2 normalization",
+    "shape": [
+      37610,
+      48011
+    ],
+    "nnz": 1060845,
+    "dedicated_vector_database": false
+  },
+  "summary": {
+    "input_catalog": {
+      "apps": 37610,
+      "raw_available": 37531,
+      "A_primary": 36993,
+      "C_short_fills": 538,
+      "status_counts": {
+        "supported": 37527,
+        "raw_missing": 79,
+        "zero_after_tokenization": 4
+      },
+      "nonzero_vectors": 37527,
+      "zero_vectors": 83,
+      "script_profiles": {
+        "LATIN": 36796,
+        "NO_LETTERS": 82,
+        "CJK+HIRAGANA+KATAKANA+LATIN": 22,
+        "CJK+LATIN": 276,
+        "HIRAGANA+LATIN": 3,
+        "CYRILLIC+LATIN": 23,
+        "HEBREW+LATIN": 2,
+        "CJK+HIRAGANA+LATIN": 9,
+        "GREEK+LATIN": 6,
+        "CJK": 302,
+        "CYRILLIC": 12,
+        "CJK+HIRAGANA": 2,
+        "KATAKANA+LATIN": 4,
+        "CJK+HIRAGANA+KATAKANA": 40,
+        "HANGUL+LATIN": 6,
+        "GREEK+KATAKANA+LATIN": 1,
+        "HEBREW": 1,
+        "LATIN+OTHER": 3,
+        "CJK+HIRAGANA+KATAKANA+OTHER": 4,
+        "GREEK+LATIN+THAI": 1,
+        "CJK+CYRILLIC+HIRAGANA": 1,
+        "CJK+KATAKANA+LATIN": 2,
+        "ARABIC+LATIN": 1,
+        "HANGUL": 6,
+        "LATIN+THAI": 1,
+        "CJK+HIRAGANA+KATAKANA+LATIN+OTHER": 2,
+        "CYRILLIC+GREEK+KATAKANA+LATIN": 1,
+        "GREEK": 1
+      },
+      "replacement_character_apps": 0,
+      "high_token_repetition_apps": 1,
+      "clean_empty_with_unused_c_alternative": 0
+    },
+    "linux_candidates": {
+      "apps": 6630,
+      "raw_available": 6613,
+      "A_primary": 6507,
+      "C_short_fills": 106,
+      "status_counts": {
+        "supported": 6613,
+        "raw_missing": 17
+      },
+      "nonzero_vectors": 6613,
+      "zero_vectors": 17,
+      "script_profiles": {
+        "LATIN": 6595,
+        "NO_LETTERS": 17,
+        "CJK+HIRAGANA+KATAKANA+LATIN": 2,
+        "CJK+LATIN": 2,
+        "HIRAGANA+LATIN": 1,
+        "CJK": 5,
+        "CYRILLIC+LATIN": 2,
+        "HEBREW+LATIN": 1,
+        "HANGUL": 3,
+        "CYRILLIC+GREEK+KATAKANA+LATIN": 1,
+        "CJK+HIRAGANA+KATAKANA": 1
+      },
+      "replacement_character_apps": 0,
+      "high_token_repetition_apps": 0,
+      "clean_empty_with_unused_c_alternative": 0
+    },
+    "exact_duplicate_groups": 136,
+    "apps_in_duplicate_groups": 342
+  },
+  "runtime": {
+    "python": "3.13.17",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "scikit_learn": "1.9.1",
+    "pyarrow": "26.0.0"
+  },
+  "ranking_metrics_computed": false,
+  "code_sha256": {
+    "builder": "96fa266384caddb8c62fef6bc6cd4831da316b837cd6e09e5e5f2459da783269",
+    "text_and_retrieval": "4889b1225d5c206df0e58021942f79839976ad22b74da577a99900db3b9c1b71",
+    "verifier": "df71fc47f3cc7326ee4c5df5ec952d573961b7378992097d6dcf349b87b923f3"
+  },
+  "files": {
+    "descriptions.parquet": {
+      "bytes": 19725043,
+      "sha256": "9c7c95fb4a3ed3f6d306dd58062116578cfcc4bd59cb1a9897ee125d9446b000",
+      "rows": 37610,
+      "schema": [
+        {
+          "name": "row_id",
+          "type": "int64"
+        },
+        {
+          "name": "app_id",
+          "type": "int64"
+        },
+        {
+          "name": "linux",
+          "type": "bool"
+        },
+        {
+          "name": "a_description",
+          "type": "string"
+        },
+        {
+          "name": "c_short_description",
+          "type": "string"
+        },
+        {
+          "name": "text_source",
+          "type": "string"
+        },
+        {
+          "name": "raw_description",
+          "type": "string"
+        },
+        {
+          "name": "description_clean",
+          "type": "string"
+        },
+        {
+          "name": "raw_sha256",
+          "type": "string"
+        },
+        {
+          "name": "clean_sha256",
+          "type": "string"
+        },
+        {
+          "name": "raw_char_count",
+          "type": "int64"
+        },
+        {
+          "name": "clean_char_count",
+          "type": "int64"
+        },
+        {
+          "name": "tokens",
+          "type": "list<element: string>"
+        },
+        {
+          "name": "token_count",
+          "type": "int64"
+        },
+        {
+          "name": "unique_token_count",
+          "type": "int64"
+        },
+        {
+          "name": "text_status",
+          "type": "string"
+        },
+        {
+          "name": "script_profile",
+          "type": "string"
+        },
+        {
+          "name": "language_status",
+          "type": "string"
+        },
+        {
+          "name": "has_replacement_character",
+          "type": "bool"
+        },
+        {
+          "name": "high_token_repetition",
+          "type": "bool"
+        },
+        {
+          "name": "cleaning_changed",
+          "type": "bool"
+        },
+        {
+          "name": "clean_empty_with_unused_c_alternative",
+          "type": "bool"
+        },
+        {
+          "name": "duplicate_text_group_size",
+          "type": "int64"
+        },
+        {
+          "name": "feature_count",
+          "type": "int64"
+        }
+      ]
+    },
+    "duplicate_text_groups.parquet": {
+      "bytes": 7852,
+      "sha256": "3c9e481b1b9ff65e9e4eb5ae9a5a519ee562fd551590fbe9d5bbc29358f40f90",
+      "rows": 136,
+      "schema": [
+        {
+          "name": "clean_sha256",
+          "type": "string"
+        },
+        {
+          "name": "app_ids",
+          "type": "list<element: int64>"
+        },
+        {
+          "name": "group_size",
+          "type": "int64"
+        }
+      ]
+    },
+    "game_rows.parquet": {
+      "bytes": 263820,
+      "sha256": "b052af666f1a0399e38b9caea9554b8ea59c0e6a8b6deb4ec17e6922e759ba97",
+      "rows": 37610,
+      "schema": [
+        {
+          "name": "row_id",
+          "type": "int64"
+        },
+        {
+          "name": "app_id",
+          "type": "int64"
+        },
+        {
+          "name": "linux",
+          "type": "bool"
+        },
+        {
+          "name": "text_source",
+          "type": "string"
+        },
+        {
+          "name": "text_status",
+          "type": "string"
+        },
+        {
+          "name": "feature_count",
+          "type": "int64"
+        }
+      ]
+    },
+    "parameters.json": {
+      "bytes": 1485,
+      "sha256": "90dc74b587d72e32ec1c792df5d40aa9d46542d4f97f3b967fb7ef971cae2adf"
+    },
+    "tfidf_csr.npz": {
+      "bytes": 5666382,
+      "sha256": "a223df26b345be5d3034799d0f8be29f0c15f5c1656f844b6abe50c23cc7a737"
+    },
+    "vocabulary_idf.parquet": {
+      "bytes": 629818,
+      "sha256": "26c188de61f42e2fbca3b8c7732802b85114aedf4a3bf1db034d5ef81cc85c5b",
+      "rows": 48011,
+      "schema": [
+        {
+          "name": "feature_index",
+          "type": "int32"
+        },
+        {
+          "name": "term",
+          "type": "string"
+        },
+        {
+          "name": "idf",
+          "type": "float"
+        }
+      ]
+    }
+  },
+  "verification": {
+    "passed": true,
+    "hashes_verified": true,
+    "zero_violation_checks": {
+      "row_mapping_errors": 0,
+      "fixed_catalog_differences": 0,
+      "linux_candidate_differences": 0,
+      "source_priority_errors": 0,
+      "cleaning_errors": 0,
+      "tokenization_errors": 0,
+      "text_hash_errors": 0,
+      "matrix_shape_errors": 0,
+      "invalid_matrix_values": 0,
+      "vocabulary_index_errors": 0,
+      "feature_status_errors": 0,
+      "l2_norm_errors": 0,
+      "idf_formula_errors": 0,
+      "tfidf_reconstruction_errors": 0,
+      "token_vocabulary_gaps": 0,
+      "retrieval_smoke_errors": 0,
+      "zero_profile_fallback_errors": 0
+    },
+    "input_apps": 37610,
+    "linux_candidates": 6630,
+    "vocabulary_size": 48011,
+    "zero_vectors": 83,
+    "ranking_metrics_computed": false
+  },
+  "completed_utc": "2026-11-07T15:10:00.065231+00:00",
+  "artifact_directory": "data/processed/modeling/tfidf_content_v1",
+  "manifest_sha256": "ecfc55c171d84e2222d6cac2145382c6d9512bf56de8b51b5ed61667ca1e108a",
+  "total_artifact_bytes": 26294400,
+  "tests": {
+    "passed": 14,
+    "command": "python -m unittest discover -s EDA/scripts -p test_tfidf_content.py -v"
+  },
+  "support_audit_report": "tfidf_content_v1_support.json",
+  "limitations": [
+    "83 zero vectors retained: 79 missing raw descriptions and 4 tokenless non-Linux descriptions",
+    "17 Linux candidates lack source descriptions; retained in evaluation",
+    "Unicode word tokenization does not segment unspaced CJK well; language ID not applied",
+    "Initial TF-IDF settings, not selected by ranking performance"
+  ]
+}

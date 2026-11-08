@@ -1,0 +1,598 @@
+{
+  "version": "baseline-review-reproduction-v2",
+  "code_sha256": "6e33a729571cab29d1a320b13fd4e440739e97b19ef1b1dfc34595be51eefae5",
+  "protocol_sha256": "12fbb346ac5b8c3fda04f1eff8286133d1a7930d605473ae2307be86757b584d",
+  "frozen_v1_checks": {
+    "protocol_sha256": true,
+    "split_manifest_sha256": true,
+    "tfidf_manifest_sha256": true,
+    "item_knn_manifest_sha256": true,
+    "evaluator_sha256": true,
+    "tfidf_code_sha256": true,
+    "item_knn_code_sha256": true,
+    "item_knn_audit_sha256": true
+  },
+  "source_manifest_snapshot_sha256": "feca0fb6bb3f566da50b47ee49c02b32f0502f2a041c6dac9d3fc3ab3a06cf95",
+  "source_manifest_train_sha256": "e8cd76b54a6f7b04979f11a5e56b35e776ebf1986279e5be16a80fcfd6136b9b",
+  "source_manifest_note": "Training hash refers to training-time state; current completion flags are mutable. Actual pinned train files are checked by builder.",
+  "saved_knn_edges": {
+    "total": 634820,
+    "one": 359854,
+    "less_than_five": 504341,
+    "one_fraction": 0.5668598972937211,
+    "less_than_five_fraction": 0.7944629973850855
+  },
+  "textless_linux_apps": [
+    400,
+    550,
+    620,
+    8930,
+    34330,
+    201310,
+    331181,
+    415800,
+    545100,
+    550210,
+    774361,
+    987730,
+    1066780,
+    1066890,
+    1092790,
+    1204870,
+    1703340
+  ],
+  "cohorts": {
+    "validation": {
+      "item_knn": {
+        "users": 325639,
+        "target_games": 3805,
+        "Recall@10": 0.4007566661241436,
+        "NDCG@10": 0.24432787709801201,
+        "game_macro_Recall@10": 0.07616745016378505,
+        "game_macro_NDCG@10": 0.05032474304964047,
+        "empty_users": 6,
+        "short_list_users": 285,
+        "by_support_log": {
+          "0": {
+            "users": 0,
+            "target_games": 0,
+            "Recall@10": null,
+            "NDCG@10": null
+          },
+          "1-9": {
+            "users": 49,
+            "target_games": 45,
+            "Recall@10": 0.061224489795918366,
+            "NDCG@10": 0.041179235934816316
+          },
+          "10-99": {
+            "users": 1327,
+            "target_games": 982,
+            "Recall@10": 0.0640542577241899,
+            "NDCG@10": 0.04585511186021915
+          },
+          "100-999": {
+            "users": 9090,
+            "target_games": 1688,
+            "Recall@10": 0.06314631463146314,
+            "NDCG@10": 0.04297166801810333
+          },
+          "1000-9999": {
+            "users": 38654,
+            "target_games": 808,
+            "Recall@10": 0.07116986599058313,
+            "NDCG@10": 0.04234204058278436
+          },
+          "10000-99999": {
+            "users": 106253,
+            "target_games": 241,
+            "Recall@10": 0.1971520804118472,
+            "NDCG@10": 0.11079297107101779
+          },
+          "100000-999999": {
+            "users": 126076,
+            "target_games": 39,
+            "Recall@10": 0.55499857228973,
+            "NDCG@10": 0.3117236062779519
+          },
+          "1000000+": {
+            "users": 44190,
+            "target_games": 2,
+            "Recall@10": 0.8184883457795882,
+            "NDCG@10": 0.5974103963575649
+          }
+        },
+        "tail": {
+          "users": 10466,
+          "target_games": 2715,
+          "Recall@10": 0.06325243646092107,
+          "NDCG@10": 0.04332887237568087
+        },
+        "recommendation_support_median": 183070.0,
+        "recommendation_slots": 3255114,
+        "recommended_games": 5945,
+        "top10_popular_target_share": 0.30652041063877483,
+        "top10_popular_hit_share": 0.5843665231184196,
+        "support_at_least_100000_share": 0.5228673469701111,
+        "textless_target_users": 18921
+      },
+      "tfidf": {
+        "users": 325639,
+        "target_games": 3805,
+        "Recall@10": 0.019251379595195905,
+        "NDCG@10": 0.012063502568153712,
+        "game_macro_Recall@10": 0.024010061662481146,
+        "game_macro_NDCG@10": 0.015000095562004566,
+        "empty_users": 58,
+        "short_list_users": 58,
+        "by_support_log": {
+          "0": {
+            "users": 0,
+            "target_games": 0,
+            "Recall@10": null,
+            "NDCG@10": null
+          },
+          "1-9": {
+            "users": 49,
+            "target_games": 45,
+            "Recall@10": 0.02040816326530612,
+            "NDCG@10": 0.006438058709912832
+          },
+          "10-99": {
+            "users": 1327,
+            "target_games": 982,
+            "Recall@10": 0.019593067068575734,
+            "NDCG@10": 0.010130916554347598
+          },
+          "100-999": {
+            "users": 9090,
+            "target_games": 1688,
+            "Recall@10": 0.023542354235423543,
+            "NDCG@10": 0.015848055705989697
+          },
+          "1000-9999": {
+            "users": 38654,
+            "target_games": 808,
+            "Recall@10": 0.024111346820510166,
+            "NDCG@10": 0.014860618877358317
+          },
+          "10000-99999": {
+            "users": 106253,
+            "target_games": 241,
+            "Recall@10": 0.02707688253508136,
+            "NDCG@10": 0.016977442691508464
+          },
+          "100000-999999": {
+            "users": 126076,
+            "target_games": 39,
+            "Recall@10": 0.012405215901519719,
+            "NDCG@10": 0.007306665190358825
+          },
+          "1000000+": {
+            "users": 44190,
+            "target_games": 2,
+            "Recall@10": 0.01482235799954741,
+            "NDCG@10": 0.010658682832161561
+          }
+        },
+        "tail": {
+          "users": 10466,
+          "target_games": 2715,
+          "Recall@10": 0.023026944391362505,
+          "NDCG@10": 0.015079114992533092
+        },
+        "recommendation_support_median": 125.0,
+        "recommendation_slots": 3255810,
+        "recommended_games": 6066,
+        "top10_popular_target_share": 0.30652041063877483,
+        "top10_popular_hit_share": 0.1347902376774605,
+        "support_at_least_100000_share": 0.5228673469701111,
+        "textless_target_users": 18921,
+        "recommendation_concentration": {
+          "slots": 3255810,
+          "top_four": [
+            {
+              "app_id": 910430,
+              "slots": 145642,
+              "slot_fraction": 0.044732954318587384
+            },
+            {
+              "app_id": 115800,
+              "slots": 92728,
+              "slot_fraction": 0.028480777440944037
+            },
+            {
+              "app_id": 574030,
+              "slots": 81144,
+              "slot_fraction": 0.024922830263436748
+            },
+            {
+              "app_id": 433530,
+              "slots": 75275,
+              "slot_fraction": 0.023120206645965213
+            }
+          ],
+          "strict_p80_token_slot_share": 0.46080422383370034,
+          "exact_top20_token_slot_share": 0.4712323507821402
+        }
+      },
+      "retrospective_text_similarity": {
+        "method": "max frozen description cosine between held-out target and any remaining positive query; post-hoc diagnostic only",
+        "cosine_ge_0_2_users": 11300,
+        "cosine_ge_0_8_users": 193,
+        "models": {
+          "item_knn": {
+            "hits_in_ge_0_2": 8193,
+            "share_of_hits_in_ge_0_2": 0.06278064703989211,
+            "below_0_8_users": 325446,
+            "below_0_8_conditional_recall": 0.40048425852522385
+          },
+          "tfidf": {
+            "hits_in_ge_0_2": 4900,
+            "share_of_hits_in_ge_0_2": 0.7816238634550965,
+            "below_0_8_users": 325446,
+            "below_0_8_conditional_recall": 0.018740436201397467
+          }
+        }
+      },
+      "top10_hit_union": {
+        "Recall@10": 0.40548582940004113,
+        "note": "Oracle union of original top10 hits, not measured fusion performance or a bound on all possible score fusion",
+        "tfidf_recall_when_knn_target_zero": 0.003772161448509996
+      },
+      "popularity": {
+        "users": 325639,
+        "target_games": 3805,
+        "Recall@10": 0.3193444274180918,
+        "NDCG@10": 0.20196067869203826,
+        "game_macro_Recall@10": 0.002893752561036016,
+        "game_macro_NDCG@10": 0.0013735924060470914,
+        "empty_users": 0,
+        "short_list_users": 0,
+        "by_support_log": {
+          "0": {
+            "users": 0,
+            "target_games": 0,
+            "Recall@10": null,
+            "NDCG@10": null
+          },
+          "1-9": {
+            "users": 49,
+            "target_games": 45,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0
+          },
+          "10-99": {
+            "users": 1327,
+            "target_games": 982,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0
+          },
+          "100-999": {
+            "users": 9090,
+            "target_games": 1688,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0
+          },
+          "1000-9999": {
+            "users": 38654,
+            "target_games": 808,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0
+          },
+          "10000-99999": {
+            "users": 106253,
+            "target_games": 241,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0
+          },
+          "100000-999999": {
+            "users": 126076,
+            "target_games": 39,
+            "Recall@10": 0.47432501031124086,
+            "NDCG@10": 0.19728132094490602
+          },
+          "1000000+": {
+            "users": 44190,
+            "target_games": 2,
+            "Recall@10": 1.0,
+            "NDCG@10": 0.9254092244658676
+          }
+        },
+        "tail": {
+          "users": 10466,
+          "target_games": 2715,
+          "Recall@10": 0.0,
+          "NDCG@10": 0.0
+        }
+      }
+    },
+    "test": {
+      "item_knn": {
+        "users": 24342,
+        "target_games": 4634,
+        "Recall@10": 0.11190534877988662,
+        "NDCG@10": 0.07485914164640092,
+        "game_macro_Recall@10": 0.09990381606895402,
+        "game_macro_NDCG@10": 0.06524336389374297,
+        "empty_users": 18,
+        "short_list_users": 505,
+        "by_support_log": {
+          "0": {
+            "users": 52,
+            "target_games": 14,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0
+          },
+          "1-9": {
+            "users": 448,
+            "target_games": 244,
+            "Recall@10": 0.08928571428571429,
+            "NDCG@10": 0.056256455251778845
+          },
+          "10-99": {
+            "users": 7462,
+            "target_games": 1747,
+            "Recall@10": 0.07893326186009113,
+            "NDCG@10": 0.04969857646759935
+          },
+          "100-999": {
+            "users": 10539,
+            "target_games": 1612,
+            "Recall@10": 0.11794287883100864,
+            "NDCG@10": 0.08045622495693656
+          },
+          "1000-9999": {
+            "users": 4691,
+            "target_games": 758,
+            "Recall@10": 0.1357919420166276,
+            "NDCG@10": 0.09376153320643632
+          },
+          "10000-99999": {
+            "users": 1024,
+            "target_games": 222,
+            "Recall@10": 0.166015625,
+            "NDCG@10": 0.10685269897447913
+          },
+          "100000-999999": {
+            "users": 123,
+            "target_games": 35,
+            "Recall@10": 0.34146341463414637,
+            "NDCG@10": 0.2153405330101945
+          },
+          "1000000+": {
+            "users": 3,
+            "target_games": 2,
+            "Recall@10": 1.0,
+            "NDCG@10": 0.8333333333333334
+          }
+        },
+        "tail": {
+          "users": 18449,
+          "target_games": 3603,
+          "Recall@10": 0.10146891430429833,
+          "NDCG@10": 0.06742814376796455
+        },
+        "recommendation_support_median": 57.0,
+        "recommendation_slots": 241252,
+        "recommended_games": 6222,
+        "top10_popular_target_share": 0.0005751376222167447,
+        "top10_popular_hit_share": 0.002936857562408223,
+        "support_at_least_100000_share": 0.0051762385999507025,
+        "textless_target_users": 34
+      },
+      "tfidf": {
+        "users": 24342,
+        "target_games": 4634,
+        "Recall@10": 0.035781776353627476,
+        "NDCG@10": 0.024253859485728405,
+        "game_macro_Recall@10": 0.03273653964011678,
+        "game_macro_NDCG@10": 0.021210168310485826,
+        "empty_users": 4,
+        "short_list_users": 4,
+        "by_support_log": {
+          "0": {
+            "users": 52,
+            "target_games": 14,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0
+          },
+          "1-9": {
+            "users": 448,
+            "target_games": 244,
+            "Recall@10": 0.05133928571428571,
+            "NDCG@10": 0.032516039578363576
+          },
+          "10-99": {
+            "users": 7462,
+            "target_games": 1747,
+            "Recall@10": 0.026936478155990352,
+            "NDCG@10": 0.017026650385014983
+          },
+          "100-999": {
+            "users": 10539,
+            "target_games": 1612,
+            "Recall@10": 0.03871335041275263,
+            "NDCG@10": 0.02649184192385475
+          },
+          "1000-9999": {
+            "users": 4691,
+            "target_games": 758,
+            "Recall@10": 0.04135578767853336,
+            "NDCG@10": 0.029744603590362025
+          },
+          "10000-99999": {
+            "users": 1024,
+            "target_games": 222,
+            "Recall@10": 0.0419921875,
+            "NDCG@10": 0.027741220181686708
+          },
+          "100000-999999": {
+            "users": 123,
+            "target_games": 35,
+            "Recall@10": 0.016260162601626018,
+            "NDCG@10": 0.013259591492450875
+          },
+          "1000000+": {
+            "users": 3,
+            "target_games": 2,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0
+          }
+        },
+        "tail": {
+          "users": 18449,
+          "target_games": 3603,
+          "Recall@10": 0.03425659927367337,
+          "NDCG@10": 0.02280977684099918
+        },
+        "recommendation_support_median": 84.0,
+        "recommendation_slots": 243380,
+        "recommended_games": 5905,
+        "top10_popular_target_share": 0.0005751376222167447,
+        "top10_popular_hit_share": 0.0,
+        "support_at_least_100000_share": 0.0051762385999507025,
+        "textless_target_users": 34,
+        "recommendation_concentration": {
+          "slots": 243380,
+          "top_four": [
+            {
+              "app_id": 910430,
+              "slots": 7975,
+              "slot_fraction": 0.03276768838852823
+            },
+            {
+              "app_id": 574030,
+              "slots": 7307,
+              "slot_fraction": 0.030023009285890377
+            },
+            {
+              "app_id": 833140,
+              "slots": 4182,
+              "slot_fraction": 0.017183005998849536
+            },
+            {
+              "app_id": 115800,
+              "slots": 3819,
+              "slot_fraction": 0.01569151121702687
+            }
+          ],
+          "strict_p80_token_slot_share": 0.4299819212753718,
+          "exact_top20_token_slot_share": 0.4370778206919221
+        }
+      },
+      "retrospective_text_similarity": {
+        "method": "max frozen description cosine between held-out target and any remaining positive query; post-hoc diagnostic only",
+        "cosine_ge_0_2_users": 1221,
+        "cosine_ge_0_8_users": 173,
+        "models": {
+          "item_knn": {
+            "hits_in_ge_0_2": 836,
+            "share_of_hits_in_ge_0_2": 0.3069016152716593,
+            "below_0_8_users": 24169,
+            "below_0_8_conditional_recall": 0.1059208076461583
+          },
+          "tfidf": {
+            "hits_in_ge_0_2": 669,
+            "share_of_hits_in_ge_0_2": 0.7680826636050516,
+            "below_0_8_users": 24169,
+            "below_0_8_conditional_recall": 0.029293723364640655
+          }
+        }
+      },
+      "top10_hit_union": {
+        "Recall@10": 0.12254539479089639,
+        "note": "Oracle union of original top10 hits, not measured fusion performance or a bound on all possible score fusion",
+        "tfidf_recall_when_knn_target_zero": 0.009147539143610753
+      },
+      "popularity": {
+        "users": 24342,
+        "target_games": 4634,
+        "Recall@10": 0.0006573001396762796,
+        "NDCG@10": 0.00028844951210079295,
+        "game_macro_Recall@10": 0.001774325037164916,
+        "game_macro_NDCG@10": 0.0008587218854442763,
+        "empty_users": 0,
+        "short_list_users": 0,
+        "by_support_log": {
+          "0": {
+            "users": 52,
+            "target_games": 14,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0
+          },
+          "1-9": {
+            "users": 448,
+            "target_games": 244,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0
+          },
+          "10-99": {
+            "users": 7462,
+            "target_games": 1747,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0
+          },
+          "100-999": {
+            "users": 10539,
+            "target_games": 1612,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0
+          },
+          "1000-9999": {
+            "users": 4691,
+            "target_games": 758,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0
+          },
+          "10000-99999": {
+            "users": 1024,
+            "target_games": 222,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0
+          },
+          "100000-999999": {
+            "users": 123,
+            "target_games": 35,
+            "Recall@10": 0.10569105691056911,
+            "NDCG@10": 0.03869576029605356
+          },
+          "1000000+": {
+            "users": 3,
+            "target_games": 2,
+            "Recall@10": 1.0,
+            "NDCG@10": 0.7539531690476383
+          }
+        },
+        "tail": {
+          "users": 18449,
+          "target_games": 3603,
+          "Recall@10": 0.0,
+          "NDCG@10": 0.0
+        }
+      }
+    }
+  },
+  "unreproduced_original_definition": [
+    "Original custom 21-stopword list/formula absent: do not claim exact reconstruction. T0 uses explicitly named documented terms.",
+    "Original validation cosine sample seed and sampling rule absent: no claim to reproduce 3.4% on the same sample."
+  ],
+  "token_concentration_definition": {
+    "population": "6630 Linux candidates",
+    "p80_cutoff": 45.0,
+    "strictly_above_cutoff_apps": 1252,
+    "exact_top20_apps": 1326,
+    "tie_break": "App ID ascending"
+  },
+  "posthoc_log_bin_standardization": {
+    "item_knn": {
+      "approximate_recall": 0.07301628106153969,
+      "note": "Descriptive standardization only, not causal attribution. Train-support-zero has no validation observation and is assigned 0 for this approximation. Never used to weight validation selection."
+    },
+    "tfidf": {
+      "approximate_recall": 0.02242472102442363,
+      "note": "Descriptive standardization only, not causal attribution. Train-support-zero has no validation observation and is assigned 0 for this approximation. Never used to weight validation selection."
+    }
+  },
+  "passed": true
+}

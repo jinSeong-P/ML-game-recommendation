@@ -1,0 +1,256 @@
+{
+  "version": "item-knn-failure-analysis-v2",
+  "status": "complete",
+  "created_utc": "2026-11-07T18:36:17.024370+00:00",
+  "purpose": "Reproducible train-only KNN reachability diagnosis; frank test is descriptive only",
+  "fit_scope": "Pinned split_v1 train positive catalog only",
+  "ranking_metrics_computed": false,
+  "model_selection_or_tuning_used": false,
+  "frank_test_user_count": 24342,
+  "frank_test_used_for_model_selection": false,
+  "training_support_summary": {
+    "input_games_with_positive_support": 37324,
+    "input_games_with_zero_support": 286,
+    "candidate_games_with_neighbors": 6586,
+    "candidate_games_without_neighbors": 44,
+    "minimum_positive_game_support": 1,
+    "maximum_positive_game_support": 6088149,
+    "singleton_positive_users_measured": 17042189,
+    "singleton_positive_users_reported_by_split": 17042189
+  },
+  "training_positive_source_sha256": "e688185f2cdd7e5f757055e6cba9f543a9b19db1a2bd2629af59c98a24f84a06",
+  "category_order": [
+    "target_support0",
+    "all_positive_inputs_support0",
+    "raw_connection0",
+    "pruned",
+    "rank_failure",
+    "hit"
+  ],
+  "category_definitions": {
+    "target_support0": "Hidden target has zero positive train support.",
+    "all_positive_inputs_support0": "Every positive query input has zero positive train support; retained K100 coverage is a separate diagnostic.",
+    "raw_connection0": "Target has no raw train co-occurrence with any positive query input.",
+    "pruned": "At least one raw target/input link exists, but none survive v1 candidate top100.",
+    "rank_failure": "At least one target/input link survives v1 top100, but saved v1 target rank is zero.",
+    "hit": "Saved v1 target rank is between 1 and 10."
+  },
+  "cooccurrence_semantics": "All positive train users, including singleton positive users; raw edges exclude self-pairs.",
+  "raw_cooccurrence_file": {
+    "file": "data/processed/modeling/improvement_v2/knn/raw_cooccurrence.parquet",
+    "sha256": "825c9433b6fc090a628501a6af2158cac243868d28aa457d119ae1294cb4e172",
+    "rows": 29625494
+  },
+  "split_manifest_sha256": "0d94731ccbcc9afec6e2d0a1394d6fa4a50e65f45e9dd9d3a764a2309bd2ce9f",
+  "v1_model_manifest_sha256": "da6a43ca1dccee8100b8fbaf57d1b33b8560fa8216f6a67ef0b7bd3cb2e86017",
+  "cohorts": {
+    "validation": {
+      "users": 325639,
+      "diagnostic_role": "descriptive K0 cause analysis; not used for model selection or tuning",
+      "categories": {
+        "target_support0": {
+          "users": 0,
+          "share_of_cohort": 0.0
+        },
+        "all_positive_inputs_support0": {
+          "users": 0,
+          "share_of_cohort": 0.0
+        },
+        "raw_connection0": {
+          "users": 184,
+          "share_of_cohort": 0.0005650428849124337
+        },
+        "pruned": {
+          "users": 55487,
+          "share_of_cohort": 0.17039420953878376
+        },
+        "rank_failure": {
+          "users": 139466,
+          "share_of_cohort": 0.42828408145216024
+        },
+        "hit": {
+          "users": 130502,
+          "share_of_cohort": 0.4007566661241436
+        }
+      },
+      "v1_zero_user_partition": {
+        "users": 55671,
+        "pruned": {
+          "users": 55487,
+          "denominator_users": 55671,
+          "share": 0.9966948680641626
+        },
+        "raw_none": {
+          "users": 184,
+          "denominator_users": 55671,
+          "share": 0.00330513193583733
+        },
+        "rank_failure": {
+          "users": 0,
+          "denominator_users": 55671,
+          "share": 0.0
+        }
+      },
+      "unlimited_raw_reach_among_v1_zero_users": {
+        "newly_reached_users": 55487,
+        "denominator_all_v1_zero_users": 55671,
+        "share_of_v1_zero_users": 0.9966948680641626
+      },
+      "cooccurrence_at_least_5_among_v1_zero_users": {
+        "newly_reached_users": 54235,
+        "denominator_all_v1_zero_users": 55671,
+        "share_of_v1_zero_users": 0.9742056007616173,
+        "denominator_unlimited_raw_reachable_zero_users": 55487,
+        "share_of_unlimited_raw_reachable_zero_users": 0.9774361562167715
+      },
+      "v1_per_user_sha256": "84053bb207aa51ce8469aa70c9f334728ab8693280198278d53a53e89e71bd5d",
+      "baseline_manifest_sha256": "61ae5b03e2140d7016bfbaf9747caa010367b619bbba7a004e56177a8cc9a77a",
+      "diagnostic_sources": {
+        "split_files": {
+          "users.parquet": {
+            "file": "data/processed/modeling/split_v1/validation/users.parquet",
+            "sha256": "0fb2b71522120f900dc3f1b903b9b3c5756d2bc9420336ad7440bc89f0f9d5b9",
+            "bytes": 1278288,
+            "rows": 325639
+          },
+          "query.parquet": {
+            "file": "data/processed/modeling/split_v1/validation/query.parquet",
+            "sha256": "e345b5a7075a3411462392401f05ffa3db862cf8c628ef98bc8839a45ffd2a34",
+            "bytes": 10655012,
+            "rows": 3920857
+          },
+          "targets.parquet": {
+            "file": "data/processed/modeling/split_v1/validation/targets.parquet",
+            "sha256": "c47068f2b8467174dfbaff161e19b4fbcfdb7fb4337ee048faf35b6f3a615b08",
+            "bytes": 1141549,
+            "rows": 325639
+          }
+        },
+        "per_user_file": {
+          "file": "data/processed/modeling/baseline_v1/validation/item_knn/per_user.parquet",
+          "sha256": "84053bb207aa51ce8469aa70c9f334728ab8693280198278d53a53e89e71bd5d",
+          "bytes": 4793829
+        },
+        "baseline_manifest": {
+          "file": "data/processed/modeling/baseline_v1/validation/manifest.json",
+          "sha256": "61ae5b03e2140d7016bfbaf9747caa010367b619bbba7a004e56177a8cc9a77a"
+        }
+      },
+      "user_diagnostics_file": {
+        "file": "data/processed/modeling/improvement_v2/knn/diagnostics/validation_user_diagnostics.parquet",
+        "sha256": "621f30431a1a60b87a029db771a6d89260a2f7706fc148e1f644a4a280e3f0e2",
+        "rows": 325639
+      }
+    },
+    "test": {
+      "users": 24342,
+      "diagnostic_role": "descriptive K0 cause analysis; not used for model selection or tuning",
+      "categories": {
+        "target_support0": {
+          "users": 52,
+          "share_of_cohort": 0.002136225453947909
+        },
+        "all_positive_inputs_support0": {
+          "users": 3,
+          "share_of_cohort": 0.00012324377618930243
+        },
+        "raw_connection0": {
+          "users": 4316,
+          "share_of_cohort": 0.17730671267767645
+        },
+        "pruned": {
+          "users": 13448,
+          "share_of_cohort": 0.552460767397913
+        },
+        "rank_failure": {
+          "users": 3799,
+          "share_of_cohort": 0.15606770191438665
+        },
+        "hit": {
+          "users": 2724,
+          "share_of_cohort": 0.11190534877988662
+        }
+      },
+      "v1_zero_user_partition": {
+        "users": 17819,
+        "pruned": {
+          "users": 13448,
+          "denominator_users": 17819,
+          "share": 0.7547000392839104
+        },
+        "raw_none": {
+          "users": 4371,
+          "denominator_users": 17819,
+          "share": 0.24529996071608956
+        },
+        "rank_failure": {
+          "users": 0,
+          "denominator_users": 17819,
+          "share": 0.0
+        }
+      },
+      "unlimited_raw_reach_among_v1_zero_users": {
+        "newly_reached_users": 13448,
+        "denominator_all_v1_zero_users": 17819,
+        "share_of_v1_zero_users": 0.7547000392839104
+      },
+      "cooccurrence_at_least_5_among_v1_zero_users": {
+        "newly_reached_users": 5278,
+        "denominator_all_v1_zero_users": 17819,
+        "share_of_v1_zero_users": 0.296200684662439,
+        "denominator_unlimited_raw_reachable_zero_users": 13448,
+        "share_of_unlimited_raw_reachable_zero_users": 0.39247471743010115
+      },
+      "v1_per_user_sha256": "948edade32ff9dad341a2953706f71edd9b1f3c952eb8b7f37c032b81287a2b6",
+      "baseline_manifest_sha256": "cae8400a16c6028cd6dba2c98e74998e012f191b192257e37876ff68e6fa2dd3",
+      "diagnostic_sources": {
+        "split_files": {
+          "users.parquet": {
+            "file": "data/processed/modeling/split_v1/test/users.parquet",
+            "sha256": "b26a41d8848a2f0f0589a5934e2566740a4a61710aadee3cea49a2747e5dec7e",
+            "bytes": 116055,
+            "rows": 24342
+          },
+          "query.parquet": {
+            "file": "data/processed/modeling/split_v1/test/query.parquet",
+            "sha256": "b118b7bf7e5dd995737dc353c8981ed46f9022b1eade9dcefacbe6c4373e8610",
+            "bytes": 1486542,
+            "rows": 461599
+          },
+          "targets.parquet": {
+            "file": "data/processed/modeling/split_v1/test/targets.parquet",
+            "sha256": "037625a892511fdd2210c84b9773fae28707d57f294e692a56cc2990d01c5837",
+            "bytes": 126341,
+            "rows": 24342
+          }
+        },
+        "per_user_file": {
+          "file": "data/processed/modeling/baseline_v1/test/item_knn/per_user.parquet",
+          "sha256": "948edade32ff9dad341a2953706f71edd9b1f3c952eb8b7f37c032b81287a2b6",
+          "bytes": 326672
+        },
+        "baseline_manifest": {
+          "file": "data/processed/modeling/baseline_v1/test/manifest.json",
+          "sha256": "cae8400a16c6028cd6dba2c98e74998e012f191b192257e37876ff68e6fa2dd3"
+        }
+      },
+      "user_diagnostics_file": {
+        "file": "data/processed/modeling/improvement_v2/knn/diagnostics/test_user_diagnostics.parquet",
+        "sha256": "bbf76de2095127700025da2993216f55c864f0020b7eeb9bbddf6b19eb84feb8",
+        "rows": 24342
+      }
+    }
+  },
+  "runtime": {
+    "python": "3.13.17",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pyarrow": "26.0.0",
+    "duckdb": "1.4.3"
+  },
+  "code_sha256": {
+    "builder": "f9f27f0d14b2a5ec4c10e984b411b21e9855abcdad554b1a769317346a1b66bb",
+    "frozen_v1_builder_helpers": "fa9a1bee272ffbff346aa8b4494444fce9a40db12e248251270612329045066f",
+    "item_knn_catalog_and_retrieval": "ec5aedb4cb93b056551c788ce26aafd306692dcccf3374974de98c727c4146f9"
+  }
+}

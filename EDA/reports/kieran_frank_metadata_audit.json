@@ -1,0 +1,156 @@
+{
+  "scope": "Read-only independent metadata/time audit; no models or final splits.",
+  "checked_utc": "2026-11-07T13:58:22.403955+00:00",
+  "code_sha256": "ec5cdf9ab7c1cd443a3a3191636233f23ce3fabb91dd80736532fddce71f13ba",
+  "reference_manifest_sha256": "c21309276ed4c069e7ad5fc55a45b778b304978ffd861154750d2158d3164d64",
+  "metadata_sha256": {
+    "A_games.parquet": "c71773cbad26ae13f07179fe99275160318719e7375f7b4df151ef8ea260d1d8",
+    "A_games_metadata.parquet": "6733c8c46b22397b1080bb3bf22be7ab4f2b5df2730d327fa5eb1318ec70ee72",
+    "C_games_2025.parquet": "e65e452f5a5e5ec95a79d5a5ad8811739b3ff31384c4ff0a7926747829a82efc"
+  },
+  "cohort_counts": {
+    "all_users": 24571,
+    "positive_query_users": 24342
+  },
+  "text": [
+    {
+      "linux": null,
+      "apps": 37610,
+      "a_short": 36993,
+      "c_short": 33025,
+      "c_about": 32983,
+      "a_or_c_short": 37531,
+      "a_or_c_about": 37528,
+      "filled_by_c_short": 538,
+      "a_median_chars": 211,
+      "c_short_median_chars": 212,
+      "c_about_median_chars": 1142
+    },
+    {
+      "linux": false,
+      "apps": 30980,
+      "a_short": 30486,
+      "c_short": 26929,
+      "c_about": 26897,
+      "a_or_c_short": 30918,
+      "a_or_c_about": 30915,
+      "filled_by_c_short": 432,
+      "a_median_chars": 211,
+      "c_short_median_chars": 212,
+      "c_about_median_chars": 1123
+    },
+    {
+      "linux": true,
+      "apps": 6630,
+      "a_short": 6507,
+      "c_short": 6096,
+      "c_about": 6086,
+      "a_or_c_short": 6613,
+      "a_or_c_about": 6613,
+      "filled_by_c_short": 106,
+      "a_median_chars": 211,
+      "c_short_median_chars": 213,
+      "c_about_median_chars": 1214
+    }
+  ],
+  "short_text_agreement": {
+    "both_present": 32487,
+    "identical": 28707,
+    "identical_share": 0.8836457659987071
+  },
+  "linux_disagreement": [
+    {
+      "a_linux": false,
+      "c_linux": false,
+      "apps": 26793
+    },
+    {
+      "a_linux": false,
+      "c_linux": true,
+      "apps": 137
+    },
+    {
+      "a_linux": false,
+      "c_linux": null,
+      "apps": 4050
+    },
+    {
+      "a_linux": true,
+      "c_linux": false,
+      "apps": 52
+    },
+    {
+      "a_linux": true,
+      "c_linux": true,
+      "apps": 6044
+    },
+    {
+      "a_linux": true,
+      "c_linux": null,
+      "apps": 534
+    }
+  ],
+  "linux_disagreement_target_weights": [
+    {
+      "has_positive_query": false,
+      "expected_targets": 229.0,
+      "c_disagrees_targets": 1.0,
+      "c_absent_targets": 14.0,
+      "missing_short_targets": 0.0
+    },
+    {
+      "has_positive_query": null,
+      "expected_targets": 24570.999999998494,
+      "c_disagrees_targets": 157.8018399010725,
+      "c_absent_targets": 1225.0481984474882,
+      "missing_short_targets": 40.658846252487294
+    },
+    {
+      "has_positive_query": true,
+      "expected_targets": 24341.999999998647,
+      "c_disagrees_targets": 156.80183990107253,
+      "c_absent_targets": 1211.0481984474884,
+      "missing_short_targets": 40.658846252487294
+    }
+  ],
+  "time_bounds": {
+    "kieran_first_created": 1287181492,
+    "kieran_last_created": 1699028185,
+    "kieran_last_updated": 1699047007,
+    "frank_first_created": 1287207107,
+    "frank_last_created": 1763513875,
+    "frank_last_updated": 1763514194,
+    "frank_2025_raw_share": 0.3783380139315885
+  },
+  "target_times": [
+    {
+      "has_positive_query": false,
+      "expected_targets": 229.0,
+      "after_kieran_end_share": 0.2576419213973799,
+      "targets_with_disagreeing_created_time": 0
+    },
+    {
+      "has_positive_query": null,
+      "expected_targets": 24571.000000003864,
+      "after_kieran_end_share": 0.4350477329735294,
+      "targets_with_disagreeing_created_time": 1
+    },
+    {
+      "has_positive_query": true,
+      "expected_targets": 24342.00000000379,
+      "after_kieran_end_share": 0.4367166973499556,
+      "targets_with_disagreeing_created_time": 1
+    }
+  ],
+  "frank_catalog_scope": {
+    "reserved_account_pairs": 858236,
+    "outside_catalog_pairs": 193268,
+    "main_cohort_pairs": 632829,
+    "main_cohort_outside_catalog_pairs": 144820
+  },
+  "catalog_release": {
+    "all_a_last_release": "2023-10-24 00:00:00",
+    "input_last_release": "2023-08-24 00:00:00",
+    "linux_last_release": "2023-08-24 00:00:00"
+  }
+}

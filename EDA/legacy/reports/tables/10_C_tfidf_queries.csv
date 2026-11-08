@@ -1,0 +1,11 @@
+﻿selection_order,popularity_stratum,app_id,title,positive_reviews,selection_rule
+1,Linux popularity: highest 20%,10,Counter-Strike,39332,2 lowest App IDs per positive-review popularity quintile
+2,Linux popularity: highest 20%,20,Team Fortress Classic,3685,2 lowest App IDs per positive-review popularity quintile
+3,Linux popularity: 20–40%,2810,X3: Reunion,157,2 lowest App IDs per positive-review popularity quintile
+4,Linux popularity: 20–40%,15400,Harvest: Massive Encounter,44,2 lowest App IDs per positive-review popularity quintile
+5,Linux popularity: 40–60%,38480,Earthworm Jim,38,2 lowest App IDs per positive-review popularity quintile
+6,Linux popularity: 40–60%,38490,Earthworm Jim 2,35,2 lowest App IDs per positive-review popularity quintile
+7,Linux popularity: 60–80%,360,Half-Life Deathmatch: Source,0,2 lowest App IDs per positive-review popularity quintile
+8,Linux popularity: 60–80%,1230,Mare Nostrum,0,2 lowest App IDs per positive-review popularity quintile
+9,Linux popularity: lowest 20%,415680,Europa Universalis IV: Sabaton Soundtrack,0,2 lowest App IDs per positive-review popularity quintile
+10,Linux popularity: lowest 20%,416690,Oh...Sir! Prototype,0,2 lowest App IDs per positive-review popularity quintile

@@ -1,0 +1,347 @@
+{
+  "scope": "Aggregate evaluation-design diagnostics. No model fit, split files or account-level exports.",
+  "checked_utc": "2026-11-07T10:01:44.114459+00:00",
+  "source_metric_sha256": "a75401de52e817ed0911b48129f3c37fc0802c55f35367d7cebc2191ddf29cbc",
+  "reference_manifest_sha256": "c21309276ed4c069e7ad5fc55a45b778b304978ffd861154750d2158d3164d64",
+  "code_sha256": "3add49ee5c1653d1073a9d1a69a67f977b7c6be52215e25b5c421ce34e3753a1",
+  "cohort_definition": "frank input>=5 and validation/reserved-account analogues: at least 5 catalog reviews remain after hiding one positive Linux game; each user contributes one uniformly drawn target",
+  "cohort_sizes": {
+    "test_cohort": {
+      "users": 24571,
+      "users_with_positive_query": 24342,
+      "history_quantiles": [
+        7,
+        10,
+        17,
+        35
+      ],
+      "positive_query_quantiles": [
+        5,
+        7,
+        12
+      ],
+      "users_with_five_positive_queries": 18609
+    },
+    "validation_cohort": {
+      "users": 326045,
+      "users_with_positive_query": 325639,
+      "history_quantiles": [
+        7,
+        9,
+        14,
+        23
+      ],
+      "positive_query_quantiles": [
+        5,
+        7,
+        11
+      ],
+      "users_with_five_positive_queries": 285129
+    },
+    "reserved_cohort": {
+      "users": 64138,
+      "users_with_positive_query": 64110,
+      "history_quantiles": [
+        13,
+        25,
+        51,
+        96
+      ],
+      "positive_query_quantiles": [
+        10,
+        20,
+        41
+      ],
+      "users_with_five_positive_queries": 61676
+    }
+  },
+  "frank_sampling": {
+    "apps": 44517,
+    "max_rows_per_app": 100,
+    "apps_at_cap": 18437,
+    "rows_at_cap": 1843700,
+    "total_rows": 2631430
+  },
+  "frank_catalog_scope": {
+    "test_account_pairs": 858236,
+    "in_input_catalog": 664968
+  },
+  "time_ranges": {
+    "kieran_created": {
+      "first_day": "2010-10-16",
+      "last_day": "2023-11-04"
+    },
+    "frank_created": {
+      "first_day": "2010-10-16",
+      "median_day": "2024-04-09",
+      "last_day": "2025-11-19"
+    },
+    "frank_rows_by_year": [
+      {
+        "review_year": 2010,
+        "n_rows": 309
+      },
+      {
+        "review_year": 2011,
+        "n_rows": 1804
+      },
+      {
+        "review_year": 2012,
+        "n_rows": 2295
+      },
+      {
+        "review_year": 2013,
+        "n_rows": 3644
+      },
+      {
+        "review_year": 2014,
+        "n_rows": 19087
+      },
+      {
+        "review_year": 2015,
+        "n_rows": 45817
+      },
+      {
+        "review_year": 2016,
+        "n_rows": 78276
+      },
+      {
+        "review_year": 2017,
+        "n_rows": 103520
+      },
+      {
+        "review_year": 2018,
+        "n_rows": 108456
+      },
+      {
+        "review_year": 2019,
+        "n_rows": 98891
+      },
+      {
+        "review_year": 2020,
+        "n_rows": 138910
+      },
+      {
+        "review_year": 2021,
+        "n_rows": 165224
+      },
+      {
+        "review_year": 2022,
+        "n_rows": 197138
+      },
+      {
+        "review_year": 2023,
+        "n_rows": 257712
+      },
+      {
+        "review_year": 2024,
+        "n_rows": 414777
+      },
+      {
+        "review_year": 2025,
+        "n_rows": 995570
+      }
+    ],
+    "frank_target_share_after_kieran_end": 0.43504183114038747
+  },
+  "target_concentration": {
+    "train_positive_reviews": {
+      "top_10": 0.4330230494927168,
+      "top_50": 0.6510447584243704,
+      "top_500": 0.9292622817237567
+    },
+    "validation_targets": {
+      "top_10": 0.3070569282190142,
+      "top_50": 0.5606667038366445,
+      "top_500": 0.9115487546245291
+    },
+    "frank_targets": {
+      "top_10": 0.0005604078067551287,
+      "top_50": 0.0062074241869394834,
+      "top_500": 0.09391836103871332
+    },
+    "reserved_account_kieran_targets": {
+      "top_10": 0.08714859749413836,
+      "top_50": 0.21976460335531162,
+      "top_500": 0.5881378667325566
+    },
+    "uniform_over_linux_catalog": {
+      "top_10": 0.0015082956259426848,
+      "top_50": 0.007541478129713424,
+      "top_500": 0.07541478129713423
+    }
+  },
+  "unobserved_positives": {
+    "users": 24571,
+    "users_in_kieran": 22958,
+    "frank_history_quantiles": [
+      7,
+      10,
+      17,
+      35
+    ],
+    "kieran_history_quantiles": [
+      18,
+      44,
+      87,
+      154
+    ],
+    "kieran_pairs_also_in_frank_share": 0.15730726230512443,
+    "kieran_only_linux_positive_quantiles": [
+      3,
+      9,
+      21,
+      38
+    ],
+    "users_with_kieran_only_linux_positive_share": 0.8854747466525579,
+    "kieran_only_pairs": 1493924,
+    "kieran_only_linux_positive_pairs": 398893,
+    "frank_only_pairs": 209092
+  },
+  "account_history_degree": [
+    {
+      "is_test": false,
+      "is_validation": false,
+      "users": 34014115,
+      "history_quantiles": [
+        1,
+        6,
+        24
+      ]
+    },
+    {
+      "is_test": false,
+      "is_validation": true,
+      "users": 3781518,
+      "history_quantiles": [
+        1,
+        6,
+        24
+      ]
+    },
+    {
+      "is_test": true,
+      "is_validation": false,
+      "users": 71848,
+      "history_quantiles": [
+        21,
+        94,
+        317
+      ]
+    },
+    {
+      "is_test": true,
+      "is_validation": true,
+      "users": 8031,
+      "history_quantiles": [
+        21,
+        93,
+        336
+      ]
+    }
+  ],
+  "item_knn_scope": {
+    "catalog_positive_users": 29836980,
+    "catalog_positive_pairs": 78315268,
+    "users_with_two_or_more": 12794791,
+    "pairs_from_users_with_two_or_more": 61273079,
+    "sum_squared_user_degree": 950314300,
+    "max_user_degree": 3490
+  },
+  "quarantine_structure": {
+    "app_groups": 31,
+    "review_ids": 332865,
+    "raw_rows": 686161,
+    "groups_with_one_catalog_app": 22,
+    "groups_with_several_catalog_apps": 0,
+    "groups_without_catalog_app": 9,
+    "review_ids_with_one_catalog_app": 329756,
+    "groups_with_linux_catalog_app": 4,
+    "apps_in_groups": 63,
+    "test_cohort_history_pairs": 227,
+    "test_cohort_users": 211,
+    "test_cohort_linux_positive_pairs": 31
+  },
+  "linux_training_support": {
+    "linux_apps": 6630,
+    "without_train_positive": 36,
+    "under_five_train_positive": 224,
+    "without_kieran_review": 27,
+    "without_kieran_review_but_in_frank": 14
+  },
+  "catalog_last_release": "2023-10-24",
+  "text_coverage": {
+    "input_catalog": {
+      "apps": 37610,
+      "a_description_apps": 36993,
+      "c_about_apps": 32983,
+      "c_short_apps": 33025,
+      "a_or_c_short_apps": 37531,
+      "any_text_apps": 37531,
+      "a_description_length_quantiles": [
+        86,
+        211,
+        294
+      ],
+      "c_about_length_quantiles": [
+        483,
+        1142,
+        2514
+      ]
+    },
+    "linux_catalog": {
+      "apps": 6630,
+      "a_description_apps": 6507,
+      "c_about_apps": 6086,
+      "c_short_apps": 6096,
+      "a_or_c_short_apps": 6613,
+      "any_text_apps": 6613,
+      "a_description_length_quantiles": [
+        89,
+        211,
+        295
+      ],
+      "c_about_length_quantiles": [
+        539,
+        1214,
+        2566
+      ]
+    },
+    "a_description_vs_c_short": {
+      "both_present": 32487,
+      "identical": 28707
+    },
+    "linux_flag_a_vs_c": [
+      {
+        "a_linux": false,
+        "c_linux": false,
+        "apps": 26793
+      },
+      {
+        "a_linux": false,
+        "c_linux": true,
+        "apps": 137
+      },
+      {
+        "a_linux": false,
+        "c_linux": null,
+        "apps": 4050
+      },
+      {
+        "a_linux": true,
+        "c_linux": false,
+        "apps": 52
+      },
+      {
+        "a_linux": true,
+        "c_linux": true,
+        "apps": 6044
+      },
+      {
+        "a_linux": true,
+        "c_linux": null,
+        "apps": 534
+      }
+    ]
+  }
+}

@@ -1,0 +1,913 @@
+{
+  "status": "complete",
+  "version": "positive-review-baselines-v1",
+  "reported_on_kst": "2026-11-08",
+  "run_lock_sha256": "02f7042755c0cee74a66ea2b3bbcac24dbb9e36080cf5557bfcfbe54f8e6521c",
+  "item_knn_training": {
+    "version": "binary-item-knn-v1",
+    "status": "complete",
+    "started_utc": "2026-11-07T15:51:22.440676+00:00",
+    "sources": {
+      "source_manifest_sha256": "e8cd76b54a6f7b04979f11a5e56b35e776ebf1986279e5be16a80fcfd6136b9b",
+      "split_manifest_sha256": "0d94731ccbcc9afec6e2d0a1394d6fa4a50e65f45e9dd9d3a764a2309bd2ce9f",
+      "train_positive_reviews_loaded_by_builder": true,
+      "validation_or_test_reviews_or_ranking_metrics_loaded": false,
+      "sources": {
+        "train_positive_catalog": {
+          "file": "data/processed/modeling/split_v1/train/positive_catalog.parquet",
+          "sha256": "e688185f2cdd7e5f757055e6cba9f543a9b19db1a2bd2629af59c98a24f84a06",
+          "bytes": 376814005,
+          "rows": 78315268
+        },
+        "input_apps": {
+          "file": "data/processed/modeling/split_v1/catalog/input_apps.parquet",
+          "sha256": "03d323151f7280c0cfaf06d25d9c22192ed776d2b3e1deb173ffcb397158b3eb",
+          "bytes": 53481,
+          "rows": 37610
+        },
+        "linux_candidates": {
+          "file": "data/processed/modeling/split_v1/catalog/linux_candidates.parquet",
+          "sha256": "d796b813638a551e8eaba5e83d90f4cdbd1b3a8c0dd0a0894524d6945910f176",
+          "bytes": 12206,
+          "rows": 6630
+        }
+      }
+    },
+    "source_counts": {
+      "input_apps": 37610,
+      "linux_candidates": 6630,
+      "train_positive_pairs": 78315268,
+      "train_positive_users": 29836980,
+      "positive_singleton_users_reported": 17042189
+    },
+    "parameters": {
+      "version": "binary-item-knn-v1",
+      "neighbors": 100,
+      "candidate_block_size": 64,
+      "minimum_cooccurrence": 1,
+      "shrinkage": null,
+      "binary_positive_interactions": true,
+      "support_counts_include_positive_singleton_users": true,
+      "similarity": "count(i,j)/sqrt(count(i)*count(j)); diagonal forced to zero",
+      "neighbor_order": "similarity descending, then App ID ascending",
+      "query_score": "sum(candidate similarity to each positive query item)/all positive query count",
+      "recommendation_policy": "positive scores only; exclude supplied observed games and positives; no fill; max 10",
+      "sparse_index": "candidate-by-input CSR; exact sparse co-occurrence products in candidate blocks"
+    },
+    "index": {
+      "format": "SciPy CSR float64 NPZ",
+      "shape": [
+        6630,
+        37610
+      ],
+      "nnz": 634820
+    },
+    "support_summary": {
+      "input_games_with_positive_support": 37324,
+      "input_games_with_zero_support": 286,
+      "candidate_games_with_neighbors": 6586,
+      "candidate_games_without_neighbors": 44,
+      "minimum_positive_game_support": 1,
+      "maximum_positive_game_support": 6088149,
+      "singleton_positive_users_measured": 17042189,
+      "singleton_positive_users_reported_by_split": 17042189
+    },
+    "runtime": {
+      "python": "3.13.17",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "pyarrow": "26.0.0",
+      "duckdb": "1.4.3"
+    },
+    "code_sha256": {
+      "builder": "fa9a1bee272ffbff346aa8b4494444fce9a40db12e248251270612329045066f",
+      "model_and_retrieval": "ec5aedb4cb93b056551c788ce26aafd306692dcccf3374974de98c727c4146f9"
+    },
+    "ranking_metrics_computed": false,
+    "files": {
+      "candidate_rows.parquet": {
+        "bytes": 76065,
+        "sha256": "678b50273211a9bf96e280b040c259e5f571b02d44361d67bf6f31930a8da68b",
+        "rows": 6630,
+        "schema": [
+          {
+            "name": "row_id",
+            "type": "int32"
+          },
+          {
+            "name": "app_id",
+            "type": "int64"
+          },
+          {
+            "name": "input_row_id",
+            "type": "int32"
+          }
+        ]
+      },
+      "game_rows.parquet": {
+        "bytes": 352811,
+        "sha256": "fb365e3b42361ef9c07999e7a899710a851814282aef1a5a1596e9671bcebaf3",
+        "rows": 37610,
+        "schema": [
+          {
+            "name": "row_id",
+            "type": "int32"
+          },
+          {
+            "name": "app_id",
+            "type": "int64"
+          },
+          {
+            "name": "linux",
+            "type": "bool"
+          },
+          {
+            "name": "positive_user_support",
+            "type": "int64"
+          }
+        ]
+      },
+      "parameters.json": {
+        "bytes": 713,
+        "sha256": "7248af0cf15c9462ca206af6ce8593231f8abc4c2bf2103920c0511e914e8ed9"
+      },
+      "similarities_csr.npz": {
+        "bytes": 3988037,
+        "sha256": "0e2a4a738dd3df5abb25be5223833db7084ef93a40303730e360869389ce49ab"
+      }
+    },
+    "completed_utc": "2026-11-07T15:54:16.816236+00:00",
+    "verification": {
+      "passed": true,
+      "all_saved_file_hashes_verified": true,
+      "input_mapping_rows": 37610,
+      "candidate_mapping_rows": 6630,
+      "support_values_checked": 37610,
+      "similarity_shape": [
+        6630,
+        37610
+      ],
+      "similarity_nonzeros": 634820,
+      "self_similarity_zero": true,
+      "top_k_row_limit_checked": true
+    }
+  },
+  "game_train_support_counts": {
+    "input_catalog": {
+      "games": 37610,
+      "zero": 286,
+      "one_to_four": 1214,
+      "five_or_more": 36110
+    },
+    "linux_candidates": {
+      "games": 6630,
+      "zero": 36,
+      "one_to_four": 188,
+      "five_or_more": 6406
+    }
+  },
+  "item_knn_independent_sql_audit": {
+    "passed": true,
+    "model_manifest_sha256": "da6a43ca1dccee8100b8fbaf57d1b33b8560fa8216f6a67ef0b7bd3cb2e86017",
+    "train_source_sha256": "e688185f2cdd7e5f757055e6cba9f543a9b19db1a2bd2629af59c98a24f84a06",
+    "support_games_checked": 37610,
+    "sampled_candidate_rows": 15,
+    "sampled_neighbor_edges": 1200,
+    "method": "Independent SQL train counts, user joins, cosine and per-candidate top100; no validation/test reviews or ranking metrics",
+    "violations": {
+      "all_item_support_mismatches": 0,
+      "sampled_top_neighbor_membership_mismatches": 0,
+      "sampled_cosine_value_mismatches": 0
+    }
+  },
+  "evaluation_artifacts": {
+    "validation": {
+      "directory": "data/processed/modeling/baseline_v1/validation",
+      "manifest_sha256": "61ae5b03e2140d7016bfbaf9747caa010367b619bbba7a004e56177a8cc9a77a"
+    },
+    "test": {
+      "directory": "data/processed/modeling/baseline_v1/test",
+      "manifest_sha256": "cae8400a16c6028cd6dba2c98e74998e012f191b192257e37876ff68e6fa2dd3"
+    }
+  },
+  "validation": {
+    "version": "positive-review-baselines-v1",
+    "status": "complete",
+    "cohort": "validation",
+    "started_utc": "2026-11-07T15:54:48.738086+00:00",
+    "users": 325639,
+    "protocol_sha256": "62aa2e1029c0fa1d2247d8b79e5e962429d1ec233e5107021efc4e7bf9a30b00",
+    "protocol": {
+      "version": "positive-review-baseline-protocol-v1",
+      "status": "frozen_before_ranking_metrics",
+      "decision_date_kst": "2026-11-08",
+      "purpose": "Initial untuned TF-IDF versus Item-KNN; no hyperparameter search in this run",
+      "split_manifest_sha256": "0d94731ccbcc9afec6e2d0a1394d6fa4a50e65f45e9dd9d3a764a2309bd2ce9f",
+      "tfidf_manifest_sha256": "ecfc55c171d84e2222d6cac2145382c6d9512bf56de8b51b5ed61667ca1e108a",
+      "cohort_users": {
+        "validation": 325639,
+        "test": 24342
+      },
+      "input_games": 37610,
+      "linux_candidates": 6630,
+      "item_knn": {
+        "neighbors": 100,
+        "orientation": "Each Linux candidate retains its 100 most similar distinct games from the full fixed input catalog",
+        "similarity": "binary positive-review cosine cooccurrence/sqrt(full_train_support_i*full_train_support_j)",
+        "retain_positive_singletons": true,
+        "minimum_cooccurrence": 1,
+        "shrinkage": 0,
+        "self_similarity": "excluded",
+        "neighbor_tie_break": "App ID ascending",
+        "query_scoring": "sum retained similarities divided by ALL remaining positive query games, including unsupported ones"
+      },
+      "tfidf": {
+        "parameters": "Exactly the existing description-tfidf-v1 manifest; no changes",
+        "profile": "Equal-weight mean of L2-normalized positive game vectors, including zero vectors, then cosine",
+        "zero_text_games": "Retain in catalog, queries and targets; never drop users or replace descriptions after tokenization"
+      },
+      "ranking": {
+        "top_k": 10,
+        "positive_scores_only": true,
+        "exclude_all_remaining_positive_and_negative_observed_games": true,
+        "hidden_target_not_excluded": true,
+        "tie_break": "App ID ascending",
+        "fallback": "none",
+        "empty_lists_kept_in_denominator": true
+      },
+      "metrics": [
+        "Recall@10",
+        "NDCG@10"
+      ],
+      "validation_selection": {
+        "primary": "NDCG@10 on all fixed validation users",
+        "secondary": "Recall@10 if primary tied",
+        "this_run": "Report both fixed baselines; no tuning, no refit on validation, no dropping unsupported users",
+        "diagnostics": "Empty/short lists, catalog coverage, unsupported inputs and targets, train candidate-support quartiles; popularity and exact uniform-random controls",
+        "support_buckets": "Zero train support separately; positive Linux candidate-support quartiles computed only from train, numpy linear quantiles; side=right for ties"
+      },
+      "test_policy": "Run the unchanged baselines once after validation and correctness checks; never tune using frank test metrics",
+      "controls": "Train-popularity top10 after same exclusions; uniform-random without-replacement exact expectation over remaining Linux candidates. Diagnostic only, never recommendation filling",
+      "limitations": [
+        "Not a chronological future-prediction protocol",
+        "frank has per-game review caps and reviewer-selection bias",
+        "Fixed historical Linux catalog; not current platform support or latest releases",
+        "TF-IDF has 17 textless Linux candidates and limited CJK segmentation"
+      ]
+    },
+    "run_lock_sha256": "02f7042755c0cee74a66ea2b3bbcac24dbb9e36080cf5557bfcfbe54f8e6521c",
+    "validation_result_sha256": null,
+    "split_manifest_sha256": "0d94731ccbcc9afec6e2d0a1394d6fa4a50e65f45e9dd9d3a764a2309bd2ce9f",
+    "tfidf_manifest_sha256": "ecfc55c171d84e2222d6cac2145382c6d9512bf56de8b51b5ed61667ca1e108a",
+    "item_knn_manifest_sha256": "da6a43ca1dccee8100b8fbaf57d1b33b8560fa8216f6a67ef0b7bd3cb2e86017",
+    "cohort_file_sha256": {
+      "validation/users.parquet": "0fb2b71522120f900dc3f1b903b9b3c5756d2bc9420336ad7440bc89f0f9d5b9",
+      "validation/query.parquet": "e345b5a7075a3411462392401f05ffa3db862cf8c628ef98bc8839a45ffd2a34",
+      "validation/targets.parquet": "c47068f2b8467174dfbaff161e19b4fbcfdb7fb4337ee048faf35b6f3a615b08",
+      "validation/exclusions.parquet": "dbabb50c56a34306b84286f5a0d18fa42f176f2fd2ecb1206302a32f3baedb00"
+    },
+    "train_candidate_support_quartile_thresholds": [
+      19.0,
+      67.0,
+      413.75
+    ],
+    "models": {
+      "tfidf": {
+        "users": 325639,
+        "hits": 6269,
+        "Recall@10": 0.019251379595195905,
+        "NDCG@10": 0.012063502568153712,
+        "empty_recommendation_users": 58,
+        "short_list_users": 58,
+        "mean_recommendations": 9.998218886558428,
+        "by_target_train_support": {
+          "unseen": {
+            "users": 0,
+            "hits": 0,
+            "Recall@10": null,
+            "NDCG@10": null,
+            "empty_recommendation_users": 0,
+            "short_list_users": 0,
+            "mean_recommendations": null
+          },
+          "low": {
+            "users": 222,
+            "hits": 5,
+            "Recall@10": 0.02252252252252252,
+            "NDCG@10": 0.010004615205195164,
+            "empty_recommendation_users": 0,
+            "short_list_users": 0,
+            "mean_recommendations": 10.0
+          },
+          "mid_low": {
+            "users": 768,
+            "hits": 11,
+            "Recall@10": 0.014322916666666666,
+            "NDCG@10": 0.00838300370853806,
+            "empty_recommendation_users": 0,
+            "short_list_users": 0,
+            "mean_recommendations": 10.0
+          },
+          "mid_high": {
+            "users": 4176,
+            "hits": 105,
+            "Recall@10": 0.02514367816091954,
+            "NDCG@10": 0.015650959951783495,
+            "empty_recommendation_users": 1,
+            "short_list_users": 1,
+            "mean_recommendations": 9.997605363984674
+          },
+          "high": {
+            "users": 320473,
+            "hits": 6148,
+            "Recall@10": 0.019184143437980736,
+            "NDCG@10": 0.012027001752436707,
+            "empty_recommendation_users": 57,
+            "short_list_users": 57,
+            "mean_recommendations": 9.99822137902413
+          }
+        },
+        "candidate_catalog_coverage": 0.9149321266968325,
+        "distinct_recommended_games": 6066,
+        "target_positive_personalized_score_users": 305476,
+        "target_zero_personalized_score_users": 20163,
+        "batch_scalar_equivalence_samples": 12,
+        "unsupported_target_users": 18921,
+        "users_without_supported_positive_inputs": 48,
+        "saved_file_violations": {
+          "nonpositive_or_invalid_scores": 0,
+          "duplicate_user_game": 0,
+          "invalid_or_duplicate_ranks": 0,
+          "noncandidate_recommendations": 0,
+          "unknown_recommended_users": 0,
+          "observed_game_recommendations": 0,
+          "missing_outcomes": 0,
+          "duplicate_outcomes": 0,
+          "wrong_target_ranks": 0,
+          "wrong_list_counts": 0,
+          "wrong_metric_values": 0,
+          "out_of_order_scores": 0
+        }
+      },
+      "item_knn": {
+        "users": 325639,
+        "hits": 130502,
+        "Recall@10": 0.4007566661241436,
+        "NDCG@10": 0.24432787709801201,
+        "empty_recommendation_users": 6,
+        "short_list_users": 285,
+        "mean_recommendations": 9.996081550428542,
+        "by_target_train_support": {
+          "unseen": {
+            "users": 0,
+            "hits": 0,
+            "Recall@10": null,
+            "NDCG@10": null,
+            "empty_recommendation_users": 0,
+            "short_list_users": 0,
+            "mean_recommendations": null
+          },
+          "low": {
+            "users": 222,
+            "hits": 14,
+            "Recall@10": 0.06306306306306306,
+            "NDCG@10": 0.048807711378891595,
+            "empty_recommendation_users": 0,
+            "short_list_users": 1,
+            "mean_recommendations": 9.977477477477477
+          },
+          "mid_low": {
+            "users": 768,
+            "hits": 47,
+            "Recall@10": 0.061197916666666664,
+            "NDCG@10": 0.042106068020254905,
+            "empty_recommendation_users": 0,
+            "short_list_users": 0,
+            "mean_recommendations": 10.0
+          },
+          "mid_high": {
+            "users": 4176,
+            "hits": 263,
+            "Recall@10": 0.06297892720306514,
+            "NDCG@10": 0.04284340213289893,
+            "empty_recommendation_users": 0,
+            "short_list_users": 7,
+            "mean_recommendations": 9.994252873563218
+          },
+          "high": {
+            "users": 320473,
+            "hits": 130178,
+            "Recall@10": 0.40620582701194796,
+            "NDCG@10": 0.24757342662516618,
+            "empty_recommendation_users": 6,
+            "short_list_users": 277,
+            "mean_recommendations": 9.996108876566824
+          }
+        },
+        "candidate_catalog_coverage": 0.8966817496229261,
+        "distinct_recommended_games": 5945,
+        "target_positive_personalized_score_users": 269968,
+        "target_zero_personalized_score_users": 55671,
+        "batch_scalar_equivalence_samples": 12,
+        "unsupported_target_users": 0,
+        "users_without_supported_positive_inputs": 6,
+        "saved_file_violations": {
+          "nonpositive_or_invalid_scores": 0,
+          "duplicate_user_game": 0,
+          "invalid_or_duplicate_ranks": 0,
+          "noncandidate_recommendations": 0,
+          "unknown_recommended_users": 0,
+          "observed_game_recommendations": 0,
+          "missing_outcomes": 0,
+          "duplicate_outcomes": 0,
+          "wrong_target_ranks": 0,
+          "wrong_list_counts": 0,
+          "wrong_metric_values": 0,
+          "out_of_order_scores": 0
+        }
+      }
+    },
+    "runtime": {
+      "python": "3.13.17",
+      "numpy": "2.5.4",
+      "batch_size": 512
+    },
+    "code_sha256": {
+      "evaluator": "288d26babf79b5c137675ca9f89fc24cf35b7226a90760b1aff754a7967003d4",
+      "tfidf": "4889b1225d5c206df0e58021942f79839976ad22b74da577a99900db3b9c1b71",
+      "item_knn": "ec5aedb4cb93b056551c788ce26aafd306692dcccf3374974de98c727c4146f9"
+    },
+    "diagnostic_controls": {
+      "train_popularity_diagnostic_only_not_personalized_fallback": {
+        "users": 325639,
+        "hits": 103991,
+        "Recall@10": 0.3193444274180918,
+        "NDCG@10": 0.20196067869203826,
+        "empty_recommendation_users": 0,
+        "short_list_users": 0,
+        "mean_recommendations": 10.0,
+        "by_target_train_support": {
+          "unseen": {
+            "users": 0,
+            "hits": 0,
+            "Recall@10": null,
+            "NDCG@10": null,
+            "empty_recommendation_users": 0,
+            "short_list_users": 0,
+            "mean_recommendations": null
+          },
+          "low": {
+            "users": 222,
+            "hits": 0,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0,
+            "empty_recommendation_users": 0,
+            "short_list_users": 0,
+            "mean_recommendations": 10.0
+          },
+          "mid_low": {
+            "users": 768,
+            "hits": 0,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0,
+            "empty_recommendation_users": 0,
+            "short_list_users": 0,
+            "mean_recommendations": 10.0
+          },
+          "mid_high": {
+            "users": 4176,
+            "hits": 0,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0,
+            "empty_recommendation_users": 0,
+            "short_list_users": 0,
+            "mean_recommendations": 10.0
+          },
+          "high": {
+            "users": 320473,
+            "hits": 103991,
+            "Recall@10": 0.32449223491526585,
+            "NDCG@10": 0.20521626922891054,
+            "empty_recommendation_users": 0,
+            "short_list_users": 0,
+            "mean_recommendations": 10.0
+          }
+        }
+      },
+      "uniform_random_exact_expectation_not_sampled": {
+        "users": 325639,
+        "Recall@10": 0.0015090377227152242,
+        "NDCG@10": 0.0006856402436570329,
+        "by_target_train_support": {
+          "unseen": {
+            "users": 0,
+            "Recall@10": null,
+            "NDCG@10": null
+          },
+          "low": {
+            "users": 222,
+            "Recall@10": 0.0015093587747892644,
+            "NDCG@10": 0.0006857861155719345
+          },
+          "mid_low": {
+            "users": 768,
+            "Recall@10": 0.0015095308305494795,
+            "NDCG@10": 0.0006858642901275343
+          },
+          "mid_high": {
+            "users": 4176,
+            "Recall@10": 0.0015094549786997598,
+            "NDCG@10": 0.0006858298263895236
+          },
+          "high": {
+            "users": 320473,
+            "Recall@10": 0.0015090308814481954,
+            "NDCG@10": 0.0006856371352867634
+          }
+        }
+      }
+    },
+    "completed_utc": "2026-11-07T15:56:42.279062+00:00",
+    "files": {
+      "item_knn/per_user.parquet": {
+        "sha256": "84053bb207aa51ce8469aa70c9f334728ab8693280198278d53a53e89e71bd5d",
+        "bytes": 4793829
+      },
+      "item_knn/recommendations.parquet": {
+        "sha256": "ffdba0b925fcbae6e70fdd7b6f5b6f9c0bbe6d8ae1e607ae851a52236e613c48",
+        "bytes": 35951396
+      },
+      "tfidf/per_user.parquet": {
+        "sha256": "98295dff820886835d4b3bbc749353f7bb6b342c562ba579a188670d22aa58cd",
+        "bytes": 3920127
+      },
+      "tfidf/recommendations.parquet": {
+        "sha256": "17ac76c7d4d3e2e913198be0bd35fc084aae1b88b88cfcc5456a83fc764a9456",
+        "bytes": 26473142
+      }
+    }
+  },
+  "test": {
+    "version": "positive-review-baselines-v1",
+    "status": "complete",
+    "cohort": "test",
+    "started_utc": "2026-11-07T15:57:26.043260+00:00",
+    "users": 24342,
+    "protocol_sha256": "62aa2e1029c0fa1d2247d8b79e5e962429d1ec233e5107021efc4e7bf9a30b00",
+    "protocol": {
+      "version": "positive-review-baseline-protocol-v1",
+      "status": "frozen_before_ranking_metrics",
+      "decision_date_kst": "2026-11-08",
+      "purpose": "Initial untuned TF-IDF versus Item-KNN; no hyperparameter search in this run",
+      "split_manifest_sha256": "0d94731ccbcc9afec6e2d0a1394d6fa4a50e65f45e9dd9d3a764a2309bd2ce9f",
+      "tfidf_manifest_sha256": "ecfc55c171d84e2222d6cac2145382c6d9512bf56de8b51b5ed61667ca1e108a",
+      "cohort_users": {
+        "validation": 325639,
+        "test": 24342
+      },
+      "input_games": 37610,
+      "linux_candidates": 6630,
+      "item_knn": {
+        "neighbors": 100,
+        "orientation": "Each Linux candidate retains its 100 most similar distinct games from the full fixed input catalog",
+        "similarity": "binary positive-review cosine cooccurrence/sqrt(full_train_support_i*full_train_support_j)",
+        "retain_positive_singletons": true,
+        "minimum_cooccurrence": 1,
+        "shrinkage": 0,
+        "self_similarity": "excluded",
+        "neighbor_tie_break": "App ID ascending",
+        "query_scoring": "sum retained similarities divided by ALL remaining positive query games, including unsupported ones"
+      },
+      "tfidf": {
+        "parameters": "Exactly the existing description-tfidf-v1 manifest; no changes",
+        "profile": "Equal-weight mean of L2-normalized positive game vectors, including zero vectors, then cosine",
+        "zero_text_games": "Retain in catalog, queries and targets; never drop users or replace descriptions after tokenization"
+      },
+      "ranking": {
+        "top_k": 10,
+        "positive_scores_only": true,
+        "exclude_all_remaining_positive_and_negative_observed_games": true,
+        "hidden_target_not_excluded": true,
+        "tie_break": "App ID ascending",
+        "fallback": "none",
+        "empty_lists_kept_in_denominator": true
+      },
+      "metrics": [
+        "Recall@10",
+        "NDCG@10"
+      ],
+      "validation_selection": {
+        "primary": "NDCG@10 on all fixed validation users",
+        "secondary": "Recall@10 if primary tied",
+        "this_run": "Report both fixed baselines; no tuning, no refit on validation, no dropping unsupported users",
+        "diagnostics": "Empty/short lists, catalog coverage, unsupported inputs and targets, train candidate-support quartiles; popularity and exact uniform-random controls",
+        "support_buckets": "Zero train support separately; positive Linux candidate-support quartiles computed only from train, numpy linear quantiles; side=right for ties"
+      },
+      "test_policy": "Run the unchanged baselines once after validation and correctness checks; never tune using frank test metrics",
+      "controls": "Train-popularity top10 after same exclusions; uniform-random without-replacement exact expectation over remaining Linux candidates. Diagnostic only, never recommendation filling",
+      "limitations": [
+        "Not a chronological future-prediction protocol",
+        "frank has per-game review caps and reviewer-selection bias",
+        "Fixed historical Linux catalog; not current platform support or latest releases",
+        "TF-IDF has 17 textless Linux candidates and limited CJK segmentation"
+      ]
+    },
+    "run_lock_sha256": "02f7042755c0cee74a66ea2b3bbcac24dbb9e36080cf5557bfcfbe54f8e6521c",
+    "validation_result_sha256": "61ae5b03e2140d7016bfbaf9747caa010367b619bbba7a004e56177a8cc9a77a",
+    "split_manifest_sha256": "0d94731ccbcc9afec6e2d0a1394d6fa4a50e65f45e9dd9d3a764a2309bd2ce9f",
+    "tfidf_manifest_sha256": "ecfc55c171d84e2222d6cac2145382c6d9512bf56de8b51b5ed61667ca1e108a",
+    "item_knn_manifest_sha256": "da6a43ca1dccee8100b8fbaf57d1b33b8560fa8216f6a67ef0b7bd3cb2e86017",
+    "cohort_file_sha256": {
+      "test/users.parquet": "b26a41d8848a2f0f0589a5934e2566740a4a61710aadee3cea49a2747e5dec7e",
+      "test/query.parquet": "b118b7bf7e5dd995737dc353c8981ed46f9022b1eade9dcefacbe6c4373e8610",
+      "test/targets.parquet": "037625a892511fdd2210c84b9773fae28707d57f294e692a56cc2990d01c5837",
+      "test/exclusions.parquet": "73dd3b05ed5aa3ec0c9b5bb63ee2ffc3cc52953e1736a6f818db30787d9b9659"
+    },
+    "train_candidate_support_quartile_thresholds": [
+      19.0,
+      67.0,
+      413.75
+    ],
+    "models": {
+      "tfidf": {
+        "users": 24342,
+        "hits": 871,
+        "Recall@10": 0.035781776353627476,
+        "NDCG@10": 0.024253859485728405,
+        "empty_recommendation_users": 4,
+        "short_list_users": 4,
+        "mean_recommendations": 9.99835674965081,
+        "by_target_train_support": {
+          "unseen": {
+            "users": 52,
+            "hits": 0,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0,
+            "empty_recommendation_users": 0,
+            "short_list_users": 0,
+            "mean_recommendations": 10.0
+          },
+          "low": {
+            "users": 1394,
+            "hits": 63,
+            "Recall@10": 0.04519368723098996,
+            "NDCG@10": 0.027318914037548526,
+            "empty_recommendation_users": 0,
+            "short_list_users": 0,
+            "mean_recommendations": 10.0
+          },
+          "mid_low": {
+            "users": 4652,
+            "hits": 119,
+            "Recall@10": 0.025580395528804815,
+            "NDCG@10": 0.016556573849453717,
+            "empty_recommendation_users": 1,
+            "short_list_users": 1,
+            "mean_recommendations": 9.997850386930352
+          },
+          "mid_high": {
+            "users": 8960,
+            "hits": 345,
+            "Recall@10": 0.03850446428571429,
+            "NDCG@10": 0.025881518603475928,
+            "empty_recommendation_users": 1,
+            "short_list_users": 1,
+            "mean_recommendations": 9.998883928571429
+          },
+          "high": {
+            "users": 9284,
+            "hits": 344,
+            "Recall@10": 0.03705299439896596,
+            "NDCG@10": 0.026215563679282107,
+            "empty_recommendation_users": 2,
+            "short_list_users": 2,
+            "mean_recommendations": 9.997845756139595
+          }
+        },
+        "candidate_catalog_coverage": 0.8906485671191554,
+        "distinct_recommended_games": 5905,
+        "target_positive_personalized_score_users": 24163,
+        "target_zero_personalized_score_users": 179,
+        "batch_scalar_equivalence_samples": 12,
+        "unsupported_target_users": 34,
+        "users_without_supported_positive_inputs": 2,
+        "saved_file_violations": {
+          "nonpositive_or_invalid_scores": 0,
+          "duplicate_user_game": 0,
+          "invalid_or_duplicate_ranks": 0,
+          "noncandidate_recommendations": 0,
+          "unknown_recommended_users": 0,
+          "observed_game_recommendations": 0,
+          "missing_outcomes": 0,
+          "duplicate_outcomes": 0,
+          "wrong_target_ranks": 0,
+          "wrong_list_counts": 0,
+          "wrong_metric_values": 0,
+          "out_of_order_scores": 0
+        }
+      },
+      "item_knn": {
+        "users": 24342,
+        "hits": 2724,
+        "Recall@10": 0.11190534877988662,
+        "NDCG@10": 0.07485914164640092,
+        "empty_recommendation_users": 18,
+        "short_list_users": 505,
+        "mean_recommendations": 9.910935831073864,
+        "by_target_train_support": {
+          "unseen": {
+            "users": 52,
+            "hits": 0,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0,
+            "empty_recommendation_users": 0,
+            "short_list_users": 1,
+            "mean_recommendations": 9.865384615384615
+          },
+          "low": {
+            "users": 1394,
+            "hits": 127,
+            "Recall@10": 0.09110473457675754,
+            "NDCG@10": 0.05966958199238114,
+            "empty_recommendation_users": 2,
+            "short_list_users": 24,
+            "mean_recommendations": 9.928981348637016
+          },
+          "mid_low": {
+            "users": 4652,
+            "hits": 336,
+            "Recall@10": 0.07222699914015478,
+            "NDCG@10": 0.04441750948465209,
+            "empty_recommendation_users": 3,
+            "short_list_users": 108,
+            "mean_recommendations": 9.904987102321583
+          },
+          "mid_high": {
+            "users": 8960,
+            "hits": 1018,
+            "Recall@10": 0.11361607142857143,
+            "NDCG@10": 0.0772907138919613,
+            "empty_recommendation_users": 7,
+            "short_list_users": 196,
+            "mean_recommendations": 9.906138392857143
+          },
+          "high": {
+            "users": 9284,
+            "hits": 1243,
+            "Recall@10": 0.1338862559241706,
+            "NDCG@10": 0.09046604675406474,
+            "empty_recommendation_users": 6,
+            "short_list_users": 176,
+            "mean_recommendations": 9.916092201637225
+          }
+        },
+        "candidate_catalog_coverage": 0.9384615384615385,
+        "distinct_recommended_games": 6222,
+        "target_positive_personalized_score_users": 6523,
+        "target_zero_personalized_score_users": 17819,
+        "batch_scalar_equivalence_samples": 12,
+        "unsupported_target_users": 63,
+        "users_without_supported_positive_inputs": 18,
+        "saved_file_violations": {
+          "nonpositive_or_invalid_scores": 0,
+          "duplicate_user_game": 0,
+          "invalid_or_duplicate_ranks": 0,
+          "noncandidate_recommendations": 0,
+          "unknown_recommended_users": 0,
+          "observed_game_recommendations": 0,
+          "missing_outcomes": 0,
+          "duplicate_outcomes": 0,
+          "wrong_target_ranks": 0,
+          "wrong_list_counts": 0,
+          "wrong_metric_values": 0,
+          "out_of_order_scores": 0
+        }
+      }
+    },
+    "runtime": {
+      "python": "3.13.17",
+      "numpy": "2.5.4",
+      "batch_size": 512
+    },
+    "code_sha256": {
+      "evaluator": "288d26babf79b5c137675ca9f89fc24cf35b7226a90760b1aff754a7967003d4",
+      "tfidf": "4889b1225d5c206df0e58021942f79839976ad22b74da577a99900db3b9c1b71",
+      "item_knn": "ec5aedb4cb93b056551c788ce26aafd306692dcccf3374974de98c727c4146f9"
+    },
+    "diagnostic_controls": {
+      "train_popularity_diagnostic_only_not_personalized_fallback": {
+        "users": 24342,
+        "hits": 16,
+        "Recall@10": 0.0006573001396762796,
+        "NDCG@10": 0.00028844951210079295,
+        "empty_recommendation_users": 0,
+        "short_list_users": 0,
+        "mean_recommendations": 10.0,
+        "by_target_train_support": {
+          "unseen": {
+            "users": 52,
+            "hits": 0,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0,
+            "empty_recommendation_users": 0,
+            "short_list_users": 0,
+            "mean_recommendations": 10.0
+          },
+          "low": {
+            "users": 1394,
+            "hits": 0,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0,
+            "empty_recommendation_users": 0,
+            "short_list_users": 0,
+            "mean_recommendations": 10.0
+          },
+          "mid_low": {
+            "users": 4652,
+            "hits": 0,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0,
+            "empty_recommendation_users": 0,
+            "short_list_users": 0,
+            "mean_recommendations": 10.0
+          },
+          "mid_high": {
+            "users": 8960,
+            "hits": 0,
+            "Recall@10": 0.0,
+            "NDCG@10": 0.0,
+            "empty_recommendation_users": 0,
+            "short_list_users": 0,
+            "mean_recommendations": 10.0
+          },
+          "high": {
+            "users": 9284,
+            "hits": 16,
+            "Recall@10": 0.0017233950883239983,
+            "NDCG@10": 0.0007562944876731477,
+            "empty_recommendation_users": 0,
+            "short_list_users": 0,
+            "mean_recommendations": 10.0
+          }
+        }
+      },
+      "uniform_random_exact_expectation_not_sampled": {
+        "users": 24342,
+        "Recall@10": 0.0015093425529279542,
+        "NDCG@10": 0.0006857787450729908,
+        "by_target_train_support": {
+          "unseen": {
+            "users": 52,
+            "Recall@10": 0.0015090494725223415,
+            "NDCG@10": 0.0006856455822516176
+          },
+          "low": {
+            "users": 1394,
+            "Recall@10": 0.0015096918072345406,
+            "NDCG@10": 0.0006859374308395966
+          },
+          "mid_low": {
+            "users": 4652,
+            "Recall@10": 0.0015093666813624173,
+            "NDCG@10": 0.0006857897079703626
+          },
+          "mid_high": {
+            "users": 8960,
+            "Recall@10": 0.0015094162517506947,
+            "NDCG@10": 0.0006858122305704177
+          },
+          "high": {
+            "users": 9284,
+            "Recall@10": 0.0015092085366363592,
+            "NDCG@10": 0.0006857178539756776
+          }
+        }
+      }
+    },
+    "completed_utc": "2026-11-07T15:57:33.891505+00:00",
+    "files": {
+      "item_knn/per_user.parquet": {
+        "sha256": "948edade32ff9dad341a2953706f71edd9b1f3c952eb8b7f37c032b81287a2b6",
+        "bytes": 326672
+      },
+      "item_knn/recommendations.parquet": {
+        "sha256": "573fe00c4eec4fd8a382d8aeee9b0ed989fd38e1bf43f2b78d33649bfbb509c7",
+        "bytes": 2959316
+      },
+      "tfidf/per_user.parquet": {
+        "sha256": "7bac03c668b4a2c222bb4120b7cdc9f356790e965e50b16f98413085aed75d93",
+        "bytes": 397758
+      },
+      "tfidf/recommendations.parquet": {
+        "sha256": "0dddd4e8c056fcf941a824958a6e13d8698b3dfd5b0985ea3c977cf1138289d5",
+        "bytes": 2085218
+      }
+    }
+  },
+  "automated_tests": {
+    "command": "EDA/.venv/Scripts/python -m unittest discover -s EDA/scripts -p test_*.py -q",
+    "passed": 53,
+    "failed": 0
+  },
+  "interpretation": "Untuned fixed baselines; no validation refit or test-driven tuning. Historical fixed-catalog single-target review holdout, not temporal prediction."
+}

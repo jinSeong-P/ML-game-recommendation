@@ -1,0 +1,28 @@
+{
+  "version": "model-improvement-protocol-v2",
+  "decision_date_kst": "2026-11-08",
+  "status": "fixed_before_v2_validation_metrics",
+  "authorization": "User approved documentation and execution of reproduction, guardrails, K0/T0 diagnostics and improvement experiments",
+  "split_manifest_sha256": "0d94731ccbcc9afec6e2d0a1394d6fa4a50e65f45e9dd9d3a764a2309bd2ce9f",
+  "baseline_run_lock_sha256": "02f7042755c0cee74a66ea2b3bbcac24dbb9e36080cf5557bfcfbe54f8e6521c",
+  "cohort_users": {"validation": 325639, "test": 24342},
+  "fixed_rules": "Unchanged split_v1, catalog, account reservations/quarantine/singletons, positive-only equal-weight scoring, all observed input exclusions, one hidden target, positive-score top10, no filling, full-user denominator",
+  "support_log_edges": [0, 1, 10, 100, 1000, 10000, 100000, 1000000],
+  "support_log_labels": ["0", "1-9", "10-99", "100-999", "1000-9999", "10000-99999", "100000-999999", "1000000+"],
+  "tail_guard": "target train support 1-999; fixed using train counts, not frank distribution",
+  "game_macro": "Equal mean over target-game means among games represented in fixed validation; report games and sample sizes; not all-catalog performance",
+  "selection": {
+    "primary": "whole-validation NDCG@10 versus the same-family v1",
+    "secondary": "whole-validation Recall@10",
+    "automatic_adoption": "Positive paired-bootstrap 95% lower bound for NDCG delta; no point-estimate loss in whole Recall, target-game-macro NDCG or tail NDCG; no increase in empty users",
+    "otherwise": "Retain v1 as conservative default and separately report best primary candidate and failed guards",
+    "tie_break": "If metric deltas indistinguishable prefer smaller K, fewer features and fewer channels",
+    "cost": "Report measured evaluation/build elapsed time, artifact bytes and feature/edge counts; coverage and short lists are reported with tradeoffs",
+    "bootstrap": {"replicates": 2000, "seed": 20261108, "method": "Paired users, percentile 95%; equivalent multinomial resampling of the joint baseline/candidate rank table; post-selection uncertainty only, not independent confirmation"}
+  },
+  "item_knn": {"orientation": "candidate-by-input", "neighbors": [100, 200, 500], "shrinkage_lambda": [0, 10, 50], "minimum_cooccurrence": 1, "similarity": "cooc/sqrt(full_support_i*full_support_j) * cooc/(cooc+lambda)", "selection_order": "Report lambda=0 K1 first, then fixed-K K2; verify all predeclared K x lambda combinations to expose interaction; reselect from raw cooccurrences after shrinkage"},
+  "tfidf": {"isolated": ["v1_control", "sublinear_tf_only", "word_unigram_bigram_only"], "conditional_max_df": 0.5, "max_df_gate": "T0 must show high-document-frequency terms contributing to wrong ranks; record gate decision before T3 ranking metrics", "metadata": "A valid tags first, C tags fallback, C genres; concept-level binary presence then IDF/L2; separate channel", "metadata_alpha": [1.0, 0.75, 0.5, 0.25], "missing_channels": "zero contribution without per-user/candidate weight renormalization", "description_selection": "Freeze selected text-only model before metadata weight comparison"},
+  "deferred": ["K3 minimum cooccurrence filter", "K4 orientation change", "T5 multilingual segmentation", "new description sources", "negative scoring", "input weighting", "popularity filling", "multiple hidden targets", "minimum inputs 3", "reserved-account auxiliary evaluation", "Kieran-only exclusion sensitivity"],
+  "test_policy": "No v2 frank parameter search. Freeze validation selection and hashes first; any later fixed-model frank run is previously-observed reference evaluation, never new independent confirmation.",
+  "v1_policy": "Do not edit frozen v1 scoring/evaluator/builder/protocol/model/split artifacts. Use new versioned code and paths. Record mutable source manifest snapshot at experiment start; source hashes refer to that timestamp."
+}

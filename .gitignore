@@ -2,6 +2,9 @@
 /EDA/data/raw/*
 !/EDA/data/raw/manifest.json
 /EDA/data/processed/
+/EDA/legacy/data/raw/*
+!/EDA/legacy/data/raw/manifest.json
+/EDA/legacy/data/processed/
 
 # Local environments and caches
 .venv/

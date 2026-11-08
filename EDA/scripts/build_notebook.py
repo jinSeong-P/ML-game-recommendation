@@ -1,9 +1,9 @@
-"""notebooks/01_eda.py (percent 형식) → notebooks/01_eda.ipynb 변환 후 실행.
+"""메인 Kieran → frank EDA 노트북 변환 후 실행.
 
 사용법 (EDA/ 폴더 기준):
     python scripts/build_notebook.py            # 변환 + 실행(출력 포함 저장)
     python scripts/build_notebook.py --no-run   # 변환만
-    python scripts/build_notebook.py 02_eda_data_sufficiency  # 지정 노트북
+    python scripts/build_notebook.py 01_kieran_frank_eda  # 지정 노트북
 
 셀 구분: '# %%' 는 코드 셀, '# %% [markdown]' 는 마크다운 셀(각 줄의 '# ' 접두어 제거).
 """
@@ -16,8 +16,6 @@ from pathlib import Path
 import nbformat
 
 EDA_DIR = Path(__file__).resolve().parent.parent
-SRC = EDA_DIR / "notebooks" / "01_eda.py"
-DST = EDA_DIR / "notebooks" / "01_eda.ipynb"
 
 
 def parse(text):
@@ -45,7 +43,7 @@ def parse(text):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("notebook", nargs="?", default="01_eda", help="notebooks/ 아래의 노트북 이름(.py/.ipynb 생략 가능)")
+    ap.add_argument("notebook", nargs="?", default="01_kieran_frank_eda", help="notebooks/ 아래의 노트북 이름(.py/.ipynb 생략 가능)")
     ap.add_argument("--no-run", action="store_true")
     args = ap.parse_args()
     stem = Path(args.notebook).stem

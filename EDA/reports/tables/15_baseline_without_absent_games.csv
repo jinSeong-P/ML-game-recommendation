@@ -1,3 +1,0 @@
-﻿population,users,metric,estimate,ci_low,ci_high,ci_width,iterations,seed
-targets_and_candidates_without_absent_games,12958,Recall@10,0.4528722833476653,0.444803740932241,0.46098339690869344,0.016179655976452434,1000,42
-targets_and_candidates_without_absent_games,12958,NDCG@10,0.3432583401489303,0.33677195159018114,0.34968210511748465,0.012910153527303514,1000,42

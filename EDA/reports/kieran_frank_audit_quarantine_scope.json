@@ -1,0 +1,243 @@
+{
+  "scope": "Aggregate read-only audit of review-ID quarantine, positive Item-KNN training row scopes, and Linux target training support. No model fit, split files, or account-level output.",
+  "checked_utc": "2026-11-07T10:19:25.286291+00:00",
+  "provenance": {
+    "work_database": "data/processed/kieran_original/eda_work.duckdb",
+    "database_opened_read_only": true,
+    "duckdb_version": "1.4.3",
+    "threads": 2,
+    "memory_limit": "2GB",
+    "unique_temporary_directory": true,
+    "source_metrics_sha256": "a75401de52e817ed0911b48129f3c37fc0802c55f35367d7cebc2191ddf29cbc",
+    "cohort_metrics_sha256": "beacd40a6ff548dd366354a5018376f45dd1db01693af8bc6037c59a7b9bd857",
+    "existing_diagnostics_sha256": "e94a9098fd0ec73a85a6794ddb502fa689b52910ee64ca4a8ac30d4f3e3810a9",
+    "reference_manifest_sha256": "c21309276ed4c069e7ad5fc55a45b778b304978ffd861154750d2158d3164d64",
+    "quarantine_file_sha256": "d2c1b4d4a12c096973c3e0403034330383b21d4696d72d03a7ea73b010734353",
+    "diagnostic_code_sha256": "3add49ee5c1653d1073a9d1a69a67f977b7c6be52215e25b5c421ce34e3753a1",
+    "backlog_sha256": "51a21e858a2ac7f889d89340d784dc138bcb4ce2e48909bbf23885948a6f3b76",
+    "audit_code_sha256": "0c133f2c042bfa78da2bad2700dd1a0edd35ee337fe5871a9bc478b4d4a5a5dc"
+  },
+  "quarantine": {
+    "duplicate_field_consistency": {
+      "review_ids": 332865,
+      "raw_rows": 686161,
+      "ids_with_multiple_apps": 332865,
+      "ids_owner_and_label_consistent": 332863,
+      "ids_with_owner_conflict": 0,
+      "ids_with_label_conflict": 2,
+      "ids_identical_except_app_id": 326403,
+      "ids_differ_on_other_fields": 6462,
+      "available_fields_compared_except_app_id_and_grouped_review_key": [
+        "user_key",
+        "positive",
+        "timestamp_created",
+        "timestamp_updated",
+        "playtime_forever",
+        "language"
+      ],
+      "fields_with_any_inconsistent_review_id": [
+        {
+          "field_name": "language",
+          "inconsistent_review_ids": 1
+        },
+        {
+          "field_name": "playtime_forever",
+          "inconsistent_review_ids": 6458
+        },
+        {
+          "field_name": "positive",
+          "inconsistent_review_ids": 2
+        },
+        {
+          "field_name": "timestamp_updated",
+          "inconsistent_review_ids": 11
+        }
+      ]
+    },
+    "alias_group_structure": {
+      "app_groups": 31,
+      "review_ids": 332865,
+      "raw_rows": 686161,
+      "groups_with_one_catalog_app": 22,
+      "groups_with_several_catalog_apps": 0,
+      "groups_without_catalog_app": 9,
+      "review_ids_with_one_catalog_app": 329756,
+      "groups_with_multiple_app_ids": 31,
+      "apps_in_groups": 63,
+      "available_valid_raw_history_loss_by_linked_app": {
+        "apps": 63,
+        "available_history_rows": 686200,
+        "rows_removed_by_quarantine": 686161,
+        "fully_quarantined_apps": 55,
+        "apps_with_at_least_90pct_lost": 63,
+        "apps_with_any_rows_lost": 63,
+        "app_loss_fraction_quantiles": [
+          0.9930555555555556,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "share_of_available_linked_app_history_rows_removed": 0.9999431652579422,
+        "available_history_rows_remaining": 39
+      },
+      "available_valid_raw_history_loss_by_alias_group": {
+        "app_groups": 31,
+        "groups_where_all_linked_app_histories_lost": 25,
+        "group_loss_fraction_quantiles": [
+          0.9965156794425087,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    }
+  },
+  "item_knn_scope": {
+    "all_training_scope": {
+      "training_users": 34014115,
+      "training_pairs": 98857701,
+      "all_app_positive_training_pairs": 84791317,
+      "catalog_positive_training_pairs": 78315268,
+      "outside_catalog_positive_training_pairs": 6476049
+    },
+    "fixed_input_catalog_positive_scope": {
+      "catalog_positive_training_pairs": 78315268,
+      "catalog_positive_users": 29836980,
+      "catalog_positive_pairs": 78315268,
+      "singleton_users": 17042189,
+      "singleton_user_item_pairs": 17042189,
+      "users_with_two_or_more_catalog_positive_apps": 12794791,
+      "pairs_from_users_with_two_or_more_catalog_positive_apps": 61273079,
+      "sum_squared_user_degree": 950314300,
+      "per_user_item_pair_cooccurrence_incidences": 435999516.0,
+      "max_user_degree": 3490
+    },
+    "catalog_positive_review_share_of_all_positive_training_rows": 0.9236236771743974,
+    "singleton_share_of_catalog_positive_rows": 0.21761004508086468,
+    "semantics": {
+      "all_app_positive_training_pairs": "positive user-app training observations from non-test, non-validation Kieran accounts across all apps",
+      "catalog_positive_pairs": "positive user-app observations restricted to reviewed apps in the fixed input catalog",
+      "pairs_from_users_with_two_or_more_catalog_positive_apps": "observations from users with catalog positive degree >=2; these are still user-app rows, not the count of co-occurrence edges",
+      "singleton_user_item_pairs": "catalog positive observations from users with catalog positive degree 1; they create no off-diagonal co-occurrence for that user, while still contributing to item support/norms in common cosine constructions",
+      "per_user_item_pair_cooccurrence_incidences": "sum over users of choose(catalog positive degree, 2), counting user-specific item-pair incidences rather than unique item-pair edges",
+      "degree_aggregation": "exactly aggregated in 8 disjoint hash partitions to stay within the 2 GB memory limit"
+    }
+  },
+  "linux_training_support": {
+    "fixed_linux_candidate_support": {
+      "linux_catalog_apps": 6630,
+      "apps_without_train_positive": 36,
+      "apps_with_one_to_four_train_positives": 188,
+      "apps_with_fewer_than_five_train_positives": 224,
+      "apps_with_at_least_five_train_positives": 6406,
+      "apps_without_any_kieran_review": 27,
+      "apps_without_kieran_review_but_present_in_frank": 14,
+      "total_train_positive_rows_on_linux_catalog": 27581735
+    },
+    "frank_potential_cohort_targets": {
+      "cohort_validation": {
+        "potential_users": 24571,
+        "users_with_positive_query": 24342,
+        "possible_target_pairs": 102602,
+        "target_pairs_for_positive_query_users": 102373
+      },
+      "support_distribution_for_uniformly_selected_frank_target": {
+        "all_potential_users": {
+          "eligible_users": 24571,
+          "possible_target_pairs": 102602,
+          "support_distribution": {
+            "at_least_five_train_positives": {
+              "support_bucket": "at_least_five_train_positives",
+              "possible_target_pairs": 101768,
+              "users_with_any_target_in_bucket": 24528,
+              "distinct_target_apps": 4913,
+              "uniformly_selected_target_weight": 24412.30476463486,
+              "share_of_uniformly_selected_targets": 0.9935413603286338,
+              "share_of_possible_target_pairs": 0.9918715034794643
+            },
+            "one_to_four_train_positives": {
+              "support_bucket": "one_to_four_train_positives",
+              "possible_target_pairs": 637,
+              "users_with_any_target_in_bucket": 416,
+              "distinct_target_apps": 121,
+              "uniformly_selected_target_weight": 105.66301291139735,
+              "share_of_uniformly_selected_targets": 0.004300313903031922,
+              "share_of_possible_target_pairs": 0.006208455975517046
+            },
+            "zero_train_positive": {
+              "support_bucket": "zero_train_positive",
+              "possible_target_pairs": 197,
+              "users_with_any_target_in_bucket": 189,
+              "distinct_target_apps": 18,
+              "uniformly_selected_target_weight": 53.03222245246788,
+              "share_of_uniformly_selected_targets": 0.002158325768282442,
+              "share_of_possible_target_pairs": 0.0019200405450186156
+            }
+          }
+        },
+        "positive_query_required": {
+          "eligible_users": 24342,
+          "possible_target_pairs": 102373,
+          "support_distribution": {
+            "at_least_five_train_positives": {
+              "support_bucket": "at_least_five_train_positives",
+              "possible_target_pairs": 101540,
+              "users_with_any_target_in_bucket": 24300,
+              "distinct_target_apps": 4913,
+              "uniformly_selected_target_weight": 24184.304764634966,
+              "share_of_uniformly_selected_targets": 0.9935216812355174,
+              "share_of_possible_target_pairs": 0.9918630889003937
+            },
+            "one_to_four_train_positives": {
+              "support_bucket": "one_to_four_train_positives",
+              "possible_target_pairs": 636,
+              "users_with_any_target_in_bucket": 415,
+              "distinct_target_apps": 121,
+              "uniformly_selected_target_weight": 104.66301291139736,
+              "share_of_uniformly_selected_targets": 0.004299688312850109,
+              "share_of_possible_target_pairs": 0.0062125755814521405
+            },
+            "zero_train_positive": {
+              "support_bucket": "zero_train_positive",
+              "possible_target_pairs": 197,
+              "users_with_any_target_in_bucket": 189,
+              "distinct_target_apps": 18,
+              "uniformly_selected_target_weight": 53.03222245246788,
+              "share_of_uniformly_selected_targets": 0.002178630451584417,
+              "share_of_possible_target_pairs": 0.0019243355181542009
+            }
+          }
+        }
+      },
+      "selection_semantics": "Within each eligible user, each positive Linux game in the fixed reviewed catalog is a possible hidden target with equal probability; bucket weights sum one probability per user."
+    }
+  },
+  "verdicts": {
+    "quarantined_review_payload_identity": {
+      "status": "refuted_as_universal_claim",
+      "finding": "326,403 of 332,865 flagged Kieran review IDs match across every available valid_raw field except app_id; 6,462 have at least one other-field disagreement.",
+      "owner_label": "Owner conflicts: 0; label conflicts: 2."
+    },
+    "one_catalog_app_proves_original_app": {
+      "status": "unproven",
+      "finding": "22 of 31 app-ID groups have one currently reviewed catalog app, but the inspected review payload and catalog do not independently establish which app ID was original.",
+      "limitation": "No authoritative source mapping independent of this review-ID collision was present in the evidence inspected. Recovery should not be inferred from catalog cardinality alone."
+    },
+    "item_knn_positive_pair_scope": {
+      "status": "scope_difference_confirmed_count_not_inherently_erroneous",
+      "finding": "84,791,317 counts all-app positive user-app training observations; 78,315,268 are within the fixed reviewed input catalog and 6,476,049 are outside it.",
+      "singleton_semantics": "17,042,189 singleton users contribute 17,042,189 catalog rows and no off-diagonal co-occurrence for that user; they can still contribute item norms/support. The 61,273,079 rows from degree-2+ users are observations, not co-occurrence-edge counts."
+    },
+    "linux_targets_without_positive_training_support": {
+      "status": "supported_as_a_coverage_gap",
+      "finding": "36 of 6630 Linux candidates have zero final-train positives; 224 have fewer than five.",
+      "frank_uniform_target_probability_below_five_train_positives": 0.006458639671314364,
+      "frank_positive_query_uniform_target_probability_below_five_train_positives": 0.006478318764434526,
+      "limitation": "Support counts describe item availability, not measured ranking harm; no model has been evaluated."
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "passed": true,
+  "code_sha256": "9a0ed44620a8b5224dc07f7616ca6309b805244f408181ad910a10dbff60ea37",
+  "protocol_sha256": "12fbb346ac5b8c3fda04f1eff8286133d1a7930d605473ae2307be86757b584d",
+  "method": "Independent DuckDB raw-edge shrinkage and ORDER BY; no reuse of builder ranking function",
+  "sample_candidate_app_ids": [
+    10,
+    329460,
+    446800,
+    640150,
+    931700,
+    1374940,
+    2244840
+  ],
+  "candidate_model_rows_checked": 63,
+  "v1_control_exact_array_equivalence": true,
+  "variants": {
+    "k100_l0": {
+      "sample_rows": 7,
+      "sample_edges": 700,
+      "nnz": 634820,
+      "passed": true
+    },
+    "k100_l10": {
+      "sample_rows": 7,
+      "sample_edges": 700,
+      "nnz": 634820,
+      "passed": true
+    },
+    "k100_l50": {
+      "sample_rows": 7,
+      "sample_edges": 700,
+      "nnz": 634820,
+      "passed": true
+    },
+    "k200_l0": {
+      "sample_rows": 7,
+      "sample_edges": 1400,
+      "nnz": 1228960,
+      "passed": true
+    },
+    "k200_l10": {
+      "sample_rows": 7,
+      "sample_edges": 1400,
+      "nnz": 1228960,
+      "passed": true
+    },
+    "k200_l50": {
+      "sample_rows": 7,
+      "sample_edges": 1400,
+      "nnz": 1228960,
+      "passed": true
+    },
+    "k500_l0": {
+      "sample_rows": 7,
+      "sample_edges": 3413,
+      "nnz": 2872414,
+      "passed": true
+    },
+    "k500_l10": {
+      "sample_rows": 7,
+      "sample_edges": 3413,
+      "nnz": 2872414,
+      "passed": true
+    },
+    "k500_l50": {
+      "sample_rows": 7,
+      "sample_edges": 3413,
+      "nnz": 2872414,
+      "passed": true
+    }
+  }
+}

@@ -1,0 +1,5 @@
+﻿source,population,users,target_pairs,reachable_target_pairs,reachable_pairs_pct,users_with_any_reachable_target,users_with_any_reachable_target_pct,users_with_all_reachable_targets,users_with_all_reachable_targets_pct,minimum_cooccurrence_users
+all_positive,all,15294,24704,24689,99.9392810880829,15289,99.96730744082647,15279,99.90192232247941,5
+all_positive,longtail_head50_excluded_targets,6533,8885,8870,99.83117613956107,6525,99.87754477269249,6518,99.77039644879841,5
+kcore_5_10,all,15294,24704,24686,99.92713730569949,15289,99.96730744082647,15276,99.88230678697528,5
+kcore_5_10,longtail_head50_excluded_targets,6533,8885,8867,99.79741136747326,6524,99.86223786927904,6515,99.7244757385581,5

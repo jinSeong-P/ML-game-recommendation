@@ -1,0 +1,274 @@
+{
+  "checked_date": "2026-11-07",
+  "protocol": "At least k distinct input games after hiding one positive Linux game; no split or model fit performed",
+  "linux_rule": "A games.linux=True AND app_id present in A recommendations",
+  "deduplication": "Unique (user_id, app_id); exclude conflicting labels",
+  "A_user_disjointness": "Unverified: A internal IDs cannot be directly compared to external Steam IDs",
+  "A_reviewed_linux_games": 6630,
+  "inputs": [
+    {
+      "path": "data/processed/A_games.parquet",
+      "bytes": 1815579,
+      "sha256": "c71773cbad26ae13f07179fe99275160318719e7375f7b4df151ef8ea260d1d8"
+    },
+    {
+      "path": "data/processed/A_recommendations.parquet",
+      "bytes": 593191975,
+      "sha256": "6bd5f1cd77b41fa8eaa8ac2cd407dced84c01ea505a33a05eb74e84715a8c226"
+    },
+    {
+      "path": "data/processed/B_reviews.parquet",
+      "bytes": 1223658,
+      "sha256": "13de357635ecf12ed3713614ff5260067552e0800dbaf48a5276828db333d47c"
+    },
+    {
+      "path": "data/raw/candidate_review/VintageDon/steam_dataset_2025_csv_package_v1.zip",
+      "bytes": 320368878,
+      "sha256": "38edfd94af001c7c96eccb5d3caa914f68b46705fc7ff476f844ff48b41c7954"
+    }
+  ],
+  "datasets": {
+    "B": {
+      "raw_rows": 59305,
+      "invalid_rows": 0,
+      "duplicate_same_label_rows": 874,
+      "conflicting_pairs_excluded": 0,
+      "unique_user_game_pairs": 58431,
+      "users": 25458,
+      "games": 3682,
+      "history_quantiles": {
+        "0.25": 1.0,
+        "0.5": 1.0,
+        "0.75": 3.0,
+        "0.9": 5.0
+      },
+      "maximum_games_per_user": 10,
+      "maximum_reviews_per_game": 3708,
+      "single_game_users": 13529,
+      "users_with_at_least_games": {
+        "2": 11929,
+        "3": 7300,
+        "5": 3272,
+        "10": 262
+      },
+      "user_label_mix": {
+        "positive_only": 20440,
+        "negative_only": 1334,
+        "mixed": 3684
+      },
+      "games_in_A_catalog": 2997,
+      "games_in_A_reviewed": 2718,
+      "linux_positive_pairs": 27952,
+      "linux_positive_games": 863,
+      "eligibility_by_minimum_input_games": {
+        "all_games": {
+          "1": {
+            "users": 9884,
+            "possible_target_pairs": 20260,
+            "possible_target_games": 815
+          },
+          "3": {
+            "users": 4430,
+            "possible_target_pairs": 12123,
+            "possible_target_games": 701
+          },
+          "5": {
+            "users": 2198,
+            "possible_target_pairs": 7183,
+            "possible_target_games": 594
+          },
+          "10": {
+            "users": 0,
+            "possible_target_pairs": 0,
+            "possible_target_games": 0
+          }
+        },
+        "A_catalog": {
+          "1": {
+            "users": 9383,
+            "possible_target_pairs": 19759,
+            "possible_target_games": 815
+          },
+          "3": {
+            "users": 3871,
+            "possible_target_pairs": 11200,
+            "possible_target_games": 676
+          },
+          "5": {
+            "users": 1704,
+            "possible_target_pairs": 6005,
+            "possible_target_games": 563
+          },
+          "10": {
+            "users": 0,
+            "possible_target_pairs": 0,
+            "possible_target_games": 0
+          }
+        },
+        "A_reviewed": {
+          "1": {
+            "users": 9287,
+            "possible_target_pairs": 19663,
+            "possible_target_games": 814
+          },
+          "3": {
+            "users": 3752,
+            "possible_target_pairs": 10981,
+            "possible_target_games": 673
+          },
+          "5": {
+            "users": 1616,
+            "possible_target_pairs": 5765,
+            "possible_target_games": 554
+          },
+          "10": {
+            "users": 0,
+            "possible_target_pairs": 0,
+            "possible_target_games": 0
+          }
+        }
+      }
+    },
+    "VintageDon": {
+      "raw_rows": 1048148,
+      "invalid_rows": 0,
+      "duplicate_same_label_rows": 7,
+      "conflicting_pairs_excluded": 1,
+      "unique_user_game_pairs": 1048139,
+      "users": 701883,
+      "games": 117311,
+      "history_quantiles": {
+        "0.25": 1.0,
+        "0.5": 1.0,
+        "0.75": 1.0,
+        "0.9": 2.0
+      },
+      "maximum_games_per_user": 2392,
+      "maximum_reviews_per_game": 100,
+      "single_game_users": 590413,
+      "users_with_at_least_games": {
+        "2": 111470,
+        "3": 47336,
+        "5": 18449,
+        "10": 5904
+      },
+      "user_label_mix": {
+        "positive_only": 514149,
+        "negative_only": 148043,
+        "mixed": 39691
+      },
+      "games_in_A_catalog": 42576,
+      "games_in_A_reviewed": 32061,
+      "linux_positive_pairs": 77374,
+      "linux_positive_games": 5405,
+      "eligibility_by_minimum_input_games": {
+        "all_games": {
+          "1": {
+            "users": 21252,
+            "possible_target_pairs": 30628,
+            "possible_target_games": 4562
+          },
+          "3": {
+            "users": 8496,
+            "possible_target_pairs": 16120,
+            "possible_target_games": 3859
+          },
+          "5": {
+            "users": 5121,
+            "possible_target_pairs": 11638,
+            "possible_target_games": 3450
+          },
+          "10": {
+            "users": 2431,
+            "possible_target_pairs": 7359,
+            "possible_target_games": 2891
+          }
+        },
+        "A_catalog": {
+          "1": {
+            "users": 17906,
+            "possible_target_pairs": 27282,
+            "possible_target_games": 4373
+          },
+          "3": {
+            "users": 6388,
+            "possible_target_pairs": 13627,
+            "possible_target_games": 3621
+          },
+          "5": {
+            "users": 3602,
+            "possible_target_pairs": 9579,
+            "possible_target_games": 3171
+          },
+          "10": {
+            "users": 1551,
+            "possible_target_pairs": 5860,
+            "possible_target_games": 2631
+          }
+        },
+        "A_reviewed": {
+          "1": {
+            "users": 16615,
+            "possible_target_pairs": 25991,
+            "possible_target_games": 4323
+          },
+          "3": {
+            "users": 5751,
+            "possible_target_pairs": 12827,
+            "possible_target_games": 3553
+          },
+          "5": {
+            "users": 3175,
+            "possible_target_pairs": 8964,
+            "possible_target_games": 3091
+          },
+          "10": {
+            "users": 1319,
+            "possible_target_pairs": 5454,
+            "possible_target_games": 2543
+          }
+        }
+      },
+      "source_checks": {
+        "duplicate_review_ids": 0,
+        "missing_review_ids": 0,
+        "nonnull_user_ids_not_17_digits": 0,
+        "invalid_timestamps": 0,
+        "review_created_utc_min": "2010-10-19 10:04:22+00:00",
+        "review_created_utc_max": "2025-09-06 14:37:00+00:00",
+        "language_counts": {
+          "english": 556231,
+          "schinese": 136210,
+          "russian": 101642,
+          "german": 36859,
+          "brazilian": 32318,
+          "japanese": 27894,
+          "spanish": 27285,
+          "french": 25090,
+          "koreana": 24859,
+          "turkish": 17949,
+          "tchinese": 14454,
+          "polish": 11784,
+          "latam": 6554,
+          "italian": 6218,
+          "ukrainian": 4407,
+          "czech": 3827,
+          "dutch": 2672,
+          "thai": 2397,
+          "swedish": 1632,
+          "hungarian": 1603,
+          "portuguese": 1486,
+          "finnish": 1255,
+          "danish": 890,
+          "norwegian": 772,
+          "greek": 603,
+          "romanian": 502,
+          "vietnamese": 362,
+          "indonesian": 210,
+          "bulgarian": 182,
+          "arabic": 1
+        }
+      }
+    }
+  }
+}

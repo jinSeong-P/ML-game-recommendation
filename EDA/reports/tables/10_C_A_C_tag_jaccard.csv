@@ -1,5 +1,0 @@
-﻿cohort,comparison,common_games,A_tags_empty_games,C_side_empty_games,empty_union_games_jaccard_undefined,nonempty_union_games,jaccard_nonempty_union,mean_jaccard_nonempty_union
-All common A/C App IDs,A tags vs C tags,35876,811,2061,30,35846,"{'n': 35846, 'min': 0.0, 'p25': 0.8888888888888888, 'p50': 1.0, 'p75': 1.0, 'p90': 1.0, 'p99': 1.0, 'mean': 0.8588042128591967, 'max': 1.0}",0.8588042128591967
-All common A/C App IDs,A tags vs C tags plus genres,35876,811,9,4,35872,"{'n': 35872, 'min': 0.0, 'p25': 0.8636363636363636, 'p50': 1.0, 'p75': 1.0, 'p90': 1.0, 'p99': 1.0, 'mean': 0.8614521355889234, 'max': 1.0}",0.8614521355889234
-Linux common A/C App IDs,A tags vs C tags,6440,128,270,2,6438,"{'n': 6438, 'min': 0.0, 'p25': 0.8888888888888888, 'p50': 1.0, 'p75': 1.0, 'p90': 1.0, 'p99': 1.0, 'mean': 0.8731095529265607, 'max': 1.0}",0.8731095529265607
-Linux common A/C App IDs,A tags vs C tags plus genres,6440,128,2,0,6440,"{'n': 6440, 'min': 0.0, 'p25': 0.8636363636363636, 'p50': 1.0, 'p75': 1.0, 'p90': 1.0, 'p99': 1.0, 'mean': 0.8732925036849275, 'max': 1.0}",0.8732925036849275

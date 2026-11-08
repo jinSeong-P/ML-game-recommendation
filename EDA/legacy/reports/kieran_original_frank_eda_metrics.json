@@ -1,0 +1,1082 @@
+{
+  "cross_source_overlap": {
+    "common_original_review_ids": 1089913,
+    "common_review_ids_with_different_owner": 0,
+    "common_review_ids_with_different_app": 185,
+    "common_review_ids_with_different_user_or_app": 185,
+    "common_review_ids_with_changed_label": 12600,
+    "common_review_ids_with_changed_created_time": 0,
+    "retained_clean_review_ids_with_incompatible_owner_or_app": 0,
+    "common_clean_steam_users": 1045364,
+    "common_clean_user_app_pairs": 1089723,
+    "common_clean_pairs_with_changed_label": 12574
+  },
+  "clean_source": {
+    "users": 37875512,
+    "pairs": 113195034,
+    "positives": 96891267,
+    "history_quantiles": [
+      1,
+      1,
+      3,
+      6,
+      25,
+      9807
+    ],
+    "single_game_users": 20900389,
+    "users_with_at_least_5_games": 5356363,
+    "users_with_at_least_10_games": 1898314,
+    "positive_only_users": 28962496,
+    "negative_only_users": 3355533,
+    "mixed_label_users": 5557483,
+    "apps": 105838,
+    "positive_apps": 102047,
+    "app_review_quantiles": [
+      4,
+      16,
+      78,
+      455,
+      14453,
+      7704369
+    ],
+    "reviews_in_fixed_A_input_catalog": 103580916,
+    "apps_in_fixed_A_input_catalog": 37363,
+    "linux_apps_in_fixed_catalog": 6603,
+    "positive_reviews_on_fixed_linux_catalog": 31476835,
+    "top_50_review_share": 0.32305216675848164
+  },
+  "after_test_exclusion": {
+    "users": 37795633,
+    "pairs": 109835009,
+    "positives": 94206307,
+    "history_quantiles": [
+      1,
+      1,
+      3,
+      6,
+      24,
+      4246
+    ],
+    "single_game_users": 20897493,
+    "users_with_at_least_5_games": 5287424,
+    "users_with_at_least_10_games": 1840869,
+    "positive_only_users": 28938946,
+    "negative_only_users": 3355057,
+    "mixed_label_users": 5501630,
+    "apps": 102777,
+    "positive_apps": 98669,
+    "app_review_quantiles": [
+      4,
+      14,
+      68,
+      424,
+      14363,
+      7693383
+    ],
+    "reviews_in_fixed_A_input_catalog": 100617679,
+    "apps_in_fixed_A_input_catalog": 37362,
+    "linux_apps_in_fixed_catalog": 6603,
+    "positive_reviews_on_fixed_linux_catalog": 30644791,
+    "top_50_review_share": 0.33098337525515203,
+    "removed_test_users": 79879,
+    "removed_test_pairs": 3360025
+  },
+  "validation_preview": {
+    "users": 3781518,
+    "pairs": 10977308,
+    "positives": 9414990,
+    "history_quantiles": [
+      1,
+      1,
+      3,
+      6,
+      24,
+      2849
+    ],
+    "single_game_users": 2091333,
+    "users_with_at_least_5_games": 528950,
+    "users_with_at_least_10_games": 183906,
+    "positive_only_users": 2895407,
+    "negative_only_users": 335952,
+    "mixed_label_users": 550159
+  },
+  "after_validation_reservation": {
+    "users": 34014115,
+    "pairs": 98857701,
+    "positives": 84791317,
+    "history_quantiles": [
+      1,
+      1,
+      3,
+      6,
+      24,
+      4246
+    ],
+    "single_game_users": 18806160,
+    "users_with_at_least_5_games": 4758474,
+    "users_with_at_least_10_games": 1656963,
+    "positive_only_users": 26043539,
+    "negative_only_users": 3019105,
+    "mixed_label_users": 4951471,
+    "apps": 101698,
+    "positive_apps": 97399,
+    "app_review_quantiles": [
+      3,
+      13,
+      63,
+      390,
+      13055,
+      6925138
+    ],
+    "reviews_in_fixed_A_input_catalog": 90559054,
+    "apps_in_fixed_A_input_catalog": 37362,
+    "linux_apps_in_fixed_catalog": 6603,
+    "positive_reviews_on_fixed_linux_catalog": 27581735,
+    "top_50_review_share": 0.3309480968002685
+  },
+  "post_exclusion_checks": {
+    "remaining_train_test_user_intersection": 0,
+    "remaining_train_test_user_app_intersection": 0,
+    "remaining_train_test_original_review_id_intersection": 0
+  },
+  "heldout_target_item_support": {
+    "possible_target_pairs": 184125,
+    "target_apps": 5096,
+    "targets_without_training_reviews": 423,
+    "targets_without_positive_training_reviews": 428,
+    "targets_with_fewer_than_5_positive_training_users": 1313,
+    "targets_with_fewer_than_20_positive_training_users": 11100,
+    "targets_without_positive_training_reviews_after_validation": 447
+  },
+  "supported_cohort_sizes": {
+    "any_review_support": {
+      "after_test_exclusion": [
+        {
+          "minimum_inputs": 1,
+          "potential_users": 87226,
+          "potential_users_with_positive_query": 77950,
+          "potential_users_with_only_negative_query": 9276,
+          "possible_target_pairs": 183536
+        },
+        {
+          "minimum_inputs": 3,
+          "potential_users": 39316,
+          "potential_users_with_positive_query": 38416,
+          "potential_users_with_only_negative_query": 900,
+          "possible_target_pairs": 125250
+        },
+        {
+          "minimum_inputs": 5,
+          "potential_users": 24481,
+          "potential_users_with_positive_query": 24252,
+          "potential_users_with_only_negative_query": 229,
+          "possible_target_pairs": 102317
+        },
+        {
+          "minimum_inputs": 10,
+          "potential_users": 11610,
+          "potential_users_with_positive_query": 11574,
+          "potential_users_with_only_negative_query": 36,
+          "possible_target_pairs": 75876
+        }
+      ],
+      "after_validation_reservation": [
+        {
+          "minimum_inputs": 1,
+          "potential_users": 87226,
+          "potential_users_with_positive_query": 77950,
+          "potential_users_with_only_negative_query": 9276,
+          "possible_target_pairs": 183536
+        },
+        {
+          "minimum_inputs": 3,
+          "potential_users": 39316,
+          "potential_users_with_positive_query": 38416,
+          "potential_users_with_only_negative_query": 900,
+          "possible_target_pairs": 125250
+        },
+        {
+          "minimum_inputs": 5,
+          "potential_users": 24481,
+          "potential_users_with_positive_query": 24252,
+          "potential_users_with_only_negative_query": 229,
+          "possible_target_pairs": 102317
+        },
+        {
+          "minimum_inputs": 10,
+          "potential_users": 11610,
+          "potential_users_with_positive_query": 11574,
+          "potential_users_with_only_negative_query": 36,
+          "possible_target_pairs": 75876
+        }
+      ]
+    },
+    "positive_support_1": {
+      "after_test_exclusion": [
+        {
+          "minimum_inputs": 1,
+          "potential_users": 87225,
+          "potential_users_with_positive_query": 77949,
+          "potential_users_with_only_negative_query": 9276,
+          "possible_target_pairs": 183531
+        },
+        {
+          "minimum_inputs": 3,
+          "potential_users": 39311,
+          "potential_users_with_positive_query": 38411,
+          "potential_users_with_only_negative_query": 900,
+          "possible_target_pairs": 125240
+        },
+        {
+          "minimum_inputs": 5,
+          "potential_users": 24479,
+          "potential_users_with_positive_query": 24250,
+          "potential_users_with_only_negative_query": 229,
+          "possible_target_pairs": 102312
+        },
+        {
+          "minimum_inputs": 10,
+          "potential_users": 11609,
+          "potential_users_with_positive_query": 11573,
+          "potential_users_with_only_negative_query": 36,
+          "possible_target_pairs": 75872
+        }
+      ],
+      "after_validation_reservation": [
+        {
+          "minimum_inputs": 1,
+          "potential_users": 87222,
+          "potential_users_with_positive_query": 77945,
+          "potential_users_with_only_negative_query": 9277,
+          "possible_target_pairs": 183510
+        },
+        {
+          "minimum_inputs": 3,
+          "potential_users": 39308,
+          "potential_users_with_positive_query": 38409,
+          "potential_users_with_only_negative_query": 899,
+          "possible_target_pairs": 125219
+        },
+        {
+          "minimum_inputs": 5,
+          "potential_users": 24478,
+          "potential_users_with_positive_query": 24249,
+          "potential_users_with_only_negative_query": 229,
+          "possible_target_pairs": 102298
+        },
+        {
+          "minimum_inputs": 10,
+          "potential_users": 11607,
+          "potential_users_with_positive_query": 11571,
+          "potential_users_with_only_negative_query": 36,
+          "possible_target_pairs": 75855
+        }
+      ]
+    },
+    "positive_support_5": {
+      "after_test_exclusion": [
+        {
+          "minimum_inputs": 1,
+          "potential_users": 86920,
+          "potential_users_with_positive_query": 77696,
+          "potential_users_with_only_negative_query": 9224,
+          "possible_target_pairs": 182504
+        },
+        {
+          "minimum_inputs": 3,
+          "potential_users": 39137,
+          "potential_users_with_positive_query": 38247,
+          "potential_users_with_only_negative_query": 890,
+          "possible_target_pairs": 124401
+        },
+        {
+          "minimum_inputs": 5,
+          "potential_users": 24370,
+          "potential_users_with_positive_query": 24140,
+          "potential_users_with_only_negative_query": 230,
+          "possible_target_pairs": 101603
+        },
+        {
+          "minimum_inputs": 10,
+          "potential_users": 11562,
+          "potential_users_with_positive_query": 11527,
+          "potential_users_with_only_negative_query": 35,
+          "possible_target_pairs": 75323
+        }
+      ],
+      "after_validation_reservation": [
+        {
+          "minimum_inputs": 1,
+          "potential_users": 86860,
+          "potential_users_with_positive_query": 77647,
+          "potential_users_with_only_negative_query": 9213,
+          "possible_target_pairs": 182285
+        },
+        {
+          "minimum_inputs": 3,
+          "potential_users": 39093,
+          "potential_users_with_positive_query": 38205,
+          "potential_users_with_only_negative_query": 888,
+          "possible_target_pairs": 124204
+        },
+        {
+          "minimum_inputs": 5,
+          "potential_users": 24339,
+          "potential_users_with_positive_query": 24108,
+          "potential_users_with_only_negative_query": 231,
+          "possible_target_pairs": 101426
+        },
+        {
+          "minimum_inputs": 10,
+          "potential_users": 11550,
+          "potential_users_with_positive_query": 11515,
+          "potential_users_with_only_negative_query": 35,
+          "possible_target_pairs": 75193
+        }
+      ]
+    },
+    "positive_support_20": {
+      "after_test_exclusion": [
+        {
+          "minimum_inputs": 1,
+          "potential_users": 83008,
+          "potential_users_with_positive_query": 74286,
+          "potential_users_with_only_negative_query": 8722,
+          "possible_target_pairs": 171255
+        },
+        {
+          "minimum_inputs": 3,
+          "potential_users": 37036,
+          "potential_users_with_positive_query": 36237,
+          "potential_users_with_only_negative_query": 799,
+          "possible_target_pairs": 115525
+        },
+        {
+          "minimum_inputs": 5,
+          "potential_users": 22992,
+          "potential_users_with_positive_query": 22785,
+          "potential_users_with_only_negative_query": 207,
+          "possible_target_pairs": 93935
+        },
+        {
+          "minimum_inputs": 10,
+          "potential_users": 10767,
+          "potential_users_with_positive_query": 10740,
+          "potential_users_with_only_negative_query": 27,
+          "possible_target_pairs": 69104
+        }
+      ],
+      "after_validation_reservation": [
+        {
+          "minimum_inputs": 1,
+          "potential_users": 82342,
+          "potential_users_with_positive_query": 73692,
+          "potential_users_with_only_negative_query": 8650,
+          "possible_target_pairs": 169729
+        },
+        {
+          "minimum_inputs": 3,
+          "potential_users": 36694,
+          "potential_users_with_positive_query": 35900,
+          "potential_users_with_only_negative_query": 794,
+          "possible_target_pairs": 114376
+        },
+        {
+          "minimum_inputs": 5,
+          "potential_users": 22736,
+          "potential_users_with_positive_query": 22532,
+          "potential_users_with_only_negative_query": 204,
+          "possible_target_pairs": 92899
+        },
+        {
+          "minimum_inputs": 10,
+          "potential_users": 10634,
+          "potential_users_with_positive_query": 10607,
+          "potential_users_with_only_negative_query": 27,
+          "possible_target_pairs": 68295
+        }
+      ]
+    }
+  },
+  "raw_created_years": [
+    {
+      "review_created_year": "2010",
+      "raw_rows": 27435,
+      "positive_rows": 26776
+    },
+    {
+      "review_created_year": "2011",
+      "raw_rows": 183957,
+      "positive_rows": 178006
+    },
+    {
+      "review_created_year": "2012",
+      "raw_rows": 259836,
+      "positive_rows": 249748
+    },
+    {
+      "review_created_year": "2013",
+      "raw_rows": 853067,
+      "positive_rows": 793472
+    },
+    {
+      "review_created_year": "2014",
+      "raw_rows": 3321602,
+      "positive_rows": 2913138
+    },
+    {
+      "review_created_year": "2015",
+      "raw_rows": 4184146,
+      "positive_rows": 3510524
+    },
+    {
+      "review_created_year": "2016",
+      "raw_rows": 5847019,
+      "positive_rows": 4938407
+    },
+    {
+      "review_created_year": "2017",
+      "raw_rows": 7239590,
+      "positive_rows": 5855680
+    },
+    {
+      "review_created_year": "2018",
+      "raw_rows": 6602291,
+      "positive_rows": 5236658
+    },
+    {
+      "review_created_year": "2019",
+      "raw_rows": 9931958,
+      "positive_rows": 8603315
+    },
+    {
+      "review_created_year": "2020",
+      "raw_rows": 18699727,
+      "positive_rows": 16526568
+    },
+    {
+      "review_created_year": "2021",
+      "raw_rows": 19542588,
+      "positive_rows": 17061915
+    },
+    {
+      "review_created_year": "2022",
+      "raw_rows": 19582547,
+      "positive_rows": 16784455
+    },
+    {
+      "review_created_year": "2023",
+      "raw_rows": 17607954,
+      "positive_rows": 14792193
+    }
+  ],
+  "raw_language_counts": [
+    {
+      "language_name": "english",
+      "n_rows": 51544612
+    },
+    {
+      "language_name": "schinese",
+      "n_rows": 17589884
+    },
+    {
+      "language_name": "russian",
+      "n_rows": 12896431
+    },
+    {
+      "language_name": "spanish",
+      "n_rows": 4837434
+    },
+    {
+      "language_name": "brazilian",
+      "n_rows": 4713067
+    },
+    {
+      "language_name": "german",
+      "n_rows": 3853271
+    },
+    {
+      "language_name": "turkish",
+      "n_rows": 3406605
+    },
+    {
+      "language_name": "polish",
+      "n_rows": 2859445
+    },
+    {
+      "language_name": "french",
+      "n_rows": 2614302
+    },
+    {
+      "language_name": "koreana",
+      "n_rows": 2281000
+    },
+    {
+      "language_name": "tchinese",
+      "n_rows": 1153172
+    },
+    {
+      "language_name": "czech",
+      "n_rows": 757993
+    },
+    {
+      "language_name": "italian",
+      "n_rows": 727220
+    },
+    {
+      "language_name": "japanese",
+      "n_rows": 583210
+    },
+    {
+      "language_name": "latam",
+      "n_rows": 571872
+    },
+    {
+      "language_name": "thai",
+      "n_rows": 493729
+    },
+    {
+      "language_name": "portuguese",
+      "n_rows": 456128
+    },
+    {
+      "language_name": "swedish",
+      "n_rows": 412847
+    },
+    {
+      "language_name": "dutch",
+      "n_rows": 353315
+    },
+    {
+      "language_name": "hungarian",
+      "n_rows": 351194
+    },
+    {
+      "language_name": "ukrainian",
+      "n_rows": 324728
+    },
+    {
+      "language_name": "finnish",
+      "n_rows": 285710
+    },
+    {
+      "language_name": "danish",
+      "n_rows": 259218
+    },
+    {
+      "language_name": "romanian",
+      "n_rows": 200120
+    },
+    {
+      "language_name": "norwegian",
+      "n_rows": 166581
+    },
+    {
+      "language_name": "greek",
+      "n_rows": 76463
+    },
+    {
+      "language_name": "vietnamese",
+      "n_rows": 57631
+    },
+    {
+      "language_name": "bulgarian",
+      "n_rows": 55281
+    },
+    {
+      "language_name": "indonesian",
+      "n_rows": 1254
+    }
+  ],
+  "raw_playtime": {
+    "rows_with_playtime": 113883709,
+    "zero_playtime_rows": 1735970,
+    "negative_playtime_rows": 0,
+    "playtime_minutes_quantiles": [
+      567.0,
+      2291.0,
+      9967.0,
+      38805.0,
+      198931.0
+    ]
+  },
+  "metadata_coverage": {
+    "source_apps": 105838,
+    "source_apps_with_A_metadata": 49807,
+    "source_apps_with_C_metadata": 62961,
+    "C_only_source_apps": 27164,
+    "source_apps_without_A_or_C_metadata": 28867,
+    "source_apps_with_nonempty_A_or_C_description": 67785,
+    "source_apps_with_nonempty_A_or_C_tags": 72205,
+    "final_train_pairs_without_description": 5538704,
+    "final_train_pairs_without_tags": 5492151,
+    "final_train_pairs_without_A_or_C_metadata": 1390023
+  },
+  "analysis_version": "large-original-frank-eda-v1",
+  "checked_utc": "2026-11-06T22:47:33.794167+00:00",
+  "analysis_code_sha256": "a6d09d92862268188cd1e438a9d2429c39e5889fee5d563d6c25c8fbc321f0e8",
+  "source": "kieran_original",
+  "ingestion_manifest": {
+    "archive_bytes": 17241297932,
+    "archive_path": "E:\\Development\\Projects\\ML-game-recommendation\\EDA\\data\\raw\\candidate_review\\kieran_original\\steam-reviews-v2.zip",
+    "archive_sha256": "ec3234d1ff0831f5a20752059df1c85dfe66ab0efde95b886c7cc3a11d0430b7",
+    "archive_zip_crc_verification": "passed_for_all_files",
+    "canonical_rows_written": 113883717,
+    "canonical_schema": [
+      {
+        "name": "user_id",
+        "nullable": true,
+        "type": "string"
+      },
+      {
+        "name": "app_id",
+        "nullable": true,
+        "type": "int64"
+      },
+      {
+        "name": "review_id",
+        "nullable": true,
+        "type": "string"
+      },
+      {
+        "name": "positive",
+        "nullable": true,
+        "type": "bool"
+      },
+      {
+        "name": "timestamp_created",
+        "nullable": true,
+        "type": "int64"
+      },
+      {
+        "name": "timestamp_updated",
+        "nullable": true,
+        "type": "int64"
+      },
+      {
+        "name": "playtime_forever",
+        "nullable": true,
+        "type": "double"
+      },
+      {
+        "name": "language",
+        "nullable": true,
+        "type": "string"
+      }
+    ],
+    "completed_at_utc": "2026-11-06T22:35:05+00:00",
+    "download_content_length_bytes": "17241297932",
+    "download_http_status": 200,
+    "download_started_at_utc": "2026-11-06T22:22:13+00:00",
+    "downloaded_bytes": 17241297932,
+    "invalid_token_counts": {
+      "app_id": 0,
+      "language": 0,
+      "playtime_forever": 0,
+      "positive": 0,
+      "review_id": 0,
+      "timestamp_created": 0,
+      "timestamp_updated": 0,
+      "user_id": 0
+    },
+    "missing_or_blank_counts": {
+      "app_id": 0,
+      "language": 0,
+      "playtime_forever": 8,
+      "positive": 0,
+      "review_id": 0,
+      "timestamp_created": 0,
+      "timestamp_updated": 0,
+      "user_id": 0
+    },
+    "parquet_shards_written_to_staging": 46,
+    "parse_elapsed_seconds": 200.14,
+    "published_parquet_shards": [
+      "reviews_00000.parquet",
+      "reviews_00001.parquet",
+      "reviews_00002.parquet",
+      "reviews_00003.parquet",
+      "reviews_00004.parquet",
+      "reviews_00005.parquet",
+      "reviews_00006.parquet",
+      "reviews_00007.parquet",
+      "reviews_00008.parquet",
+      "reviews_00009.parquet",
+      "reviews_00010.parquet",
+      "reviews_00011.parquet",
+      "reviews_00012.parquet",
+      "reviews_00013.parquet",
+      "reviews_00014.parquet",
+      "reviews_00015.parquet",
+      "reviews_00016.parquet",
+      "reviews_00017.parquet",
+      "reviews_00018.parquet",
+      "reviews_00019.parquet",
+      "reviews_00020.parquet",
+      "reviews_00021.parquet",
+      "reviews_00022.parquet",
+      "reviews_00023.parquet",
+      "reviews_00024.parquet",
+      "reviews_00025.parquet",
+      "reviews_00026.parquet",
+      "reviews_00027.parquet",
+      "reviews_00028.parquet",
+      "reviews_00029.parquet",
+      "reviews_00030.parquet",
+      "reviews_00031.parquet",
+      "reviews_00032.parquet",
+      "reviews_00033.parquet",
+      "reviews_00034.parquet",
+      "reviews_00035.parquet",
+      "reviews_00036.parquet",
+      "reviews_00037.parquet",
+      "reviews_00038.parquet",
+      "reviews_00039.parquet",
+      "reviews_00040.parquet",
+      "reviews_00041.parquet",
+      "reviews_00042.parquet",
+      "reviews_00043.parquet",
+      "reviews_00044.parquet",
+      "reviews_00045.parquet"
+    ],
+    "raw_data_rows_parsed": 113883717,
+    "source": "kieranpoc/steam-reviews",
+    "source_file_expected_uncompressed_bytes": 42487005552,
+    "source_file_member": "all_reviews/all_reviews.csv",
+    "source_file_zip_crc32": "04dd390e",
+    "source_rows_expected_from_dataset_card": 113883717,
+    "source_url": "https://www.kaggle.com/api/v1/datasets/download/kieranpoc/steam-reviews?datasetVersionNumber=2",
+    "source_version_date": "2023-12-10",
+    "source_version_number": 2,
+    "status": "complete",
+    "weighted_score_above_08_used_in_canonical_rows": false,
+    "zip_crc_verified_members": [
+      {
+        "member": "weighted_score_above_08.csv",
+        "uncompressed_bytes": 699453842,
+        "verified_by_full_read": true,
+        "zip_crc32": "01dd7f53"
+      },
+      {
+        "member": "all_reviews/all_reviews.csv",
+        "uncompressed_bytes": 42487005552,
+        "verified_by_full_read": true,
+        "zip_crc32": "04dd390e"
+      }
+    ],
+    "zip_members": [
+      {
+        "member": "all_reviews/all_reviews.csv",
+        "uncompressed_bytes": 42487005552,
+        "zip_crc32": "04dd390e"
+      },
+      {
+        "member": "weighted_score_above_08.csv",
+        "uncompressed_bytes": 699453842,
+        "zip_crc32": "01dd7f53"
+      }
+    ]
+  },
+  "ingestion_manifest_sha256": "fe55444e93e8702d8b481e2bae11a7a8e6cf0c224fd38f4af069cf1a2da89a57",
+  "canonical_inputs": [
+    {
+      "file": "reviews_00000.parquet",
+      "bytes": 44515404,
+      "sha256": "79c4238ef232d19b5f3d0e7a00b02b1477dcb8569a2af51652da6818590a3acb"
+    },
+    {
+      "file": "reviews_00001.parquet",
+      "bytes": 44173260,
+      "sha256": "98be12d4e14c53b774f0dc6b54ccc0ff55cb450264d0336a01843e843cb49b9a"
+    },
+    {
+      "file": "reviews_00002.parquet",
+      "bytes": 42869972,
+      "sha256": "ac3429dbfa712b6819f8f67b34ed05d2c6b960fcb32bc2019529f10f68b18be2"
+    },
+    {
+      "file": "reviews_00003.parquet",
+      "bytes": 45622358,
+      "sha256": "94d1001df360b209beb9b0815f3f8f5ca9103d9cd522d4b4f59639c09ecba25c"
+    },
+    {
+      "file": "reviews_00004.parquet",
+      "bytes": 43831763,
+      "sha256": "55b2f15375adaf77947986d1cece45ba4972f927551e0cab9781deb0c06000a2"
+    },
+    {
+      "file": "reviews_00005.parquet",
+      "bytes": 42910737,
+      "sha256": "b152be13ab4cb4e51693196062439e0d8e3ae116e27086a22188755a75b10993"
+    },
+    {
+      "file": "reviews_00006.parquet",
+      "bytes": 44245073,
+      "sha256": "f49f55b17289dfa065646ea429d9bf9920d4ecb238175f503f72c2edfdceef23"
+    },
+    {
+      "file": "reviews_00007.parquet",
+      "bytes": 44624399,
+      "sha256": "48a013023e3ed3f69053f730e64f14e6656697578dd95455aeef39b4b73026a8"
+    },
+    {
+      "file": "reviews_00008.parquet",
+      "bytes": 44849140,
+      "sha256": "2a9ae6fdf42cf653e0adb9af2fa2574fe53b47ae07a9ca6152c538a012c81600"
+    },
+    {
+      "file": "reviews_00009.parquet",
+      "bytes": 44018279,
+      "sha256": "0e093c1e0cf68766d7a3b0cda82657d8c36cf60ebbdb4c1af3fde3a675e8bc8c"
+    },
+    {
+      "file": "reviews_00010.parquet",
+      "bytes": 44182699,
+      "sha256": "304234dc7cd34d28cc4cb666724ff57bf1c8e962d135e3640b04d88d14ae7f2e"
+    },
+    {
+      "file": "reviews_00011.parquet",
+      "bytes": 44097040,
+      "sha256": "132bf5fa3d00518590ba6212c6b701d5f68291b62a7072fd932dde4c1bf8b8d1"
+    },
+    {
+      "file": "reviews_00012.parquet",
+      "bytes": 45626808,
+      "sha256": "a8470a7bc27e394705dd8e3d1699a9e3fa47d0608209ba197e40dd46a3abee6a"
+    },
+    {
+      "file": "reviews_00013.parquet",
+      "bytes": 45164452,
+      "sha256": "9619ef3989cc7d6921fe09ff0252bfc84d64d11f332ceaa78024f214945d1491"
+    },
+    {
+      "file": "reviews_00014.parquet",
+      "bytes": 45014388,
+      "sha256": "ced9a2424fe728984abab5f05cf635801197099630d3b2ead1980484810c5644"
+    },
+    {
+      "file": "reviews_00015.parquet",
+      "bytes": 44663027,
+      "sha256": "e29c0524c0ff1853e9627b6666a8e5548b66fbe2b8aa56b7e299938345c47a60"
+    },
+    {
+      "file": "reviews_00016.parquet",
+      "bytes": 45072070,
+      "sha256": "aa43cd2705b936b495aa7facc22b1aee6f3e7e44bde13b638a316e365772fe7a"
+    },
+    {
+      "file": "reviews_00017.parquet",
+      "bytes": 45161343,
+      "sha256": "36cab964a2a459623ca3247f6eb31572ceb7cc904e0b6950501a1d9541af973e"
+    },
+    {
+      "file": "reviews_00018.parquet",
+      "bytes": 45179189,
+      "sha256": "6b1409770ea0a8a6f39cbc24921c904974fd8aabde0e176d8cc262b1fb6e68cd"
+    },
+    {
+      "file": "reviews_00019.parquet",
+      "bytes": 43198743,
+      "sha256": "407a570c324fcb3e5631b7f70c3f915a59129d5314d3a23cecac3d3866ccc6b3"
+    },
+    {
+      "file": "reviews_00020.parquet",
+      "bytes": 45084295,
+      "sha256": "f09522d653e9e1c9b3b5a5882ac18f7790e924c8f7db63208bbe370c377de067"
+    },
+    {
+      "file": "reviews_00021.parquet",
+      "bytes": 45381672,
+      "sha256": "3d7e46b83d593311d93d2dfc147518938f6476debe597f2dde47faec344e700c"
+    },
+    {
+      "file": "reviews_00022.parquet",
+      "bytes": 45454863,
+      "sha256": "2308d108139f0f59da05c06d809fb7b8c5d4ec9551380dff87ff5e127511ee12"
+    },
+    {
+      "file": "reviews_00023.parquet",
+      "bytes": 45993355,
+      "sha256": "0ee3d194ac93aa3b2eb93a067ae0be5dad7bcde2ddd49d9b4e6d526be0f863ed"
+    },
+    {
+      "file": "reviews_00024.parquet",
+      "bytes": 44836857,
+      "sha256": "500b56d6f30967bcead22017efd605ac421b844cb0326a6c2546961cfd7da200"
+    },
+    {
+      "file": "reviews_00025.parquet",
+      "bytes": 44821983,
+      "sha256": "ba16d0c283ea3f40c5c902074921195c0ba866c56354a039f37af2e4c519c5d4"
+    },
+    {
+      "file": "reviews_00026.parquet",
+      "bytes": 45543633,
+      "sha256": "252368e4ae5c640a1f53c77e34c769f76e14f069cee23a35af5ee3e2eb72dad3"
+    },
+    {
+      "file": "reviews_00027.parquet",
+      "bytes": 44378750,
+      "sha256": "601af6daa45c9ee04aec6f21ad1cf97f181e3a3470e60b458ee10437d1105554"
+    },
+    {
+      "file": "reviews_00028.parquet",
+      "bytes": 44243269,
+      "sha256": "8f68ddbeca51831a2f70916a00b8410becbcd6549a4b329d0467c5a976f92692"
+    },
+    {
+      "file": "reviews_00029.parquet",
+      "bytes": 44546082,
+      "sha256": "26daf64a5fc3c81cb169163550bf78d7792893aceaece5172a93f444b14c1e91"
+    },
+    {
+      "file": "reviews_00030.parquet",
+      "bytes": 45800524,
+      "sha256": "bb2f2e41d20197fe783643f1eca3634cd029698007e75ac044154620d1392d8d"
+    },
+    {
+      "file": "reviews_00031.parquet",
+      "bytes": 45294232,
+      "sha256": "b65f3c93bf2e62072e53fa7ab73889d35c4f843a3ec284a21ec8d731bb8c2c93"
+    },
+    {
+      "file": "reviews_00032.parquet",
+      "bytes": 44370869,
+      "sha256": "a0b5df5c286cb27df5956c48aa9c2c2274c2eebb946ee3a7dcc5785efa6f4f9f"
+    },
+    {
+      "file": "reviews_00033.parquet",
+      "bytes": 45135602,
+      "sha256": "3d93e189d680b86ff36ad02ab44ec96e856fba387a4e813bf1f9400926a4bac9"
+    },
+    {
+      "file": "reviews_00034.parquet",
+      "bytes": 43013156,
+      "sha256": "d1978882dd6aac485823f0a46b746ae52a0bb6b9893edffe2cb39b56612f51da"
+    },
+    {
+      "file": "reviews_00035.parquet",
+      "bytes": 46035729,
+      "sha256": "ce1bc1bb4710da038f159567f08bfa4fc34f4af7d250b490cb3c9868b9d624c0"
+    },
+    {
+      "file": "reviews_00036.parquet",
+      "bytes": 45210507,
+      "sha256": "9ddf5deadb531233757237d75cedb1ee32b149018328cbcb86603110a22e908e"
+    },
+    {
+      "file": "reviews_00037.parquet",
+      "bytes": 45060445,
+      "sha256": "1ee146a6cae10e9a90310e1676b536c993483359ca70efedd16c8b08db71fc51"
+    },
+    {
+      "file": "reviews_00038.parquet",
+      "bytes": 40836782,
+      "sha256": "6e14b57f3b01f24936dca24d1926ea74d9510d02db962a7e6e5f122c00f0b27d"
+    },
+    {
+      "file": "reviews_00039.parquet",
+      "bytes": 40619775,
+      "sha256": "79489d90f356dcbe22cc1afb23a7b71d081a544c72d4b884380dc593f6ad5d23"
+    },
+    {
+      "file": "reviews_00040.parquet",
+      "bytes": 41899409,
+      "sha256": "ac04f5bb8250dac5c7a2b850c600f87d0eb6d52d1181156651a92ed30af50c5e"
+    },
+    {
+      "file": "reviews_00041.parquet",
+      "bytes": 44411599,
+      "sha256": "314c3a00e388395944f0080a9a78a0b5c487c1ff00b4ef8bbed99e8a9488ed2e"
+    },
+    {
+      "file": "reviews_00042.parquet",
+      "bytes": 46047677,
+      "sha256": "2cf1dbc87fcb7fbfcb6bfd696e0f41234ac383c9b1471524d1acab5de1b52461"
+    },
+    {
+      "file": "reviews_00043.parquet",
+      "bytes": 46491890,
+      "sha256": "b394f7ad411d07322882bf93dd161aad1a3716f810788454db7b0066aabb233d"
+    },
+    {
+      "file": "reviews_00044.parquet",
+      "bytes": 43443331,
+      "sha256": "01a394d045acf60f1bcd98ae972b26099920dfef54b9a61e71d7b41c38e11857"
+    },
+    {
+      "file": "reviews_00045.parquet",
+      "bytes": 4195322,
+      "sha256": "d2ea23559c7170255877b6254ff42bd88473733d37aa1e36511a95927b48eb09"
+    }
+  ],
+  "reference_catalog_inputs": [
+    {
+      "file": "A_games.parquet",
+      "sha256": "c71773cbad26ae13f07179fe99275160318719e7375f7b4df151ef8ea260d1d8"
+    },
+    {
+      "file": "A_recommendations.parquet",
+      "sha256": "6bd5f1cd77b41fa8eaa8ac2cd407dced84c01ea505a33a05eb74e84715a8c226"
+    },
+    {
+      "file": "A_games_metadata.parquet",
+      "sha256": "6733c8c46b22397b1080bb3bf22be7ab4f2b5df2730d327fa5eb1318ec70ee72"
+    },
+    {
+      "file": "C_games_2025.parquet",
+      "sha256": "e65e452f5a5e5ec95a79d5a5ad8811739b3ff31384c4ff0a7926747829a82efc"
+    }
+  ],
+  "frank_provenance": {
+    "commit": "75694cc07a6cdc69f48f9c316ca1e3e38a3f0f89",
+    "projection_sha256": "93674b9e0294016d0365e1e2ed07be7883e0f6d77b61b1033294e1c0590155f6",
+    "raw_rows": 2631430,
+    "reserved_test_users": 87573,
+    "cohort": "Fixed A-reviewed input apps; at least one other review after hiding one positive A-Linux game"
+  },
+  "raw_quality": {
+    "raw_rows": 113883717,
+    "invalid_or_missing_users": 0,
+    "invalid_or_missing_apps": 0,
+    "missing_or_unrecognized_labels": 0,
+    "invalid_or_missing_review_ids": 0,
+    "quarantined_rows": 0,
+    "missing_created_times": 0,
+    "missing_updated_times": 0,
+    "updated_before_created": 2,
+    "negative_playtime_rows": 0,
+    "min_created_unix": 1287181492,
+    "max_created_unix": 1699028185,
+    "min_updated_unix": 1287181492,
+    "max_updated_unix": 1699047007,
+    "identity_valid_rows": 113883717,
+    "unique_review_ids": 113530421,
+    "repeated_original_review_id_rows": 353296,
+    "review_ids_with_conflicting_owner": 0,
+    "review_ids_with_conflicting_app": 332865,
+    "review_ids_with_conflicting_owner_or_app": 332865,
+    "rows_with_conflicting_review_identity": 686161,
+    "review_ids_with_changed_labels": 2,
+    "cross_source_ambiguous_review_ids": 185,
+    "additional_cross_source_review_ids_quarantined": 3,
+    "distinct_pairs_before_label_conflict": 113195106,
+    "same_label_duplicate_rows": 2375,
+    "conflicting_label_pairs": 72,
+    "rows_in_conflicting_label_pairs": 167
+  },
+  "scope": "Complete canonical columns from complete original archive; aggregate EDA and split previews, no model fitting or final split files",
+  "validation_rule": "Non-test whole Steam accounts with first 15 hexadecimal MD5 digits of steam-eda-validation-v1:<exact ID> modulo 10 equal zero; same namespace across sources",
+  "degree_quantile_order": [
+    0.25,
+    0.5,
+    0.75,
+    0.9,
+    0.99,
+    1
+  ],
+  "whole_account_and_cross_review_identity_checks_passed": true,
+  "identity_check_scope": "No raw original-review-ID owner conflicts internally or against frank; after invalid identities, ambiguous internal/cross-source review-to-App-ID mappings and pair-label conflicts are quarantined: no retained shared review ID with incompatible owner/app; zero post-exclusion user, user-app and original-review-ID intersections. Does not certify representative sampling, temporal independence or labels unchanged.",
+  "potential_eligibility_protocol": "Hide exactly one supported positive Linux game; every other reviewed game, including other positives, may be an input. No simultaneous multi-target holdout is measured.",
+  "app_support_table_sha256": "f4487991cd86d17e688a631fed16446bcb502c3e9fd3fb2d11314655ad541341"
+}

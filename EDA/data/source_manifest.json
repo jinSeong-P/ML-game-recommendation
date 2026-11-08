@@ -1,0 +1,166 @@
+{
+  "decision_date": "2026-11-07",
+  "selection": "Kieran original -> frank reviews",
+  "dataset_choice_final": true,
+  "final_split_files_written": true,
+  "modeling_baseline": {
+    "confirmed_on": "2026-11-07",
+    "design_final": true,
+    "implemented": true,
+    "model_performance_measured": true,
+    "training": {
+      "game_scope": "fixed_reviewed_input_catalog",
+      "input_catalog_apps": 37610,
+      "include_non_linux": true,
+      "positive_only": true,
+      "retain_singletons_for_item_support_and_cosine_norms": true,
+      "eda_preview_positive_pairs": 78315268,
+      "quarantine_policy": "keep_existing",
+      "item_knn_trained": true,
+      "neighbors": 100
+    },
+    "content": {
+      "primary_field": "A.description",
+      "fallback_field": "C.short_description",
+      "fallback_condition": "primary_is_null_empty_or_whitespace",
+      "features": "description_only_tfidf",
+      "tags_and_genres": false,
+      "prepared": true,
+      "tokenized": true,
+      "tfidf_catalog_index_fitted": true,
+      "cosine_retrieval_implemented": true,
+      "storage": "scipy_csr_npz_with_app_id_mapping",
+      "dedicated_vector_database": false
+    },
+    "evaluation": {
+      "holdout": "one_uniform_random_positive_linux_game_per_user",
+      "seed": 20261107,
+      "seed_and_actual_target_manifest_must_be_persisted": true,
+      "minimum_total_inputs_after_holdout": 5,
+      "minimum_positive_inputs_after_holdout": 1,
+      "query_aggregation": "equal_weight_mean_of_positive_inputs",
+      "tfidf_scoring": "cosine_of_mean_l2_normalized_positive_game_vectors_and_candidate",
+      "item_knn_scoring": "sum_positive_input_candidate_similarities_divided_by_all_positive_input_count",
+      "exclude_all_remaining_observed_games": true,
+      "hidden_target_remains_recommendable": true,
+      "linux_candidate_apps": 6630,
+      "maximum_recommendations": 10,
+      "minimum_personalized_score_exclusive": 0,
+      "fill_missing_recommendation_slots": false,
+      "fallback": "none",
+      "retain_eligible_users_with_empty_recommendations_in_metrics": true,
+      "eda_preview_users": 24342,
+      "reserved_frank_test_accounts": 87573,
+      "metrics": [
+        "Recall@10",
+        "NDCG@10"
+      ],
+      "implemented": true,
+      "validation_completed": true,
+      "test_completed": true,
+      "protocol": "data/reference/baseline_protocol_v1.json",
+      "tuned": false
+    },
+    "new_followup_backlog": [
+      "minimum_total_inputs_3_with_minimum_positive_inputs_1",
+      "alternative_query_aggregation_including_playtime_weighting",
+      "train_popularity_fill_after_model_improvement"
+    ]
+  },
+  "datasets": {
+    "kieran": {
+      "role": "train and internal validation",
+      "repo": "kieranpoc/steam-reviews",
+      "version": 2,
+      "source_url": "https://www.kaggle.com/datasets/kieranpoc/steam-reviews",
+      "raw_directory": "data/raw/kieran_original",
+      "canonical_directory": "data/processed/kieran_original",
+      "archive_sha256": "ec3234d1ff0831f5a20752059df1c85dfe66ab0efde95b886c7cc3a11d0430b7",
+      "original_rows": 113883717,
+      "included_file": "all_reviews/all_reviews.csv",
+      "excluded_file": "weighted_score_above_08.csv"
+    },
+    "frank": {
+      "role": "external review test",
+      "repo": "frankjc2022/steam-dataset",
+      "commit": "75694cc07a6cdc69f48f9c316ca1e3e38a3f0f89",
+      "projection_directory": "data/processed/frank",
+      "review_rows": 2631430,
+      "review_projection_sha256": "93674b9e0294016d0365e1e2ed07be7883e0f6d77b61b1033294e1c0590155f6",
+      "scope": "All rows of selected columns; review text and other unselected columns were not downloaded or audited",
+      "ownership_projection": "Retained auxiliary user_games projection; not an input to the adopted review protocol"
+    }
+  },
+  "reference_directory": "data/reference",
+  "legacy_directory": "legacy",
+  "historical_manifest_paths": "Historical manifests retain their ingestion-time paths. Use this manifest and legacy/migration_manifest.json for the current locations.",
+  "split_artifacts": {
+    "version": "kieran-frank-split-v1",
+    "directory": "data/processed/modeling/split_v1",
+    "manifest_sha256": "0d94731ccbcc9afec6e2d0a1394d6fa4a50e65f45e9dd9d3a764a2309bd2ce9f",
+    "read_back_verification_passed": true,
+    "report": "reports/modeling_split_v1.json",
+    "source_audit_report": "reports/modeling_split_v1_source_audit.json",
+    "counts": {
+      "train_accounts": 34014115,
+      "validation_accounts": 3781518,
+      "positive_train_accounts": 29836980,
+      "positive_singleton_accounts": 17042189,
+      "train_pairs_all_apps_all_labels": 98857701,
+      "train_positive_catalog_pairs": 78315268,
+      "validation_pairs_all_apps_all_labels": 10977308,
+      "validation_users": 325639,
+      "validation_query_rows": 3920857,
+      "test_users": 24342,
+      "test_query_rows": 461599,
+      "reserved_test_accounts": 87573,
+      "input_apps": 37610,
+      "linux_candidates": 6630
+    }
+  },
+  "content_artifacts": {
+    "version": "description-tfidf-v1",
+    "directory": "data/processed/modeling/tfidf_content_v1",
+    "manifest_sha256": "ecfc55c171d84e2222d6cac2145382c6d9512bf56de8b51b5ed61667ca1e108a",
+    "verification_passed": true,
+    "report": "reports/tfidf_content_v1.json",
+    "support_audit_report": "reports/tfidf_content_v1_support.json",
+    "input_apps": 37610,
+    "raw_available": 37531,
+    "nonzero_vectors": 37527,
+    "zero_vectors": 83,
+    "linux_candidates": 6630,
+    "linux_nonzero_vectors": 6613,
+    "vocabulary_size": 48011,
+    "ranking_metrics_computed": true
+  },
+  "baseline_input_artifacts_ready": true,
+  "model_artifacts": {
+    "item_knn": {
+      "directory": "data/processed/modeling/item_knn_v1",
+      "manifest_sha256": "da6a43ca1dccee8100b8fbaf57d1b33b8560fa8216f6a67ef0b7bd3cb2e86017",
+      "verification_passed": true,
+      "independent_audit": "reports/item_knn_v1_audit.json"
+    },
+    "tfidf": {
+      "directory": "data/processed/modeling/tfidf_content_v1",
+      "manifest_sha256": "ecfc55c171d84e2222d6cac2145382c6d9512bf56de8b51b5ed61667ca1e108a"
+    }
+  },
+  "baseline_evaluation": {
+    "report": "reports/baseline_v1.json",
+    "readable_report": "reports/baseline_v1.md",
+    "run_lock": "data/reference/baseline_run_v1.json",
+    "run_lock_sha256": "02f7042755c0cee74a66ea2b3bbcac24dbb9e36080cf5557bfcfbe54f8e6521c",
+    "artifacts": {
+      "validation": {
+        "directory": "data/processed/modeling/baseline_v1/validation",
+        "manifest_sha256": "61ae5b03e2140d7016bfbaf9747caa010367b619bbba7a004e56177a8cc9a77a"
+      },
+      "test": {
+        "directory": "data/processed/modeling/baseline_v1/test",
+        "manifest_sha256": "cae8400a16c6028cd6dba2c98e74998e012f191b192257e37876ff68e6fa2dd3"
+      }
+    }
+  }
+}

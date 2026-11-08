@@ -1,0 +1,1211 @@
+{
+  "checked_date": "2026-11-07",
+  "scope": "All previously investigated test candidates, A-replacement review/ownership sources and excluded derived/mirror sources",
+  "identity_definition": "same original Steam account, not the same natural person across multiple accounts",
+  "dataset_replacement_or_final_split_created": false,
+  "datasets": {
+    "A": {
+      "name": "Current A",
+      "identity_type": "local_A",
+      "review_target_label": "explicit",
+      "evidence": "full_source_group_split_preview",
+      "url": "https://www.kaggle.com/datasets/antonkozyriev/game-recommendations-on-steam",
+      "notes": "Original Steam user/review mapping absent. Cross-source exact exclusion unavailable; A-only user-group split verified."
+    },
+    "B_mapped": {
+      "name": "Australian B with explicit profile mapping",
+      "identity_type": "steam64",
+      "review_target_label": "explicit",
+      "evidence": "full_local_identity_columns",
+      "url": "https://www.kaggle.com/datasets/pypiahmad/steam-video-game-and-bundle-data",
+      "notes": "Use profile steam_id, quarantine 4 unmapped users / 15 review rows; numeric aliases are not original Steam IDs."
+    },
+    "Mendeley": {
+      "name": "Mendeley Steam app/player v1",
+      "identity_type": "local_Mendeley",
+      "review_target_label": "explicit",
+      "evidence": "publisher_schema_and_4MiB_prefix",
+      "url": "https://data.mendeley.com/datasets/89yxn7hmpt/1",
+      "notes": "User/review IDs anonymized; same-source global grouping possible subject to full validation; no public crosswalk."
+    },
+    "forgemaster": {
+      "name": "forgemaster original",
+      "identity_type": "steam64",
+      "review_target_label": "explicit",
+      "evidence": "publisher_schema_and_100_row_original_prefix",
+      "url": "https://www.kaggle.com/datasets/forgemaster/steam-reviews-dataset",
+      "notes": "Raw steamid/appid/voted_up. No original recommendation ID listed; exact user+app exclusion still possible. Full scan pending."
+    },
+    "Kieran_original": {
+      "name": "Kieran 100 Million+ original",
+      "identity_type": "steam64",
+      "review_target_label": "explicit",
+      "evidence": "complete_original_113883717_rows_and_measured_exact_account_exclusion",
+      "url": "https://www.kaggle.com/datasets/kieranpoc/steam-reviews",
+      "notes": "Original exact author IDs agree with frank for 1,089,913 common original review IDs. Quarantine 332,865 internally ambiguous review-to-App-ID mappings, 3 additional cross-source IDs and 72 pair-label conflicts. 98,857,701 training pairs after test exclusion and validation reservation."
+    },
+    "VintageDon": {
+      "name": "VintageDon fixed Zenodo CSV v1",
+      "identity_type": "steam64",
+      "review_target_label": "explicit",
+      "evidence": "full_local_identity_columns",
+      "url": "https://zenodo.org/records/17266923",
+      "notes": "1,048,148 raw review rows; 16,615 potential users on fixed old A catalog. App-sampled at most 100 reviews/app."
+    },
+    "UCSD_v2": {
+      "name": "UCSD v2 review corpus",
+      "identity_type": "partial_unresolved",
+      "review_target_label": "unverified",
+      "evidence": "publisher_metadata_and_4703_row_prefix",
+      "url": "https://cseweb.ucsd.edu/~jmcauley/datasets.html#steam_data",
+      "notes": "Prefix has missing user IDs and no explicit label field. Username aliases not safe account keys; full schema/labels unresolved."
+    },
+    "artermiloff_2024": {
+      "name": "artermiloff Steam Games Reviews 2024 original",
+      "identity_type": "rounded_steam64_corrupted",
+      "review_target_label": "explicit",
+      "evidence": "full_original_127572881_rows_plus_original_review_id_rounding_and_leak_audit",
+      "url": "https://www.kaggle.com/datasets/artermiloff/steam-games-reviews-2024",
+      "notes": "REJECT: original integer-looking CSV author IDs already carry float64 rounding. All valid tokens divisible by 16; 1,190,538/1,270,339 shared review IDs have different exact owners. Nominal anti-join misses real held-out users. See original_identity_precision_metrics.json."
+    },
+    "SteamGameRecommender": {
+      "name": "Steam Game Ownership and User Friendships",
+      "identity_type": "local_SGR",
+      "review_target_label": "none",
+      "evidence": "publisher_schema",
+      "url": "https://huggingface.co/datasets/steamgamerecommender/data_files_public",
+      "notes": "Sequential anonymized IDs; consolidate snowballs before grouping. Ownership/playtime targets only; no public raw-ID crosswalk."
+    },
+    "frankjc2022": {
+      "name": "frankjc2022 reviews and ownership",
+      "identity_type": "steam64",
+      "review_target_label": "explicit",
+      "evidence": "all_rows_selected_columns_of_pinned_parquets",
+      "url": "https://huggingface.co/datasets/frankjc2022/steam-dataset",
+      "notes": "2,631,430 review rows; 87,573 potential users on fixed A catalog. Ownership 11,285,290 rows but only 786 users. Publisher collection methodology sparse; max 100 reviews/app observed."
+    },
+    "Condensing_Steam": {
+      "name": "Condensing Steam ownership snapshots",
+      "identity_type": "steam64",
+      "review_target_label": "none",
+      "evidence": "publisher_schema_and_paper_not_full_download",
+      "url": "https://academictorrents.com/details/eba3b48fcdaa9e69a927051f1678251a86a546f3",
+      "notes": "Original SteamID64 documented; 2013-2014 ownership, no explicit review labels. Data license unspecified. Cross-source exclusion structurally possible, operational adoption on hold."
+    },
+    "HF_float_mirror": {
+      "name": "adde023 Kieran mirror",
+      "identity_type": "float64_corrupted",
+      "review_target_label": "explicit",
+      "evidence": "schema_and_100_original_mirror_matches",
+      "url": "https://huggingface.co/datasets/adde023/steam-reviews",
+      "notes": "93/100 matched sample author IDs differed; conversion to string cannot restore. Use original, or rebuild identity from a complete trusted original review-ID lookup."
+    },
+    "co_review_graph": {
+      "name": "lukeslp co-review graph",
+      "identity_type": "no_users",
+      "review_target_label": "none",
+      "evidence": "publisher_card",
+      "url": "https://huggingface.co/datasets/lukeslp/steam-co-review-network",
+      "notes": "Aggregated item graph only; cannot remove held-out users contribution or reconstruct user train/test. Not a certified interaction-training add-on."
+    }
+  },
+  "directed_combinations": [
+    {
+      "train": "A",
+      "test": "A",
+      "status": "WITHIN_SOURCE_USER_GROUP_SPLIT_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false,
+      "existing_measured_preview": "A_strict_user_split_preview.json"
+    },
+    {
+      "train": "A",
+      "test": "B_mapped",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "A",
+      "test": "Mendeley",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "A",
+      "test": "forgemaster",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "A",
+      "test": "Kieran_original",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "A",
+      "test": "VintageDon",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "A",
+      "test": "UCSD_v2",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "A",
+      "test": "artermiloff_2024",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "A",
+      "test": "SteamGameRecommender",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "A",
+      "test": "frankjc2022",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "A",
+      "test": "Condensing_Steam",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "A",
+      "test": "HF_float_mirror",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "A",
+      "test": "co_review_graph",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "B_mapped",
+      "test": "A",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "B_mapped",
+      "test": "B_mapped",
+      "status": "WITHIN_SOURCE_USER_GROUP_SPLIT_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "B_mapped",
+      "test": "Mendeley",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "B_mapped",
+      "test": "forgemaster",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "B_mapped",
+      "test": "Kieran_original",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "B_mapped",
+      "test": "VintageDon",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": true
+    },
+    {
+      "train": "B_mapped",
+      "test": "UCSD_v2",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "B_mapped",
+      "test": "artermiloff_2024",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "B_mapped",
+      "test": "SteamGameRecommender",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "B_mapped",
+      "test": "frankjc2022",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": true
+    },
+    {
+      "train": "B_mapped",
+      "test": "Condensing_Steam",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_IMPLICIT_TASK_ONLY",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "B_mapped",
+      "test": "HF_float_mirror",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "B_mapped",
+      "test": "co_review_graph",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Mendeley",
+      "test": "A",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Mendeley",
+      "test": "B_mapped",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Mendeley",
+      "test": "Mendeley",
+      "status": "WITHIN_SOURCE_USER_GROUP_SPLIT_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Mendeley",
+      "test": "forgemaster",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Mendeley",
+      "test": "Kieran_original",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Mendeley",
+      "test": "VintageDon",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Mendeley",
+      "test": "UCSD_v2",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Mendeley",
+      "test": "artermiloff_2024",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "Mendeley",
+      "test": "SteamGameRecommender",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Mendeley",
+      "test": "frankjc2022",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Mendeley",
+      "test": "Condensing_Steam",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "Mendeley",
+      "test": "HF_float_mirror",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Mendeley",
+      "test": "co_review_graph",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "forgemaster",
+      "test": "A",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "forgemaster",
+      "test": "B_mapped",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "forgemaster",
+      "test": "Mendeley",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "forgemaster",
+      "test": "forgemaster",
+      "status": "WITHIN_SOURCE_USER_GROUP_SPLIT_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "forgemaster",
+      "test": "Kieran_original",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "forgemaster",
+      "test": "VintageDon",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "forgemaster",
+      "test": "UCSD_v2",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "forgemaster",
+      "test": "artermiloff_2024",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "forgemaster",
+      "test": "SteamGameRecommender",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "forgemaster",
+      "test": "frankjc2022",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "forgemaster",
+      "test": "Condensing_Steam",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_IMPLICIT_TASK_ONLY",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "forgemaster",
+      "test": "HF_float_mirror",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "forgemaster",
+      "test": "co_review_graph",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Kieran_original",
+      "test": "A",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Kieran_original",
+      "test": "B_mapped",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Kieran_original",
+      "test": "Mendeley",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Kieran_original",
+      "test": "forgemaster",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Kieran_original",
+      "test": "Kieran_original",
+      "status": "WITHIN_SOURCE_USER_GROUP_SPLIT_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Kieran_original",
+      "test": "VintageDon",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Kieran_original",
+      "test": "UCSD_v2",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Kieran_original",
+      "test": "artermiloff_2024",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "Kieran_original",
+      "test": "SteamGameRecommender",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Kieran_original",
+      "test": "frankjc2022",
+      "status": "MEASURED_EXACT_ACCOUNT_EXCLUSION_AFTER_MAPPING_QUARANTINE",
+      "full_source_exclusion_preview_measured": true,
+      "preview_valid": true,
+      "evidence_report": "kieran_original_frank_eda_metrics.json",
+      "remaining_training_pairs_after_validation": 98857701
+    },
+    {
+      "train": "Kieran_original",
+      "test": "Condensing_Steam",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_IMPLICIT_TASK_ONLY",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "Kieran_original",
+      "test": "HF_float_mirror",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Kieran_original",
+      "test": "co_review_graph",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "VintageDon",
+      "test": "A",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "VintageDon",
+      "test": "B_mapped",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": true
+    },
+    {
+      "train": "VintageDon",
+      "test": "Mendeley",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "VintageDon",
+      "test": "forgemaster",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "VintageDon",
+      "test": "Kieran_original",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "VintageDon",
+      "test": "VintageDon",
+      "status": "WITHIN_SOURCE_USER_GROUP_SPLIT_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "VintageDon",
+      "test": "UCSD_v2",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "VintageDon",
+      "test": "artermiloff_2024",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "VintageDon",
+      "test": "SteamGameRecommender",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "VintageDon",
+      "test": "frankjc2022",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": true
+    },
+    {
+      "train": "VintageDon",
+      "test": "Condensing_Steam",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_IMPLICIT_TASK_ONLY",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "VintageDon",
+      "test": "HF_float_mirror",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "VintageDon",
+      "test": "co_review_graph",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "UCSD_v2",
+      "test": "A",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "UCSD_v2",
+      "test": "B_mapped",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "UCSD_v2",
+      "test": "Mendeley",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "UCSD_v2",
+      "test": "forgemaster",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "UCSD_v2",
+      "test": "Kieran_original",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "UCSD_v2",
+      "test": "VintageDon",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "UCSD_v2",
+      "test": "UCSD_v2",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "UCSD_v2",
+      "test": "artermiloff_2024",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "UCSD_v2",
+      "test": "SteamGameRecommender",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "UCSD_v2",
+      "test": "frankjc2022",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "UCSD_v2",
+      "test": "Condensing_Steam",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "UCSD_v2",
+      "test": "HF_float_mirror",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "UCSD_v2",
+      "test": "co_review_graph",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "artermiloff_2024",
+      "test": "A",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "artermiloff_2024",
+      "test": "B_mapped",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "artermiloff_2024",
+      "test": "Mendeley",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "artermiloff_2024",
+      "test": "forgemaster",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "artermiloff_2024",
+      "test": "Kieran_original",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "artermiloff_2024",
+      "test": "VintageDon",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "artermiloff_2024",
+      "test": "UCSD_v2",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "artermiloff_2024",
+      "test": "artermiloff_2024",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "artermiloff_2024",
+      "test": "SteamGameRecommender",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "artermiloff_2024",
+      "test": "frankjc2022",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": true,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json",
+      "preview_valid": false
+    },
+    {
+      "train": "artermiloff_2024",
+      "test": "Condensing_Steam",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot",
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "artermiloff_2024",
+      "test": "HF_float_mirror",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "artermiloff_2024",
+      "test": "co_review_graph",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "SteamGameRecommender",
+      "test": "A",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "SteamGameRecommender",
+      "test": "B_mapped",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "SteamGameRecommender",
+      "test": "Mendeley",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "SteamGameRecommender",
+      "test": "forgemaster",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "SteamGameRecommender",
+      "test": "Kieran_original",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "SteamGameRecommender",
+      "test": "VintageDon",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "SteamGameRecommender",
+      "test": "UCSD_v2",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "SteamGameRecommender",
+      "test": "artermiloff_2024",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "SteamGameRecommender",
+      "test": "SteamGameRecommender",
+      "status": "WITHIN_SOURCE_USER_GROUP_SPLIT_IMPLICIT_TASK_ONLY",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "SteamGameRecommender",
+      "test": "frankjc2022",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "SteamGameRecommender",
+      "test": "Condensing_Steam",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "SteamGameRecommender",
+      "test": "HF_float_mirror",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "SteamGameRecommender",
+      "test": "co_review_graph",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "frankjc2022",
+      "test": "A",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "frankjc2022",
+      "test": "B_mapped",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": true
+    },
+    {
+      "train": "frankjc2022",
+      "test": "Mendeley",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "frankjc2022",
+      "test": "forgemaster",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "frankjc2022",
+      "test": "Kieran_original",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "frankjc2022",
+      "test": "VintageDon",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": true
+    },
+    {
+      "train": "frankjc2022",
+      "test": "UCSD_v2",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "frankjc2022",
+      "test": "artermiloff_2024",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "frankjc2022",
+      "test": "SteamGameRecommender",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "frankjc2022",
+      "test": "frankjc2022",
+      "status": "WITHIN_SOURCE_USER_GROUP_SPLIT_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "frankjc2022",
+      "test": "Condensing_Steam",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_IMPLICIT_TASK_ONLY",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "frankjc2022",
+      "test": "HF_float_mirror",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "frankjc2022",
+      "test": "co_review_graph",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "Condensing_Steam",
+      "test": "A",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "Condensing_Steam",
+      "test": "B_mapped",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "Condensing_Steam",
+      "test": "Mendeley",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "Condensing_Steam",
+      "test": "forgemaster",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "Condensing_Steam",
+      "test": "Kieran_original",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "Condensing_Steam",
+      "test": "VintageDon",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "Condensing_Steam",
+      "test": "UCSD_v2",
+      "status": "HOLD_PARTIAL_IDENTITIES_OR_UNVERIFIED_LABELS",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "Condensing_Steam",
+      "test": "artermiloff_2024",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot",
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "Condensing_Steam",
+      "test": "SteamGameRecommender",
+      "status": "BLOCKED_NO_PUBLIC_CROSS_SOURCE_ACCOUNT_MAPPING",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "Condensing_Steam",
+      "test": "frankjc2022",
+      "status": "EXACT_USER_EXCLUSION_STRUCTURALLY_FEASIBLE_EXPLICIT_REVIEW",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "Condensing_Steam",
+      "test": "Condensing_Steam",
+      "status": "WITHIN_SOURCE_USER_GROUP_SPLIT_IMPLICIT_TASK_ONLY",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "Condensing_Steam",
+      "test": "HF_float_mirror",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "Condensing_Steam",
+      "test": "co_review_graph",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "HF_float_mirror",
+      "test": "A",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "HF_float_mirror",
+      "test": "B_mapped",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "HF_float_mirror",
+      "test": "Mendeley",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "HF_float_mirror",
+      "test": "forgemaster",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "HF_float_mirror",
+      "test": "Kieran_original",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "HF_float_mirror",
+      "test": "VintageDon",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "HF_float_mirror",
+      "test": "UCSD_v2",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "HF_float_mirror",
+      "test": "artermiloff_2024",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "HF_float_mirror",
+      "test": "SteamGameRecommender",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "HF_float_mirror",
+      "test": "frankjc2022",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "HF_float_mirror",
+      "test": "Condensing_Steam",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "HF_float_mirror",
+      "test": "HF_float_mirror",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "HF_float_mirror",
+      "test": "co_review_graph",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "co_review_graph",
+      "test": "A",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "co_review_graph",
+      "test": "B_mapped",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "co_review_graph",
+      "test": "Mendeley",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "co_review_graph",
+      "test": "forgemaster",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "co_review_graph",
+      "test": "Kieran_original",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "co_review_graph",
+      "test": "VintageDon",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "co_review_graph",
+      "test": "UCSD_v2",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "co_review_graph",
+      "test": "artermiloff_2024",
+      "status": "BLOCKED_CORRUPTED_ORIGINAL_ACCOUNT_IDENTITY",
+      "full_source_exclusion_preview_measured": false,
+      "identity_safe": false,
+      "evidence_report": "original_identity_precision_metrics.json"
+    },
+    {
+      "train": "co_review_graph",
+      "test": "SteamGameRecommender",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "co_review_graph",
+      "test": "frankjc2022",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "co_review_graph",
+      "test": "Condensing_Steam",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false,
+      "adoption_hold": "data_license_unspecified_and_historical_snapshot"
+    },
+    {
+      "train": "co_review_graph",
+      "test": "HF_float_mirror",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    },
+    {
+      "train": "co_review_graph",
+      "test": "co_review_graph",
+      "status": "REJECTED_IDENTITY_OR_AGGREGATE_SOURCE",
+      "full_source_exclusion_preview_measured": false
+    }
+  ],
+  "measured_overlap_report": "dataset_combination_overlap_metrics.json",
+  "interpretation": "Structural feasibility is not completed full-source quality certification or retained-count measurement. Same-source statuses require stable keys, whole-file validation and user-first partitioning; implicit-task statuses do not mean explicit Linux-positive review evaluation. Full-source EDA supersedes the prior artermiloff sample verdict: integer representation alone does not preserve original identity. Only the Kieran-to-frank new full-source preview is valid; artermiloff nominal zero intersections failed true-account checks.",
+  "latest_full_source_eda": "large_review_frank_eda.md"
+}

@@ -1,0 +1,479 @@
+{
+  "version": "kieran-frank-split-v1",
+  "status": "complete",
+  "seed": 20261107,
+  "started_utc": "2026-11-07T14:51:07.419404+00:00",
+  "completed_utc": "2026-11-07T14:54:22.420560+00:00",
+  "rules": {
+    "validation_account_rule": "first 15 MD5 hex digits of steam-eda-validation-v1:<exact SteamID> modulo 10 == 0; test reservation takes priority",
+    "holdout_namespace": "steam-hidden-positive-linux-v1",
+    "target_selection": "SHA256 counter-mode rejection sampling into ascending eligible positive Linux App IDs; payload namespace:seed:split:exact-user-key:counter",
+    "minimum_total_inputs_after_holdout": 5,
+    "minimum_positive_inputs_after_holdout": 1,
+    "query_aggregation": "equal_weight_mean_of_positive_inputs",
+    "training_scope": "positive_catalog.parquet: fixed 37610-app catalog; positive singleton support retained",
+    "interaction_archives": "interactions.parquet retains all clean apps and both labels; not direct model input",
+    "quarantine_policy": "keep_existing",
+    "recommendation_fallback": "none; up to 10 strictly positive personalized scores; empty slots stay empty",
+    "exclusions": "all remaining query games, both labels; hidden target absent from query and mask",
+    "no_temporal_restriction": true,
+    "review_lineage": "all accepted raw review occurrences; exact repeats may repeat review_key",
+    "models_trained": false
+  },
+  "runtime": {
+    "python": "3.13.17",
+    "duckdb": "1.4.3",
+    "pyarrow": "26.0.0",
+    "threads": 2,
+    "memory_limit": "4GB"
+  },
+  "builder_sha256": "4b46c18bc76992682ea9ffcb3d6b36d61860e8aaecebb5f7d60120952dd1d937",
+  "verifier_sha256": "7ba1bbd78d4140a73a3d57019c57ab957f22b4719112caa09ea445e771106c75",
+  "files": {
+    "catalog/input_apps.parquet": {
+      "rows": 37610,
+      "bytes": 53481,
+      "sha256": "03d323151f7280c0cfaf06d25d9c22192ed776d2b3e1deb173ffcb397158b3eb",
+      "schema": [
+        {
+          "name": "app_id",
+          "type": "int64"
+        },
+        {
+          "name": "linux",
+          "type": "bool"
+        }
+      ]
+    },
+    "catalog/linux_candidates.parquet": {
+      "rows": 6630,
+      "bytes": 12206,
+      "sha256": "d796b813638a551e8eaba5e83d90f4cdbd1b3a8c0dd0a0894524d6945910f176",
+      "schema": [
+        {
+          "name": "app_id",
+          "type": "int64"
+        }
+      ]
+    },
+    "reserved_test_accounts.parquet": {
+      "rows": 87573,
+      "bytes": 204933,
+      "sha256": "316239a37a36ab817b99fb315741a6a54393c70d7417d26cf12ce22fe15639b3",
+      "schema": [
+        {
+          "name": "user_key",
+          "type": "uint64"
+        }
+      ]
+    },
+    "test/exclusions.parquet": {
+      "rows": 461599,
+      "bytes": 1395570,
+      "sha256": "73dd3b05ed5aa3ec0c9b5bb63ee2ffc3cc52953e1736a6f818db30787d9b9659",
+      "schema": [
+        {
+          "name": "user_key",
+          "type": "uint64"
+        },
+        {
+          "name": "app_id",
+          "type": "int64"
+        }
+      ]
+    },
+    "test/query.parquet": {
+      "rows": 461599,
+      "bytes": 1486542,
+      "sha256": "b118b7bf7e5dd995737dc353c8981ed46f9022b1eade9dcefacbe6c4373e8610",
+      "schema": [
+        {
+          "name": "user_key",
+          "type": "uint64"
+        },
+        {
+          "name": "app_id",
+          "type": "int64"
+        },
+        {
+          "name": "positive",
+          "type": "bool"
+        },
+        {
+          "name": "linux",
+          "type": "bool"
+        }
+      ]
+    },
+    "test/review_lineage.parquet": {
+      "rows": 485947,
+      "bytes": 3606986,
+      "sha256": "2ed2c7b1fcc319aa022cd6962326e96e916449740887283a9dee6bdca8214122",
+      "schema": [
+        {
+          "name": "user_key",
+          "type": "uint64"
+        },
+        {
+          "name": "app_id",
+          "type": "int64"
+        },
+        {
+          "name": "review_key",
+          "type": "uint64"
+        },
+        {
+          "name": "positive",
+          "type": "bool"
+        }
+      ]
+    },
+    "test/targets.parquet": {
+      "rows": 24342,
+      "bytes": 126341,
+      "sha256": "037625a892511fdd2210c84b9773fae28707d57f294e692a56cc2990d01c5837",
+      "schema": [
+        {
+          "name": "user_key",
+          "type": "uint64"
+        },
+        {
+          "name": "app_id",
+          "type": "int64"
+        },
+        {
+          "name": "positive",
+          "type": "bool"
+        },
+        {
+          "name": "linux",
+          "type": "bool"
+        }
+      ]
+    },
+    "test/users.parquet": {
+      "rows": 24342,
+      "bytes": 116055,
+      "sha256": "b26a41d8848a2f0f0589a5934e2566740a4a61710aadee3cea49a2747e5dec7e",
+      "schema": [
+        {
+          "name": "user_key",
+          "type": "uint64"
+        },
+        {
+          "name": "n_total_inputs",
+          "type": "int64"
+        },
+        {
+          "name": "n_positive_inputs",
+          "type": "int64"
+        },
+        {
+          "name": "n_eligible_targets",
+          "type": "int64"
+        }
+      ]
+    },
+    "train/interactions.parquet": {
+      "rows": 98857701,
+      "bytes": 488134854,
+      "sha256": "a32939dcd75335a69a92b8e65a9ca0ed336ce41f027f77734e9404922721f65a",
+      "schema": [
+        {
+          "name": "user_key",
+          "type": "uint64"
+        },
+        {
+          "name": "app_id",
+          "type": "int64"
+        },
+        {
+          "name": "positive",
+          "type": "bool"
+        }
+      ]
+    },
+    "train/positive_catalog.parquet": {
+      "rows": 78315268,
+      "bytes": 376814005,
+      "sha256": "e688185f2cdd7e5f757055e6cba9f543a9b19db1a2bd2629af59c98a24f84a06",
+      "schema": [
+        {
+          "name": "user_key",
+          "type": "uint64"
+        },
+        {
+          "name": "app_id",
+          "type": "int64"
+        },
+        {
+          "name": "positive",
+          "type": "bool"
+        }
+      ]
+    },
+    "train/review_lineage.parquet": {
+      "rows": 98859771,
+      "bytes": 846335538,
+      "sha256": "8b4352f23cab9d921b5b4bf3bb19a02abd699718a3a53c1b41663e574a312d9c",
+      "schema": [
+        {
+          "name": "user_key",
+          "type": "uint64"
+        },
+        {
+          "name": "app_id",
+          "type": "int64"
+        },
+        {
+          "name": "review_key",
+          "type": "uint64"
+        },
+        {
+          "name": "positive",
+          "type": "bool"
+        }
+      ]
+    },
+    "validation/exclusions.parquet": {
+      "rows": 3920857,
+      "bytes": 9925409,
+      "sha256": "dbabb50c56a34306b84286f5a0d18fa42f176f2fd2ecb1206302a32f3baedb00",
+      "schema": [
+        {
+          "name": "user_key",
+          "type": "uint64"
+        },
+        {
+          "name": "app_id",
+          "type": "int64"
+        }
+      ]
+    },
+    "validation/interactions.parquet": {
+      "rows": 10977308,
+      "bytes": 59994635,
+      "sha256": "c168148004b4fc054e8b19ebf0ded2d8d59bc716e970cdf3763ce6d93592ed49",
+      "schema": [
+        {
+          "name": "user_key",
+          "type": "uint64"
+        },
+        {
+          "name": "app_id",
+          "type": "int64"
+        },
+        {
+          "name": "positive",
+          "type": "bool"
+        }
+      ]
+    },
+    "validation/query.parquet": {
+      "rows": 3920857,
+      "bytes": 10655012,
+      "sha256": "e345b5a7075a3411462392401f05ffa3db862cf8c628ef98bc8839a45ffd2a34",
+      "schema": [
+        {
+          "name": "user_key",
+          "type": "uint64"
+        },
+        {
+          "name": "app_id",
+          "type": "int64"
+        },
+        {
+          "name": "positive",
+          "type": "bool"
+        },
+        {
+          "name": "linux",
+          "type": "bool"
+        }
+      ]
+    },
+    "validation/review_lineage.parquet": {
+      "rows": 10977506,
+      "bytes": 93223258,
+      "sha256": "5c08d5e53a08a1e24e2e040f6cd7aa854303ae1bcbbae756abe62a1107b993a5",
+      "schema": [
+        {
+          "name": "user_key",
+          "type": "uint64"
+        },
+        {
+          "name": "app_id",
+          "type": "int64"
+        },
+        {
+          "name": "review_key",
+          "type": "uint64"
+        },
+        {
+          "name": "positive",
+          "type": "bool"
+        }
+      ]
+    },
+    "validation/targets.parquet": {
+      "rows": 325639,
+      "bytes": 1141549,
+      "sha256": "c47068f2b8467174dfbaff161e19b4fbcfdb7fb4337ee048faf35b6f3a615b08",
+      "schema": [
+        {
+          "name": "user_key",
+          "type": "uint64"
+        },
+        {
+          "name": "app_id",
+          "type": "int64"
+        },
+        {
+          "name": "positive",
+          "type": "bool"
+        },
+        {
+          "name": "linux",
+          "type": "bool"
+        }
+      ]
+    },
+    "validation/users.parquet": {
+      "rows": 325639,
+      "bytes": 1278288,
+      "sha256": "0fb2b71522120f900dc3f1b903b9b3c5756d2bc9420336ad7440bc89f0f9d5b9",
+      "schema": [
+        {
+          "name": "user_key",
+          "type": "uint64"
+        },
+        {
+          "name": "n_total_inputs",
+          "type": "int64"
+        },
+        {
+          "name": "n_positive_inputs",
+          "type": "int64"
+        },
+        {
+          "name": "n_eligible_targets",
+          "type": "int64"
+        }
+      ]
+    }
+  },
+  "validation": {
+    "passed": true,
+    "hashes_verified": true,
+    "files_verified": 17,
+    "counts": {
+      "train_accounts": 34014115,
+      "validation_accounts": 3781518,
+      "positive_train_accounts": 29836980,
+      "positive_singleton_accounts": 17042189,
+      "train_pairs_all_apps_all_labels": 98857701,
+      "train_positive_catalog_pairs": 78315268,
+      "validation_pairs_all_apps_all_labels": 10977308,
+      "validation_users": 325639,
+      "validation_query_rows": 3920857,
+      "test_users": 24342,
+      "test_query_rows": 461599,
+      "reserved_test_accounts": 87573,
+      "input_apps": 37610,
+      "linux_candidates": 6630
+    },
+    "zero_violation_checks": {
+      "input_app_duplicates": 0,
+      "linux_candidate_duplicates": 0,
+      "linux_candidate_set_mismatch": 0,
+      "reserved_account_duplicates": 0,
+      "train_pair_lineage_errors_0": 0,
+      "train_wrong_account_assignment_0": 0,
+      "train_positive_projection_errors_0": 0,
+      "train_pair_lineage_errors_1": 0,
+      "train_wrong_account_assignment_1": 0,
+      "train_positive_projection_errors_1": 0,
+      "train_pair_lineage_errors_2": 0,
+      "train_wrong_account_assignment_2": 0,
+      "train_positive_projection_errors_2": 0,
+      "train_pair_lineage_errors_3": 0,
+      "train_wrong_account_assignment_3": 0,
+      "train_positive_projection_errors_3": 0,
+      "train_pair_lineage_errors_4": 0,
+      "train_wrong_account_assignment_4": 0,
+      "train_positive_projection_errors_4": 0,
+      "train_pair_lineage_errors_5": 0,
+      "train_wrong_account_assignment_5": 0,
+      "train_positive_projection_errors_5": 0,
+      "train_pair_lineage_errors_6": 0,
+      "train_wrong_account_assignment_6": 0,
+      "train_positive_projection_errors_6": 0,
+      "train_pair_lineage_errors_7": 0,
+      "train_wrong_account_assignment_7": 0,
+      "train_positive_projection_errors_7": 0,
+      "train_reserved_account_leaks": 0,
+      "train_invalid_identifiers": 0,
+      "validation_pair_lineage_errors_0": 0,
+      "validation_wrong_account_assignment_0": 0,
+      "validation_pair_lineage_errors_1": 0,
+      "validation_wrong_account_assignment_1": 0,
+      "validation_pair_lineage_errors_2": 0,
+      "validation_wrong_account_assignment_2": 0,
+      "validation_pair_lineage_errors_3": 0,
+      "validation_wrong_account_assignment_3": 0,
+      "validation_pair_lineage_errors_4": 0,
+      "validation_wrong_account_assignment_4": 0,
+      "validation_pair_lineage_errors_5": 0,
+      "validation_wrong_account_assignment_5": 0,
+      "validation_pair_lineage_errors_6": 0,
+      "validation_wrong_account_assignment_6": 0,
+      "validation_pair_lineage_errors_7": 0,
+      "validation_wrong_account_assignment_7": 0,
+      "validation_reserved_account_leaks": 0,
+      "validation_invalid_identifiers": 0,
+      "train_validation_account_intersections": 0,
+      "train_validation_pair_intersections": 0,
+      "train_validation_original_review_intersections": 0,
+      "train_test_original_review_intersections": 0,
+      "validation_test_original_review_intersections": 0,
+      "validation_user_duplicates": 0,
+      "validation_target_count_errors": 0,
+      "validation_target_user_set_mismatch": 0,
+      "validation_query_user_set_mismatch": 0,
+      "validation_target_query_overlap": 0,
+      "validation_target_exclusion_overlap": 0,
+      "validation_exclusion_set_mismatch": 0,
+      "validation_exclusion_duplicates": 0,
+      "validation_invalid_targets": 0,
+      "validation_invalid_query_apps": 0,
+      "validation_query_pair_duplicates": 0,
+      "validation_ineligible_query_counts": 0,
+      "validation_lineage_history_mismatch": 0,
+      "validation_target_candidate_count_errors": 0,
+      "validation_query_not_in_validation": 0,
+      "test_user_duplicates": 0,
+      "test_target_count_errors": 0,
+      "test_target_user_set_mismatch": 0,
+      "test_query_user_set_mismatch": 0,
+      "test_target_query_overlap": 0,
+      "test_target_exclusion_overlap": 0,
+      "test_exclusion_set_mismatch": 0,
+      "test_exclusion_duplicates": 0,
+      "test_invalid_targets": 0,
+      "test_invalid_query_apps": 0,
+      "test_query_pair_duplicates": 0,
+      "test_ineligible_query_counts": 0,
+      "test_lineage_history_mismatch": 0,
+      "test_target_candidate_count_errors": 0,
+      "test_unreserved_users": 0
+    }
+  },
+  "artifact_directory": "data/processed/modeling/split_v1",
+  "manifest_sha256": "0d94731ccbcc9afec6e2d0a1394d6fa4a50e65f45e9dd9d3a764a2309bd2ce9f",
+  "total_parquet_bytes": 1894504662,
+  "source_audit_report": "modeling_split_v1_source_audit.json",
+  "behavioral_tests": {
+    "command": "python -m unittest discover -s EDA/scripts -p test_modeling_splits.py -v",
+    "passed": 9
+  }
+}

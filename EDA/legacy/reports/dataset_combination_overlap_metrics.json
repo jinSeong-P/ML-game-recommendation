@@ -1,0 +1,380 @@
+{
+  "checked_date": "2026-11-07",
+  "status": "STRUCTURAL_RESEARCH_PLUS_MEASURED_LOCAL_STEAM_ID_COMBINATIONS",
+  "source_replacement_or_model_fit": false,
+  "partitioned_datasets_written": false,
+  "identity_scope": "Same original public Steam account; not a natural person across multiple accounts; publisher identity semantics assumed and checked where original review IDs overlap",
+  "inputs": [
+    {
+      "path": "data/processed/B_users_items_profiles.parquet",
+      "bytes": 2557509,
+      "sha256": "1a2d4025c21d00bd65048c68a56ee4518bf1c7af4c762d17442c1d03db7f4e39"
+    },
+    {
+      "path": "data/processed/B_reviews.parquet",
+      "bytes": 1223658,
+      "sha256": "13de357635ecf12ed3713614ff5260067552e0800dbaf48a5276828db333d47c"
+    },
+    {
+      "path": "data/raw/candidate_review/VintageDon/steam_dataset_2025_csv_package_v1.zip",
+      "bytes": 320368878,
+      "sha256": "38edfd94af001c7c96eccb5d3caa914f68b46705fc7ff476f844ff48b41c7954"
+    },
+    {
+      "path": "data/processed/candidate_identity/frankjc2022/reviews_identity_columns.parquet",
+      "bytes": 79068279,
+      "sha256": "93674b9e0294016d0365e1e2ed07be7883e0f6d77b61b1033294e1c0590155f6"
+    },
+    {
+      "path": "data/processed/candidate_identity/frankjc2022/user_games_identity_columns.parquet",
+      "bytes": 35608284,
+      "sha256": "20f74765d269c4e82938df879700001e326ec725074d185e46a417dc8dfe5497"
+    }
+  ],
+  "catalog": {
+    "input_apps": "A reviewed apps, all platforms",
+    "target_apps": "A linux=True AND A reviewed",
+    "linux_app_count": 6630,
+    "scope_note": "Fixed comparison catalog only. A interaction rows do not enter these training examples. Replacement-source catalog expansion needs separate metadata/support audit."
+  },
+  "B_mapping": {
+    "profile_rows": 88310,
+    "unique_local_profile_ids": 87626,
+    "local_profile_ids_with_multiple_steam_ids": 0,
+    "steam_ids_with_multiple_local_aliases": 1,
+    "17digit_numeric_aliases_different_from_explicit_steam_id": 16,
+    "original_review_users": 25458,
+    "mapped_review_users": 25454,
+    "mapped_original_steam_users": 25454,
+    "unmapped_review_users_quarantined": 4,
+    "unmapped_review_rows_quarantined": 15,
+    "policy": "Always use explicit profile steam_id; never infer Steam identity from a numeric-looking user_id alias. Quarantine reviews without profile mapping."
+  },
+  "sources": {
+    "B_mapped": {
+      "raw_rows": 59290,
+      "same_label_duplicate_rows_removed": 874,
+      "conflicting_pairs_excluded": 0,
+      "clean_pairs": 58416,
+      "users": 25454,
+      "apps": 3680,
+      "review_input_eligibility_on_fixed_A_catalog": {
+        "1": {
+          "potential_users": 9285,
+          "possible_target_pairs": 19656,
+          "possible_target_apps": 814
+        },
+        "3": {
+          "potential_users": 3750,
+          "possible_target_pairs": 10974,
+          "possible_target_apps": 673
+        },
+        "5": {
+          "potential_users": 1615,
+          "possible_target_pairs": 5762,
+          "possible_target_apps": 554
+        },
+        "10": {
+          "potential_users": 0,
+          "possible_target_pairs": 0,
+          "possible_target_apps": 0
+        }
+      }
+    },
+    "VintageDon": {
+      "raw_rows": 1048148,
+      "same_label_duplicate_rows_removed": 7,
+      "conflicting_pairs_excluded": 1,
+      "clean_pairs": 1048139,
+      "users": 701883,
+      "apps": 117311,
+      "original_review_id_rows_missing": 0,
+      "unique_original_review_ids": 1048148,
+      "original_review_ids_linked_to_different_user_or_app": 0,
+      "review_input_eligibility_on_fixed_A_catalog": {
+        "1": {
+          "potential_users": 16615,
+          "possible_target_pairs": 25991,
+          "possible_target_apps": 4323
+        },
+        "3": {
+          "potential_users": 5751,
+          "possible_target_pairs": 12827,
+          "possible_target_apps": 3553
+        },
+        "5": {
+          "potential_users": 3175,
+          "possible_target_pairs": 8964,
+          "possible_target_apps": 3091
+        },
+        "10": {
+          "potential_users": 1319,
+          "possible_target_pairs": 5454,
+          "possible_target_apps": 2543
+        }
+      }
+    },
+    "frankjc2022": {
+      "raw_rows": 2631430,
+      "same_label_duplicate_rows_removed": 12,
+      "conflicting_pairs_excluded": 1,
+      "clean_pairs": 2631416,
+      "users": 1336109,
+      "apps": 44517,
+      "original_review_id_rows_missing": 0,
+      "unique_original_review_ids": 2631430,
+      "original_review_ids_linked_to_different_user_or_app": 0,
+      "review_input_eligibility_on_fixed_A_catalog": {
+        "1": {
+          "potential_users": 87573,
+          "possible_target_pairs": 184125,
+          "possible_target_apps": 5096
+        },
+        "3": {
+          "potential_users": 39456,
+          "possible_target_pairs": 125622,
+          "possible_target_apps": 5072
+        },
+        "5": {
+          "potential_users": 24577,
+          "possible_target_pairs": 102629,
+          "possible_target_apps": 5052
+        },
+        "10": {
+          "potential_users": 11647,
+          "possible_target_pairs": 76068,
+          "possible_target_apps": 4999
+        }
+      }
+    }
+  },
+  "pairwise_complete_review_column_audits": {
+    "B_mapped__VintageDon": {
+      "common_exact_steam_users": 629,
+      "common_user_app_pairs": 126,
+      "common_user_app_pairs_with_different_label": 1,
+      "original_review_id_check": {
+        "status": "not_available_in_both_sources; user+app checks still apply"
+      },
+      "train_B_mapped_test_VintageDon": {
+        "scope": "Measured complete clean review columns; fixed eligible test users; no target chosen or train/test file written",
+        "reserved_test_users": 16615,
+        "training_users_removed": 9,
+        "training_pairs_removed": 46,
+        "remaining_training_users": 25445,
+        "remaining_training_pairs": 58370,
+        "measured_user_intersection_after_exclusion": 0,
+        "measured_user_app_intersection_after_exclusion": 0,
+        "measured_original_review_id_intersection_after_exclusion_when_available": null,
+        "possible_target_pairs_without_any_remaining_train_review_on_app": 20136,
+        "potential_test_users_if_inputs_and_targets_restricted_to_remaining_train_apps": 2062,
+        "all_training_signals_must_follow_same_exclusion": "Ownership, friendship endpoints, query-derived caches and other source unions must exclude validation/test IDs too."
+      },
+      "train_VintageDon_test_B_mapped": {
+        "scope": "Measured complete clean review columns; fixed eligible test users; no target chosen or train/test file written",
+        "reserved_test_users": 9285,
+        "training_users_removed": 364,
+        "training_pairs_removed": 526,
+        "remaining_training_users": 701519,
+        "remaining_training_pairs": 1047613,
+        "measured_user_intersection_after_exclusion": 0,
+        "measured_user_app_intersection_after_exclusion": 0,
+        "measured_original_review_id_intersection_after_exclusion_when_available": null,
+        "possible_target_pairs_without_any_remaining_train_review_on_app": 6549,
+        "potential_test_users_if_inputs_and_targets_restricted_to_remaining_train_apps": 6643,
+        "all_training_signals_must_follow_same_exclusion": "Ownership, friendship endpoints, query-derived caches and other source unions must exclude validation/test IDs too."
+      }
+    },
+    "B_mapped__frankjc2022": {
+      "common_exact_steam_users": 1667,
+      "common_user_app_pairs": 317,
+      "common_user_app_pairs_with_different_label": 8,
+      "original_review_id_check": {
+        "status": "not_available_in_both_sources; user+app checks still apply"
+      },
+      "train_B_mapped_test_frankjc2022": {
+        "scope": "Measured complete clean review columns; fixed eligible test users; no target chosen or train/test file written",
+        "reserved_test_users": 87573,
+        "training_users_removed": 152,
+        "training_pairs_removed": 615,
+        "remaining_training_users": 25302,
+        "remaining_training_pairs": 57801,
+        "measured_user_intersection_after_exclusion": 0,
+        "measured_user_app_intersection_after_exclusion": 0,
+        "measured_original_review_id_intersection_after_exclusion_when_available": null,
+        "possible_target_pairs_without_any_remaining_train_review_on_app": 144129,
+        "potential_test_users_if_inputs_and_targets_restricted_to_remaining_train_apps": 13680,
+        "all_training_signals_must_follow_same_exclusion": "Ownership, friendship endpoints, query-derived caches and other source unions must exclude validation/test IDs too."
+      },
+      "train_frankjc2022_test_B_mapped": {
+        "scope": "Measured complete clean review columns; fixed eligible test users; no target chosen or train/test file written",
+        "reserved_test_users": 9285,
+        "training_users_removed": 968,
+        "training_pairs_removed": 2011,
+        "remaining_training_users": 1335141,
+        "remaining_training_pairs": 2629405,
+        "measured_user_intersection_after_exclusion": 0,
+        "measured_user_app_intersection_after_exclusion": 0,
+        "measured_original_review_id_intersection_after_exclusion_when_available": null,
+        "possible_target_pairs_without_any_remaining_train_review_on_app": 44,
+        "potential_test_users_if_inputs_and_targets_restricted_to_remaining_train_apps": 9273,
+        "all_training_signals_must_follow_same_exclusion": "Ownership, friendship endpoints, query-derived caches and other source unions must exclude validation/test IDs too."
+      }
+    },
+    "VintageDon__frankjc2022": {
+      "common_exact_steam_users": 223042,
+      "common_user_app_pairs": 197543,
+      "common_user_app_pairs_with_different_label": 345,
+      "original_review_id_check": {
+        "common_original_review_ids": 197548,
+        "common_review_ids_with_different_user_or_app": 0,
+        "same_original_review_ids_with_changed_label": 345
+      },
+      "train_VintageDon_test_frankjc2022": {
+        "scope": "Measured complete clean review columns; fixed eligible test users; no target chosen or train/test file written",
+        "reserved_test_users": 87573,
+        "training_users_removed": 38757,
+        "training_pairs_removed": 149523,
+        "remaining_training_users": 663126,
+        "remaining_training_pairs": 898616,
+        "measured_user_intersection_after_exclusion": 0,
+        "measured_user_app_intersection_after_exclusion": 0,
+        "measured_original_review_id_intersection_after_exclusion_when_available": 0,
+        "possible_target_pairs_without_any_remaining_train_review_on_app": 38363,
+        "potential_test_users_if_inputs_and_targets_restricted_to_remaining_train_apps": 70971,
+        "all_training_signals_must_follow_same_exclusion": "Ownership, friendship endpoints, query-derived caches and other source unions must exclude validation/test IDs too."
+      },
+      "train_frankjc2022_test_VintageDon": {
+        "scope": "Measured complete clean review columns; fixed eligible test users; no target chosen or train/test file written",
+        "reserved_test_users": 16615,
+        "training_users_removed": 9733,
+        "training_pairs_removed": 241565,
+        "remaining_training_users": 1326376,
+        "remaining_training_pairs": 2389851,
+        "measured_user_intersection_after_exclusion": 0,
+        "measured_user_app_intersection_after_exclusion": 0,
+        "measured_original_review_id_intersection_after_exclusion_when_available": 0,
+        "possible_target_pairs_without_any_remaining_train_review_on_app": 4036,
+        "potential_test_users_if_inputs_and_targets_restricted_to_remaining_train_apps": 13312,
+        "all_training_signals_must_follow_same_exclusion": "Ownership, friendship endpoints, query-derived caches and other source unions must exclude validation/test IDs too."
+      }
+    }
+  },
+  "frank_projection_provenance": {
+    "checked_date": "2026-11-07",
+    "repo": "frankjc2022/steam-dataset",
+    "commit": "75694cc07a6cdc69f48f9c316ca1e3e38a3f0f89",
+    "scope": "All rows of selected columns; review text and other unselected columns were not downloaded or audited",
+    "files": {
+      "reviews": {
+        "source_url": "https://huggingface.co/datasets/frankjc2022/steam-dataset/resolve/75694cc07a6cdc69f48f9c316ca1e3e38a3f0f89/data/v1/reviews.parquet?download=true",
+        "source_bytes": 845060940,
+        "publisher_full_file_sha256_not_independently_checked": "9187ed700f1ea81c20461f8bfc248d3c02bd2c1cb193afb1010f604fe1d84edb",
+        "rows": 2631430,
+        "row_groups": 18,
+        "columns": [
+          "author_steamid",
+          "appid",
+          "recommendationid",
+          "voted_up",
+          "timestamp_created",
+          "timestamp_updated"
+        ],
+        "schema": {
+          "author_steamid": "string",
+          "appid": "int32",
+          "recommendationid": "string",
+          "voted_up": "bool",
+          "timestamp_created": "int64",
+          "timestamp_updated": "int64"
+        },
+        "http_range_bytes_received": 90157518,
+        "http_requests": 56,
+        "local_projection": {
+          "path": "data/processed/candidate_identity/frankjc2022/reviews_identity_columns.parquet",
+          "bytes": 79068279,
+          "sha256": "93674b9e0294016d0365e1e2ed07be7883e0f6d77b61b1033294e1c0590155f6"
+        }
+      },
+      "user_games": {
+        "source_url": "https://huggingface.co/datasets/frankjc2022/steam-dataset/resolve/75694cc07a6cdc69f48f9c316ca1e3e38a3f0f89/data/v1/user_games.parquet?download=true",
+        "source_bytes": 505504705,
+        "publisher_full_file_sha256_not_independently_checked": "7369cb2b5077d2b568000f031c5b033db61fb69ce4f2e5373cfd34c4b92ea0cc",
+        "rows": 11285290,
+        "row_groups": 13,
+        "columns": [
+          "steamid",
+          "appid",
+          "playtime_forever"
+        ],
+        "schema": {
+          "steamid": "string",
+          "appid": "int32",
+          "playtime_forever": "int32"
+        },
+        "http_range_bytes_received": 35695461,
+        "http_requests": 27,
+        "local_projection": {
+          "path": "data/processed/candidate_identity/frankjc2022/user_games_identity_columns.parquet",
+          "bytes": 35608284,
+          "sha256": "20f74765d269c4e82938df879700001e326ec725074d185e46a417dc8dfe5497"
+        }
+      }
+    }
+  },
+  "frank_ownership": {
+    "rows": 11285290,
+    "unique_steam_users": 786,
+    "unique_user_app_pairs": 11285290,
+    "duplicate_user_app_rows": 0,
+    "unique_apps": 49830,
+    "users_with_both_reviews_and_ownership": 305,
+    "evaluation": {
+      "owned": {
+        "1": {
+          "users": 143,
+          "positive_linux_target_pairs": 1830,
+          "target_apps": 1529
+        },
+        "3": {
+          "users": 143,
+          "positive_linux_target_pairs": 1830,
+          "target_apps": 1529
+        },
+        "5": {
+          "users": 143,
+          "positive_linux_target_pairs": 1830,
+          "target_apps": 1529
+        },
+        "10": {
+          "users": 143,
+          "positive_linux_target_pairs": 1830,
+          "target_apps": 1529
+        }
+      },
+      "played_positive_minutes": {
+        "1": {
+          "users": 143,
+          "positive_linux_target_pairs": 1830,
+          "target_apps": 1529
+        },
+        "3": {
+          "users": 143,
+          "positive_linux_target_pairs": 1830,
+          "target_apps": 1529
+        },
+        "5": {
+          "users": 143,
+          "positive_linux_target_pairs": 1830,
+          "target_apps": 1529
+        },
+        "10": {
+          "users": 143,
+          "positive_linux_target_pairs": 1830,
+          "target_apps": 1529
+        }
+      }
+    },
+    "anti_join_requirement": "If frank ownership participates in training, remove every validation/test Steam ID from ownership too; review-only exclusion is insufficient."
+  }
+}
