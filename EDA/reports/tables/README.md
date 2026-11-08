@@ -1,5 +1,9 @@
 # 메인 EDA 결과표
 
+[model_improvement_v4.csv](model_improvement_v4.csv)는 새 v4 분할의 설정별 성능, 대조군과의 차이·신뢰구간, 보호 기준 통과 여부를 담습니다. 실행 완료 수와 범위는 [v4 보고서](../model_improvement_v4.md)를 기준으로 확인합니다. v3·Forgemaster와 평가 대상이 달라 점수의 직접 비교에는 사용하지 않습니다.
+
+[multi_target_hit_rates_v3.csv](multi_target_hit_rates_v3.csv)는 기존 v3 정답 2개 평가의 모델·평가 집단별 1개 이상·2개 모두 적중률, 평균 적중 수, Precision@10을 담습니다. 지표의 정의와 범위는 [정답 2개 적중률 보고서](../multi_target_hit_rates_v3.md)를 참고하세요.
+
 <!-- v3-current -->
 [model_improvement_v3.csv](model_improvement_v3.csv)는 v3의 검증·기존 frank 평가·보조 평가 결과와 채택 기준을 통과하지 못한 이유, 실행 시간을 담습니다. `variant`는 재현에 쓰는 설정 ID입니다. 방법명과 지표의 정의·해석은 [v3 보고서](../model_improvement_v3.md)를 참고하세요. 사용자별 자료는 Git에서 제외한 경로에 보관합니다. 아래 01~17은 이전 EDA 기록입니다.
 <!-- /v3-current -->

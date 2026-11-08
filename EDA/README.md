@@ -2,6 +2,8 @@
 
 Steam 리뷰 데이터의 품질을 확인하고 Linux 게임 추천 모델을 평가하는 폴더입니다. 처음 읽는 경우 [최근 모델 평가](reports/forgemaster_model_evaluation.md), [데이터 분석 결과](reports/forgemaster_eda.md), [용어 설명](docs/terminology.md) 순서로 보면 됩니다.
 
+추가 아이디어의 **v4 1차 비교 145개 조건과 한 후보의 확인 평가를 완료**했습니다. 확인용 주평가에서 DAN은 Recall@10 45.58%로 활동량 보정 KNN의 40.51%보다 높았지만, 희귀 게임 NDCG가 낮아 기존 KNN을 유지했습니다. [v4 결과](reports/model_improvement_v4.md) · [절차·용어](docs/backlog_experiments_v4.md) · [정답 시드·숨긴 부정 게임](reports/supplemental_evaluation_v4.md) · [시간순 보조 평가](reports/temporal_controls_v4.md). 기존 frank·Forgemaster 결과와 점수 차이를 직접 개선량으로 해석하지 않습니다. 대용량 산출물은 `data/processed/modeling/experiments_v4/`에 저장합니다.
+
 ## 최근 결과
 
 2026-11-08에 Forgemaster 원본 CSV 11개 전체를 다운로드하고 리뷰 15,437,471행을 검사했습니다. 같은 사용자·게임의 중복과 긍정·부정 충돌을 정리한 뒤, 게임당 리뷰 수를 제한하지 않고 395,421명을 평가했습니다.

@@ -1,0 +1,615 @@
+{
+  "status": "completed_temporal_selection_controls",
+  "confirmation_opened": false,
+  "primary_users": 820,
+  "all_target_eligible_users": 2023,
+  "split_manifest_sha256": "9b0aead2c6f2467b1df8164ad441ea47f299b00de844d70240652e0073b7a07a",
+  "protocol_sha256": "06f176504e0807125acb23ed9a72b35853a32a667a37004edb3ca80756c0f39e",
+  "training": {
+    "positive_pairs": 66795430,
+    "positive_users": 26284538,
+    "reserved_pair_overlap": 0,
+    "source_kind": "reused_audited_temporal_v3_training_pairs_after_v4_account_exclusion",
+    "source_sha256": "92dd2812ac84587ea58040c8306e334459e9823104fed94d176fc86454032fcc",
+    "old_artifact_validation_passed": true,
+    "old_artifact_validation_reasons": [],
+    "reserved_account_pair_overlap": 0
+  },
+  "availability": {
+    "candidates": 6630,
+    "known_release_date": 6096,
+    "unknown_release_date": 534,
+    "after_t0": 89,
+    "available_at_t0": 6007
+  },
+  "outcomes": {
+    "binary_item_knn_k100": {
+      "metrics": {
+        "all_target_eligible": {
+          "users": 2023,
+          "target_games": 398,
+          "recall": 0.2832427088482452,
+          "ndcg": 0.16900595398022825
+        },
+        "primary": {
+          "users": 820,
+          "target_games": 295,
+          "recall": 0.31341463414634146,
+          "ndcg": 0.18369221668746116
+        },
+        "primary_definition": "n_total_inputs >= 5 AND n_positive_inputs >= 1",
+        "all_eligible_users": 2023,
+        "primary_users": 820,
+        "primary_game_macro_recall": 0.11897854889314718,
+        "primary_game_macro_ndcg": 0.06068506192957381,
+        "primary_empty_users": 0,
+        "by_total_history": {
+          "zero-input": {
+            "users": 342,
+            "target_games": 104,
+            "recall": 0.0,
+            "ndcg": 0.0
+          },
+          "1-2": {
+            "users": 515,
+            "target_games": 147,
+            "recall": 0.34368932038834954,
+            "ndcg": 0.2134555213853001
+          },
+          "3-4": {
+            "users": 346,
+            "target_games": 133,
+            "recall": 0.40173410404624277,
+            "ndcg": 0.23509200492732368
+          },
+          "5+": {
+            "users": 820,
+            "target_games": 295,
+            "recall": 0.31341463414634146,
+            "ndcg": 0.18369221668746116
+          }
+        },
+        "zero-positive-input": {
+          "users": 354,
+          "target_games": 109,
+          "recall": 0.0,
+          "ndcg": 0.0
+        },
+        "by_positive_history": {
+          "zero": {
+            "users": 354,
+            "target_games": 109,
+            "recall": 0.0,
+            "ndcg": 0.0
+          },
+          "1": {
+            "users": 328,
+            "target_games": 105,
+            "recall": 0.3353658536585366,
+            "ndcg": 0.21404283074735597
+          },
+          "2": {
+            "users": 213,
+            "target_games": 90,
+            "recall": 0.37089201877934275,
+            "ndcg": 0.221186714117938
+          },
+          "3-4": {
+            "users": 359,
+            "target_games": 133,
+            "recall": 0.3955431754874652,
+            "ndcg": 0.22918911273700227
+          },
+          "5-9": {
+            "users": 419,
+            "target_games": 159,
+            "recall": 0.33890214797136037,
+            "ndcg": 0.20647522904454618
+          },
+          "10+": {
+            "users": 350,
+            "target_games": 195,
+            "recall": 0.2857142857142857,
+            "ndcg": 0.15939489676428417
+          }
+        },
+        "by_support": {
+          "0": {
+            "users": 0,
+            "target_games": 0,
+            "recall": null,
+            "ndcg": null
+          },
+          "1-9": {
+            "users": 1,
+            "target_games": 1,
+            "recall": 0.0,
+            "ndcg": 0.0
+          },
+          "10-99": {
+            "users": 9,
+            "target_games": 9,
+            "recall": 0.0,
+            "ndcg": 0.0
+          },
+          "100-999": {
+            "users": 27,
+            "target_games": 26,
+            "recall": 0.037037037037037035,
+            "ndcg": 0.012345679012345678
+          },
+          "1000-9999": {
+            "users": 134,
+            "target_games": 109,
+            "recall": 0.05970149253731343,
+            "ndcg": 0.021891335446040078
+          },
+          "10000-99999": {
+            "users": 277,
+            "target_games": 121,
+            "recall": 0.1371841155234657,
+            "ndcg": 0.07036085850483441
+          },
+          "100000-999999": {
+            "users": 316,
+            "target_games": 28,
+            "recall": 0.5158227848101266,
+            "ndcg": 0.30596230342330094
+          },
+          "1000000+": {
+            "users": 56,
+            "target_games": 1,
+            "recall": 0.8392857142857143,
+            "ndcg": 0.5569071377323788
+          }
+        },
+        "tail": {
+          "users": 37,
+          "target_games": 36,
+          "recall": 0.02702702702702703,
+          "ndcg": 0.009009009009009009
+        }
+      },
+      "audit": {
+        "status": "passed_actual_recommendation_replay",
+        "users": 2023,
+        "recommendation_rows": 16548,
+        "primary_users": 820,
+        "primary_recommended_games": 506,
+        "primary_exposure_gini": 0.9877200088290475,
+        "primary_empty_users": 0,
+        "zero_positive_users": 354,
+        "zero_positive_nonempty_users": 0,
+        "evaluation_manifest_sha256": "edf72a837470556ab99012be551d490742928cf6d02112a8e0972ea92a883284",
+        "audit_code_sha256": "63935cbd4dc534501663f863c3f7b1dfa5092c46ad2d682fd8a60638f1046d86"
+      }
+    },
+    "activity_inverse_degree_cosine_k100": {
+      "metrics": {
+        "all_target_eligible": {
+          "users": 2023,
+          "target_games": 398,
+          "recall": 0.28917449332674244,
+          "ndcg": 0.17547234586096788
+        },
+        "primary": {
+          "users": 820,
+          "target_games": 295,
+          "recall": 0.3170731707317073,
+          "ndcg": 0.189129147505341
+        },
+        "primary_definition": "n_total_inputs >= 5 AND n_positive_inputs >= 1",
+        "all_eligible_users": 2023,
+        "primary_users": 820,
+        "primary_game_macro_recall": 0.11322265851861277,
+        "primary_game_macro_ndcg": 0.06074662314714856,
+        "primary_empty_users": 0,
+        "by_total_history": {
+          "zero-input": {
+            "users": 342,
+            "target_games": 104,
+            "recall": 0.0,
+            "ndcg": 0.0
+          },
+          "1-2": {
+            "users": 515,
+            "target_games": 147,
+            "recall": 0.3533980582524272,
+            "ndcg": 0.2241564379180711
+          },
+          "3-4": {
+            "users": 346,
+            "target_games": 133,
+            "recall": 0.41329479768786126,
+            "ndcg": 0.24408696299003427
+          },
+          "5+": {
+            "users": 820,
+            "target_games": 295,
+            "recall": 0.3170731707317073,
+            "ndcg": 0.189129147505341
+          }
+        },
+        "zero-positive-input": {
+          "users": 354,
+          "target_games": 109,
+          "recall": 0.0,
+          "ndcg": 0.0
+        },
+        "by_positive_history": {
+          "zero": {
+            "users": 354,
+            "target_games": 109,
+            "recall": 0.0,
+            "ndcg": 0.0
+          },
+          "1": {
+            "users": 328,
+            "target_games": 105,
+            "recall": 0.3384146341463415,
+            "ndcg": 0.2186111916447731
+          },
+          "2": {
+            "users": 213,
+            "target_games": 90,
+            "recall": 0.38028169014084506,
+            "ndcg": 0.23843480647196436
+          },
+          "3-4": {
+            "users": 359,
+            "target_games": 133,
+            "recall": 0.40947075208913647,
+            "ndcg": 0.2376281037997363
+          },
+          "5-9": {
+            "users": 419,
+            "target_games": 159,
+            "recall": 0.3460620525059666,
+            "ndcg": 0.21174618964771888
+          },
+          "10+": {
+            "users": 350,
+            "target_games": 195,
+            "recall": 0.2885714285714286,
+            "ndcg": 0.16702665232064162
+          }
+        },
+        "by_support": {
+          "0": {
+            "users": 0,
+            "target_games": 0,
+            "recall": null,
+            "ndcg": null
+          },
+          "1-9": {
+            "users": 1,
+            "target_games": 1,
+            "recall": 0.0,
+            "ndcg": 0.0
+          },
+          "10-99": {
+            "users": 9,
+            "target_games": 9,
+            "recall": 0.0,
+            "ndcg": 0.0
+          },
+          "100-999": {
+            "users": 27,
+            "target_games": 26,
+            "recall": 0.07407407407407407,
+            "ndcg": 0.05022989581881564
+          },
+          "1000-9999": {
+            "users": 134,
+            "target_games": 109,
+            "recall": 0.03731343283582089,
+            "ndcg": 0.013351230047148416
+          },
+          "10000-99999": {
+            "users": 277,
+            "target_games": 121,
+            "recall": 0.1263537906137184,
+            "ndcg": 0.0670701176140715
+          },
+          "100000-999999": {
+            "users": 316,
+            "target_games": 28,
+            "recall": 0.5284810126582279,
+            "ndcg": 0.3060032531909114
+          },
+          "1000000+": {
+            "users": 56,
+            "target_games": 1,
+            "recall": 0.9107142857142857,
+            "ndcg": 0.6547353277415696
+          }
+        },
+        "tail": {
+          "users": 37,
+          "target_games": 36,
+          "recall": 0.05405405405405406,
+          "ndcg": 0.03665424830021682
+        }
+      },
+      "audit": {
+        "status": "passed_actual_recommendation_replay",
+        "users": 2023,
+        "recommendation_rows": 16658,
+        "primary_users": 820,
+        "primary_recommended_games": 538,
+        "primary_exposure_gini": 0.9875452672626274,
+        "primary_empty_users": 0,
+        "zero_positive_users": 354,
+        "zero_positive_nonempty_users": 0,
+        "evaluation_manifest_sha256": "d0f739f28e3efa12c73cece62b51e3704fac68e608ef83f0bfa166b47bf097a5",
+        "audit_code_sha256": "63935cbd4dc534501663f863c3f7b1dfa5092c46ad2d682fd8a60638f1046d86"
+      }
+    },
+    "fixed_tfidf_content": {
+      "metrics": {
+        "all_target_eligible": {
+          "users": 2023,
+          "target_games": 398,
+          "recall": 0.09194265941670786,
+          "ndcg": 0.05318005152048664
+        },
+        "primary": {
+          "users": 820,
+          "target_games": 295,
+          "recall": 0.10365853658536585,
+          "ndcg": 0.05929797746032736
+        },
+        "primary_definition": "n_total_inputs >= 5 AND n_positive_inputs >= 1",
+        "all_eligible_users": 2023,
+        "primary_users": 820,
+        "primary_game_macro_recall": 0.06629578805301638,
+        "primary_game_macro_ndcg": 0.03852612540307003,
+        "primary_empty_users": 0,
+        "by_total_history": {
+          "zero-input": {
+            "users": 342,
+            "target_games": 104,
+            "recall": 0.0,
+            "ndcg": 0.0
+          },
+          "1-2": {
+            "users": 515,
+            "target_games": 147,
+            "recall": 0.11844660194174757,
+            "ndcg": 0.06870211523060005
+          },
+          "3-4": {
+            "users": 346,
+            "target_games": 133,
+            "recall": 0.11560693641618497,
+            "ndcg": 0.06814252417548272
+          },
+          "5+": {
+            "users": 820,
+            "target_games": 295,
+            "recall": 0.10365853658536585,
+            "ndcg": 0.05929797746032736
+          }
+        },
+        "zero-positive-input": {
+          "users": 354,
+          "target_games": 109,
+          "recall": 0.0,
+          "ndcg": 0.0
+        },
+        "by_positive_history": {
+          "zero": {
+            "users": 354,
+            "target_games": 109,
+            "recall": 0.0,
+            "ndcg": 0.0
+          },
+          "1": {
+            "users": 328,
+            "target_games": 105,
+            "recall": 0.10975609756097561,
+            "ndcg": 0.06578573889804984
+          },
+          "2": {
+            "users": 213,
+            "target_games": 90,
+            "recall": 0.13615023474178403,
+            "ndcg": 0.0751004838047652
+          },
+          "3-4": {
+            "users": 359,
+            "target_games": 133,
+            "recall": 0.11420612813370473,
+            "ndcg": 0.06637926177677868
+          },
+          "5-9": {
+            "users": 419,
+            "target_games": 159,
+            "recall": 0.11694510739856802,
+            "ndcg": 0.06492781970052142
+          },
+          "10+": {
+            "users": 350,
+            "target_games": 195,
+            "recall": 0.08857142857142856,
+            "ndcg": 0.05421202109882037
+          }
+        },
+        "by_support": {
+          "0": {
+            "users": 0,
+            "target_games": 0,
+            "recall": null,
+            "ndcg": null
+          },
+          "1-9": {
+            "users": 1,
+            "target_games": 1,
+            "recall": 0.0,
+            "ndcg": 0.0
+          },
+          "10-99": {
+            "users": 9,
+            "target_games": 9,
+            "recall": 0.0,
+            "ndcg": 0.0
+          },
+          "100-999": {
+            "users": 27,
+            "target_games": 26,
+            "recall": 0.037037037037037035,
+            "ndcg": 0.037037037037037035
+          },
+          "1000-9999": {
+            "users": 134,
+            "target_games": 109,
+            "recall": 0.03731343283582089,
+            "ndcg": 0.014477071081784745
+          },
+          "10000-99999": {
+            "users": 277,
+            "target_games": 121,
+            "recall": 0.09386281588447654,
+            "ndcg": 0.05956637398080789
+          },
+          "100000-999999": {
+            "users": 316,
+            "target_games": 28,
+            "recall": 0.13291139240506328,
+            "ndcg": 0.07029058968439166
+          },
+          "1000000+": {
+            "users": 56,
+            "target_games": 1,
+            "recall": 0.19642857142857142,
+            "ndcg": 0.12451253677781662
+          }
+        },
+        "tail": {
+          "users": 37,
+          "target_games": 36,
+          "recall": 0.02702702702702703,
+          "ndcg": 0.02702702702702703
+        }
+      },
+      "audit": {
+        "status": "passed_actual_recommendation_replay",
+        "users": 2023,
+        "recommendation_rows": 16560,
+        "primary_users": 820,
+        "primary_recommended_games": 818,
+        "primary_exposure_gini": 0.9704514954199316,
+        "primary_empty_users": 0,
+        "zero_positive_users": 354,
+        "zero_positive_nonempty_users": 0,
+        "evaluation_manifest_sha256": "aa16d97a2a6be1567cc615548ceb05fe05414cb0d8cec00a740bd89e0ec19797",
+        "audit_code_sha256": "63935cbd4dc534501663f863c3f7b1dfa5092c46ad2d682fd8a60638f1046d86"
+      }
+    }
+  },
+  "paired": {
+    "status": "complete",
+    "role": "selection",
+    "protocol_sha256": "06f176504e0807125acb23ed9a72b35853a32a667a37004edb3ca80756c0f39e",
+    "primary_definition": "n_total_inputs >= 5 AND n_positive_inputs >= 1",
+    "bootstrap_reps": 2000,
+    "bootstrap_seed": 20261108,
+    "cohort_hashes": {
+      "temporal_manifest_sha256": "9b0aead2c6f2467b1df8164ad441ea47f299b00de844d70240652e0073b7a07a",
+      "temporal_protocol_sha256": "06f176504e0807125acb23ed9a72b35853a32a667a37004edb3ca80756c0f39e",
+      "input_apps_sha256": "03d323151f7280c0cfaf06d25d9c22192ed776d2b3e1deb173ffcb397158b3eb",
+      "linux_candidates_sha256": "d796b813638a551e8eaba5e83d90f4cdbd1b3a8c0dd0a0894524d6945910f176",
+      "candidate_availability_sha256": "0f217afe00ef65f94117becfa3722ddb3ff471eeb142df81628bd3938d5a4ec8",
+      "selection_users_sha256": "2f0af0d64797958f9a0a5231b0e1dcd5492cab4f75258cff20a5a3d26b9e0722",
+      "selection_query_sha256": "7331472a090b41e9ee92567828734392d3ba3629052c2e5afdef46b0bc8c548c",
+      "selection_targets_sha256": "e5c620ef05c2c41b42775f0409ceca48a556856927c374f3b4c0cf4a4e3307f0",
+      "selection_exclusions_sha256": "bfb428c5054987e4eea61dc801dfabf177eb2df1229eddbe93b8a130c5df8749"
+    },
+    "comparisons": {
+      "binary_item_knn_k100_vs_activity_inverse_degree_cosine_k100": {
+        "Recall@10": {
+          "delta": 0.003658536585365854,
+          "ci95": [
+            -0.01097560975609756,
+            0.018292682926829267
+          ]
+        },
+        "NDCG@10": {
+          "delta": 0.005436930817879839,
+          "ci95": [
+            -0.0015257410300395062,
+            0.012152017285993393
+          ]
+        },
+        "game_macro": {
+          "Recall@10": {
+            "delta": -0.005755890374534444,
+            "ci95": [
+              -0.011195955292353595,
+              8.47680254459899e-05
+            ]
+          },
+          "NDCG@10": {
+            "delta": 6.15612175747537e-05,
+            "ci95": [
+              -0.0021014320069182245,
+              0.002279043472521349
+            ]
+          }
+        },
+        "hit_overlap": {
+          "both": 239,
+          "base_only": 18,
+          "candidate_only": 21,
+          "neither": 542
+        },
+        "primary_users": 820
+      },
+      "binary_item_knn_k100_vs_fixed_tfidf_content": {
+        "Recall@10": {
+          "delta": -0.2097560975609756,
+          "ci95": [
+            -0.23902439024390243,
+            -0.17804878048780487
+          ]
+        },
+        "NDCG@10": {
+          "delta": -0.12439423922713379,
+          "ci95": [
+            -0.14355166478106313,
+            -0.10445683875104816
+          ]
+        },
+        "game_macro": {
+          "Recall@10": {
+            "delta": -0.052682760840130835,
+            "ci95": [
+              -0.06318428807929714,
+              -0.04138321456725785
+            ]
+          },
+          "NDCG@10": {
+            "delta": -0.02215893652650378,
+            "ci95": [
+              -0.027531647085872746,
+              -0.016724083292414833
+            ]
+          }
+        },
+        "hit_overlap": {
+          "both": 65,
+          "base_only": 192,
+          "candidate_only": 20,
+          "neither": 543
+        },
+        "primary_users": 820
+      }
+    },
+    "evaluation_receipts": {
+      "binary_item_knn_k100": "edf72a837470556ab99012be551d490742928cf6d02112a8e0972ea92a883284",
+      "activity_inverse_degree_cosine_k100": "d0f739f28e3efa12c73cece62b51e3704fac68e608ef83f0bfa166b47bf097a5",
+      "fixed_tfidf_content": "aa16d97a2a6be1567cc615548ceb05fe05414cb0d8cec00a740bd89e0ec19797"
+    }
+  },
+  "interpretation": "Interaction-time-controlled supplementary evaluation using current metadata; not a complete historical deployment simulation or pristine final test."
+}

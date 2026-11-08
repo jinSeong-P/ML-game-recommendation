@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "runtime": {
+    "factor_seconds": 5.1275471998378634,
+    "total_seconds": 9.540560400113463,
+    "peak_cuda_allocated_bytes": 5696628736,
+    "torch": "2.9.1+cu130",
+    "cuda": "13.0",
+    "device": "NVIDIA GeForce RTX 4070 SUPER",
+    "tf32": false,
+    "sample_rows": [
+      0,
+      3315,
+      6629
+    ],
+    "batch_size": 128,
+    "gpu_memory_fraction": 0.9
+  },
+  "differences": {
+    "max_absolute_coefficient_difference": 2.216547727584839e-06,
+    "relative_frobenius_difference": 1.7308086176414234e-06
+  },
+  "sampled_backward_errors": [
+    3.575732707119413e-09,
+    1.1612683432206317e-12,
+    7.369278228876574e-13
+  ],
+  "tolerances": {
+    "backward_error": 0.0001,
+    "relative_frobenius": 0.001
+  },
+  "gram_sha256": "084378a5e7d9db55d676850f047da41430ccd35918e465b36f5f7723e7b7fe5a",
+  "cpu_model_manifest_sha256": "ca3faa9aba948eca2701ada7d769f42a06586eeb3d1e565e899e0a8bdd9502fd",
+  "gpu_weights_sha256": "403cafb0d22cede63784b13448a7e0a2ebbbd23634569ae3e9f28f429cdfe348",
+  "code_sha256": "b98649d8903fb73d5b452dfe6b41c988a5fce252a226c4f068a4b28f686afd39",
+  "interpretation": "Numerical backend verification only; not an extra recommendation candidate or a performance improvement claim."
+}

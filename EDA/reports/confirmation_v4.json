@@ -1,0 +1,630 @@
+{
+  "selection_lock_sha256": "577d6c77d4e136ad3e160e75a502d603656b06cc55cbd4e0d34f5584e5e8443f",
+  "code_sha256": "d1cc673d07b2b64f2623ae13cc200a4f7647a10fd713b1ef8416b7fa3b5619ce",
+  "status": "complete_single_frozen_comparison",
+  "opened": true,
+  "finalist": "dan_ease_lambda100_a200_b000_p300_raw",
+  "guards": {
+    "ndcg_ci_lower_positive": true,
+    "overall_recall_noninferior": true,
+    "game_macro_ndcg_noninferior": true,
+    "tail_ndcg_noninferior": false,
+    "empty_users_not_increased": true
+  },
+  "paired": {
+    "Recall@10": {
+      "delta": 0.0507,
+      "ci95": [
+        0.044697499999999994,
+        0.0566
+      ]
+    },
+    "NDCG@10": {
+      "delta": 0.03762516834171448,
+      "ci95": [
+        0.03417174059768724,
+        0.040906098033159054
+      ]
+    },
+    "game_macro": {
+      "Recall@10": {
+        "delta": 0.011584642931564861,
+        "ci95": [
+          0.008444655805197005,
+          0.014790396531155525
+        ]
+      },
+      "NDCG@10": {
+        "delta": 0.004790738549556601,
+        "ci95": [
+          0.003350268137857084,
+          0.006215106690224964
+        ]
+      }
+    },
+    "hit_overlap": {
+      "both": 3825,
+      "base_only": 226,
+      "candidate_only": 733,
+      "neither": 5216
+    }
+  },
+  "outcomes": {
+    "activity_inverse_degree_cosine_k100": {
+      "status": "complete",
+      "variant": "activity_inverse_degree_cosine_k100",
+      "role": "confirmation",
+      "provenance": {
+        "protocol_sha256": "d3c98749a131d7bb374ce8c479ccd08904722ae86508098c6c6bee57340042cb",
+        "evaluator_sha256": "15d82ab014c593920340970e8d0f82a78cc3509f113edc972dc42a72031401b6",
+        "cohort": {
+          "users.parquet": "51aa1c1465df65f2303395e54a61c00bffe795db36717cc6d222b08c61fc52fd",
+          "targets.parquet": "aadd8e9c221421af5a17353ab520e8ee058e9629b03b482dc795a3d8ce591986",
+          "query.parquet": "650e6a7fe451216c97d49c4f35ae23f9e8fc2cd8f21dc95be3b125f8a0c88124"
+        },
+        "split_manifest_sha256": "52027f3411cdca7e3169187ce2d26f9af147056fcdfd43df91c521611695595c",
+        "model": {
+          "model_manifest_sha256": "6cfe892046f62b8340bfefc0ab6ef94a32c82a5c2eb8e81ad0f4367147af3458",
+          "matrix_sha256": "e3cdeec5281426638133f02080748c54d606341cc3c78426dad0ce062e844e45"
+        }
+      },
+      "elapsed_seconds": 1.7511346000246704,
+      "metrics": {
+        "users": 10000,
+        "target_games": 1120,
+        "recall": 0.4051,
+        "ndcg": 0.2506686697777737,
+        "game_macro_recall": 0.10816970001250861,
+        "game_macro_ndcg": 0.06573774464670752,
+        "empty_users": 0,
+        "average_length": 9.9993,
+        "all_eligible_users": 20000,
+        "tail": {
+          "users": 322,
+          "target_games": 291,
+          "recall": 0.06832298136645963,
+          "ndcg": 0.04505389347040239
+        },
+        "by_total_history": {
+          "1-2": {
+            "users": 5000,
+            "target_games": 594,
+            "recall": 0.4126,
+            "ndcg": 0.2794953645017141
+          },
+          "3-4": {
+            "users": 5000,
+            "target_games": 648,
+            "recall": 0.4292,
+            "ndcg": 0.2762265218659314
+          },
+          "5+": {
+            "users": 10000,
+            "target_games": 1120,
+            "recall": 0.4051,
+            "ndcg": 0.2506686697777737
+          }
+        },
+        "by_positive_history": {
+          "1": {
+            "users": 3632,
+            "target_games": 508,
+            "recall": 0.38408590308370044,
+            "ndcg": 0.26068983043701915
+          },
+          "2": {
+            "users": 2505,
+            "target_games": 458,
+            "recall": 0.41317365269461076,
+            "ndcg": 0.2689860895082104
+          },
+          "3-4": {
+            "users": 5045,
+            "target_games": 678,
+            "recall": 0.42993062438057483,
+            "ndcg": 0.2760997741229462
+          },
+          "5-9": {
+            "users": 5495,
+            "target_games": 779,
+            "recall": 0.43421292083712465,
+            "ndcg": 0.2721719972798702
+          },
+          "10+": {
+            "users": 3323,
+            "target_games": 733,
+            "recall": 0.38368943725549204,
+            "ndcg": 0.23356967371275764
+          }
+        },
+        "by_support": {
+          "0": {
+            "users": 0,
+            "target_games": 0,
+            "recall": null,
+            "ndcg": null
+          },
+          "1-9": {
+            "users": 1,
+            "target_games": 1,
+            "recall": 0.0,
+            "ndcg": 0.0
+          },
+          "10-99": {
+            "users": 41,
+            "target_games": 41,
+            "recall": 0.0975609756097561,
+            "ndcg": 0.06460483439314786
+          },
+          "100-999": {
+            "users": 280,
+            "target_games": 249,
+            "recall": 0.06428571428571428,
+            "ndcg": 0.04235198388339467
+          },
+          "1000-9999": {
+            "users": 1194,
+            "target_games": 547,
+            "recall": 0.07788944723618091,
+            "ndcg": 0.04726175600903589
+          },
+          "10000-99999": {
+            "users": 3353,
+            "target_games": 242,
+            "recall": 0.19773337309871758,
+            "ndcg": 0.11708881251750178
+          },
+          "100000-999999": {
+            "users": 3813,
+            "target_games": 38,
+            "recall": 0.5641227380015735,
+            "ndcg": 0.3091724546565686
+          },
+          "1000000+": {
+            "users": 1318,
+            "target_games": 2,
+            "recall": 0.8512898330804249,
+            "ndcg": 0.6557476854543236
+          }
+        }
+      },
+      "files": {
+        "per_user.parquet": "94ecf6efb50c3019c31758c40e2c57e7d30cb169b9f77532bf3c66dc731aa429",
+        "recommendations.parquet": "cee1f4d485ec1aaa1b69bf8831efd0e4a65476b6e50df22b775535e9349e39d5"
+      }
+    },
+    "binary_item_knn_k100": {
+      "status": "complete",
+      "variant": "binary_item_knn_k100",
+      "role": "confirmation",
+      "provenance": {
+        "protocol_sha256": "d3c98749a131d7bb374ce8c479ccd08904722ae86508098c6c6bee57340042cb",
+        "evaluator_sha256": "15d82ab014c593920340970e8d0f82a78cc3509f113edc972dc42a72031401b6",
+        "cohort": {
+          "users.parquet": "51aa1c1465df65f2303395e54a61c00bffe795db36717cc6d222b08c61fc52fd",
+          "targets.parquet": "aadd8e9c221421af5a17353ab520e8ee058e9629b03b482dc795a3d8ce591986",
+          "query.parquet": "650e6a7fe451216c97d49c4f35ae23f9e8fc2cd8f21dc95be3b125f8a0c88124"
+        },
+        "split_manifest_sha256": "52027f3411cdca7e3169187ce2d26f9af147056fcdfd43df91c521611695595c",
+        "model": {
+          "model_manifest_sha256": "85683b9eb06129fb74ce5dc5059702612137a95b1e0d45d51ed67390c38ec1ff",
+          "matrix_sha256": "0a2f61624ad7b706f0b03a80fce7a20537428c4d6ff764c5c86d277afa5aa774"
+        }
+      },
+      "elapsed_seconds": 1.7547975000925362,
+      "metrics": {
+        "users": 10000,
+        "target_games": 1120,
+        "recall": 0.3988,
+        "ndcg": 0.2439858224435111,
+        "game_macro_recall": 0.10105856577957793,
+        "game_macro_ndcg": 0.06393308840196368,
+        "empty_users": 0,
+        "average_length": 9.9959,
+        "all_eligible_users": 20000,
+        "tail": {
+          "users": 322,
+          "target_games": 291,
+          "recall": 0.055900621118012424,
+          "ndcg": 0.04067542392748031
+        },
+        "by_total_history": {
+          "1-2": {
+            "users": 5000,
+            "target_games": 594,
+            "recall": 0.4038,
+            "ndcg": 0.26488412845851256
+          },
+          "3-4": {
+            "users": 5000,
+            "target_games": 648,
+            "recall": 0.4182,
+            "ndcg": 0.263557384540768
+          },
+          "5+": {
+            "users": 10000,
+            "target_games": 1120,
+            "recall": 0.3988,
+            "ndcg": 0.2439858224435111
+          }
+        },
+        "by_positive_history": {
+          "1": {
+            "users": 3632,
+            "target_games": 508,
+            "recall": 0.37362334801762115,
+            "ndcg": 0.24573020704569465
+          },
+          "2": {
+            "users": 2505,
+            "target_games": 458,
+            "recall": 0.4087824351297405,
+            "ndcg": 0.2584819643864441
+          },
+          "3-4": {
+            "users": 5045,
+            "target_games": 678,
+            "recall": 0.41982160555004955,
+            "ndcg": 0.2636062303658132
+          },
+          "5-9": {
+            "users": 5495,
+            "target_games": 779,
+            "recall": 0.4267515923566879,
+            "ndcg": 0.26487408842821203
+          },
+          "10+": {
+            "users": 3323,
+            "target_games": 733,
+            "recall": 0.3773698465242251,
+            "ndcg": 0.22771586173486486
+          }
+        },
+        "by_support": {
+          "0": {
+            "users": 0,
+            "target_games": 0,
+            "recall": null,
+            "ndcg": null
+          },
+          "1-9": {
+            "users": 1,
+            "target_games": 1,
+            "recall": 0.0,
+            "ndcg": 0.0
+          },
+          "10-99": {
+            "users": 41,
+            "target_games": 41,
+            "recall": 0.07317073170731707,
+            "ndcg": 0.07317073170731707
+          },
+          "100-999": {
+            "users": 280,
+            "target_games": 249,
+            "recall": 0.05357142857142857,
+            "ndcg": 0.036062451802316646
+          },
+          "1000-9999": {
+            "users": 1194,
+            "target_games": 547,
+            "recall": 0.0728643216080402,
+            "ndcg": 0.04635232095755223
+          },
+          "10000-99999": {
+            "users": 3353,
+            "target_games": 242,
+            "recall": 0.20280345958842827,
+            "ndcg": 0.11739154955979318
+          },
+          "100000-999999": {
+            "users": 3813,
+            "target_games": 38,
+            "recall": 0.5580907421977446,
+            "ndcg": 0.3118831965253594
+          },
+          "1000000+": {
+            "users": 1318,
+            "target_games": 2,
+            "recall": 0.8156297420333839,
+            "ndcg": 0.5983244102291071
+          }
+        }
+      },
+      "files": {
+        "per_user.parquet": "279d3cbbd913a7cded627b16541a4eebfda19e734e6216f4fd20d2ade62e87f3",
+        "recommendations.parquet": "586fcc82c66e673105ca2c68f1aa6acdbcc33dc6be9850571fc5a8ec8dbef2a6"
+      }
+    },
+    "metadata_extended_tfidf": {
+      "status": "complete",
+      "variant": "metadata_extended_tfidf",
+      "role": "confirmation",
+      "provenance": {
+        "protocol_sha256": "d3c98749a131d7bb374ce8c479ccd08904722ae86508098c6c6bee57340042cb",
+        "evaluator_sha256": "15d82ab014c593920340970e8d0f82a78cc3509f113edc972dc42a72031401b6",
+        "cohort": {
+          "users.parquet": "51aa1c1465df65f2303395e54a61c00bffe795db36717cc6d222b08c61fc52fd",
+          "targets.parquet": "aadd8e9c221421af5a17353ab520e8ee058e9629b03b482dc795a3d8ce591986",
+          "query.parquet": "650e6a7fe451216c97d49c4f35ae23f9e8fc2cd8f21dc95be3b125f8a0c88124"
+        },
+        "split_manifest_sha256": "52027f3411cdca7e3169187ce2d26f9af147056fcdfd43df91c521611695595c",
+        "model": {
+          "kind": "fixed_public_content",
+          "manifest_sha256": "cee0247b65d7de217dcfb05ac372c20a7e34f62139db6369d384c6da457de253"
+        }
+      },
+      "elapsed_seconds": 8.914710799697787,
+      "metrics": {
+        "users": 10000,
+        "target_games": 1120,
+        "recall": 0.1444,
+        "ndcg": 0.08147731748344939,
+        "game_macro_recall": 0.08607150580192313,
+        "game_macro_ndcg": 0.05329590106191026,
+        "empty_users": 4,
+        "average_length": 9.996,
+        "all_eligible_users": 20000,
+        "tail": {
+          "users": 322,
+          "target_games": 291,
+          "recall": 0.059006211180124224,
+          "ndcg": 0.03753420497522841
+        },
+        "by_total_history": {
+          "1-2": {
+            "users": 5000,
+            "target_games": 594,
+            "recall": 0.125,
+            "ndcg": 0.07431239957555136
+          },
+          "3-4": {
+            "users": 5000,
+            "target_games": 648,
+            "recall": 0.1428,
+            "ndcg": 0.08541611850946876
+          },
+          "5+": {
+            "users": 10000,
+            "target_games": 1120,
+            "recall": 0.1444,
+            "ndcg": 0.08147731748344939
+          }
+        },
+        "by_positive_history": {
+          "1": {
+            "users": 3632,
+            "target_games": 508,
+            "recall": 0.11316079295154186,
+            "ndcg": 0.06636719367137607
+          },
+          "2": {
+            "users": 2505,
+            "target_games": 458,
+            "recall": 0.13013972055888223,
+            "ndcg": 0.07903199645490165
+          },
+          "3-4": {
+            "users": 5045,
+            "target_games": 678,
+            "recall": 0.14112983151635283,
+            "ndcg": 0.08421992285225662
+          },
+          "5-9": {
+            "users": 5495,
+            "target_games": 779,
+            "recall": 0.15723384895359419,
+            "ndcg": 0.08891151885454593
+          },
+          "10+": {
+            "users": 3323,
+            "target_games": 733,
+            "recall": 0.14143845922359313,
+            "ndcg": 0.07852442366243244
+          }
+        },
+        "by_support": {
+          "0": {
+            "users": 0,
+            "target_games": 0,
+            "recall": null,
+            "ndcg": null
+          },
+          "1-9": {
+            "users": 1,
+            "target_games": 1,
+            "recall": 0.0,
+            "ndcg": 0.0
+          },
+          "10-99": {
+            "users": 41,
+            "target_games": 41,
+            "recall": 0.04878048780487805,
+            "ndcg": 0.02758365252613311
+          },
+          "100-999": {
+            "users": 280,
+            "target_games": 249,
+            "recall": 0.060714285714285714,
+            "ndcg": 0.039125300887328886
+          },
+          "1000-9999": {
+            "users": 1194,
+            "target_games": 547,
+            "recall": 0.07788944723618091,
+            "ndcg": 0.04828818728212331
+          },
+          "10000-99999": {
+            "users": 3353,
+            "target_games": 242,
+            "recall": 0.12734864300626306,
+            "ndcg": 0.07330635227411791
+          },
+          "100000-999999": {
+            "users": 3813,
+            "target_games": 38,
+            "recall": 0.14975085234723315,
+            "ndcg": 0.08124948852781119
+          },
+          "1000000+": {
+            "users": 1318,
+            "target_games": 2,
+            "recall": 0.2534142640364188,
+            "ndcg": 0.14372577108190707
+          }
+        }
+      },
+      "files": {
+        "per_user.parquet": "c47cc7be57033ae3c0b8dcf95d1da064a0304f6c46bbc061cea04568dc5a1816",
+        "recommendations.parquet": "7e19b4960245abd9f38eb8c0ae48785a9a99c7df749b03761199af7b989cfc2e"
+      }
+    },
+    "dan_ease_lambda100_a200_b000_p300_raw": {
+      "status": "complete",
+      "variant": "dan_ease_lambda100_a200_b000_p300_raw",
+      "role": "confirmation",
+      "provenance": {
+        "protocol_sha256": "d3c98749a131d7bb374ce8c479ccd08904722ae86508098c6c6bee57340042cb",
+        "evaluator_sha256": "15d82ab014c593920340970e8d0f82a78cc3509f113edc972dc42a72031401b6",
+        "cohort": {
+          "users.parquet": "51aa1c1465df65f2303395e54a61c00bffe795db36717cc6d222b08c61fc52fd",
+          "targets.parquet": "aadd8e9c221421af5a17353ab520e8ee058e9629b03b482dc795a3d8ce591986",
+          "query.parquet": "650e6a7fe451216c97d49c4f35ae23f9e8fc2cd8f21dc95be3b125f8a0c88124"
+        },
+        "split_manifest_sha256": "52027f3411cdca7e3169187ce2d26f9af147056fcdfd43df91c521611695595c",
+        "model": {
+          "source_manifest_sha256": "7e85faf6a3d69a775ad1cad4d707cba446b960bc93d57450e477691d5f19b6ca",
+          "weights_sha256": "e9c1071663a0454f85b86bcda547f4cf911cd20e1d2180c15307b0dd88c2c65e",
+          "layout": "input_by_candidate_row_major",
+          "layout_sha256": "8d7496ca45db7f253cb0f3a66735049ae59eadc5fc6740328192297e6de184b9"
+        }
+      },
+      "elapsed_seconds": 1.827161299996078,
+      "metrics": {
+        "users": 10000,
+        "target_games": 1120,
+        "recall": 0.4558,
+        "ndcg": 0.28829383811948817,
+        "game_macro_recall": 0.11975434294407344,
+        "game_macro_ndcg": 0.07052848319626412,
+        "empty_users": 0,
+        "average_length": 10.0,
+        "all_eligible_users": 20000,
+        "tail": {
+          "users": 322,
+          "target_games": 291,
+          "recall": 0.06832298136645963,
+          "ndcg": 0.0387994431992227
+        },
+        "by_total_history": {
+          "1-2": {
+            "users": 5000,
+            "target_games": 594,
+            "recall": 0.5114,
+            "ndcg": 0.35745324364260084
+          },
+          "3-4": {
+            "users": 5000,
+            "target_games": 648,
+            "recall": 0.4954,
+            "ndcg": 0.32823485463115765
+          },
+          "5+": {
+            "users": 10000,
+            "target_games": 1120,
+            "recall": 0.4558,
+            "ndcg": 0.28829383811948817
+          }
+        },
+        "by_positive_history": {
+          "1": {
+            "users": 3632,
+            "target_games": 508,
+            "recall": 0.49587004405286345,
+            "ndcg": 0.35052369860786553
+          },
+          "2": {
+            "users": 2505,
+            "target_games": 458,
+            "recall": 0.47944111776447107,
+            "ndcg": 0.31969200704627104
+          },
+          "3-4": {
+            "users": 5045,
+            "target_games": 678,
+            "recall": 0.49217046580773044,
+            "ndcg": 0.3248830061138612
+          },
+          "5-9": {
+            "users": 5495,
+            "target_games": 779,
+            "recall": 0.4855323020928117,
+            "ndcg": 0.3091958271708879
+          },
+          "10+": {
+            "users": 3323,
+            "target_games": 733,
+            "recall": 0.43304243153776706,
+            "ndcg": 0.27065377232035487
+          }
+        },
+        "by_support": {
+          "0": {
+            "users": 0,
+            "target_games": 0,
+            "recall": null,
+            "ndcg": null
+          },
+          "1-9": {
+            "users": 1,
+            "target_games": 1,
+            "recall": 0.0,
+            "ndcg": 0.0
+          },
+          "10-99": {
+            "users": 41,
+            "target_games": 41,
+            "recall": 0.0975609756097561,
+            "ndcg": 0.05931609144476681
+          },
+          "100-999": {
+            "users": 280,
+            "target_games": 249,
+            "recall": 0.06428571428571428,
+            "ndcg": 0.03593378914612239
+          },
+          "1000-9999": {
+            "users": 1194,
+            "target_games": 547,
+            "recall": 0.09128978224455611,
+            "ndcg": 0.05373599045570787
+          },
+          "10000-99999": {
+            "users": 3353,
+            "target_games": 242,
+            "recall": 0.2278556516552341,
+            "ndcg": 0.12766467614469634
+          },
+          "100000-999999": {
+            "users": 3813,
+            "target_games": 38,
+            "recall": 0.6401783372672436,
+            "ndcg": 0.3551509919908463
+          },
+          "1000000+": {
+            "users": 1318,
+            "target_games": 2,
+            "recall": 0.9271623672230652,
+            "ndcg": 0.7769603917347137
+          }
+        }
+      },
+      "files": {
+        "per_user.parquet": "a882b0795b8f5b528aded833072ea60ae655e58b1b36f95003c0c2ae688de637",
+        "recommendations.parquet": "7a42f6b3fd0dd9bf157f533683248bf976a9a164e0c11a76326e4107670d8c00"
+      }
+    }
+  },
+  "adopted": "activity_inverse_degree_cosine_k100",
+  "limitation": "Prospective v4 account-disjoint refit; accounts influenced historical v1-v3 training."
+}
