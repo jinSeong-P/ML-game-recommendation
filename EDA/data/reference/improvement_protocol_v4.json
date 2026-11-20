@@ -1,0 +1,52 @@
+{
+  "version": "backlog-experiments-v4",
+  "status": "fixed_before_v4_metrics",
+  "created_utc": "2026-11-08T09:57:00Z",
+  "scope": "First execute evaluation prerequisites and high-priority V4-4, V4-3, V4-2, V4-1, V4-5, V4-6; conditional follow-ups remain explicit until their prerequisites are met.",
+  "historical_exposure": "Newly held accounts come from historical v1 train. They have not been individually evaluated, but their reviews influenced prior training and development. Fresh refits remove every reserved account. This is prospective v4 confirmation, not an untouched final test of the entire project.",
+  "account_roles": ["base_train", "fusion_fit", "selection", "confirmation"],
+  "catalog": {"input_games": 37610, "linux_candidates": 6630, "ties": "App ID ascending"},
+  "target": {"kind": "uniform random one positive Linux game per account", "seed": 20261108},
+  "primary_population": "post-hide total inputs >=5, positive inputs >=1",
+  "supplemental_population": "post-hide total input bins 1-2, 3-4; report separately, never pool equally sampled strata as a natural population",
+  "recommendations": "Full Linux catalog; finite positive scores only; exclude all visible positive/negative games; target remains eligible; at most 10; no popularity fill; all empty users remain in denominator",
+  "selection": {
+    "primary": "highest overall NDCG@10 among models passing all protection rules on primary selection accounts",
+    "control": "freshly refitted activity_inverse_degree_cosine_k100",
+    "protection_rules": {
+      "paired_ndcg_ci95_lower": ">0",
+      "overall_recall": ">=control",
+      "game_macro_ndcg": ">=control",
+      "support_1_999_ndcg": ">=control",
+      "empty_users": "<=control"
+    },
+    "noninferiority_margins": "Existing zero margins retained; no post-result relaxation. Practical margin design remains a stakeholder decision for a later protocol.",
+    "confirmation": "Freeze at most one selected challenger plus controls after all candidate settings finish. Never open confirmation labels for candidate tuning. If no model passes, keep control and do not run a fishing comparison on confirmation.",
+    "uncertainty": "Paired user bootstrap; fixed-game within-game paired bootstrap for macro; one finalist avoids multiple final comparisons. Fixed-prediction intervals do not include retraining/selection uncertainty."
+  },
+  "candidate_policies": {
+    "top50_union": "CF50 + content50, deduplicate, no fill",
+    "top100_union": "CF100 + content100, deduplicate, no fill",
+    "support_budget200": "CF100 + content50 + content support1-99 top25 + content support100-999 top25; deduplicate; fill from remaining CF then content ranks to at most200; positive only; CF top10 retained"
+  },
+  "fusion": {
+    "etas": [0, 0.1, 0.25, 0.5],
+    "score": "q_cf + eta * gate * q_content; q is positive score divided by that model's per-user positive maximum after masking",
+    "gate_training": "fusion_fit users only; fixed-weight then prior-feature gate then evidence-feature gate; bounded sigmoid gate",
+    "features": "inference-available support, input count, connected input count, effective contribution count, max contribution share, rank agreement, score gap10-11, content missingness; never target information"
+  },
+  "linear_models": {
+    "lambda": [100, 1000],
+    "rlae_xi": [0, 0.25, 0.5, 0.75, 1],
+    "rdlae_dropout": [0.1, 0.3],
+    "dan_alpha": [0, 0.1, 0.2, 0.3],
+    "dan_beta": [0, 0.5, 1],
+    "dan_dropout": [0, 0.3],
+    "lambda_scale": "raw lambda and lambda times mean weighted diagonal / mean binary diagonal reported separately; do not form every parameter product initially",
+    "zero_support": "mask undefined negative powers; score zero for collaborative unsupported games"
+  },
+  "extra_metrics": ["paired Recall/NDCG differences", "hit overlap", "top100 and union candidate recall", "support and input-length strata", "catalog coverage", "exposure Gini and entropy including zero-exposure candidates", "smoothed negative log popularity", "tag diversity with eligible denominator", "inverse-popularity sensitivity with ESS"],
+  "inverse_popularity": {"gamma": [0, 0.5, 1], "cap": [10, 50], "smoothing": 1, "reference": "median positive train support among supported Linux candidates", "interpretation": "sensitivity, not propensity-corrected IPS"},
+  "temporal_and_cold_start": "A separate protocol must freeze global time cutoffs, review-update rules, launch-date/metadata availability, and item-removal refits before these supplementary outcomes. Existing random holdout does not establish temporal or item-cold-start validity.",
+  "forgemaster": "Source rows and saved predictions are absent locally. Do not claim a rerun or paired CI from aggregate reports. Rebuild only from verified pinned source."
+}

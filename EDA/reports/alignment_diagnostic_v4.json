@@ -1,0 +1,44 @@
+{
+  "status": "complete_train_graph_diagnostic",
+  "variant": "knn_teacher_qwen3_embedding_0_6b_description_1024_d128_top50",
+  "alignment_manifest_sha256": "9b10c6cb6f06627e8c6d8e8c7e50de9484f63fb4242d6d12d1866b87ec4ba072",
+  "teacher_sha256": "e3cdeec5281426638133f02080748c54d606341cc3c78426dad0ce062e844e45",
+  "sampled_edges": 20000,
+  "sampling_seed": 20261108,
+  "teacher_similarity": {
+    "mean": 0.007593289832104256,
+    "quantiles": {
+      "min": 1.3958511772216298e-05,
+      "p10": 0.0015201234025880696,
+      "median": 0.004277159692719579,
+      "p90": 0.014380740374326706,
+      "max": 0.6184751987457275
+    }
+  },
+  "aligned_positive_similarity": {
+    "mean": 0.007794339029211551,
+    "quantiles": {
+      "min": -0.003623003140091896,
+      "p10": 0.003389297425746918,
+      "median": 0.00736057385802269,
+      "p90": 0.012330103479325774,
+      "max": 0.11132103204727173
+    }
+  },
+  "aligned_unlabelled_similarity": {
+    "mean": 0.0075137589152436705,
+    "quantiles": {
+      "min": -0.005464512854814529,
+      "p10": 0.003297831304371357,
+      "median": 0.007220647297799587,
+      "p90": 0.01177233029156924,
+      "max": 0.06135089695453644
+    }
+  },
+  "teacher_positive_below_weak_upper_margin": 0.98505,
+  "weak_upper_margin": 0.05,
+  "pairwise_positive_above_unlabelled": 0.5263,
+  "edge_vs_unlabelled_auc": 0.51383336625,
+  "code_sha256": "cfb8ea7293e0fbe702908910ccc45f266ba7e3d8a349d95d2513bdd017b518bc",
+  "interpretation": "Diagnostic on teacher edges used for fitting, not a held-out recommendation metric. Stored-edge absence is unlabelled, not dislike. A weak upper-margin loss can allow unlabelled scores above small positive teacher similarities; small regression loss alone does not establish good ranking."
+}

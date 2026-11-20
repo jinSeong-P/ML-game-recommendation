@@ -1,0 +1,14 @@
+{
+  "version": "positive-review-baseline-run-v1",
+  "status": "frozen_before_validation",
+  "frozen_utc": "2026-11-07T15:54:38.279709+00:00",
+  "protocol_sha256": "62aa2e1029c0fa1d2247d8b79e5e962429d1ec233e5107021efc4e7bf9a30b00",
+  "split_manifest_sha256": "0d94731ccbcc9afec6e2d0a1394d6fa4a50e65f45e9dd9d3a764a2309bd2ce9f",
+  "tfidf_manifest_sha256": "ecfc55c171d84e2222d6cac2145382c6d9512bf56de8b51b5ed61667ca1e108a",
+  "item_knn_manifest_sha256": "da6a43ca1dccee8100b8fbaf57d1b33b8560fa8216f6a67ef0b7bd3cb2e86017",
+  "evaluator_sha256": "288d26babf79b5c137675ca9f89fc24cf35b7226a90760b1aff754a7967003d4",
+  "tfidf_code_sha256": "4889b1225d5c206df0e58021942f79839976ad22b74da577a99900db3b9c1b71",
+  "item_knn_code_sha256": "ec5aedb4cb93b056551c788ce26aafd306692dcccf3374974de98c727c4146f9",
+  "item_knn_audit_sha256": "29e945c6325cb12272076fe4b75ebeb873119e827768eec06480d2ce2fa106c1",
+  "ranking_metrics_computed": false
+}

@@ -1,0 +1,34 @@
+{
+  "content_manifest_sha256": "ecfc55c171d84e2222d6cac2145382c6d9512bf56de8b51b5ed61667ca1e108a",
+  "split_manifest_sha256": "0d94731ccbcc9afec6e2d0a1394d6fa4a50e65f45e9dd9d3a764a2309bd2ce9f",
+  "audit_code_sha256": "8424ff062dbb98044bac4df3ac8477937ab4fd4aa101ea62371bbf843235299d",
+  "cohorts": {
+    "validation": {
+      "users": 325639,
+      "query_rows": 3920857,
+      "positive_query_rows": 3344905,
+      "supported_positive_query_rows": 3232761,
+      "users_with_zero_text_profile": 48,
+      "users_with_some_unsupported_positive_input": 83967,
+      "target_rows": 325639,
+      "unsupported_target_rows": 18921,
+      "targets_outside_text_catalog": 0,
+      "query_rows_outside_text_catalog": 0
+    },
+    "test": {
+      "users": 24342,
+      "query_rows": 461599,
+      "positive_query_rows": 324615,
+      "supported_positive_query_rows": 324166,
+      "users_with_zero_text_profile": 2,
+      "users_with_some_unsupported_positive_input": 387,
+      "target_rows": 24342,
+      "unsupported_target_rows": 34,
+      "targets_outside_text_catalog": 0,
+      "query_rows_outside_text_catalog": 0
+    }
+  },
+  "scope": "Support counts only, after index construction; no feature/parameter selection, no cohort filtering and no ranking metrics.",
+  "cohorts_unchanged": true,
+  "ranking_metrics_computed": false
+}

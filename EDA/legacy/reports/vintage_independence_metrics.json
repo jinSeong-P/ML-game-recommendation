@@ -1,0 +1,383 @@
+{
+  "checked_date": "2026-11-07",
+  "decision": "STRICT_USER_DISJOINTNESS_NOT_CERTIFIABLE_WITH_CURRENT_A",
+  "strict_split_created": false,
+  "reason": "A user IDs are source-local; A review IDs are row ordinals. No original SteamID mapping is available in local A files. Fingerprint compatibility is not verified identity or nonidentity.",
+  "inputs": [
+    {
+      "path": "data/processed/A_recommendations.parquet",
+      "bytes": 593191975,
+      "sha256": "6bd5f1cd77b41fa8eaa8ac2cd407dced84c01ea505a33a05eb74e84715a8c226"
+    },
+    {
+      "path": "data/processed/A_users.parquet",
+      "bytes": 96483740,
+      "sha256": "4ce0c9fb0df3517956d04d3aef87e305b59fb9e5f8fb91a75897715349a1998a"
+    },
+    {
+      "path": "data/processed/A_games.parquet",
+      "bytes": 1815579,
+      "sha256": "c71773cbad26ae13f07179fe99275160318719e7375f7b4df151ef8ea260d1d8"
+    },
+    {
+      "path": "data/raw/candidate_review/VintageDon/steam_dataset_2025_csv_package_v1.zip",
+      "bytes": 320368878,
+      "sha256": "38edfd94af001c7c96eccb5d3caa914f68b46705fc7ff476f844ff48b41c7954"
+    }
+  ],
+  "A": {
+    "rows_scanned": 41154794,
+    "date_min": "2010-10-15 00:00:00",
+    "date_max": "2022-12-31 00:00:00",
+    "user_id_range": [
+      0,
+      14306063
+    ],
+    "review_id_range": [
+      0,
+      41154793
+    ],
+    "review_id_equals_zero_based_row_number_for_every_row": true,
+    "non_midnight_dates": 0,
+    "nulls": {
+      "app_id": 0,
+      "helpful": 0,
+      "funny": 0,
+      "date": 0,
+      "is_recommended": 0,
+      "hours": 0,
+      "user_id": 0,
+      "review_id": 0
+    },
+    "numeric_review_id_collisions": 147298,
+    "numeric_review_id_collisions_with_same_app_day_label": 0
+  },
+  "VintageDon": {
+    "rows_scanned": 1048148,
+    "original_review_id_range": [
+      534,
+      203702264
+    ],
+    "unique_steam_users": 701884,
+    "review_rows_by_created_year_UTC": {
+      "2010": 159,
+      "2011": 756,
+      "2012": 1060,
+      "2013": 1703,
+      "2014": 10412,
+      "2015": 21612,
+      "2016": 35264,
+      "2017": 63419,
+      "2018": 52616,
+      "2019": 55601,
+      "2020": 67001,
+      "2021": 76370,
+      "2022": 76818,
+      "2023": 70576,
+      "2024": 69036,
+      "2025": 445745
+    },
+    "created_on_or_before_A_max_day": 462791,
+    "created_after_A_max_day": 585357,
+    "old_review_rows_updated_after_A_max_day": 5636,
+    "missing_playtime_at_review": 178857,
+    "missing_playtime_forever": 3,
+    "created_min_UTC": "2010-10-19 10:04:22+00:00",
+    "created_max_UTC": "2025-09-06 14:37:00+00:00",
+    "updated_min_UTC": "2010-10-23 22:56:04+00:00",
+    "updated_max_UTC": "2025-09-06 14:37:00+00:00"
+  },
+  "fingerprint_policy": {
+    "base": "App ID + A source date / Vintage UTC creation day + current explicit label",
+    "playtime": "A hours <1000; tenths equal floor(minutes/6) or nearest-even integer(minutes/6), separately for V at-review and forever fields",
+    "rich": "Base + either playtime compatibility + equal helpful/funny votes",
+    "limitations": [
+      "Creation day is low resolution; different reviews can match.",
+      "A source-date timezone and creation-vs-update semantics are not independently established; aligning its day with Vintage UTC creation day is conditional.",
+      "Playtime, votes and labels may change between collection dates; absence of a match does not certify independence.",
+      "A hours collection semantics and original rounding are not established by this audit.",
+      "Shifted-date results are sensitivity controls, not calibrated false-positive rates.",
+      "Same App IDs are expected in item-based evaluation and do not alone imply leakage."
+    ]
+  },
+  "fingerprint_screens": {
+    "actual_date": {
+      "probe_review_rows": 462791,
+      "criteria": {
+        "app_day_label": {
+          "vintage_review_rows_with_candidate": 126087,
+          "vintage_users_with_candidate": 93502,
+          "candidate_A_V_review_links": 420351,
+          "vintage_review_rows_with_exactly_one_A_candidate": 83954
+        },
+        "plus_playtime_at_review": {
+          "vintage_review_rows_with_candidate": 48615,
+          "vintage_users_with_candidate": 34471,
+          "candidate_A_V_review_links": 56713,
+          "vintage_review_rows_with_exactly_one_A_candidate": 45614
+        },
+        "plus_playtime_forever": {
+          "vintage_review_rows_with_candidate": 76691,
+          "vintage_users_with_candidate": 54453,
+          "candidate_A_V_review_links": 82691,
+          "vintage_review_rows_with_exactly_one_A_candidate": 73364
+        },
+        "plus_either_playtime": {
+          "vintage_review_rows_with_candidate": 78605,
+          "vintage_users_with_candidate": 55995,
+          "candidate_A_V_review_links": 89291,
+          "vintage_review_rows_with_exactly_one_A_candidate": 74270
+        },
+        "plus_either_playtime_and_votes": {
+          "vintage_review_rows_with_candidate": 45772,
+          "vintage_users_with_candidate": 34660,
+          "candidate_A_V_review_links": 48299,
+          "vintage_review_rows_with_exactly_one_A_candidate": 44576
+        },
+        "plus_either_playtime_and_nonzero_votes": {
+          "vintage_review_rows_with_candidate": 23272,
+          "vintage_users_with_candidate": 18357,
+          "candidate_A_V_review_links": 23445,
+          "vintage_review_rows_with_exactly_one_A_candidate": 23147
+        }
+      },
+      "multi_game_rich_signature_consistency": {
+        "vintage_users_with_multi_game_same_A_user_candidate": {
+          "2": 3938,
+          "3": 1646,
+          "5": 675
+        },
+        "candidate_user_links_with_at_least_games": {
+          "2": 3986,
+          "3": 1655,
+          "5": 677
+        }
+      }
+    },
+    "date_plus_7_days_control": {
+      "probe_review_rows": 460964,
+      "criteria": {
+        "app_day_label": {
+          "vintage_review_rows_with_candidate": 26959,
+          "vintage_users_with_candidate": 25316,
+          "candidate_A_V_review_links": 72422,
+          "vintage_review_rows_with_exactly_one_A_candidate": 17304
+        },
+        "plus_playtime_at_review": {
+          "vintage_review_rows_with_candidate": 1321,
+          "vintage_users_with_candidate": 1309,
+          "candidate_A_V_review_links": 1678,
+          "vintage_review_rows_with_exactly_one_A_candidate": 1179
+        },
+        "plus_playtime_forever": {
+          "vintage_review_rows_with_candidate": 1141,
+          "vintage_users_with_candidate": 1126,
+          "candidate_A_V_review_links": 1283,
+          "vintage_review_rows_with_exactly_one_A_candidate": 1044
+        },
+        "plus_either_playtime": {
+          "vintage_review_rows_with_candidate": 1604,
+          "vintage_users_with_candidate": 1581,
+          "candidate_A_V_review_links": 2024,
+          "vintage_review_rows_with_exactly_one_A_candidate": 1431
+        },
+        "plus_either_playtime_and_votes": {
+          "vintage_review_rows_with_candidate": 401,
+          "vintage_users_with_candidate": 400,
+          "candidate_A_V_review_links": 507,
+          "vintage_review_rows_with_exactly_one_A_candidate": 351
+        },
+        "plus_either_playtime_and_nonzero_votes": {
+          "vintage_review_rows_with_candidate": 32,
+          "vintage_users_with_candidate": 32,
+          "candidate_A_V_review_links": 33,
+          "vintage_review_rows_with_exactly_one_A_candidate": 31
+        }
+      },
+      "multi_game_rich_signature_consistency": {
+        "vintage_users_with_multi_game_same_A_user_candidate": {
+          "2": 0,
+          "3": 0,
+          "5": 0
+        },
+        "candidate_user_links_with_at_least_games": {
+          "2": 0,
+          "3": 0,
+          "5": 0
+        }
+      }
+    },
+    "date_plus_365_days_control": {
+      "probe_review_rows": 385973,
+      "criteria": {
+        "app_day_label": {
+          "vintage_review_rows_with_candidate": 10903,
+          "vintage_users_with_candidate": 10577,
+          "candidate_A_V_review_links": 31240,
+          "vintage_review_rows_with_exactly_one_A_candidate": 6174
+        },
+        "plus_playtime_at_review": {
+          "vintage_review_rows_with_candidate": 495,
+          "vintage_users_with_candidate": 492,
+          "candidate_A_V_review_links": 555,
+          "vintage_review_rows_with_exactly_one_A_candidate": 449
+        },
+        "plus_playtime_forever": {
+          "vintage_review_rows_with_candidate": 412,
+          "vintage_users_with_candidate": 409,
+          "candidate_A_V_review_links": 465,
+          "vintage_review_rows_with_exactly_one_A_candidate": 368
+        },
+        "plus_either_playtime": {
+          "vintage_review_rows_with_candidate": 577,
+          "vintage_users_with_candidate": 573,
+          "candidate_A_V_review_links": 652,
+          "vintage_review_rows_with_exactly_one_A_candidate": 520
+        },
+        "plus_either_playtime_and_votes": {
+          "vintage_review_rows_with_candidate": 197,
+          "vintage_users_with_candidate": 195,
+          "candidate_A_V_review_links": 227,
+          "vintage_review_rows_with_exactly_one_A_candidate": 174
+        },
+        "plus_either_playtime_and_nonzero_votes": {
+          "vintage_review_rows_with_candidate": 7,
+          "vintage_users_with_candidate": 7,
+          "candidate_A_V_review_links": 7,
+          "vintage_review_rows_with_exactly_one_A_candidate": 7
+        }
+      },
+      "multi_game_rich_signature_consistency": {
+        "vintage_users_with_multi_game_same_A_user_candidate": {
+          "2": 0,
+          "3": 0,
+          "5": 0
+        },
+        "candidate_user_links_with_at_least_games": {
+          "2": 0,
+          "3": 0,
+          "5": 0
+        }
+      }
+    }
+  },
+  "eligibility_sensitivity_not_certified_splits": {
+    "original": {
+      "1": {
+        "users": 16615,
+        "possible_target_pairs": 25991,
+        "possible_target_games": 4323
+      },
+      "3": {
+        "users": 5751,
+        "possible_target_pairs": 12827,
+        "possible_target_games": 3553
+      },
+      "5": {
+        "users": 3175,
+        "possible_target_pairs": 8964,
+        "possible_target_games": 3091
+      },
+      "10": {
+        "users": 1319,
+        "possible_target_pairs": 5454,
+        "possible_target_games": 2543
+      }
+    },
+    "targets_created_after_A_max_day": {
+      "1": {
+        "users": 8623,
+        "possible_target_pairs": 13173,
+        "possible_target_games": 3460
+      },
+      "3": {
+        "users": 2892,
+        "possible_target_pairs": 6323,
+        "possible_target_games": 2674
+      },
+      "5": {
+        "users": 1502,
+        "possible_target_pairs": 4297,
+        "possible_target_games": 2243
+      },
+      "10": {
+        "users": 584,
+        "possible_target_pairs": 2629,
+        "possible_target_games": 1761
+      }
+    },
+    "all_input_and_target_reviews_created_after_A_max_day": {
+      "1": {
+        "users": 7816,
+        "possible_target_pairs": 12366,
+        "possible_target_games": 3290
+      },
+      "3": {
+        "users": 2399,
+        "possible_target_pairs": 5768,
+        "possible_target_games": 2441
+      },
+      "5": {
+        "users": 1189,
+        "possible_target_pairs": 3918,
+        "possible_target_games": 2045
+      },
+      "10": {
+        "users": 412,
+        "possible_target_pairs": 2389,
+        "possible_target_games": 1600
+      }
+    },
+    "exclude_any_user_with_app_day_label_candidate": {
+      "1": {
+        "users": 10406,
+        "possible_target_pairs": 15509,
+        "possible_target_games": 3692
+      },
+      "3": {
+        "users": 2966,
+        "possible_target_pairs": 6463,
+        "possible_target_games": 2631
+      },
+      "5": {
+        "users": 1422,
+        "possible_target_pairs": 4106,
+        "possible_target_games": 2085
+      },
+      "10": {
+        "users": 437,
+        "possible_target_pairs": 2168,
+        "possible_target_games": 1453
+      }
+    },
+    "exclude_any_user_with_rich_signature_candidate": {
+      "1": {
+        "users": 13232,
+        "possible_target_pairs": 19826,
+        "possible_target_games": 4023
+      },
+      "3": {
+        "users": 3985,
+        "possible_target_pairs": 8602,
+        "possible_target_games": 3095
+      },
+      "5": {
+        "users": 2000,
+        "possible_target_pairs": 5609,
+        "possible_target_games": 2568
+      },
+      "10": {
+        "users": 691,
+        "possible_target_pairs": 3072,
+        "possible_target_games": 1915
+      }
+    }
+  },
+  "guarantees": {
+    "same_game_catalog_overlap_allowed": true,
+    "same_original_user_excluded": "UNVERIFIABLE",
+    "same_original_review_excluded": "UNVERIFIABLE for the original mixed-date source",
+    "post_cutoff_creation_dates": "Excludes identical original review records with immutable creation dates only if both sources store compatible original creation days; A timezone/date semantics remain unverified. Does not exclude returning users or establish a full temporal evaluation.",
+    "safe_strict_user_split": "Use original Steam IDs in every training source and split users before fitting; alternatively construct all splits within one source retaining exact IDs. A cannot be added to that training union without its original-ID mapping."
+  }
+}

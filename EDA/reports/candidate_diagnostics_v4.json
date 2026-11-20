@@ -1,0 +1,621 @@
+{
+  "status": "complete",
+  "candidate_manifest_sha256": "0682654f23f70b1d9c23a710ac5a414513731f571feea157891af2b90a4b5e9d",
+  "code_sha256": "52b7e35c9460be03347c89835088005993c1baf7740724468fe829288fe5d303",
+  "ceilings": {
+    "cf_top100": {
+      "primary": {
+        "users": 10000,
+        "target_games": 1133,
+        "recall": 0.7435,
+        "game_macro_recall": 0.332467224612821
+      },
+      "history1-2": {
+        "users": 5000,
+        "target_games": 558,
+        "recall": 0.5482,
+        "game_macro_recall": 0.28211654641908873
+      },
+      "history3-4": {
+        "users": 5000,
+        "target_games": 659,
+        "recall": 0.699,
+        "game_macro_recall": 0.3367302426832824
+      },
+      "primary_support1-999": {
+        "users": 342,
+        "target_games": 310,
+        "recall": 0.16666666666666666,
+        "game_macro_recall": 0.1682795698924731
+      },
+      "primary_support0-1": {
+        "users": 0,
+        "target_games": 0,
+        "recall": null,
+        "game_macro_recall": null
+      },
+      "primary_support1-10": {
+        "users": 7,
+        "target_games": 7,
+        "recall": 0.14285714285714285,
+        "game_macro_recall": 0.14285714285714285
+      },
+      "primary_support10-100": {
+        "users": 37,
+        "target_games": 36,
+        "recall": 0.10810810810810811,
+        "game_macro_recall": 0.1111111111111111
+      },
+      "primary_support100-1000": {
+        "users": 298,
+        "target_games": 267,
+        "recall": 0.174496644295302,
+        "game_macro_recall": 0.1766541822721598
+      },
+      "primary_support1000-10000": {
+        "users": 1179,
+        "target_games": 541,
+        "recall": 0.26717557251908397,
+        "game_macro_recall": 0.2521051550626412
+      },
+      "primary_support10000-100000": {
+        "users": 3370,
+        "target_games": 242,
+        "recall": 0.7130563798219585,
+        "game_macro_recall": 0.6306716969112863
+      },
+      "primary_support100000-inf": {
+        "users": 5109,
+        "target_games": 40,
+        "recall": 0.912115873947935,
+        "game_macro_recall": 0.887681481955983
+      }
+    },
+    "content_top100": {
+      "primary": {
+        "users": 10000,
+        "target_games": 1133,
+        "recall": 0.3974,
+        "game_macro_recall": 0.2227513468690162
+      },
+      "history1-2": {
+        "users": 5000,
+        "target_games": 558,
+        "recall": 0.3054,
+        "game_macro_recall": 0.19614700632603627
+      },
+      "history3-4": {
+        "users": 5000,
+        "target_games": 659,
+        "recall": 0.3876,
+        "game_macro_recall": 0.23659774237973155
+      },
+      "primary_support1-999": {
+        "users": 342,
+        "target_games": 310,
+        "recall": 0.14035087719298245,
+        "game_macro_recall": 0.13655913978494624
+      },
+      "primary_support0-1": {
+        "users": 0,
+        "target_games": 0,
+        "recall": null,
+        "game_macro_recall": null
+      },
+      "primary_support1-10": {
+        "users": 7,
+        "target_games": 7,
+        "recall": 0.14285714285714285,
+        "game_macro_recall": 0.14285714285714285
+      },
+      "primary_support10-100": {
+        "users": 37,
+        "target_games": 36,
+        "recall": 0.08108108108108109,
+        "game_macro_recall": 0.08333333333333333
+      },
+      "primary_support100-1000": {
+        "users": 298,
+        "target_games": 267,
+        "recall": 0.1476510067114094,
+        "game_macro_recall": 0.1435705368289638
+      },
+      "primary_support1000-10000": {
+        "users": 1179,
+        "target_games": 541,
+        "recall": 0.22985581000848176,
+        "game_macro_recall": 0.21137223835929939
+      },
+      "primary_support10000-100000": {
+        "users": 3370,
+        "target_games": 242,
+        "recall": 0.3543026706231454,
+        "game_macro_recall": 0.33093937643251703
+      },
+      "primary_support100000-inf": {
+        "users": 5109,
+        "target_games": 40,
+        "recall": 0.4816989626149932,
+        "game_macro_recall": 0.39010581550529927
+      }
+    },
+    "top50_union": {
+      "primary": {
+        "users": 10000,
+        "target_games": 1133,
+        "recall": 0.6768,
+        "game_macro_recall": 0.2812437960352932,
+        "actual_candidates": {
+          "min": 20.0,
+          "median": 89.0,
+          "max": 100.0,
+          "mean": 88.8068
+        }
+      },
+      "history1-2": {
+        "users": 5000,
+        "target_games": 558,
+        "recall": 0.549,
+        "game_macro_recall": 0.27948911621951716,
+        "actual_candidates": {
+          "min": 7.0,
+          "median": 88.0,
+          "max": 100.0,
+          "mean": 84.64
+        }
+      },
+      "history3-4": {
+        "users": 5000,
+        "target_games": 659,
+        "recall": 0.6712,
+        "game_macro_recall": 0.30995304246166633,
+        "actual_candidates": {
+          "min": 19.0,
+          "median": 89.0,
+          "max": 100.0,
+          "mean": 89.0438
+        }
+      },
+      "primary_support1-999": {
+        "users": 342,
+        "target_games": 310,
+        "recall": 0.1608187134502924,
+        "game_macro_recall": 0.1586021505376344,
+        "actual_candidates": {
+          "min": 59.0,
+          "median": 91.0,
+          "max": 99.0,
+          "mean": 90.45614035087719
+        }
+      },
+      "primary_support0-1": {
+        "users": 0,
+        "target_games": 0,
+        "recall": null,
+        "game_macro_recall": null
+      },
+      "primary_support1-10": {
+        "users": 7,
+        "target_games": 7,
+        "recall": 0.14285714285714285,
+        "game_macro_recall": 0.14285714285714285,
+        "actual_candidates": {
+          "min": 73.0,
+          "median": 94.0,
+          "max": 97.0,
+          "mean": 90.0
+        }
+      },
+      "primary_support10-100": {
+        "users": 37,
+        "target_games": 36,
+        "recall": 0.13513513513513514,
+        "game_macro_recall": 0.1388888888888889,
+        "actual_candidates": {
+          "min": 82.0,
+          "median": 92.0,
+          "max": 98.0,
+          "mean": 91.29729729729729
+        }
+      },
+      "primary_support100-1000": {
+        "users": 298,
+        "target_games": 267,
+        "recall": 0.1644295302013423,
+        "game_macro_recall": 0.16167290886392008,
+        "actual_candidates": {
+          "min": 59.0,
+          "median": 91.0,
+          "max": 99.0,
+          "mean": 90.36241610738254
+        }
+      },
+      "primary_support1000-10000": {
+        "users": 1179,
+        "target_games": 541,
+        "recall": 0.22900763358778625,
+        "game_macro_recall": 0.2185921133703019,
+        "actual_candidates": {
+          "min": 59.0,
+          "median": 90.0,
+          "max": 100.0,
+          "mean": 89.52332485156913
+        }
+      },
+      "primary_support10000-100000": {
+        "users": 3370,
+        "target_games": 242,
+        "recall": 0.5750741839762611,
+        "game_macro_recall": 0.4877371815094359,
+        "actual_candidates": {
+          "min": 64.0,
+          "median": 89.0,
+          "max": 100.0,
+          "mean": 88.83026706231453
+        }
+      },
+      "primary_support100000-inf": {
+        "users": 5109,
+        "target_games": 40,
+        "recall": 0.8817772558230573,
+        "game_macro_recall": 0.8297955745675933,
+        "actual_candidates": {
+          "min": 20.0,
+          "median": 89.0,
+          "max": 100.0,
+          "mean": 88.51556077510276
+        }
+      }
+    },
+    "top100_union": {
+      "primary": {
+        "users": 10000,
+        "target_games": 1133,
+        "recall": 0.774,
+        "game_macro_recall": 0.3980545028066313,
+        "actual_candidates": {
+          "min": 20.0,
+          "median": 174.0,
+          "max": 200.0,
+          "mean": 174.0935
+        }
+      },
+      "history1-2": {
+        "users": 5000,
+        "target_games": 558,
+        "recall": 0.5976,
+        "game_macro_recall": 0.3565305849142528,
+        "actual_candidates": {
+          "min": 7.0,
+          "median": 170.0,
+          "max": 200.0,
+          "mean": 158.296
+        }
+      },
+      "history3-4": {
+        "users": 5000,
+        "target_games": 659,
+        "recall": 0.7352,
+        "game_macro_recall": 0.4104405104894831,
+        "actual_candidates": {
+          "min": 19.0,
+          "median": 175.0,
+          "max": 200.0,
+          "mean": 173.5318
+        }
+      },
+      "primary_support1-999": {
+        "users": 342,
+        "target_games": 310,
+        "recall": 0.2222222222222222,
+        "game_macro_recall": 0.22150537634408599,
+        "actual_candidates": {
+          "min": 118.0,
+          "median": 178.0,
+          "max": 196.0,
+          "mean": 177.41812865497076
+        }
+      },
+      "primary_support0-1": {
+        "users": 0,
+        "target_games": 0,
+        "recall": null,
+        "game_macro_recall": null
+      },
+      "primary_support1-10": {
+        "users": 7,
+        "target_games": 7,
+        "recall": 0.2857142857142857,
+        "game_macro_recall": 0.2857142857142857,
+        "actual_candidates": {
+          "min": 156.0,
+          "median": 180.0,
+          "max": 188.0,
+          "mean": 177.14285714285714
+        }
+      },
+      "primary_support10-100": {
+        "users": 37,
+        "target_games": 36,
+        "recall": 0.16216216216216217,
+        "game_macro_recall": 0.16666666666666666,
+        "actual_candidates": {
+          "min": 162.0,
+          "median": 179.0,
+          "max": 196.0,
+          "mean": 179.32432432432432
+        }
+      },
+      "primary_support100-1000": {
+        "users": 298,
+        "target_games": 267,
+        "recall": 0.22818791946308725,
+        "game_macro_recall": 0.2272159800249688,
+        "actual_candidates": {
+          "min": 118.0,
+          "median": 178.0,
+          "max": 196.0,
+          "mean": 177.18791946308724
+        }
+      },
+      "primary_support1000-10000": {
+        "users": 1179,
+        "target_games": 541,
+        "recall": 0.3621713316369805,
+        "game_macro_recall": 0.3350321274535692,
+        "actual_candidates": {
+          "min": 109.0,
+          "median": 176.0,
+          "max": 199.0,
+          "mean": 175.66921119592877
+        }
+      },
+      "primary_support10000-100000": {
+        "users": 3370,
+        "target_games": 242,
+        "recall": 0.7507418397626113,
+        "game_macro_recall": 0.6827018656532426,
+        "actual_candidates": {
+          "min": 114.0,
+          "median": 174.0,
+          "max": 200.0,
+          "mean": 174.33976261127597
+        }
+      },
+      "primary_support100000-inf": {
+        "users": 5109,
+        "target_games": 40,
+        "recall": 0.9213153258954786,
+        "game_macro_recall": 0.8965713143195234,
+        "actual_candidates": {
+          "min": 20.0,
+          "median": 173.0,
+          "max": 199.0,
+          "mean": 173.3448815815228
+        }
+      }
+    },
+    "support_budget200": {
+      "primary": {
+        "users": 10000,
+        "target_games": 1133,
+        "recall": 0.7853,
+        "game_macro_recall": 0.40972106369831807,
+        "actual_candidates": {
+          "min": 20.0,
+          "median": 200.0,
+          "max": 200.0,
+          "mean": 199.9668
+        }
+      },
+      "history1-2": {
+        "users": 5000,
+        "target_games": 558,
+        "recall": 0.617,
+        "game_macro_recall": 0.3839259564913005,
+        "actual_candidates": {
+          "min": 7.0,
+          "median": 200.0,
+          "max": 200.0,
+          "mean": 198.7424
+        }
+      },
+      "history3-4": {
+        "users": 5000,
+        "target_games": 659,
+        "recall": 0.7414,
+        "game_macro_recall": 0.4299663025593119,
+        "actual_candidates": {
+          "min": 19.0,
+          "median": 200.0,
+          "max": 200.0,
+          "mean": 199.9638
+        }
+      },
+      "primary_support1-999": {
+        "users": 342,
+        "target_games": 310,
+        "recall": 0.24853801169590642,
+        "game_macro_recall": 0.2467741935483871,
+        "actual_candidates": {
+          "min": 200.0,
+          "median": 200.0,
+          "max": 200.0,
+          "mean": 200.0
+        }
+      },
+      "primary_support0-1": {
+        "users": 0,
+        "target_games": 0,
+        "recall": null,
+        "game_macro_recall": null
+      },
+      "primary_support1-10": {
+        "users": 7,
+        "target_games": 7,
+        "recall": 0.2857142857142857,
+        "game_macro_recall": 0.2857142857142857,
+        "actual_candidates": {
+          "min": 200.0,
+          "median": 200.0,
+          "max": 200.0,
+          "mean": 200.0
+        }
+      },
+      "primary_support10-100": {
+        "users": 37,
+        "target_games": 36,
+        "recall": 0.16216216216216217,
+        "game_macro_recall": 0.16666666666666666,
+        "actual_candidates": {
+          "min": 200.0,
+          "median": 200.0,
+          "max": 200.0,
+          "mean": 200.0
+        }
+      },
+      "primary_support100-1000": {
+        "users": 298,
+        "target_games": 267,
+        "recall": 0.25838926174496646,
+        "game_macro_recall": 0.2565543071161049,
+        "actual_candidates": {
+          "min": 200.0,
+          "median": 200.0,
+          "max": 200.0,
+          "mean": 200.0
+        }
+      },
+      "primary_support1000-10000": {
+        "users": 1179,
+        "target_games": 541,
+        "recall": 0.35877862595419846,
+        "game_macro_recall": 0.33048513921896544,
+        "actual_candidates": {
+          "min": 200.0,
+          "median": 200.0,
+          "max": 200.0,
+          "mean": 200.0
+        }
+      },
+      "primary_support10000-100000": {
+        "users": 3370,
+        "target_games": 242,
+        "recall": 0.7804154302670623,
+        "game_macro_recall": 0.7139322270177814,
+        "actual_candidates": {
+          "min": 200.0,
+          "median": 200.0,
+          "max": 200.0,
+          "mean": 200.0
+        }
+      },
+      "primary_support100000-inf": {
+        "users": 5109,
+        "target_games": 40,
+        "recall": 0.9228811900567626,
+        "game_macro_recall": 0.9037476478607729,
+        "actual_candidates": {
+          "min": 20.0,
+          "median": 200.0,
+          "max": 200.0,
+          "mean": 199.93501663730672
+        }
+      }
+    }
+  },
+  "hit_overlap": {
+    "primary": {
+      "users": 10000,
+      "both": 1162,
+      "cf_only": 2850,
+      "content_only": 263,
+      "neither": 5725
+    },
+    "history1-2": {
+      "users": 5000,
+      "both": 510,
+      "cf_only": 1473,
+      "content_only": 63,
+      "neither": 2954
+    },
+    "history3-4": {
+      "users": 5000,
+      "both": 627,
+      "cf_only": 1524,
+      "content_only": 95,
+      "neither": 2754
+    },
+    "primary_support1-999": {
+      "users": 342,
+      "both": 14,
+      "cf_only": 16,
+      "content_only": 3,
+      "neither": 309
+    },
+    "primary_support0-1": {
+      "users": 0,
+      "both": 0,
+      "cf_only": 0,
+      "content_only": 0,
+      "neither": 0
+    },
+    "primary_support1-10": {
+      "users": 7,
+      "both": 0,
+      "cf_only": 0,
+      "content_only": 0,
+      "neither": 7
+    },
+    "primary_support10-100": {
+      "users": 37,
+      "both": 1,
+      "cf_only": 2,
+      "content_only": 0,
+      "neither": 34
+    },
+    "primary_support100-1000": {
+      "users": 298,
+      "both": 13,
+      "cf_only": 14,
+      "content_only": 3,
+      "neither": 268
+    },
+    "primary_support1000-10000": {
+      "users": 1179,
+      "both": 29,
+      "cf_only": 32,
+      "content_only": 48,
+      "neither": 1070
+    },
+    "primary_support10000-100000": {
+      "users": 3370,
+      "both": 281,
+      "cf_only": 365,
+      "content_only": 143,
+      "neither": 2581
+    },
+    "primary_support100000-inf": {
+      "users": 5109,
+      "both": 838,
+      "cf_only": 2437,
+      "content_only": 69,
+      "neither": 1765
+    }
+  },
+  "zero_residual_identity": {
+    "top50_union": {
+      "all_user_app_rank_rows_identical": true,
+      "rows": 199504
+    },
+    "top100_union": {
+      "all_user_app_rank_rows_identical": true,
+      "rows": 199504
+    },
+    "support_budget200": {
+      "all_user_app_rank_rows_identical": true,
+      "rows": 199504
+    }
+  },
+  "interpretation": "Candidate recall is a retrieval ceiling; no target was injected. Hit overlap is diagnostic and is never used as an inference feature."
+}

@@ -1,0 +1,140 @@
+{
+  "selection": "ADOPTED_KIERAN_ORIGINAL_TO_FRANK_REVIEWS",
+  "checked_utc": "2026-11-06T23:48:00.065728+00:00",
+  "scope": "Verified full-source Kieran EDA, recomputed frank review eligibility and training-support diagnostics. No model fit or final split files.",
+  "source_metric_file": "kieran_original_frank_eda_metrics.json",
+  "source_metric_sha256": "a75401de52e817ed0911b48129f3c37fc0802c55f35367d7cebc2191ddf29cbc",
+  "reference_manifest_sha256": "c21309276ed4c069e7ad5fc55a45b778b304978ffd861154750d2158d3164d64",
+  "verification": {
+    "canonical_shards": 46,
+    "verified_rows": 113883717,
+    "canonical_hashes_verified": true,
+    "support_table_hash_verified": true,
+    "ingestion_manifest_hash_verified": true,
+    "full_analysis_code_sha256": "a6d09d92862268188cd1e438a9d2429c39e5889fee5d563d6c25c8fbc321f0e8"
+  },
+  "frank_provenance": {
+    "commit": "75694cc07a6cdc69f48f9c316ca1e3e38a3f0f89",
+    "projection_sha256": "93674b9e0294016d0365e1e2ed07be7883e0f6d77b61b1033294e1c0590155f6",
+    "raw_rows": 2631430,
+    "reserved_test_users": 87573,
+    "cohort": "Fixed A-reviewed input apps; at least one other review after hiding one positive A-Linux game"
+  },
+  "frank_full_review_summary": {
+    "clean_pairs": 2631416,
+    "users": 1336109,
+    "apps": 44517,
+    "positives": 1970304
+  },
+  "catalog": {
+    "all_apps": 50872,
+    "input_apps": 37610,
+    "linux_target_apps": 6630
+  },
+  "reserved_test_users": 87573,
+  "evaluation_mapping_audit": {
+    "ambiguous_original_review_ids_in_frank": 296,
+    "ambiguous_pairs_in_fixed_test_histories": 77,
+    "fixed_test_users_with_any_ambiguous_pair": 77,
+    "ambiguous_possible_linux_target_pairs": 38
+  },
+  "cohorts": {
+    "safe_mapping_fixed_catalog": [
+      {
+        "minimum_inputs": 1,
+        "potential_users": 87557,
+        "potential_users_with_positive_query": 78228,
+        "potential_users_with_only_negative_query": 9329,
+        "possible_target_pairs": 184082
+      },
+      {
+        "minimum_inputs": 3,
+        "potential_users": 39450,
+        "potential_users_with_positive_query": 38549,
+        "potential_users_with_only_negative_query": 901,
+        "possible_target_pairs": 125593
+      },
+      {
+        "minimum_inputs": 5,
+        "potential_users": 24571,
+        "potential_users_with_positive_query": 24342,
+        "potential_users_with_only_negative_query": 229,
+        "possible_target_pairs": 102602
+      },
+      {
+        "minimum_inputs": 10,
+        "potential_users": 11647,
+        "potential_users_with_positive_query": 11609,
+        "potential_users_with_only_negative_query": 38,
+        "possible_target_pairs": 76056
+      }
+    ],
+    "safe_mapping_kieran_review_support": [
+      {
+        "minimum_inputs": 1,
+        "potential_users": 87213,
+        "potential_users_with_positive_query": 77941,
+        "potential_users_with_only_negative_query": 9272,
+        "possible_target_pairs": 183506
+      },
+      {
+        "minimum_inputs": 3,
+        "potential_users": 39311,
+        "potential_users_with_positive_query": 38411,
+        "potential_users_with_only_negative_query": 900,
+        "possible_target_pairs": 125231
+      },
+      {
+        "minimum_inputs": 5,
+        "potential_users": 24479,
+        "potential_users_with_positive_query": 24250,
+        "potential_users_with_only_negative_query": 229,
+        "possible_target_pairs": 102304
+      },
+      {
+        "minimum_inputs": 10,
+        "potential_users": 11610,
+        "potential_users_with_positive_query": 11574,
+        "potential_users_with_only_negative_query": 36,
+        "possible_target_pairs": 75867
+      }
+    ],
+    "safe_mapping_kieran_positive_support_5": [
+      {
+        "minimum_inputs": 1,
+        "potential_users": 86860,
+        "potential_users_with_positive_query": 77647,
+        "potential_users_with_only_negative_query": 9213,
+        "possible_target_pairs": 182285
+      },
+      {
+        "minimum_inputs": 3,
+        "potential_users": 39093,
+        "potential_users_with_positive_query": 38205,
+        "potential_users_with_only_negative_query": 888,
+        "possible_target_pairs": 124204
+      },
+      {
+        "minimum_inputs": 5,
+        "potential_users": 24339,
+        "potential_users_with_positive_query": 24108,
+        "potential_users_with_only_negative_query": 231,
+        "possible_target_pairs": 101426
+      },
+      {
+        "minimum_inputs": 10,
+        "potential_users": 11550,
+        "potential_users_with_positive_query": 11515,
+        "potential_users_with_only_negative_query": 35,
+        "possible_target_pairs": 75193
+      }
+    ]
+  },
+  "protocol": "Hide exactly one Linux-positive review; all other in-catalog positive/negative reviews may be inputs. No chronological split claimed.",
+  "training_exclusion": "Reserve the original 87,573-account superset, even when evaluation is a cleaned subset.",
+  "status": {
+    "dataset_choice_final": true,
+    "final_train_validation_test_files_written": false,
+    "model_performance_measured": false
+  }
+}

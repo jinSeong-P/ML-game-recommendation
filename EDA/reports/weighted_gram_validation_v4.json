@@ -1,0 +1,72 @@
+{
+  "status": "passed",
+  "train_sha256": "74744a91d815f69a0b42cb9c906c160f4bff0939460fa7c37105a900b1b49f06",
+  "code_sha256": "a710516b602dafbdccdf02ab37c34b2270542d524781de893bbee7d7f346072d",
+  "results": {
+    "0.5": {
+      "status": "bit_identical_complete_train_probe_rows",
+      "input_item_rows": [
+        0,
+        1,
+        9402,
+        18805,
+        37609
+      ],
+      "checked_coefficients": 188050,
+      "maximum_absolute_difference": 0.0,
+      "gram_sha256": "adbad9dcae4d615ffdbaba27d4c46d5c8e68e45b9ec50e0ececbfde0886e9c92",
+      "verified_model_gram_receipts": [
+        "dan_ease_lambda100_a000_b500_p000_raw",
+        "dan_ease_lambda100_a000_b500_p000_scale_matched",
+        "dan_ease_lambda100_a000_b500_p300_raw",
+        "dan_ease_lambda100_a000_b500_p300_scale_matched",
+        "dan_ease_lambda100_a100_b500_p000_raw",
+        "dan_ease_lambda100_a100_b500_p000_scale_matched",
+        "dan_ease_lambda100_a100_b500_p300_raw",
+        "dan_ease_lambda100_a100_b500_p300_scale_matched",
+        "dan_ease_lambda100_a200_b500_p000_raw",
+        "dan_ease_lambda100_a200_b500_p000_scale_matched",
+        "dan_ease_lambda100_a200_b500_p300_raw",
+        "dan_ease_lambda100_a200_b500_p300_scale_matched",
+        "dan_ease_lambda100_a300_b500_p000_raw",
+        "dan_ease_lambda100_a300_b500_p000_scale_matched",
+        "dan_ease_lambda100_a300_b500_p300_raw",
+        "dan_ease_lambda100_a300_b500_p300_scale_matched"
+      ],
+      "gram_seconds": 24.23358149966225
+    },
+    "1.0": {
+      "status": "bit_identical_complete_train_probe_rows",
+      "input_item_rows": [
+        0,
+        1,
+        9402,
+        18805,
+        37609
+      ],
+      "checked_coefficients": 188050,
+      "maximum_absolute_difference": 0.0,
+      "gram_sha256": "82f9fc683892fdc463cd840774fb9c345a48ee6ee6263deb4dd4ba1b8d7d71fe",
+      "verified_model_gram_receipts": [
+        "dan_ease_lambda100_a000_b1000_p000_raw",
+        "dan_ease_lambda100_a000_b1000_p000_scale_matched",
+        "dan_ease_lambda100_a000_b1000_p300_raw",
+        "dan_ease_lambda100_a000_b1000_p300_scale_matched",
+        "dan_ease_lambda100_a100_b1000_p000_raw",
+        "dan_ease_lambda100_a100_b1000_p000_scale_matched",
+        "dan_ease_lambda100_a100_b1000_p300_raw",
+        "dan_ease_lambda100_a100_b1000_p300_scale_matched",
+        "dan_ease_lambda100_a200_b1000_p000_raw",
+        "dan_ease_lambda100_a200_b1000_p000_scale_matched",
+        "dan_ease_lambda100_a200_b1000_p300_raw",
+        "dan_ease_lambda100_a200_b1000_p300_scale_matched",
+        "dan_ease_lambda100_a300_b1000_p000_raw",
+        "dan_ease_lambda100_a300_b1000_p000_scale_matched",
+        "dan_ease_lambda100_a300_b1000_p300_raw",
+        "dan_ease_lambda100_a300_b1000_p300_scale_matched"
+      ],
+      "gram_seconds": 23.330031299963593
+    }
+  },
+  "interpretation": "Full training data for five complete item rows per beta. This verifies conversion reuse, not an independent recommendation experiment or every Gram row."
+}

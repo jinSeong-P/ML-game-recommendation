@@ -1,0 +1,1436 @@
+{
+  "status": "complete",
+  "supplemental_protocol_sha256": "c35dfe3bc35d4c8e9046bb102de79f013dc33fa58f693defc39a9148d4184f99",
+  "split_manifest_sha256": "52027f3411cdca7e3169187ce2d26f9af147056fcdfd43df91c521611695595c",
+  "selection_lock_sha256": "577d6c77d4e136ad3e160e75a502d603656b06cc55cbd4e0d34f5584e5e8443f",
+  "primary_selection_finalist": "dan_ease_lambda100_a200_b000_p300_raw",
+  "confirmation_opened": false,
+  "target_seed_variation": {
+    "status": "complete",
+    "protocol_sha256": "c35dfe3bc35d4c8e9046bb102de79f013dc33fa58f693defc39a9148d4184f99",
+    "split_manifest_sha256": "52027f3411cdca7e3169187ce2d26f9af147056fcdfd43df91c521611695595c",
+    "selection_lock_sha256": "577d6c77d4e136ad3e160e75a502d603656b06cc55cbd4e0d34f5584e5e8443f",
+    "controls": {
+      "binary_item_knn_k100": {
+        "source_manifest_path": "data/processed/modeling/experiments_v4/models/binary_item_knn_k100/manifest.json",
+        "source_manifest_sha256": "85683b9eb06129fb74ce5dc5059702612137a95b1e0d45d51ed67390c38ec1ff",
+        "model_settings": {
+          "variant": "binary_item_knn_k100",
+          "rho": null,
+          "weight": "binary",
+          "fixed_neighbors": false,
+          "training_sha256": "74744a91d815f69a0b42cb9c906c160f4bff0939460fa7c37105a900b1b49f06",
+          "code_sha256": "626b081a1de9c0f66c3f76f46d657961a04d7fc8766a3f4f47e5b5eda6da7b0d"
+        },
+        "matrix_path": "data/processed/modeling/experiments_v4/models/binary_item_knn_k100/similarities_csr.npz",
+        "matrix_sha256": "0a2f61624ad7b706f0b03a80fce7a20537428c4d6ff764c5c86d277afa5aa774",
+        "matrix_bytes": 2837816
+      },
+      "activity_inverse_degree_cosine_k100": {
+        "source_manifest_path": "data/processed/modeling/experiments_v4/models/activity_inverse_degree_cosine_k100/manifest.json",
+        "source_manifest_sha256": "6cfe892046f62b8340bfefc0ab6ef94a32c82a5c2eb8e81ad0f4367147af3458",
+        "model_settings": {
+          "variant": "activity_inverse_degree_cosine_k100",
+          "rho": 0.0,
+          "weight": "(1-rho)/d + rho/(d*max(1,d-1))",
+          "fixed_neighbors": false,
+          "training_sha256": "74744a91d815f69a0b42cb9c906c160f4bff0939460fa7c37105a900b1b49f06",
+          "code_sha256": "626b081a1de9c0f66c3f76f46d657961a04d7fc8766a3f4f47e5b5eda6da7b0d"
+        },
+        "matrix_path": "data/processed/modeling/experiments_v4/models/activity_inverse_degree_cosine_k100/similarities_csr.npz",
+        "matrix_sha256": "e3cdeec5281426638133f02080748c54d606341cc3c78426dad0ce062e844e45",
+        "matrix_bytes": 3732342
+      },
+      "metadata_extended_tfidf": {
+        "source_manifest_path": "data/processed/modeling/improvement_v3/content/metadata_extended_tfidf/manifest.json",
+        "source_manifest_sha256": "cee0247b65d7de217dcfb05ac372c20a7e34f62139db6369d384c6da457de253",
+        "model_id": "metadata_extended_tfidf",
+        "parameters": {
+          "description_policy": "Frozen v1 description TF-IDF unigram+bigram component plus separate extended metadata TF-IDF component.",
+          "description_vectorizer": {
+            "analyzer": "word",
+            "dtype": "float32",
+            "max_df": 1.0,
+            "min_df": 1,
+            "ngram_range": [
+              1,
+              2
+            ],
+            "norm": "l2",
+            "sublinear_tf": false,
+            "tokenizer": "tfidf_content.tokenize_description"
+          },
+          "description_weight": 0.5,
+          "family": "content",
+          "matrix_kind": "scipy_csr_float32_components",
+          "metadata_fields": [
+            "v2 tags",
+            "v2 genres",
+            "C categories",
+            "C developers",
+            "C publishers"
+          ],
+          "metadata_vectorizer": {
+            "binary": true,
+            "dtype": "float32",
+            "norm": "l2",
+            "use_idf": true
+          },
+          "metadata_weight": 0.5,
+          "score_spec": "0.5 * cosine(description profile, candidate description) + 0.5 * cosine(metadata profile, candidate metadata)"
+        },
+        "score_spec": "0.5 * cosine(description profile, candidate description) + 0.5 * cosine(metadata profile, candidate metadata)",
+        "artifacts": {
+          "tfidf_csr.npz": {
+            "sha256": "9d819e4ec8f3a8ff8b6d966eb9b2b2776b7adfaa9b6f3808154ba5ddd91a405b",
+            "bytes": 11873288
+          },
+          "features_csr.npz": {
+            "sha256": "1fdf1dbd8ba546060935ea739800aec0541ae1a477ed335f43de2e88ff0c2c39",
+            "bytes": 3875786
+          }
+        }
+      },
+      "dan_ease_lambda100_a200_b000_p300_raw": {
+        "role": "single_frozen_finalist",
+        "score_spec": {
+          "source_manifest_sha256": "7e85faf6a3d69a775ad1cad4d707cba446b960bc93d57450e477691d5f19b6ca",
+          "weights_sha256": "e9c1071663a0454f85b86bcda547f4cf911cd20e1d2180c15307b0dd88c2c65e",
+          "layout": "input_by_candidate_row_major",
+          "layout_sha256": "8d7496ca45db7f253cb0f3a66735049ae59eadc5fc6740328192297e6de184b9"
+        }
+      }
+    },
+    "target_seeds": [
+      20261108,
+      20261109,
+      20261110
+    ],
+    "denominator_counts": {
+      "primary_5_plus": 10000,
+      "short_history_1_to_4": 10000,
+      "history_1_to_2": 5000,
+      "history_3_to_4": 5000
+    },
+    "per_seed": {
+      "binary_item_knn_k100": {
+        "20261108": {
+          "primary_5_plus": {
+            "users": 10000,
+            "target_games": 1133,
+            "recall_at_10": 0.3955,
+            "ndcg_at_10": 0.2383381615649606,
+            "empty_users": 0,
+            "average_recommendation_count": 9.9945
+          },
+          "short_history_1_to_4": {
+            "users": 10000,
+            "target_games": 858,
+            "recall_at_10": 0.4039,
+            "ndcg_at_10": 0.26069404576965155,
+            "empty_users": 10,
+            "average_recommendation_count": 9.8141
+          },
+          "history_1_to_2": {
+            "users": 5000,
+            "target_games": 558,
+            "recall_at_10": 0.385,
+            "ndcg_at_10": 0.25028830835134547,
+            "empty_users": 9,
+            "average_recommendation_count": 9.6578
+          },
+          "history_3_to_4": {
+            "users": 5000,
+            "target_games": 659,
+            "recall_at_10": 0.4228,
+            "ndcg_at_10": 0.27109978318795763,
+            "empty_users": 1,
+            "average_recommendation_count": 9.9704
+          }
+        },
+        "20261109": {
+          "primary_5_plus": {
+            "users": 10000,
+            "target_games": 1098,
+            "recall_at_10": 0.4043,
+            "ndcg_at_10": 0.2444305389623661,
+            "empty_users": 0,
+            "average_recommendation_count": 9.9952
+          },
+          "short_history_1_to_4": {
+            "users": 10000,
+            "target_games": 851,
+            "recall_at_10": 0.4021,
+            "ndcg_at_10": 0.25771254654253395,
+            "empty_users": 11,
+            "average_recommendation_count": 9.8129
+          },
+          "history_1_to_2": {
+            "users": 5000,
+            "target_games": 553,
+            "recall_at_10": 0.3822,
+            "ndcg_at_10": 0.24671103165082509,
+            "empty_users": 9,
+            "average_recommendation_count": 9.6548
+          },
+          "history_3_to_4": {
+            "users": 5000,
+            "target_games": 655,
+            "recall_at_10": 0.422,
+            "ndcg_at_10": 0.2687140614342428,
+            "empty_users": 2,
+            "average_recommendation_count": 9.971
+          }
+        },
+        "20261110": {
+          "primary_5_plus": {
+            "users": 10000,
+            "target_games": 1156,
+            "recall_at_10": 0.3906,
+            "ndcg_at_10": 0.23622155875015227,
+            "empty_users": 0,
+            "average_recommendation_count": 9.9952
+          },
+          "short_history_1_to_4": {
+            "users": 10000,
+            "target_games": 841,
+            "recall_at_10": 0.4038,
+            "ndcg_at_10": 0.25920164476315066,
+            "empty_users": 9,
+            "average_recommendation_count": 9.8146
+          },
+          "history_1_to_2": {
+            "users": 5000,
+            "target_games": 561,
+            "recall_at_10": 0.3838,
+            "ndcg_at_10": 0.2482257136427102,
+            "empty_users": 8,
+            "average_recommendation_count": 9.6576
+          },
+          "history_3_to_4": {
+            "users": 5000,
+            "target_games": 643,
+            "recall_at_10": 0.4238,
+            "ndcg_at_10": 0.2701775758835911,
+            "empty_users": 1,
+            "average_recommendation_count": 9.9716
+          }
+        }
+      },
+      "activity_inverse_degree_cosine_k100": {
+        "20261108": {
+          "primary_5_plus": {
+            "users": 10000,
+            "target_games": 1133,
+            "recall_at_10": 0.4012,
+            "ndcg_at_10": 0.24606536414462749,
+            "empty_users": 0,
+            "average_recommendation_count": 9.9996
+          },
+          "short_history_1_to_4": {
+            "users": 10000,
+            "target_games": 858,
+            "recall_at_10": 0.4134,
+            "ndcg_at_10": 0.27349355126960684,
+            "empty_users": 5,
+            "average_recommendation_count": 9.9508
+          },
+          "history_1_to_2": {
+            "users": 5000,
+            "target_games": 558,
+            "recall_at_10": 0.3966,
+            "ndcg_at_10": 0.2640065936811654,
+            "empty_users": 4,
+            "average_recommendation_count": 9.9066
+          },
+          "history_3_to_4": {
+            "users": 5000,
+            "target_games": 659,
+            "recall_at_10": 0.4302,
+            "ndcg_at_10": 0.28298050885804826,
+            "empty_users": 1,
+            "average_recommendation_count": 9.995
+          }
+        },
+        "20261109": {
+          "primary_5_plus": {
+            "users": 10000,
+            "target_games": 1098,
+            "recall_at_10": 0.408,
+            "ndcg_at_10": 0.2505517593043881,
+            "empty_users": 0,
+            "average_recommendation_count": 9.9999
+          },
+          "short_history_1_to_4": {
+            "users": 10000,
+            "target_games": 851,
+            "recall_at_10": 0.4151,
+            "ndcg_at_10": 0.27286784993214086,
+            "empty_users": 5,
+            "average_recommendation_count": 9.9509
+          },
+          "history_1_to_2": {
+            "users": 5000,
+            "target_games": 553,
+            "recall_at_10": 0.396,
+            "ndcg_at_10": 0.2627077983079787,
+            "empty_users": 4,
+            "average_recommendation_count": 9.9074
+          },
+          "history_3_to_4": {
+            "users": 5000,
+            "target_games": 655,
+            "recall_at_10": 0.4342,
+            "ndcg_at_10": 0.28302790155630303,
+            "empty_users": 1,
+            "average_recommendation_count": 9.9944
+          }
+        },
+        "20261110": {
+          "primary_5_plus": {
+            "users": 10000,
+            "target_games": 1156,
+            "recall_at_10": 0.397,
+            "ndcg_at_10": 0.24466711721137466,
+            "empty_users": 0,
+            "average_recommendation_count": 9.9999
+          },
+          "short_history_1_to_4": {
+            "users": 10000,
+            "target_games": 841,
+            "recall_at_10": 0.4146,
+            "ndcg_at_10": 0.2728312359624404,
+            "empty_users": 5,
+            "average_recommendation_count": 9.9513
+          },
+          "history_1_to_2": {
+            "users": 5000,
+            "target_games": 561,
+            "recall_at_10": 0.3962,
+            "ndcg_at_10": 0.2637086354710496,
+            "empty_users": 4,
+            "average_recommendation_count": 9.9076
+          },
+          "history_3_to_4": {
+            "users": 5000,
+            "target_games": 643,
+            "recall_at_10": 0.433,
+            "ndcg_at_10": 0.28195383645383115,
+            "empty_users": 1,
+            "average_recommendation_count": 9.995
+          }
+        }
+      },
+      "metadata_extended_tfidf": {
+        "20261108": {
+          "primary_5_plus": {
+            "users": 10000,
+            "target_games": 1133,
+            "recall_at_10": 0.1425,
+            "ndcg_at_10": 0.08248236101579577,
+            "empty_users": 2,
+            "average_recommendation_count": 9.998
+          },
+          "short_history_1_to_4": {
+            "users": 10000,
+            "target_games": 858,
+            "recall_at_10": 0.1295,
+            "ndcg_at_10": 0.07716224299776595,
+            "empty_users": 110,
+            "average_recommendation_count": 9.89
+          },
+          "history_1_to_2": {
+            "users": 5000,
+            "target_games": 558,
+            "recall_at_10": 0.1146,
+            "ndcg_at_10": 0.06868236035548816,
+            "empty_users": 104,
+            "average_recommendation_count": 9.792
+          },
+          "history_3_to_4": {
+            "users": 5000,
+            "target_games": 659,
+            "recall_at_10": 0.1444,
+            "ndcg_at_10": 0.08564212564004371,
+            "empty_users": 6,
+            "average_recommendation_count": 9.988
+          }
+        },
+        "20261109": {
+          "primary_5_plus": {
+            "users": 10000,
+            "target_games": 1098,
+            "recall_at_10": 0.144,
+            "ndcg_at_10": 0.08150931720210802,
+            "empty_users": 3,
+            "average_recommendation_count": 9.997
+          },
+          "short_history_1_to_4": {
+            "users": 10000,
+            "target_games": 851,
+            "recall_at_10": 0.128,
+            "ndcg_at_10": 0.07600616406847405,
+            "empty_users": 102,
+            "average_recommendation_count": 9.898
+          },
+          "history_1_to_2": {
+            "users": 5000,
+            "target_games": 553,
+            "recall_at_10": 0.1126,
+            "ndcg_at_10": 0.06805037164383039,
+            "empty_users": 97,
+            "average_recommendation_count": 9.806
+          },
+          "history_3_to_4": {
+            "users": 5000,
+            "target_games": 655,
+            "recall_at_10": 0.1434,
+            "ndcg_at_10": 0.08396195649311769,
+            "empty_users": 5,
+            "average_recommendation_count": 9.99
+          }
+        },
+        "20261110": {
+          "primary_5_plus": {
+            "users": 10000,
+            "target_games": 1156,
+            "recall_at_10": 0.1442,
+            "ndcg_at_10": 0.08382384594814275,
+            "empty_users": 3,
+            "average_recommendation_count": 9.997
+          },
+          "short_history_1_to_4": {
+            "users": 10000,
+            "target_games": 841,
+            "recall_at_10": 0.13,
+            "ndcg_at_10": 0.07721664844331864,
+            "empty_users": 110,
+            "average_recommendation_count": 9.89
+          },
+          "history_1_to_2": {
+            "users": 5000,
+            "target_games": 561,
+            "recall_at_10": 0.1136,
+            "ndcg_at_10": 0.06809601954941549,
+            "empty_users": 104,
+            "average_recommendation_count": 9.792
+          },
+          "history_3_to_4": {
+            "users": 5000,
+            "target_games": 643,
+            "recall_at_10": 0.1464,
+            "ndcg_at_10": 0.0863372773372218,
+            "empty_users": 6,
+            "average_recommendation_count": 9.988
+          }
+        }
+      },
+      "dan_ease_lambda100_a200_b000_p300_raw": {
+        "20261108": {
+          "primary_5_plus": {
+            "users": 10000,
+            "target_games": 1133,
+            "recall_at_10": 0.4428,
+            "ndcg_at_10": 0.28114432938217354,
+            "empty_users": 0,
+            "average_recommendation_count": 10.0
+          },
+          "short_history_1_to_4": {
+            "users": 10000,
+            "target_games": 858,
+            "recall_at_10": 0.4932,
+            "ndcg_at_10": 0.3379248145389618,
+            "empty_users": 0,
+            "average_recommendation_count": 10.0
+          },
+          "history_1_to_2": {
+            "users": 5000,
+            "target_games": 558,
+            "recall_at_10": 0.4914,
+            "ndcg_at_10": 0.3416914130679319,
+            "empty_users": 0,
+            "average_recommendation_count": 10.0
+          },
+          "history_3_to_4": {
+            "users": 5000,
+            "target_games": 659,
+            "recall_at_10": 0.495,
+            "ndcg_at_10": 0.3341582160099915,
+            "empty_users": 0,
+            "average_recommendation_count": 10.0
+          }
+        },
+        "20261109": {
+          "primary_5_plus": {
+            "users": 10000,
+            "target_games": 1098,
+            "recall_at_10": 0.4569,
+            "ndcg_at_10": 0.2897657160764337,
+            "empty_users": 0,
+            "average_recommendation_count": 10.0
+          },
+          "short_history_1_to_4": {
+            "users": 10000,
+            "target_games": 851,
+            "recall_at_10": 0.4969,
+            "ndcg_at_10": 0.3378188745786141,
+            "empty_users": 0,
+            "average_recommendation_count": 10.0
+          },
+          "history_1_to_2": {
+            "users": 5000,
+            "target_games": 553,
+            "recall_at_10": 0.4916,
+            "ndcg_at_10": 0.3404693611142351,
+            "empty_users": 0,
+            "average_recommendation_count": 10.0
+          },
+          "history_3_to_4": {
+            "users": 5000,
+            "target_games": 655,
+            "recall_at_10": 0.5022,
+            "ndcg_at_10": 0.3351683880429931,
+            "empty_users": 0,
+            "average_recommendation_count": 10.0
+          }
+        },
+        "20261110": {
+          "primary_5_plus": {
+            "users": 10000,
+            "target_games": 1156,
+            "recall_at_10": 0.4432,
+            "ndcg_at_10": 0.28262962473246156,
+            "empty_users": 0,
+            "average_recommendation_count": 10.0
+          },
+          "short_history_1_to_4": {
+            "users": 10000,
+            "target_games": 841,
+            "recall_at_10": 0.4958,
+            "ndcg_at_10": 0.3389063147202006,
+            "empty_users": 0,
+            "average_recommendation_count": 10.0
+          },
+          "history_1_to_2": {
+            "users": 5000,
+            "target_games": 561,
+            "recall_at_10": 0.4926,
+            "ndcg_at_10": 0.3427719252987097,
+            "empty_users": 0,
+            "average_recommendation_count": 10.0
+          },
+          "history_3_to_4": {
+            "users": 5000,
+            "target_games": 643,
+            "recall_at_10": 0.499,
+            "ndcg_at_10": 0.3350407041416915,
+            "empty_users": 0,
+            "average_recommendation_count": 10.0
+          }
+        }
+      }
+    },
+    "user_outcomes_averaged_across_seeds": {
+      "binary_item_knn_k100": {
+        "primary_5_plus": {
+          "users": 10000,
+          "mean_user_recall_at_10": 0.3968,
+          "mean_user_recall_ci95": [
+            0.38846499999999995,
+            0.40486833333333333
+          ],
+          "mean_user_ndcg_at_10": 0.23966341975915967,
+          "mean_user_ndcg_ci95": [
+            0.23402480311161633,
+            0.24519639384810368
+          ],
+          "mean_recommendation_count": 9.994966666666667
+        },
+        "short_history_1_to_4": {
+          "users": 10000,
+          "mean_user_recall_at_10": 0.40326666666666666,
+          "mean_user_recall_ci95": [
+            0.39443333333333336,
+            0.4121
+          ],
+          "mean_user_ndcg_at_10": 0.2592027456917787,
+          "mean_user_ndcg_ci95": [
+            0.2523344895635825,
+            0.2656658744117692
+          ],
+          "mean_recommendation_count": 9.813866666666666
+        },
+        "history_1_to_2": {
+          "users": 5000,
+          "mean_user_recall_at_10": 0.3836666666666666,
+          "mean_user_recall_ci95": [
+            0.3709316666666666,
+            0.395735
+          ],
+          "mean_user_ndcg_at_10": 0.2484083512149603,
+          "mean_user_ndcg_ci95": [
+            0.23910392756003213,
+            0.2578071578593671
+          ],
+          "mean_recommendation_count": 9.656733333333335
+        },
+        "history_3_to_4": {
+          "users": 5000,
+          "mean_user_recall_at_10": 0.4228666666666667,
+          "mean_user_recall_ci95": [
+            0.4103983333333333,
+            0.4353333333333333
+          ],
+          "mean_user_ndcg_at_10": 0.26999714016859716,
+          "mean_user_ndcg_ci95": [
+            0.26021433292852275,
+            0.2800084947725714
+          ],
+          "mean_recommendation_count": 9.971
+        }
+      },
+      "activity_inverse_degree_cosine_k100": {
+        "primary_5_plus": {
+          "users": 10000,
+          "mean_user_recall_at_10": 0.40206666666666663,
+          "mean_user_recall_ci95": [
+            0.3943325,
+            0.41030083333333334
+          ],
+          "mean_user_ndcg_at_10": 0.24709474688679675,
+          "mean_user_ndcg_ci95": [
+            0.24122108827428568,
+            0.2529340401765778
+          ],
+          "mean_recommendation_count": 9.9998
+        },
+        "short_history_1_to_4": {
+          "users": 10000,
+          "mean_user_recall_at_10": 0.4143666666666666,
+          "mean_user_recall_ci95": [
+            0.4055991666666667,
+            0.4233333333333333
+          ],
+          "mean_user_ndcg_at_10": 0.2730642123880627,
+          "mean_user_ndcg_ci95": [
+            0.2661028661390185,
+            0.28003655485580564
+          ],
+          "mean_recommendation_count": 9.951
+        },
+        "history_1_to_2": {
+          "users": 5000,
+          "mean_user_recall_at_10": 0.39626666666666666,
+          "mean_user_recall_ci95": [
+            0.38333333333333336,
+            0.4092683333333334
+          ],
+          "mean_user_ndcg_at_10": 0.26347434248673124,
+          "mean_user_ndcg_ci95": [
+            0.2536454456780517,
+            0.2740170426058979
+          ],
+          "mean_recommendation_count": 9.9072
+        },
+        "history_3_to_4": {
+          "users": 5000,
+          "mean_user_recall_at_10": 0.4324666666666667,
+          "mean_user_recall_ci95": [
+            0.4198,
+            0.4451333333333334
+          ],
+          "mean_user_ndcg_at_10": 0.28265408228939415,
+          "mean_user_ndcg_ci95": [
+            0.272473950760864,
+            0.29252430919342365
+          ],
+          "mean_recommendation_count": 9.9948
+        }
+      },
+      "metadata_extended_tfidf": {
+        "primary_5_plus": {
+          "users": 10000,
+          "mean_user_recall_at_10": 0.14356666666666665,
+          "mean_user_recall_ci95": [
+            0.1380658333333333,
+            0.14896916666666665
+          ],
+          "mean_user_ndcg_at_10": 0.0826051747220155,
+          "mean_user_ndcg_ci95": [
+            0.07895847886804629,
+            0.08646991326455629
+          ],
+          "mean_recommendation_count": 9.997333333333334
+        },
+        "short_history_1_to_4": {
+          "users": 10000,
+          "mean_user_recall_at_10": 0.12916666666666668,
+          "mean_user_recall_ci95": [
+            0.1228,
+            0.1353341666666667
+          ],
+          "mean_user_ndcg_at_10": 0.07679501850318621,
+          "mean_user_ndcg_ci95": [
+            0.07274082967126991,
+            0.08092400117485689
+          ],
+          "mean_recommendation_count": 9.892666666666665
+        },
+        "history_1_to_2": {
+          "users": 5000,
+          "mean_user_recall_at_10": 0.1136,
+          "mean_user_recall_ci95": [
+            0.10533166666666666,
+            0.1226
+          ],
+          "mean_user_ndcg_at_10": 0.06827625051624468,
+          "mean_user_ndcg_ci95": [
+            0.0623675609658032,
+            0.07387857597995302
+          ],
+          "mean_recommendation_count": 9.796666666666667
+        },
+        "history_3_to_4": {
+          "users": 5000,
+          "mean_user_recall_at_10": 0.14473333333333335,
+          "mean_user_recall_ci95": [
+            0.13613333333333336,
+            0.15380166666666664
+          ],
+          "mean_user_ndcg_at_10": 0.08531378649012773,
+          "mean_user_ndcg_ci95": [
+            0.07922196961330495,
+            0.09111316719085841
+          ],
+          "mean_recommendation_count": 9.988666666666665
+        }
+      },
+      "dan_ease_lambda100_a200_b000_p300_raw": {
+        "primary_5_plus": {
+          "users": 10000,
+          "mean_user_recall_at_10": 0.4476333333333333,
+          "mean_user_recall_ci95": [
+            0.4398,
+            0.45586833333333326
+          ],
+          "mean_user_ndcg_at_10": 0.2845132233970229,
+          "mean_user_ndcg_ci95": [
+            0.27862765604703293,
+            0.29055601759898453
+          ],
+          "mean_recommendation_count": 10.0
+        },
+        "short_history_1_to_4": {
+          "users": 10000,
+          "mean_user_recall_at_10": 0.4953,
+          "mean_user_recall_ci95": [
+            0.4861666666666666,
+            0.5047674999999999
+          ],
+          "mean_user_ndcg_at_10": 0.3382166679459255,
+          "mean_user_ndcg_ci95": [
+            0.3307925255669771,
+            0.3459640713512382
+          ],
+          "mean_recommendation_count": 10.0
+        },
+        "history_1_to_2": {
+          "users": 5000,
+          "mean_user_recall_at_10": 0.4918666666666666,
+          "mean_user_recall_ci95": [
+            0.4781333333333334,
+            0.504935
+          ],
+          "mean_user_ndcg_at_10": 0.34164423316029224,
+          "mean_user_ndcg_ci95": [
+            0.33124121386602245,
+            0.3524794716320771
+          ],
+          "mean_recommendation_count": 10.0
+        },
+        "history_3_to_4": {
+          "users": 5000,
+          "mean_user_recall_at_10": 0.4987333333333333,
+          "mean_user_recall_ci95": [
+            0.48579833333333333,
+            0.5111350000000001
+          ],
+          "mean_user_ndcg_at_10": 0.3347891027315587,
+          "mean_user_ndcg_ci95": [
+            0.32444175725108704,
+            0.3450480434644744
+          ],
+          "mean_recommendation_count": 10.0
+        }
+      }
+    },
+    "paired_user_comparisons_on_averaged_seed_outcomes": {
+      "activity_inverse_degree_cosine_k100_minus_binary_item_knn_k100": {
+        "primary_5_plus": {
+          "users": 10000,
+          "recall_at_10": {
+            "delta": 0.005266666666666667,
+            "ci95": [
+              0.0019333333333333314,
+              0.008767499999999998
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": 0.007431327127637099,
+            "ci95": [
+              0.005541967264593737,
+              0.009230225090547868
+            ]
+          }
+        },
+        "short_history_1_to_4": {
+          "users": 10000,
+          "recall_at_10": {
+            "delta": 0.0111,
+            "ci95": [
+              0.007532500000000001,
+              0.014800833333333329
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": 0.013861466696283983,
+            "ci95": [
+              0.011843264664271847,
+              0.01594798646991626
+            ]
+          }
+        },
+        "history_1_to_2": {
+          "users": 5000,
+          "recall_at_10": {
+            "delta": 0.0126,
+            "ci95": [
+              0.0076,
+              0.01753333333333333
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": 0.015065991271770983,
+            "ci95": [
+              0.012029859704648376,
+              0.01817567193335056
+            ]
+          }
+        },
+        "history_3_to_4": {
+          "users": 5000,
+          "recall_at_10": {
+            "delta": 0.0096,
+            "ci95": [
+              0.0042,
+              0.015266666666666668
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": 0.012656942120796977,
+            "ci95": [
+              0.009743039389785043,
+              0.01558481037108042
+            ]
+          }
+        }
+      },
+      "metadata_extended_tfidf_minus_binary_item_knn_k100": {
+        "primary_5_plus": {
+          "users": 10000,
+          "recall_at_10": {
+            "delta": -0.2532333333333333,
+            "ci95": [
+              -0.2612,
+              -0.24533166666666664
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": -0.15705824503714413,
+            "ci95": [
+              -0.16228365314151413,
+              -0.1515999666603209
+            ]
+          }
+        },
+        "short_history_1_to_4": {
+          "users": 10000,
+          "recall_at_10": {
+            "delta": -0.2741,
+            "ci95": [
+              -0.2832341666666667,
+              -0.26529916666666664
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": -0.18240772718859247,
+            "ci95": [
+              -0.18867907703984232,
+              -0.17612805349856114
+            ]
+          }
+        },
+        "history_1_to_2": {
+          "users": 5000,
+          "recall_at_10": {
+            "delta": -0.2700666666666667,
+            "ci95": [
+              -0.28306666666666663,
+              -0.2573966666666667
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": -0.18013210069871557,
+            "ci95": [
+              -0.18906496924172056,
+              -0.17119349154684094
+            ]
+          }
+        },
+        "history_3_to_4": {
+          "users": 5000,
+          "recall_at_10": {
+            "delta": -0.2781333333333333,
+            "ci95": [
+              -0.29106666666666664,
+              -0.264865
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": -0.18468335367846944,
+            "ci95": [
+              -0.19368269523951326,
+              -0.17583981681615382
+            ]
+          }
+        }
+      },
+      "dan_ease_lambda100_a200_b000_p300_raw_minus_binary_item_knn_k100": {
+        "primary_5_plus": {
+          "users": 10000,
+          "recall_at_10": {
+            "delta": 0.050833333333333335,
+            "ci95": [
+              0.046,
+              0.0557
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": 0.04484980363786329,
+            "ci95": [
+              0.0419459294143423,
+              0.047952368825728967
+            ]
+          }
+        },
+        "short_history_1_to_4": {
+          "users": 10000,
+          "recall_at_10": {
+            "delta": 0.09203333333333334,
+            "ci95": [
+              0.0859,
+              0.098435
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": 0.07901392225414677,
+            "ci95": [
+              0.07469576140328832,
+              0.08311442318458959
+            ]
+          }
+        },
+        "history_1_to_2": {
+          "users": 5000,
+          "recall_at_10": {
+            "delta": 0.1082,
+            "ci95": [
+              0.09879833333333332,
+              0.11753500000000001
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": 0.093235881945332,
+            "ci95": [
+              0.08673479878186348,
+              0.09990597351232502
+            ]
+          }
+        },
+        "history_3_to_4": {
+          "users": 5000,
+          "recall_at_10": {
+            "delta": 0.07586666666666668,
+            "ci95": [
+              0.067,
+              0.08393333333333333
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": 0.06479196256296155,
+            "ci95": [
+              0.05909497790715207,
+              0.0699787271392537
+            ]
+          }
+        }
+      },
+      "metadata_extended_tfidf_minus_activity_inverse_degree_cosine_k100": {
+        "primary_5_plus": {
+          "users": 10000,
+          "recall_at_10": {
+            "delta": -0.2585,
+            "ci95": [
+              -0.2664033333333334,
+              -0.2507641666666667
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": -0.16448957216478122,
+            "ci95": [
+              -0.16975098967884697,
+              -0.1592340021408998
+            ]
+          }
+        },
+        "short_history_1_to_4": {
+          "users": 10000,
+          "recall_at_10": {
+            "delta": -0.2852,
+            "ci95": [
+              -0.29423333333333335,
+              -0.27556583333333334
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": -0.19626919388487649,
+            "ci95": [
+              -0.202800984171252,
+              -0.19001429065032538
+            ]
+          }
+        },
+        "history_1_to_2": {
+          "users": 5000,
+          "recall_at_10": {
+            "delta": -0.2826666666666667,
+            "ci95": [
+              -0.29613500000000004,
+              -0.26986333333333334
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": -0.19519809197048654,
+            "ci95": [
+              -0.20449810584175868,
+              -0.1862218491540174
+            ]
+          }
+        },
+        "history_3_to_4": {
+          "users": 5000,
+          "recall_at_10": {
+            "delta": -0.2877333333333333,
+            "ci95": [
+              -0.3001333333333333,
+              -0.275665
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": -0.1973402957992664,
+            "ci95": [
+              -0.20667103631505598,
+              -0.18825968237126658
+            ]
+          }
+        }
+      },
+      "dan_ease_lambda100_a200_b000_p300_raw_minus_activity_inverse_degree_cosine_k100": {
+        "primary_5_plus": {
+          "users": 10000,
+          "recall_at_10": {
+            "delta": 0.045566666666666665,
+            "ci95": [
+              0.040633333333333334,
+              0.050633333333333336
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": 0.03741847651022619,
+            "ci95": [
+              0.03470753803895626,
+              0.04016116425789484
+            ]
+          }
+        },
+        "short_history_1_to_4": {
+          "users": 10000,
+          "recall_at_10": {
+            "delta": 0.08093333333333333,
+            "ci95": [
+              0.07496666666666667,
+              0.0872675
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": 0.06515245555786278,
+            "ci95": [
+              0.061248551482686306,
+              0.06911194647839926
+            ]
+          }
+        },
+        "history_1_to_2": {
+          "users": 5000,
+          "recall_at_10": {
+            "delta": 0.0956,
+            "ci95": [
+              0.08679833333333334,
+              0.10453333333333333
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": 0.078169890673561,
+            "ci95": [
+              0.07238007659522275,
+              0.08412998310603098
+            ]
+          }
+        },
+        "history_3_to_4": {
+          "users": 5000,
+          "recall_at_10": {
+            "delta": 0.06626666666666667,
+            "ci95": [
+              0.05799833333333334,
+              0.07453666666666665
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": 0.05213502044216456,
+            "ci95": [
+              0.047363532216464284,
+              0.05711682807380516
+            ]
+          }
+        }
+      },
+      "dan_ease_lambda100_a200_b000_p300_raw_minus_metadata_extended_tfidf": {
+        "primary_5_plus": {
+          "users": 10000,
+          "recall_at_10": {
+            "delta": 0.30406666666666665,
+            "ci95": [
+              0.29616583333333335,
+              0.31240083333333335
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": 0.20190804867500742,
+            "ci95": [
+              0.1961931302357349,
+              0.2075755138811901
+            ]
+          }
+        },
+        "short_history_1_to_4": {
+          "users": 10000,
+          "recall_at_10": {
+            "delta": 0.3661333333333333,
+            "ci95": [
+              0.35679833333333333,
+              0.37526750000000003
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": 0.26142164944273927,
+            "ci95": [
+              0.25436492742341815,
+              0.26832493892723713
+            ]
+          }
+        },
+        "history_1_to_2": {
+          "users": 5000,
+          "recall_at_10": {
+            "delta": 0.3782666666666667,
+            "ci95": [
+              0.36513166666666663,
+              0.39093500000000003
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": 0.27336798264404755,
+            "ci95": [
+              0.26313583265069607,
+              0.28395357403910787
+            ]
+          }
+        },
+        "history_3_to_4": {
+          "users": 5000,
+          "recall_at_10": {
+            "delta": 0.354,
+            "ci95": [
+              0.34059833333333334,
+              0.36646999999999996
+            ]
+          },
+          "ndcg_at_10": {
+            "delta": 0.24947531624143093,
+            "ci95": [
+              0.24032455015453483,
+              0.2589573408362328
+            ]
+          }
+        }
+      }
+    },
+    "bootstrap": {
+      "unit": "user after averaging that user's outcomes across seeds",
+      "reps": 2000,
+      "seed": 20261108,
+      "interval": "percentile 95%"
+    },
+    "averaged_per_user_predictions": {
+      "binary_item_knn_k100": {
+        "path": "binary_item_knn_k100/per_user_averaged.parquet",
+        "sha256": "c21ad322e709762ec4c1affad175469f122bd6b50b49806607a08630e8a58ee0",
+        "rows": 20000
+      },
+      "activity_inverse_degree_cosine_k100": {
+        "path": "activity_inverse_degree_cosine_k100/per_user_averaged.parquet",
+        "sha256": "65288f6bce7ee5c10822b83b267451541b2be415a002ab1a27e940d81f2e9992",
+        "rows": 20000
+      },
+      "metadata_extended_tfidf": {
+        "path": "metadata_extended_tfidf/per_user_averaged.parquet",
+        "sha256": "93ad303994116cbb8c388396bca4aa61edc57eb3dd53fef33dd77b884e66007f",
+        "rows": 20000
+      },
+      "dan_ease_lambda100_a200_b000_p300_raw": {
+        "path": "dan_ease_lambda100_a200_b000_p300_raw/per_user_averaged.parquet",
+        "sha256": "14191aefeb56b9a96a7fc52b3ed78f9647fe5bbb2ace1e9dead093f02460b497",
+        "rows": 20000
+      }
+    }
+  },
+  "hidden_negative": {
+    "status": "complete",
+    "protocol_sha256": "c35dfe3bc35d4c8e9046bb102de79f013dc33fa58f693defc39a9148d4184f99",
+    "split_manifest_sha256": "52027f3411cdca7e3169187ce2d26f9af147056fcdfd43df91c521611695595c",
+    "selection_lock_sha256": "577d6c77d4e136ad3e160e75a502d603656b06cc55cbd4e0d34f5584e5e8443f",
+    "controls": {
+      "binary_item_knn_k100": {
+        "source_manifest_path": "data/processed/modeling/experiments_v4/models/binary_item_knn_k100/manifest.json",
+        "source_manifest_sha256": "85683b9eb06129fb74ce5dc5059702612137a95b1e0d45d51ed67390c38ec1ff",
+        "model_settings": {
+          "variant": "binary_item_knn_k100",
+          "rho": null,
+          "weight": "binary",
+          "fixed_neighbors": false,
+          "training_sha256": "74744a91d815f69a0b42cb9c906c160f4bff0939460fa7c37105a900b1b49f06",
+          "code_sha256": "626b081a1de9c0f66c3f76f46d657961a04d7fc8766a3f4f47e5b5eda6da7b0d"
+        },
+        "matrix_path": "data/processed/modeling/experiments_v4/models/binary_item_knn_k100/similarities_csr.npz",
+        "matrix_sha256": "0a2f61624ad7b706f0b03a80fce7a20537428c4d6ff764c5c86d277afa5aa774",
+        "matrix_bytes": 2837816
+      },
+      "activity_inverse_degree_cosine_k100": {
+        "source_manifest_path": "data/processed/modeling/experiments_v4/models/activity_inverse_degree_cosine_k100/manifest.json",
+        "source_manifest_sha256": "6cfe892046f62b8340bfefc0ab6ef94a32c82a5c2eb8e81ad0f4367147af3458",
+        "model_settings": {
+          "variant": "activity_inverse_degree_cosine_k100",
+          "rho": 0.0,
+          "weight": "(1-rho)/d + rho/(d*max(1,d-1))",
+          "fixed_neighbors": false,
+          "training_sha256": "74744a91d815f69a0b42cb9c906c160f4bff0939460fa7c37105a900b1b49f06",
+          "code_sha256": "626b081a1de9c0f66c3f76f46d657961a04d7fc8766a3f4f47e5b5eda6da7b0d"
+        },
+        "matrix_path": "data/processed/modeling/experiments_v4/models/activity_inverse_degree_cosine_k100/similarities_csr.npz",
+        "matrix_sha256": "e3cdeec5281426638133f02080748c54d606341cc3c78426dad0ce062e844e45",
+        "matrix_bytes": 3732342
+      },
+      "metadata_extended_tfidf": {
+        "source_manifest_path": "data/processed/modeling/improvement_v3/content/metadata_extended_tfidf/manifest.json",
+        "source_manifest_sha256": "cee0247b65d7de217dcfb05ac372c20a7e34f62139db6369d384c6da457de253",
+        "model_id": "metadata_extended_tfidf",
+        "parameters": {
+          "description_policy": "Frozen v1 description TF-IDF unigram+bigram component plus separate extended metadata TF-IDF component.",
+          "description_vectorizer": {
+            "analyzer": "word",
+            "dtype": "float32",
+            "max_df": 1.0,
+            "min_df": 1,
+            "ngram_range": [
+              1,
+              2
+            ],
+            "norm": "l2",
+            "sublinear_tf": false,
+            "tokenizer": "tfidf_content.tokenize_description"
+          },
+          "description_weight": 0.5,
+          "family": "content",
+          "matrix_kind": "scipy_csr_float32_components",
+          "metadata_fields": [
+            "v2 tags",
+            "v2 genres",
+            "C categories",
+            "C developers",
+            "C publishers"
+          ],
+          "metadata_vectorizer": {
+            "binary": true,
+            "dtype": "float32",
+            "norm": "l2",
+            "use_idf": true
+          },
+          "metadata_weight": 0.5,
+          "score_spec": "0.5 * cosine(description profile, candidate description) + 0.5 * cosine(metadata profile, candidate metadata)"
+        },
+        "score_spec": "0.5 * cosine(description profile, candidate description) + 0.5 * cosine(metadata profile, candidate metadata)",
+        "artifacts": {
+          "tfidf_csr.npz": {
+            "sha256": "9d819e4ec8f3a8ff8b6d966eb9b2b2776b7adfaa9b6f3808154ba5ddd91a405b",
+            "bytes": 11873288
+          },
+          "features_csr.npz": {
+            "sha256": "1fdf1dbd8ba546060935ea739800aec0541ae1a477ed335f43de2e88ff0c2c39",
+            "bytes": 3875786
+          }
+        }
+      },
+      "dan_ease_lambda100_a200_b000_p300_raw": {
+        "role": "single_frozen_finalist",
+        "score_spec": {
+          "source_manifest_sha256": "7e85faf6a3d69a775ad1cad4d707cba446b960bc93d57450e477691d5f19b6ca",
+          "weights_sha256": "e9c1071663a0454f85b86bcda547f4cf911cd20e1d2180c15307b0dd88c2c65e",
+          "layout": "input_by_candidate_row_major",
+          "layout_sha256": "8d7496ca45db7f253cb0f3a66735049ae59eadc5fc6740328192297e6de184b9"
+        }
+      }
+    },
+    "sampling": {
+      "namespace": "steam-v4-hidden-negative",
+      "seed": 20261108,
+      "payload": "namespace:seed:selection:user_key:counter",
+      "method": "SHA256 counter-mode rejection"
+    },
+    "denominator": {
+      "eligible_primary_accounts": 10000,
+      "selected_accounts": 2395,
+      "all_selected_retained": true,
+      "users_with_four_inputs_after_hiding": 239
+    },
+    "outcomes": {
+      "binary_item_knn_k100": {
+        "users": 2395,
+        "hidden_negative_top10_users": 735,
+        "hidden_negative_top10_rate": 0.3068893528183716,
+        "hidden_negative_top10_rate_ci95": [
+          0.28935281837160753,
+          0.32526096033402924
+        ],
+        "denominator_scope": "primary 5+ selection accounts with at least one visible negative Linux game",
+        "users_with_4_remaining_inputs": 239
+      },
+      "activity_inverse_degree_cosine_k100": {
+        "users": 2395,
+        "hidden_negative_top10_users": 766,
+        "hidden_negative_top10_rate": 0.3198329853862213,
+        "hidden_negative_top10_rate_ci95": [
+          0.3018789144050104,
+          0.3386221294363257
+        ],
+        "denominator_scope": "primary 5+ selection accounts with at least one visible negative Linux game",
+        "users_with_4_remaining_inputs": 239
+      },
+      "metadata_extended_tfidf": {
+        "users": 2395,
+        "hidden_negative_top10_users": 254,
+        "hidden_negative_top10_rate": 0.10605427974947808,
+        "hidden_negative_top10_rate_ci95": [
+          0.09352818371607516,
+          0.11816283924843424
+        ],
+        "denominator_scope": "primary 5+ selection accounts with at least one visible negative Linux game",
+        "users_with_4_remaining_inputs": 239
+      },
+      "dan_ease_lambda100_a200_b000_p300_raw": {
+        "users": 2395,
+        "hidden_negative_top10_users": 872,
+        "hidden_negative_top10_rate": 0.36409185803757826,
+        "hidden_negative_top10_rate_ci95": [
+          0.3457202505219207,
+          0.3832985386221294
+        ],
+        "denominator_scope": "primary 5+ selection accounts with at least one visible negative Linux game",
+        "users_with_4_remaining_inputs": 239
+      }
+    },
+    "paired_user_comparisons": {
+      "activity_inverse_degree_cosine_k100_minus_binary_item_knn_k100": {
+        "delta": 0.012943632567849687,
+        "ci95": [
+          0.004164926931106472,
+          0.021722338204592843
+        ]
+      },
+      "metadata_extended_tfidf_minus_binary_item_knn_k100": {
+        "delta": -0.20083507306889353,
+        "ci95": [
+          -0.21920668058455114,
+          -0.1812108559498956
+        ]
+      },
+      "dan_ease_lambda100_a200_b000_p300_raw_minus_binary_item_knn_k100": {
+        "delta": 0.05720250521920668,
+        "ci95": [
+          0.044676409185803755,
+          0.06931106471816284
+        ]
+      },
+      "metadata_extended_tfidf_minus_activity_inverse_degree_cosine_k100": {
+        "delta": -0.21377870563674323,
+        "ci95": [
+          -0.2325678496868476,
+          -0.19457202505219207
+        ]
+      },
+      "dan_ease_lambda100_a200_b000_p300_raw_minus_activity_inverse_degree_cosine_k100": {
+        "delta": 0.044258872651356994,
+        "ci95": [
+          0.03298538622129436,
+          0.055532359081419624
+        ]
+      },
+      "dan_ease_lambda100_a200_b000_p300_raw_minus_metadata_extended_tfidf": {
+        "delta": 0.2580375782881002,
+        "ci95": [
+          0.2384133611691023,
+          0.2780793319415449
+        ]
+      }
+    },
+    "bootstrap": {
+      "unit": "selected user",
+      "reps": 2000,
+      "seed": 20261108,
+      "interval": "percentile 95%"
+    },
+    "interpretation": "Descriptive fraction of selected users whose one hidden visible negative is recommended in top 10; not a false-positive rate over all unobserved games."
+  },
+  "limitations": [
+    "The selection accounts were included in historical v1-v3 training, although reserved accounts were excluded from fresh v4 refitting. This is not a pristine never-seen final test.",
+    "The same users appear in all three target-seed runs. Confidence intervals resample users only after averaging each user's outcomes across seeds; they do not include model-fitting or selection uncertainty.",
+    "The hidden-negative rate covers one uniformly sampled visible negative Linux game for primary users with at least one such negative. It is not a false-positive rate over all unobserved games.",
+    "The diagnostics evaluate warm-catalog retrieval. A new-game performance claim still requires the separate item-removal retraining protocol.",
+    "These diagnostics are reporting-only and do not select settings. Confirmation remained unopened."
+  ],
+  "artifacts": {
+    "target_seed_variation_directory": "data/processed/modeling/experiments_v4/supplemental/target_seed_variation",
+    "hidden_negative_directory": "data/processed/modeling/experiments_v4/supplemental/hidden_negative",
+    "supplemental_manifest": "data/processed/modeling/experiments_v4/supplemental/manifest.json"
+  }
+}

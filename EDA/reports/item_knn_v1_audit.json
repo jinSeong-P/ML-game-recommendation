@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "model_manifest_sha256": "da6a43ca1dccee8100b8fbaf57d1b33b8560fa8216f6a67ef0b7bd3cb2e86017",
+  "train_source_sha256": "e688185f2cdd7e5f757055e6cba9f543a9b19db1a2bd2629af59c98a24f84a06",
+  "support_games_checked": 37610,
+  "sampled_candidate_rows": 15,
+  "sampled_neighbor_edges": 1200,
+  "method": "Independent SQL train counts, user joins, cosine and per-candidate top100; no validation/test reviews or ranking metrics",
+  "violations": {
+    "all_item_support_mismatches": 0,
+    "sampled_top_neighbor_membership_mismatches": 0,
+    "sampled_cosine_value_mismatches": 0
+  }
+}

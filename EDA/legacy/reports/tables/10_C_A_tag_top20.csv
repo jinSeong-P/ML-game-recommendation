@@ -1,0 +1,161 @@
+﻿cohort,rank,tag,document_frequency,share_of_games_pct
+Linux all,1,indie,6089,67.34874460789736
+Linux all,2,singleplayer,3997,44.20971131512001
+Linux all,3,adventure,3485,38.54662094901006
+Linux all,4,action,3455,38.214799247870815
+Linux all,5,casual,3212,35.52704346864285
+Linux all,6,2d,2597,28.724698595288135
+Linux all,7,strategy,2502,27.673929875013826
+Linux all,8,simulation,2287,25.2958743501825
+Linux all,9,rpg,1950,21.568410574051544
+Linux all,10,puzzle,1589,17.575489437009182
+Linux all,11,atmospheric,1573,17.398517863068243
+Linux all,12,story rich,1508,16.679570843933192
+Linux all,13,pixel graphics,1340,14.821369317553367
+Linux all,14,great soundtrack,1155,12.775135493861297
+Linux all,15,multiplayer,1129,12.487556686207277
+Linux all,16,difficult,1016,11.23769494524942
+Linux all,17,funny,1005,11.116026988165025
+Linux all,18,fantasy,1000,11.060723371308484
+Linux all,19,colorful,967,10.695719500055304
+Linux all,20,retro,964,10.662537329941378
+Linux with any A review,1,indie,4933,74.40422322775264
+Linux with any A review,2,singleplayer,3559,53.68024132730015
+Linux with any A review,3,adventure,2916,43.98190045248869
+Linux with any A review,4,casual,2766,41.71945701357466
+Linux with any A review,5,action,2605,39.29110105580694
+Linux with any A review,6,2d,2384,35.957767722473605
+Linux with any A review,7,strategy,1589,23.96681749622926
+Linux with any A review,8,puzzle,1493,22.518853695324285
+Linux with any A review,9,atmospheric,1420,21.417797888386122
+Linux with any A review,10,simulation,1387,20.920060331825038
+Linux with any A review,11,rpg,1378,20.784313725490197
+Linux with any A review,12,story rich,1352,20.392156862745097
+Linux with any A review,13,pixel graphics,1235,18.627450980392158
+Linux with any A review,14,great soundtrack,1093,16.485671191553543
+Linux with any A review,15,difficult,957,14.434389140271492
+Linux with any A review,16,multiplayer,949,14.313725490196077
+Linux with any A review,17,funny,915,13.800904977375566
+Linux with any A review,18,fantasy,892,13.453996983408748
+Linux with any A review,19,retro,889,13.408748114630468
+Linux with any A review,20,colorful,872,13.152337858220212
+A non-Linux,1,indie,21868,52.27701943534699
+A non-Linux,2,singleplayer,18569,44.39052377423442
+A non-Linux,3,action,18442,44.08692118285482
+A non-Linux,4,adventure,16698,39.917764337453086
+A non-Linux,5,casual,14632,34.97884344146686
+A non-Linux,6,simulation,10404,24.871506777270444
+A non-Linux,7,2d,8841,21.13504338887428
+A non-Linux,8,strategy,8591,20.537400492457746
+A non-Linux,9,rpg,8206,19.617030431976286
+A non-Linux,10,atmospheric,7115,17.008916832014535
+A non-Linux,11,puzzle,5996,14.333867227654132
+A non-Linux,12,story rich,5641,13.485214314742656
+A non-Linux,13,3d,5550,13.267672300447037
+A non-Linux,14,multiplayer,5446,13.019052855537758
+A non-Linux,15,exploration,4899,11.711410198178385
+A non-Linux,16,first-person,4868,11.637302479022734
+A non-Linux,17,cute,4771,11.40541703521312
+A non-Linux,18,free to play,4758,11.37433960459946
+A non-Linux,19,colorful,4726,11.297841313858143
+A non-Linux,20,pixel graphics,4688,11.20699959360283
+Linux popularity: highest 20%,1,singleplayer,1322,73.07904919845218
+Linux popularity: highest 20%,2,indie,1303,72.02874516307352
+Linux popularity: highest 20%,3,adventure,893,49.36428966279712
+Linux popularity: highest 20%,4,action,824,45.55002763957987
+Linux popularity: highest 20%,5,2d,758,41.90160309563294
+Linux popularity: highest 20%,6,casual,650,35.9314538419016
+Linux popularity: highest 20%,7,great soundtrack,582,32.172470978441126
+Linux popularity: highest 20%,8,atmospheric,572,31.61967938087341
+Linux popularity: highest 20%,9,strategy,525,29.021558872305143
+Linux popularity: highest 20%,10,story rich,503,27.805417357656165
+Linux popularity: highest 20%,11,multiplayer,480,26.533996683250415
+Linux popularity: highest 20%,12,puzzle,458,25.31785516860144
+Linux popularity: highest 20%,13,rpg,429,23.71475953565506
+Linux popularity: highest 20%,14,simulation,412,22.775013819789937
+Linux popularity: highest 20%,15,difficult,388,21.44831398562742
+Linux popularity: highest 20%,16,pixel graphics,381,21.06135986733002
+Linux popularity: highest 20%,17,funny,376,20.78496406854616
+Linux popularity: highest 20%,18,sci-fi,288,15.92039800995025
+Linux popularity: highest 20%,19,co-op,272,15.035931453841902
+Linux popularity: highest 20%,20,fantasy,267,14.759535655058043
+Linux popularity: 20–40%,1,indie,1428,78.98230088495575
+Linux popularity: 20–40%,2,singleplayer,916,50.66371681415929
+Linux popularity: 20–40%,3,adventure,831,45.96238938053097
+Linux popularity: 20–40%,4,casual,775,42.86504424778761
+Linux popularity: 20–40%,5,action,664,36.72566371681416
+Linux popularity: 20–40%,6,2d,645,35.67477876106195
+Linux popularity: 20–40%,7,puzzle,442,24.446902654867255
+Linux popularity: 20–40%,8,strategy,390,21.570796460176993
+Linux popularity: 20–40%,9,atmospheric,388,21.460176991150444
+Linux popularity: 20–40%,10,story rich,380,21.01769911504425
+Linux popularity: 20–40%,11,simulation,360,19.911504424778762
+Linux popularity: 20–40%,12,pixel graphics,345,19.081858407079647
+Linux popularity: 20–40%,13,rpg,335,18.528761061946902
+Linux popularity: 20–40%,14,great soundtrack,287,15.873893805309736
+Linux popularity: 20–40%,15,female protagonist,280,15.486725663716813
+Linux popularity: 20–40%,16,fantasy,271,14.988938053097344
+Linux popularity: 20–40%,17,retro,250,13.827433628318584
+Linux popularity: 20–40%,18,visual novel,246,13.606194690265486
+Linux popularity: 20–40%,19,difficult,245,13.550884955752213
+Linux popularity: 20–40%,20,funny,227,12.555309734513273
+Linux popularity: 40–60%,1,indie,1375,76.05088495575221
+Linux popularity: 40–60%,2,casual,783,43.307522123893804
+Linux popularity: 40–60%,3,singleplayer,770,42.588495575221245
+Linux popularity: 40–60%,4,action,691,38.219026548672566
+Linux popularity: 40–60%,5,adventure,690,38.163716814159294
+Linux popularity: 40–60%,6,2d,590,32.63274336283185
+Linux popularity: 40–60%,7,strategy,412,22.787610619469024
+Linux popularity: 40–60%,8,puzzle,374,20.6858407079646
+Linux popularity: 40–60%,9,simulation,349,19.303097345132745
+Linux popularity: 40–60%,10,rpg,328,18.141592920353983
+Linux popularity: 40–60%,11,pixel graphics,326,18.030973451327434
+Linux popularity: 40–60%,12,atmospheric,297,16.426991150442475
+Linux popularity: 40–60%,13,story rich,283,15.652654867256638
+Linux popularity: 40–60%,14,visual novel,256,14.15929203539823
+Linux popularity: 40–60%,15,colorful,250,13.827433628318584
+Linux popularity: 40–60%,16,arcade,245,13.550884955752213
+Linux popularity: 40–60%,17,retro,244,13.495575221238937
+Linux popularity: 40–60%,18,cute,227,12.555309734513273
+Linux popularity: 40–60%,19,difficult,227,12.555309734513273
+Linux popularity: 40–60%,20,anime,220,12.168141592920353
+Linux popularity: 60–80%,1,indie,1043,57.68805309734514
+Linux popularity: 60–80%,2,action,717,39.6570796460177
+Linux popularity: 60–80%,3,adventure,622,34.402654867256636
+Linux popularity: 60–80%,4,singleplayer,610,33.73893805309734
+Linux popularity: 60–80%,5,casual,594,32.85398230088495
+Linux popularity: 60–80%,6,strategy,539,29.811946902654867
+Linux popularity: 60–80%,7,rpg,441,24.391592920353983
+Linux popularity: 60–80%,8,simulation,425,23.50663716814159
+Linux popularity: 60–80%,9,2d,402,22.234513274336283
+Linux popularity: 60–80%,10,puzzle,230,12.721238938053098
+Linux popularity: 60–80%,11,colorful,211,11.670353982300885
+Linux popularity: 60–80%,12,story rich,200,11.061946902654867
+Linux popularity: 60–80%,13,pixel graphics,190,10.508849557522124
+Linux popularity: 60–80%,14,atmospheric,178,9.845132743362832
+Linux popularity: 60–80%,15,text-based,167,9.236725663716815
+Linux popularity: 60–80%,16,retro,163,9.015486725663717
+Linux popularity: 60–80%,17,arcade,162,8.960176991150442
+Linux popularity: 60–80%,18,fantasy,162,8.960176991150442
+Linux popularity: 60–80%,19,cute,156,8.628318584070795
+Linux popularity: 60–80%,20,3d,150,8.29646017699115
+Linux popularity: lowest 20%,1,indie,940,51.991150442477874
+Linux popularity: lowest 20%,2,simulation,741,40.98451327433628
+Linux popularity: lowest 20%,3,strategy,636,35.176991150442475
+Linux popularity: lowest 20%,4,action,559,30.918141592920357
+Linux popularity: lowest 20%,5,adventure,449,24.83407079646018
+Linux popularity: lowest 20%,6,rpg,417,23.0641592920354
+Linux popularity: lowest 20%,7,casual,410,22.676991150442475
+Linux popularity: lowest 20%,8,singleplayer,379,20.962389380530976
+Linux popularity: lowest 20%,9,free to play,248,13.716814159292035
+Linux popularity: lowest 20%,10,2d,202,11.172566371681416
+Linux popularity: lowest 20%,11,violent,183,10.121681415929205
+Linux popularity: lowest 20%,12,story rich,142,7.853982300884955
+Linux popularity: lowest 20%,13,atmospheric,138,7.6327433628318575
+Linux popularity: lowest 20%,14,multiplayer,126,6.969026548672566
+Linux popularity: lowest 20%,15,massively multiplayer,122,6.7477876106194685
+Linux popularity: lowest 20%,16,gore,112,6.1946902654867255
+Linux popularity: lowest 20%,17,pixel graphics,98,5.420353982300885
+Linux popularity: lowest 20%,18,exploration,98,5.420353982300885
+Linux popularity: lowest 20%,19,fantasy,96,5.3097345132743365
+Linux popularity: lowest 20%,20,visual novel,95,5.254424778761062

@@ -1,0 +1,10 @@
+﻿classification,games,owner_rows,owner_row_pct
+dlc (metadata),23,1548,0.16862726729055852
+dlc/pack (name inference),11,5507,0.5998904140627298
+game-like metadata; missingness unresolved,1353,407111,44.34755517695515
+metadata present; type unresolved,133,3530,0.38453117153467153
+server/SDK/tool (name inference),1,1283,0.1397601963396554
+software/tool (metadata inference),38,3844,0.41873592730291137
+soundtrack/video (name inference),2,17,0.0018518498345862367
+test/beta/demo (name inference),1,1,0.00010893234321095509
+unresolved_no_game_metadata,1312,495160,53.93893906433653
