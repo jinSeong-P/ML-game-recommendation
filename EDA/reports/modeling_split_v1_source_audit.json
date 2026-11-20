@@ -1,0 +1,23 @@
+{
+  "version": "kieran-frank-split-v1",
+  "checked_utc": "2026-11-07T14:55:50.160312+00:00",
+  "split_manifest_sha256": "0d94731ccbcc9afec6e2d0a1394d6fa4a50e65f45e9dd9d3a764a2309bd2ce9f",
+  "source_database_sha256_from_generation": "c8154272d14c01c5fded81f337ad9d2c2192a1126d93b4d90bb91dcd1f86b6be",
+  "source_database_opened_read_only": true,
+  "seed": 20261107,
+  "audit_code_sha256": "6fe6fba654c2bec75c877f6c6f416a62ff7d727b68cb4a803c99755b78dc499e",
+  "passed": true,
+  "zero_violation_checks": {
+    "train_all_reserved_frank_review_id_intersections": 0,
+    "train_quarantined_original_ids": 0,
+    "train_conflicting_label_pairs": 0,
+    "validation_all_reserved_frank_review_id_intersections": 0,
+    "validation_quarantined_original_ids": 0,
+    "validation_conflicting_label_pairs": 0,
+    "test_quarantined_pairs": 0,
+    "validation_missing_or_extra_history_rows": 0,
+    "validation_target_reproduction_errors": 0,
+    "test_missing_or_extra_history_rows": 0,
+    "test_target_reproduction_errors": 0
+  }
+}

@@ -1,0 +1,11 @@
+﻿dataset,kaggle_ref,kaggle_version,kaggle_last_updated,license,file,MB,partial_download,downloaded_at
+A,antonkozyriev/game-recommendations-on-steam,28,2024-08-14,CC0: Public Domain,games.csv,4.9,False,2026-11-03
+A,antonkozyriev/game-recommendations-on-steam,28,2024-08-14,CC0: Public Domain,games_metadata.json,17.5,False,2026-11-03
+A,antonkozyriev/game-recommendations-on-steam,28,2024-08-14,CC0: Public Domain,recommendations.csv,2023.2,False,2026-11-03
+A,antonkozyriev/game-recommendations-on-steam,28,2024-08-14,CC0: Public Domain,users.csv,193.1,False,2026-11-03
+B,pypiahmad/steam-video-game-and-bundle-data,1,2023-10-29,Apache 2.0,australian_user_reviews.json,26.3,False,2026-11-03
+B,pypiahmad/steam-video-game-and-bundle-data,1,2023-10-29,Apache 2.0,australian_users_items.json,553.1,False,2026-11-03
+B,pypiahmad/steam-video-game-and-bundle-data,1,2023-10-29,Apache 2.0,bundle_data.json,0.8,False,2026-11-03
+B,pypiahmad/steam-video-game-and-bundle-data,1,2023-10-29,Apache 2.0,steam_games.json,21.2,False,2026-11-03
+B,pypiahmad/steam-video-game-and-bundle-data,1,2023-10-29,Apache 2.0,steam_reviews.json/steam_new.json,67.1,True,2026-11-03
+C,artermiloff/steam-games-dataset,2,2025-03-13,MIT,games_march2025_cleaned.csv,468.6,False,2026-11-03

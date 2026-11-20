@@ -1,0 +1,106 @@
+{
+  "purpose": "Source identity diagnosis; float conversion is only a test of rounding, never an ID recovery method",
+  "artermiloff_identity_usable_for_exact_account_partition": false,
+  "whole_source_residues": {
+    "identity_valid_rows": 127572734,
+    "author_ids_divisible_by_16": 127572734,
+    "author_ids_divisible_by_64": 33892569
+  },
+  "matched_original_review_rows": {
+    "matched_rows": 1270474,
+    "different_author_ids": 1190664,
+    "matches_float64_roundtrip_of_exact_frank_id": 1270474,
+    "author_difference_at_most_8": 1270474
+  },
+  "author_delta_histogram": [
+    {
+      "author_id_delta": -8,
+      "n_rows": 39625
+    },
+    {
+      "author_id_delta": -7,
+      "n_rows": 76735
+    },
+    {
+      "author_id_delta": -6,
+      "n_rows": 79282
+    },
+    {
+      "author_id_delta": -5,
+      "n_rows": 80336
+    },
+    {
+      "author_id_delta": -4,
+      "n_rows": 76035
+    },
+    {
+      "author_id_delta": -3,
+      "n_rows": 80106
+    },
+    {
+      "author_id_delta": -2,
+      "n_rows": 79676
+    },
+    {
+      "author_id_delta": -1,
+      "n_rows": 81382
+    },
+    {
+      "author_id_delta": 0,
+      "n_rows": 79810
+    },
+    {
+      "author_id_delta": 1,
+      "n_rows": 83334
+    },
+    {
+      "author_id_delta": 2,
+      "n_rows": 80318
+    },
+    {
+      "author_id_delta": 3,
+      "n_rows": 77605
+    },
+    {
+      "author_id_delta": 4,
+      "n_rows": 77409
+    },
+    {
+      "author_id_delta": 5,
+      "n_rows": 79070
+    },
+    {
+      "author_id_delta": 6,
+      "n_rows": 82207
+    },
+    {
+      "author_id_delta": 7,
+      "n_rows": 79436
+    },
+    {
+      "author_id_delta": 8,
+      "n_rows": 38108
+    }
+  ],
+  "distinct_matched_review_ids": {
+    "matched_original_review_ids": 1270339,
+    "different_author_original_review_ids": 1190538
+  },
+  "known_account_collisions_in_frank_matched_subset": {
+    "rounded_ids_representing_multiple_real_accounts": 7556,
+    "real_accounts_in_colliding_buckets": 15232,
+    "maximum_known_real_accounts_per_rounded_id": 4
+  },
+  "direct_original_zip_token_check": {
+    "csv_files": 3,
+    "matched_review_rows": 197,
+    "original_csv_author_token_different_from_local_projection": 0,
+    "original_csv_author_token_different_from_exact_frank": 181
+  },
+  "known_test_accounts_left_in_naive_artermiloff_preview": {
+    "known_test_account_review_ids_remaining_after_nominal_test_exclusion": 2602610,
+    "known_real_test_accounts_remaining": 73847,
+    "known_test_account_review_ids_remaining_after_validation": 2344585
+  },
+  "decision": "REJECT_ORIGINAL_ARTERMILOFF_FOR_EXACT_USER_SPLIT; original integer-looking CSV IDs carry float64 rounding. Nominal zero intersections are insufficient. Kieran owner mapping may recover only rows with a trusted original review-ID match; converting rounded IDs to strings cannot recover them."
+}

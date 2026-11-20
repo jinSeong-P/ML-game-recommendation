@@ -1,0 +1,190 @@
+{
+  "status": "complete",
+  "purpose": "Observed-cohort descriptive audit, never selection evidence",
+  "code_sha256": "5f0b32990fb120f3ae47abc22607993930c6355166ffa0ae82245c88d340d375",
+  "protocol_sha256": "9daaed9db19089248793273afab04b9416d00ea8f9d7fb72e1d19bb709d8ad20",
+  "definitions": {
+    "same_title": "NFKC/casefold/punctuation-normalized exact title; not proof of identical product",
+    "same_description": "Exact nonempty cleaned baseline description SHA256",
+    "high_similarity": "Maximum single-positive-input unigram baseline description cosine >= threshold",
+    "support": "Distinct positive train users in frozen catalog; input statistics weight input pairs, not users"
+  },
+  "cohorts": {
+    "validation": {
+      "users": 325639,
+      "target_games": 3805,
+      "top10_target_game_share": 0.30867003030963736,
+      "effective_target_games_exp_shannon": 247.44606566386267,
+      "effective_target_games_inverse_simpson": 57.33843674773017,
+      "positive_input_train_support_median": 49616.0,
+      "positive_input_support_at_least_10000_share": 0.746738696614702,
+      "negative_input_pair_share": 0.14689441619523486,
+      "users_with_negative_input_share": 0.5585111119982558,
+      "positive_inputs_median": 7.0,
+      "support100_999": {
+        "users": 9090,
+        "positive_inputs_median": 8.0,
+        "high_similarity_at_least_0_2_share": 0.036743674367436745,
+        "item_knn_Recall@10": 0.06314631463146314
+      },
+      "similarity_subgroups": {
+        "0.2": {
+          "users": 11300,
+          "fraction": 0.03470100325820925,
+          "item_knn": {
+            "Recall@10": 0.7250442477876107,
+            "share_of_all_model_hits": 0.06278064703989211
+          },
+          "tfidf": {
+            "Recall@10": 0.4336283185840708,
+            "share_of_all_model_hits": 0.7816238634550965
+          }
+        },
+        "0.8": {
+          "users": 193,
+          "fraction": 0.0005926808521092375,
+          "item_knn": {
+            "Recall@10": 0.8601036269430051,
+            "share_of_all_model_hits": 0.0012720111569171353
+          },
+          "tfidf": {
+            "Recall@10": 0.8808290155440415,
+            "share_of_all_model_hits": 0.027117562609666614
+          }
+        }
+      },
+      "exact_clean_description_overlap": {
+        "users": 53,
+        "fraction": 0.00016275691793673363,
+        "item_knn": {
+          "Recall@10": 0.9245283018867925,
+          "share_of_all_model_hits": 0.00037547317282493755
+        },
+        "tfidf": {
+          "Recall@10": 1.0,
+          "share_of_all_model_hits": 0.008454298931249002
+        }
+      },
+      "exact_normalized_title_overlap": {
+        "users": 0,
+        "fraction": 0.0,
+        "item_knn": {
+          "Recall@10": null,
+          "share_of_all_model_hits": 0.0
+        },
+        "tfidf": {
+          "Recall@10": null,
+          "share_of_all_model_hits": 0.0
+        }
+      },
+      "without_cosine_at_least_0_8": {
+        "users": 325446,
+        "fraction": 0.9994073191478907,
+        "item_knn": {
+          "Recall@10": 0.40048425852522385,
+          "share_of_all_model_hits": 0.9987279888430829
+        },
+        "tfidf": {
+          "Recall@10": 0.018740436201397467,
+          "share_of_all_model_hits": 0.9728824373903334
+        }
+      }
+    },
+    "test": {
+      "users": 24342,
+      "target_games": 4634,
+      "top10_target_game_share": 0.007476789088817682,
+      "effective_target_games_exp_shannon": 3757.6514893619988,
+      "effective_target_games_inverse_simpson": 3249.676224113725,
+      "positive_input_train_support_median": 162.0,
+      "positive_input_support_at_least_10000_share": 0.02657917841134883,
+      "negative_input_pair_share": 0.2967597416805496,
+      "users_with_negative_input_share": 0.7336701996549174,
+      "positive_inputs_median": 7.0,
+      "support100_999": {
+        "users": 10539,
+        "positive_inputs_median": 7.0,
+        "high_similarity_at_least_0_2_share": 0.05361039946864029,
+        "item_knn_Recall@10": 0.11794287883100864
+      },
+      "similarity_subgroups": {
+        "0.2": {
+          "users": 1221,
+          "fraction": 0.050160216909046096,
+          "item_knn": {
+            "Recall@10": 0.6846846846846847,
+            "share_of_all_model_hits": 0.3069016152716593
+          },
+          "tfidf": {
+            "Recall@10": 0.547911547911548,
+            "share_of_all_model_hits": 0.7680826636050516
+          }
+        },
+        "0.8": {
+          "users": 173,
+          "fraction": 0.007107057760249774,
+          "item_knn": {
+            "Recall@10": 0.9479768786127167,
+            "share_of_all_model_hits": 0.06020558002936858
+          },
+          "tfidf": {
+            "Recall@10": 0.9421965317919075,
+            "share_of_all_model_hits": 0.18714121699196326
+          }
+        }
+      },
+      "exact_clean_description_overlap": {
+        "users": 65,
+        "fraction": 0.0026702818174348863,
+        "item_knn": {
+          "Recall@10": 0.9692307692307692,
+          "share_of_all_model_hits": 0.023127753303964757
+        },
+        "tfidf": {
+          "Recall@10": 0.9538461538461539,
+          "share_of_all_model_hits": 0.0711825487944891
+        }
+      },
+      "exact_normalized_title_overlap": {
+        "users": 1,
+        "fraction": 4.108125872976748e-05,
+        "item_knn": {
+          "Recall@10": 0.0,
+          "share_of_all_model_hits": 0.0
+        },
+        "tfidf": {
+          "Recall@10": 0.0,
+          "share_of_all_model_hits": 0.0
+        }
+      },
+      "without_cosine_at_least_0_8": {
+        "users": 24169,
+        "fraction": 0.9928929422397502,
+        "item_knn": {
+          "Recall@10": 0.1059208076461583,
+          "share_of_all_model_hits": 0.9397944199706314
+        },
+        "tfidf": {
+          "Recall@10": 0.029293723364640655,
+          "share_of_all_model_hits": 0.8128587830080367
+        }
+      }
+    }
+  },
+  "train_reviewer_activity": {
+    "users": 29836980,
+    "users_with_at_least25": 190246,
+    "user_fraction_at_least25": 0.006376181503624026,
+    "unordered_item_pair_contribution_fraction_from_at_least25": 0.6260468440520012
+  },
+  "frank_user_games_coverage": {
+    "covered_primary_test_users": 84,
+    "total_primary_test_users": 24342,
+    "interpretation": "Coverage audit; use review playtime extra projection rather than generalizing these ownership rows to uncovered users."
+  },
+  "limits": [
+    "Observed cohort associations do not establish why frank is better in a support band.",
+    "High content similarity is not proof of a series or duplicate game; reviewed case titles stay in private processed data.",
+    "Do not exclude high-similarity users from official metrics or choose settings from these frank diagnostics."
+  ]
+}

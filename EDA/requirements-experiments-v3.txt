@@ -1,0 +1,7 @@
+# Optional v3 experiment dependencies; the baseline environment stays separate.
+-r requirements.txt
+implicit==0.7.3
+lightgbm==4.7.0
+sentence-transformers==6.2.0
+torch==2.15.0
+transformers==5.22.2

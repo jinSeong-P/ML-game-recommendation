@@ -1,0 +1,21 @@
+{
+  "status": "fixed_before_supplemental_v4_outcomes",
+  "seed_variation": {
+    "accounts": "same v4 selection accounts; reporting only, never used for setting selection",
+    "target_seeds": [20261108, 20261109, 20261110],
+    "target_sampler": "same uniform positive Linux target sampler and original role namespace as v4 split",
+    "denominator": "same accounts in each seed; report primary and short-history strata separately",
+    "uncertainty": "average each user's outcomes across seeds before paired user resampling; never treat user x seed rows as independent"
+  },
+  "hidden_negative": {
+    "accounts": "primary v4 selection accounts with at least one visible negative Linux game",
+    "sample": "one uniform negative Linux game from original visible query; SHA256 counter rejection seed20261108 namespace steam-v4-hidden-negative",
+    "query": "keep the positive target hidden and additionally remove sampled negative from query and exclusion mask; retain all selected users even if remaining total inputs become4",
+    "score": "fraction of selected users with hidden negative in top10; lower is better; one negative per user",
+    "interpretation": "reporting only; not false-positive rate over all unobserved games, not a model selection criterion"
+  },
+  "controls": ["binary_item_knn_k100", "activity_inverse_degree_cosine_k100", "metadata_extended_tfidf"],
+  "finalist": "at most one variant frozen by the primary selection before these reporting outcomes",
+  "cold_start": "separate item-removal retraining protocol required before a new-game performance claim",
+  "confirmation": "never opened by these supplementary diagnostics"
+}

@@ -1,0 +1,38 @@
+{
+  "input_pairs": 3920857,
+  "pairs_with_known_times": 3920857,
+  "later_input_pairs": 2258289,
+  "positive_input_pairs": 3344905,
+  "later_positive_input_pairs": 1911622,
+  "users": 325639,
+  "users_with_later_input": 301547,
+  "later_input_fraction": 0.575968213071785,
+  "users_with_later_input_fraction": 0.9260162326994003,
+  "train_positive_pairs_known_creation": 78315268,
+  "mean_fraction_train_created_after_target": 0.5662396413900935,
+  "train_future_fraction_quantiles_p0_p25_p50_p75_p100": [
+    7.90395047872402e-06,
+    0.33171617953219545,
+    0.5989833170206351,
+    0.8201695804705667,
+    0.9999941135360731
+  ],
+  "training_updated_after_created_pairs": 8170756,
+  "candidate_release_dates_known": 6096,
+  "mean_fraction_all_candidates_released_after_target": 0.2970192352794487,
+  "unknown_release_candidates": 534,
+  "status": "diagnostic_complete_not_temporal_performance",
+  "limitations": [
+    "Cached original created timestamps do not establish when current positive/negative labels were first observed.",
+    "Current 2025 metadata does not reconstruct historical release records or historical Linux support.",
+    "Future-training fraction counts current positive training pairs; it is exposure, not a measured causal effect on Recall.",
+    "Forgemaster source is absent, so no Forgemaster temporal exposure is calculated."
+  ],
+  "sources": {
+    "data\\processed\\modeling\\improvement_v3\\query_context\\validation.parquet": "45a81138a1c9e1e55fb5f73123affcfe95c48646e6d47fd4c4ba532de330b75b",
+    "data\\processed\\modeling\\split_v1\\validation\\targets.parquet": "c47068f2b8467174dfbaff161e19b4fbcfdb7fb4337ee048faf35b6f3a615b08",
+    "data\\processed\\modeling\\split_v1\\train\\review_lineage.parquet": "8b4352f23cab9d921b5b4bf3bb19a02abd699718a3a53c1b41663e574a312d9c",
+    "legacy\\data\\processed\\C_games_2025.parquet": "e65e452f5a5e5ec95a79d5a5ad8811739b3ff31384c4ff0a7926747829a82efc"
+  },
+  "code_sha256": "9deb89a573107884053c0b4fee74ce1393e90a07a09ab10c16f3b4cfdf344ef7"
+}

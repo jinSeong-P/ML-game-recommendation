@@ -1,19 +1,100 @@
-# ML Game Recommendation
+# Linux Game Recommendation
 
-Steam 사용자의 취향을 바탕으로 **공식 Linux 지원 게임**을 추천하는 머신러닝 팀 프로젝트입니다.
+**English** · [한국어](README.ko.md)
 
-## 프로젝트 목표
+Machine Learning Team 6 — Sangmin Park, Jinseong Park, Eunju Lee, Jaeyoon Lim
 
-- **콘텐츠 기반 필터링:** 게임의 장르·태그·설명을 활용해 유사한 게임 추천 (TF-IDF + 코사인 유사도)
-- **협업 필터링:** 사용자들의 긍정 리뷰 이력을 활용해 게임 추천 (Item-based KNN)
-- 두 추천 방식의 **Top 10 결과**에 공식 Linux 지원 조건을 공통 적용하고, 추천 성능을 비교
+The system recommends 10 Steam games that officially support Linux and that a user has not reviewed yet, based on the user's Steam review history. Two methods are compared:
 
-## 사용 데이터셋
+- **Content-based filtering:** TF-IDF vectors of game text (description, tags, genres, categories, developers, publishers), ranked by cosine similarity.
+- **Collaborative filtering:** item-based KNN that recommends games liked by the same users.
 
-| 구분 | 데이터셋 | 주요 활용 |
-| --- | --- | --- |
-| **A · 학습** | [Game Recommendations on Steam](https://www.kaggle.com/datasets/antonkozyriev/game-recommendations-on-steam) | 사용자-게임 추천 리뷰, 플레이 시간, 게임 정보 |
-| **B · 외부 테스트** | [Steam Video Game and Bundle Data](https://www.kaggle.com/datasets/pypiahmad/steam-video-game-and-bundle-data) | 사용자별 게임 보유·플레이 이력과 추천 리뷰를 이용한 평가 |
-| **C · 메타데이터 보강** | [Steam Games Dataset](https://www.kaggle.com/datasets/artermiloff/steam-games-dataset) | 게임 장르·태그·설명 및 운영체제 지원 정보 |
+A popularity ranking is used as a non-personalized reference. For each test user, liked Linux games are hidden and we check whether they appear in the top 10 (Recall@10, NDCG@10).
 
-데이터셋 간 게임 정보는 **Steam App ID**를 기준으로 연결하며, 서로 다른 데이터셋의 사용자 ID는 동일 사용자로 간주하지 않습니다.
+- Slides: [Korean](presentation/ML-game-recommendation-final.pptx) · [English](presentation/ML-game-recommendation-final-en.pptx)
+- Report: [Source Codes & Descriptions (PDF)](report/Team06_Source_Codes_and_Descriptions.pdf)
+
+## Final result
+
+The final model is **activity-weighted Item-KNN**. It gives less weight to users who reviewed many games, because 0.64% of accounts produced 62.6% of all co-reviewed game pairs.
+
+Large external test set (Forgemaster, 395,421 users never seen in training):
+
+| Model | Recall@10 | NDCG@10 |
+|---|---:|---:|
+| Item-KNN (K=100) | 29.05% | 0.17003 |
+| **Activity-weighted Item-KNN (final)** | **29.49%** | **0.17218** |
+| Content TF-IDF (description + metadata) | 13.09% | 0.07338 |
+| Popularity (training data) | 21.24% | 0.12993 |
+
+The final model is 8.25 percentage points above popularity. Its margin over plain Item-KNN is small, and it is slightly lower on the 100-reviews-per-game test set.
+
+## Two evaluation designs
+
+| | Time split (tried first) | Account split (final) |
+|---|---|---|
+| Question | Can the model predict games a user will like after a date? | Can the model recommend well to users never seen in training? |
+| Setup | ① anonymous reviews split at 2022-01-01<br>② train up to 2014 → test on 2015 Australian reviews | Whole Steam accounts held out; trained on large review data, tested on 2 external datasets |
+| Outcome | Only 7 and 1,536 test users; in ② popularity beat the personalized models by 19.44 pp. Kept for reference only. | 6,630 Linux candidate games, 395,421 test users. Used to choose the final model. |
+
+## Repository map
+
+The folders follow the analysis steps in the slides.
+
+| Folder | Step | Owner |
+|---|---|---|
+| [`data_exploration/`](data_exploration/) | Data exploration and preprocessing notebook | Eunju Lee |
+| [`time_split/attempt1_2022/`](time_split/attempt1_2022/) | Time split ①: anonymous reviews split at 2022-01-01, TF-IDF vs Item-KNN | Sangmin Park |
+| [`time_split/attempt2_2014_2015/`](time_split/attempt2_2014_2015/) | Time split ②: train up to 2014, test on 2015 Australian reviews | Jaeyoon Lim |
+| [`EDA/`](EDA/) | Account split: download, cleaning, splits, training, evaluation, improvement experiments | Jinseong Park |
+| [`presentation/`](presentation/) | Final slides (Korean, English) and improvement-experiment summary | Team |
+| [`report/`](report/) | Final report (PDF) | Team |
+
+Inside `EDA/` (documents there are written in Korean):
+
+| Path | Content |
+|---|---|
+| `EDA/scripts/` | Python scripts: `download_*` · `verify_*` (collect), `eda_*` (explore), `build_*split*` (split), `build_item_knn` · `train_*` · `experiment_*` (train), `evaluate_*` · `summarize_*` (evaluate, report) |
+| `EDA/data/reference/` | Fixed game list and experiment settings. Raw and processed data are not in Git; the scripts download them. |
+| `EDA/notebooks/` | Data analysis notebooks |
+| `EDA/reports/`, `EDA/figures/` | Results (JSON, Markdown), tables and charts |
+| `EDA/docs/` | Model formulas, split design, dataset notes |
+| `EDA/legacy/` | Earlier datasets, code and analyses |
+
+## How to run
+
+**Time-split notebooks** (`data_exploration/`, `time_split/`): open in Jupyter or Google Colab and run from the top. Download the datasets listed below first.
+
+**Account split** (`EDA/`): run from the repository root (Windows PowerShell shown).
+
+```powershell
+python -m venv .venv
+.venv/Scripts/python -m pip install -r EDA/requirements.txt
+.venv/Scripts/python EDA/scripts/download_forgemaster.py
+.venv/Scripts/python EDA/scripts/verify_forgemaster_csv.py
+.venv/Scripts/python EDA/scripts/eda_forgemaster.py
+```
+
+Training and evaluation commands are in [`EDA/reports/forgemaster_model_evaluation.md`](EDA/reports/forgemaster_model_evaluation.md). The raw training data (Kieran) is about 17 GB as a ZIP and needs extra disk space. Main libraries: pandas, DuckDB, PyArrow, scikit-learn, SciPy, NumPy (PyTorch, implicit and LightGBM for the extra experiments in `EDA/requirements-experiments-v3.txt`).
+
+## Datasets
+
+| Role | Dataset |
+|---|---|
+| Time split: training | [Game Recommendations on Steam](https://www.kaggle.com/datasets/antonkozyriev/game-recommendations-on-steam) (Kaggle) |
+| Game text and Linux flag (both) | [Steam Games Dataset 2025](https://www.kaggle.com/datasets/artermiloff/steam-games-dataset) (Kaggle) |
+| Time split ②: external test | [Steam Video Game and Bundle Data](https://www.kaggle.com/datasets/pypiahmad/steam-video-game-and-bundle-data) (Kaggle) |
+| Account split: training | [Steam Reviews (Kieran)](https://www.kaggle.com/datasets/kieranpoc/steam-reviews) (Kaggle) |
+| Account split: large test | [Steam Reviews Dataset (Forgemaster)](https://www.kaggle.com/datasets/forgemaster/steam-reviews-dataset) (Kaggle) |
+| Account split: 100-cap test | [steam-dataset (frank)](https://huggingface.co/datasets/frankjc2022/steam-dataset) (Hugging Face) |
+
+## Team and contribution
+
+| Member | Branch | Role | Contribution |
+|---|---|---|---:|
+| Eunju Lee | `EJ` | Data exploration and preprocessing | 25% |
+| Sangmin Park | `SM` | Time split ① | 25% |
+| Jaeyoon Lim | `JY` | Time split ② | 25% |
+| Jinseong Park | `JS` | Account split modeling and evaluation, improvement experiments, slides | 25% |
+
+All work is merged into `main`. Each member's original commits are also kept on their own branch.

@@ -1,0 +1,3 @@
+﻿source,insufficient_games,insufficient_pct,insufficient_A_positive_pct,insufficient_target_pairs,insufficient_target_pairs_pct,insufficient_target_games,insufficient_median_A_positive,zero_neighbor_games,zero_neighbor_pct,zero_neighbor_max_A_positive
+all_positive,2968,44.76621417797889,0.5066648204949606,39,0.15786917098445596,33,13.0,1817,27.405731523378584,44.0
+kcore_5_10,2989,45.08295625942685,0.5164933835072686,39,0.15786917098445596,33,13.0,1930,29.11010558069382,76.0

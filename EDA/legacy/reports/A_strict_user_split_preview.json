@@ -1,0 +1,145 @@
+{
+  "checked_date": "2026-11-07",
+  "status": "A_ONLY_GROUP_SPLIT_PREVIEW_VERIFIED",
+  "adopted_as_project_protocol": false,
+  "model_fitted": false,
+  "hidden_targets_selected": false,
+  "partitioned_datasets_written": false,
+  "namespace": "A-v28-user-disjoint-preview-v1",
+  "algorithm": "SplitMix64(canonical nonnegative A user ID XOR little-endian first 8 bytes SHA256(namespace)) modulo 100; train <80, validation <90, test >=90",
+  "inputs": [
+    {
+      "path": "data/processed/A_recommendations.parquet",
+      "bytes": 593191975,
+      "sha256": "6bd5f1cd77b41fa8eaa8ac2cd407dced84c01ea505a33a05eb74e84715a8c226"
+    },
+    {
+      "path": "data/processed/A_games.parquet",
+      "bytes": 1815579,
+      "sha256": "c71773cbad26ae13f07179fe99275160318719e7375f7b4df151ef8ea260d1d8"
+    }
+  ],
+  "raw_rows": 41154794,
+  "same_label_duplicate_rows_removed": 16,
+  "conflicting_pairs_excluded": 5,
+  "conflicting_label_rows_excluded": 10,
+  "clean_pairs": 41154768,
+  "users_with_clean_reviews": 13781059,
+  "linux_candidate_games_with_A_reviews": 6630,
+  "linux_games_with_train_reviews": 6624,
+  "assignment_aggregate_sha256": "dccfce6785ccc9b9818a4c27ba752829f955c4f2b2ed1ba0ad2a3a7e77d3caf5",
+  "measured_user_set_intersections": {
+    "train_validation": 0,
+    "train_test": 0,
+    "validation_test": 0
+  },
+  "assertions": {
+    "all_clean_pairs_assigned_once": true,
+    "all_observed_users_assigned_once": true,
+    "assignment_independent_of_row_order": true,
+    "cross_partition_same_A_user_ids": 0,
+    "cross_partition_same_user_game_pairs": 0,
+    "zero_shared_user_game_pairs_follows_from_measured_zero_shared_users": true,
+    "scope": "Separation of stable A user IDs within A only; no claim of A/VintageDon independence"
+  },
+  "partitions": {
+    "train": {
+      "users": 11025468,
+      "review_pairs": 32927160,
+      "potential_eligibility_after_hiding_one_target": {
+        "1": {
+          "potential_users": 2936650,
+          "possible_linux_positive_target_pairs": 6807747,
+          "possible_target_games": 6599,
+          "possible_target_pairs_on_games_without_train_reviews": 0
+        },
+        "3": {
+          "potential_users": 1615075,
+          "possible_linux_positive_target_pairs": 5129123,
+          "possible_target_games": 6580,
+          "possible_target_pairs_on_games_without_train_reviews": 0
+        },
+        "5": {
+          "potential_users": 1022632,
+          "possible_linux_positive_target_pairs": 4134990,
+          "possible_target_games": 6565,
+          "possible_target_pairs_on_games_without_train_reviews": 0
+        },
+        "10": {
+          "potential_users": 445132,
+          "possible_linux_positive_target_pairs": 2777617,
+          "possible_target_games": 6514,
+          "possible_target_pairs_on_games_without_train_reviews": 0
+        }
+      }
+    },
+    "validation": {
+      "users": 1377860,
+      "review_pairs": 4117445,
+      "potential_eligibility_after_hiding_one_target": {
+        "1": {
+          "potential_users": 366572,
+          "possible_linux_positive_target_pairs": 853275,
+          "possible_target_games": 5603,
+          "possible_target_pairs_on_games_without_train_reviews": 1
+        },
+        "3": {
+          "potential_users": 202015,
+          "possible_linux_positive_target_pairs": 644084,
+          "possible_target_games": 5500,
+          "possible_target_pairs_on_games_without_train_reviews": 1
+        },
+        "5": {
+          "potential_users": 127985,
+          "possible_linux_positive_target_pairs": 519873,
+          "possible_target_games": 5432,
+          "possible_target_pairs_on_games_without_train_reviews": 0
+        },
+        "10": {
+          "potential_users": 55847,
+          "possible_linux_positive_target_pairs": 349969,
+          "possible_target_games": 5258,
+          "possible_target_pairs_on_games_without_train_reviews": 0
+        }
+      }
+    },
+    "test": {
+      "users": 1377731,
+      "review_pairs": 4110163,
+      "potential_eligibility_after_hiding_one_target": {
+        "1": {
+          "potential_users": 368101,
+          "possible_linux_positive_target_pairs": 851849,
+          "possible_target_games": 5600,
+          "possible_target_pairs_on_games_without_train_reviews": 4
+        },
+        "3": {
+          "potential_users": 202315,
+          "possible_linux_positive_target_pairs": 641253,
+          "possible_target_games": 5494,
+          "possible_target_pairs_on_games_without_train_reviews": 3
+        },
+        "5": {
+          "potential_users": 127919,
+          "possible_linux_positive_target_pairs": 515927,
+          "possible_target_games": 5409,
+          "possible_target_pairs_on_games_without_train_reviews": 3
+        },
+        "10": {
+          "potential_users": 55722,
+          "possible_linux_positive_target_pairs": 346052,
+          "possible_target_games": 5211,
+          "possible_target_pairs_on_games_without_train_reviews": 2
+        }
+      }
+    }
+  },
+  "required_before_training": [
+    "Hide positive Linux target(s) only inside held-out validation/test users and assert query-target pair disjointness.",
+    "Build interaction counts, k-core, similarity and popularity from training users only; do not k-core the entire source before splitting.",
+    "Report training-item support and zero-vector/zero-neighbor behavior; preserve a common evaluation cohort.",
+    "Choose model settings only on validation; use test labels only for final evaluation.",
+    "Fix an A+C metadata policy separately; this is user-generalization, not a historical time-split benchmark.",
+    "Do not add VintageDon interactions to this training union while claiming certified cross-source user independence."
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "version": "temporal-evaluation-protocol-v4",
+  "status": "fixed_before_temporal_metrics",
+  "created_before_temporal_metrics": true,
+  "cutoffs": {
+    "T0": {
+      "unix_seconds": 1672531199,
+      "utc": "2022-12-31T23:59:59+00:00"
+    },
+    "T1": {
+      "unix_seconds": 1688169599,
+      "utc": "2023-06-30T23:59:59+00:00"
+    },
+    "T2": {
+      "unix_seconds": 1699142399,
+      "utc": "2023-11-04T23:59:59+00:00"
+    },
+    "comparisons": "T0 history includes created <= T0 AND updated <= T0; targets use open-left, closed-right horizons."
+  },
+  "sources": {
+    "accounts": "The fusion_fit, selection, and confirmation rosters already reserved by experiments_v4/split; random-holdout target files are not used for this supplement.",
+    "accepted_reviews": "split_v1/train/review_lineage.parquet joined by exact user, App ID, review ID, and label to valid_raw in the audited Kieran DuckDB cache.",
+    "training": "Reuse the audited temporal_cutoff2022 accepted positive-pair artifact only if its source, protocol, code, output-file hashes and row counts verify; otherwise derive from accepted train lineage joined to valid_raw.",
+    "catalog": "Keep the fixed 37,610 input App IDs and 6,630 Linux candidate App IDs; score arrays retain the complete shapes and apply an availability mask.",
+    "release_dates": {
+      "snapshot": "legacy/data/processed/C_games_2025.parquet",
+      "sha256": "e65e452f5a5e5ec95a79d5a5ad8811739b3ff31384c4ff0a7926747829a82efc",
+      "availability": "A Linux candidate is available only when its current parsed release_date is known and <= 2022-12-31. Unknown and later dates are masked; no candidate is dropped from the saved 6,630-item arrays."
+    },
+    "metadata_limit": "Current Linux support and metadata do not reconstruct historical platform support, releases, or metadata versions."
+  },
+  "training": {
+    "cutoff": "Use accepted positive TRAIN review pairs with timestamp_created and timestamp_updated both non-null and <= T0, within the fixed input catalog.",
+    "v4_exclusion": "Remove every v4 reserved account (fusion_fit, selection, and confirmation) from the temporal training pairs before any fresh fit.",
+    "freshness_limit": "The reserved accounts were part of historical v1-v3 training data; this is a new account-disjoint v4 refit, not an untouched historical development set."
+  },
+  "cohorts": {
+    "history": "Accepted review pairs in the same reserved role account whose created and updated timestamps are both known and <= T0; positives and negatives are visible. Deduplicate to one account/App pair.",
+    "target": "One positive current-Linux candidate per account, uniformly sampled without replacement from distinct eligible Apps released by T0 and absent from that account's T0 history.",
+    "fusion_fit": {
+      "target_created": "(1672531199,1688169599]",
+      "target_updated": "<= 1688169599"
+    },
+    "selection": {
+      "target_created": "(1672531199,1688169599]",
+      "target_updated": "<= 1688169599"
+    },
+    "confirmation": {
+      "target_created": "(1688169599,1699142399]",
+      "target_updated": "<= 1699142399",
+      "scoring": "Do not score or inspect confirmation outcomes until the separate selection lock names frozen finalists."
+    },
+    "minimum_history": "No minimum history is used to select a temporal cohort; target-eligible accounts with zero or short T0 histories remain in the cohort. Report 1-2, 3-4, 5+ input groups and zero-input counts separately.",
+    "sampling": "SHA256 counter-mode rejection sampling over ascending eligible App IDs; namespace=steam-temporal-v4-hidden-positive-linux; seed=20261108; exact uint64 user key and temporal role."
+  },
+  "reporting": {
+    "primary_population": "T0 histories with at least 5 remaining input games and at least 1 positive; align the v4 primary population.",
+    "supplemental_population": "All target-eligible accounts; show 1-2, 3-4, 5+, zero-input, and zero-positive-input groups separately. Do not pool the deliberately stratified v4 role samples as a natural population.",
+    "metrics": "Use the already frozen v4 ranking and uncertainty rules; this protocol fixes temporal data construction and availability only."
+  },
+  "limitations": [
+    "The experiment controls accepted interaction creation and update timestamps but does not reconstruct historical catalog, metadata, Linux support, or recommendation impressions.",
+    "Candidate availability is approximated with a current 2025 release-date snapshot; unknown release dates are excluded conservatively.",
+    "Current Linux candidate flags may reflect changes after T0; they are retained because historical platform support is unavailable.",
+    "The reserved v4 accounts were included in historical v1-v3 training and development, so the temporal confirmation is not a pristine never-seen test.",
+    "Confirmation target files are materialized for a later locked evaluation and are not scored by this builder."
+  ]
+}
